@@ -95,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="653" y="498"/>
         </scene>
-        <!--View Controller - Item-->
+        <!--View Controller - More-->
         <scene sceneID="IgA-CS-Wle">
             <objects>
                 <viewController id="r3f-Lh-48h" sceneMemberID="viewController">
@@ -104,7 +104,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="bZv-ep-VVZ"/>
+                    <tabBarItem key="tabBarItem" title="More" id="bZv-ep-VVZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DmC-Oo-ezI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
