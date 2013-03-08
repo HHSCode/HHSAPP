@@ -29,6 +29,8 @@
 		B38AE64516C4227D00069514 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38AE61216C4227C00069514 /* Foundation.framework */; };
 		B38AE64D16C4227D00069514 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B38AE64B16C4227D00069514 /* InfoPlist.strings */; };
 		B38AE65016C4227D00069514 /* HHSAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B38AE64F16C4227D00069514 /* HHSAppTests.m */; };
+		B3A3EDB516EA411500A45BD2 /* Launch_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = B3A3EDB416EA411500A45BD2 /* Launch_iphone.png */; };
+		B3A3EDBB16EA415D00A45BD2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3A3EDBA16EA415D00A45BD2 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		B38AE64C16C4227D00069514 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B38AE64E16C4227D00069514 /* HHSAppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHSAppTests.h; sourceTree = "<group>"; };
 		B38AE64F16C4227D00069514 /* HHSAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHSAppTests.m; sourceTree = "<group>"; };
+		B3A3EDB416EA411500A45BD2 /* Launch_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Launch_iphone.png; path = ../../../../../Desktop/Launch_iphone.png; sourceTree = "<group>"; };
+		B3A3EDBA16EA415D00A45BD2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 		B38AE60416C4227C00069514 = {
 			isa = PBXGroup;
 			children = (
+				B3A3EDBA16EA415D00A45BD2 /* Default-568h@2x.png */,
+				B3A3EDB416EA411500A45BD2 /* Launch_iphone.png */,
 				B38AE61616C4227C00069514 /* HHSApp */,
 				B38AE64816C4227D00069514 /* HHSAppTests */,
 				B38AE60F16C4227C00069514 /* Frameworks */,
@@ -261,6 +267,8 @@
 				B38AE63416C4227C00069514 /* first@2x.png in Resources */,
 				B38AE63916C4227C00069514 /* second.png in Resources */,
 				B38AE63B16C4227C00069514 /* second@2x.png in Resources */,
+				B3A3EDB516EA411500A45BD2 /* Launch_iphone.png in Resources */,
+				B3A3EDBB16EA415D00A45BD2 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +497,7 @@
 				B38AE65516C4227D00069514 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B38AE65616C4227D00069514 /* Build configuration list for PBXNativeTarget "HHSAppTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +506,7 @@
 				B38AE65816C4227D00069514 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
