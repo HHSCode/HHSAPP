@@ -33,6 +33,7 @@
 		B3A3EDBB16EA415D00A45BD2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3A3EDBA16EA415D00A45BD2 /* Default-568h@2x.png */; };
 		B3A3EDBD16EA427000A45BD2 /* iphone_launch_small.png in Resources */ = {isa = PBXBuildFile; fileRef = B3A3EDBC16EA427000A45BD2 /* iphone_launch_small.png */; };
 		B3A3EDC116EA429E00A45BD2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3A3EDC016EA429E00A45BD2 /* Default@2x.png */; };
+		B3DF25F716EB916A007130E3 /* icon_iphone_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = B3DF25F516EB90A5007130E3 /* icon_iphone_retina.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		B3A3EDBA16EA415D00A45BD2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		B3A3EDBC16EA427000A45BD2 /* iphone_launch_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iphone_launch_small.png; path = ../../../../../../Desktop/iphone_launch_small.png; sourceTree = "<group>"; };
 		B3A3EDC016EA429E00A45BD2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		B3DF25F516EB90A5007130E3 /* icon_iphone_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_iphone_retina.png; path = ../icon_iphone_retina.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 		B3A3EDC216EA44DD00A45BD2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B3DF25F516EB90A5007130E3 /* icon_iphone_retina.png */,
 				B3A3EDC016EA429E00A45BD2 /* Default@2x.png */,
 				B3A3EDBC16EA427000A45BD2 /* iphone_launch_small.png */,
 				B3A3EDBA16EA415D00A45BD2 /* Default-568h@2x.png */,
@@ -285,6 +288,7 @@
 				B3A3EDBB16EA415D00A45BD2 /* Default-568h@2x.png in Resources */,
 				B3A3EDBD16EA427000A45BD2 /* iphone_launch_small.png in Resources */,
 				B3A3EDC116EA429E00A45BD2 /* Default@2x.png in Resources */,
+				B3DF25F716EB916A007130E3 /* icon_iphone_retina.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
