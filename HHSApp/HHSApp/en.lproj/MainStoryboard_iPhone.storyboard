@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--View Controller - Item-->
+        <!--View Controller - Broadside-->
         <scene sceneID="LR5-Xg-QHY">
             <objects>
                 <viewController id="vEm-ff-aHF" sceneMemberID="viewController">
@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="HEt-bZ-qz8"/>
+                    <tabBarItem key="tabBarItem" title="Broadside" id="HEt-bZ-qz8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aei-BV-aBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -51,7 +51,7 @@
                             <constraint firstAttribute="centerY" secondItem="21" secondAttribute="centerY" type="user" id="yWk-L2-m9F"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="7"/>
+                    <tabBarItem key="tabBarItem" title="Overview" image="first" id="7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
@@ -89,13 +89,13 @@
                             <constraint firstItem="23" firstAttribute="top" secondItem="22" secondAttribute="bottom" constant="40" type="user" id="yUx-Ee-KEk"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="6"/>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="653" y="498"/>
         </scene>
-        <!--View Controller - More-->
+        <!--View Controller-->
         <scene sceneID="IgA-CS-Wle">
             <objects>
                 <viewController id="r3f-Lh-48h" sceneMemberID="viewController">
@@ -104,7 +104,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="More" id="bZv-ep-VVZ"/>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="bZv-ep-VVZ" userLabel="Faculty"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DmC-Oo-ezI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,9 +122,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="2" kind="relationship" relationship="viewControllers" id="26"/>
-                        <segue destination="3" kind="relationship" relationship="viewControllers" id="27"/>
                         <segue destination="r3f-Lh-48h" kind="relationship" relationship="viewControllers" id="n4g-zC-UJa"/>
                         <segue destination="vEm-ff-aHF" kind="relationship" relationship="viewControllers" id="Vrm-ku-zFi"/>
+                        <segue destination="3" kind="relationship" relationship="viewControllers" id="27"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
@@ -134,7 +134,6 @@
     </scenes>
     <resources>
         <image name="first" width="16" height="16"/>
-        <image name="second" width="16" height="16"/>
     </resources>
     <classes>
         <class className="FirstViewController" superclassName="UIViewController">

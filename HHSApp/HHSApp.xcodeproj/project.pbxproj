@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3374BB516EC273A001CD8B1 /* envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = B3374BB416EC273A001CD8B1 /* envelope.png */; };
 		B38AE61116C4227C00069514 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38AE61016C4227C00069514 /* UIKit.framework */; };
 		B38AE61316C4227C00069514 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38AE61216C4227C00069514 /* Foundation.framework */; };
 		B38AE61516C4227C00069514 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38AE61416C4227C00069514 /* CoreGraphics.framework */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B3374BB416EC273A001CD8B1 /* envelope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = envelope.png; sourceTree = SOURCE_ROOT; };
 		B38AE60D16C4227C00069514 /* HHSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38AE61016C4227C00069514 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B38AE61216C4227C00069514 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -143,6 +145,7 @@
 				B38AE61F16C4227C00069514 /* AppDelegate.h */,
 				B38AE62016C4227C00069514 /* AppDelegate.m */,
 				B38AE62816C4227C00069514 /* MainStoryboard_iPhone.storyboard */,
+				B3374BB416EC273A001CD8B1 /* envelope.png */,
 				B38AE62B16C4227C00069514 /* MainStoryboard_iPad.storyboard */,
 				B38AE62E16C4227C00069514 /* FirstViewController.h */,
 				B38AE62F16C4227C00069514 /* FirstViewController.m */,
@@ -289,6 +292,7 @@
 				B3A3EDBD16EA427000A45BD2 /* iphone_launch_small.png in Resources */,
 				B3A3EDC116EA429E00A45BD2 /* Default@2x.png in Resources */,
 				B3DF25F716EB916A007130E3 /* icon_iphone_retina.png in Resources */,
+				B3374BB516EC273A001CD8B1 /* envelope.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
