@@ -12,5 +12,6 @@
     
 }
 @property (strong, nonatomic) IBOutlet UIWebView *calendarWebView;
+@property (strong, nonatomic) IBOutlet UIWebView *photosWebView;
 
 @end
