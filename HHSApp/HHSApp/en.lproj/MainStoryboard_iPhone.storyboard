@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Broadside" id="HEt-bZ-qz8"/>
+                    <tabBarItem key="tabBarItem" title="Broadside" image="broadside_iphone.png" id="HEt-bZ-qz8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aei-BV-aBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -41,7 +41,7 @@
                             <constraint firstItem="otd-Qy-qw3" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="tyD-6a-5qX"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="first" id="7"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home_iphone.png" id="7"/>
                     <connections>
                         <outlet property="calendarWebView" destination="otd-Qy-qw3" id="lrQ-2T-96b"/>
                     </connections>
@@ -85,7 +85,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Staff" id="bZv-ep-VVZ" userLabel="Faculty"/>
+                    <tabBarItem key="tabBarItem" title="Staff" image="staff_iPhone.png" id="bZv-ep-VVZ" userLabel="Faculty"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DmC-Oo-ezI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -115,7 +115,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="16" height="16"/>
+        <image name="broadside_iphone.png" width="30" height="30"/>
+        <image name="home_iphone.png" width="30" height="30"/>
+        <image name="staff_iPhone.png" width="30" height="30"/>
     </resources>
     <classes>
         <class className="HomeViewController" superclassName="UIViewController">
