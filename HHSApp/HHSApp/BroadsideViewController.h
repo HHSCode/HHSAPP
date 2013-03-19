@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BroadsideCell.h"
+#import "BroadsideDetailViewController.h"
 
 @interface BroadsideViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, NSXMLParserDelegate>{
     NSXMLParser *rssParser;

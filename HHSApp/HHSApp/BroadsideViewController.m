@@ -249,10 +249,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    BroadsideDetailViewController *detail = [[BroadsideDetailViewController alloc]initWithNibName:@"BroadsideDetailViewController" bundle:nil];
+    [detail setWebView:[indexPath row] :stories];
+    [self.navigationController pushViewController:detail animated:YES];
     
     // Navigation logic may go here. Create and push another view controller.
     /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+      *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
