@@ -104,7 +104,7 @@
                             <constraint firstItem="63h-9A-YJZ" firstAttribute="bottom" secondItem="17" secondAttribute="bottom" type="default" id="kb6-lx-6ko"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" image="more_60x60@2x.png" id="6"/>
+                    <tabBarItem key="tabBarItem" title="More" image="more_60x60@2x.png" id="6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
             </objects>
