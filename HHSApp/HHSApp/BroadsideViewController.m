@@ -128,9 +128,12 @@
     }else if ([currentElement isEqualToString:@"author"]) {
 		[currentAuthor appendString:@"HHS Council"];
         //NSLog(@"Author: %@", string);
-    }
+    }else if ([currentElement isEqualToString:@"content:encoded"]){
+        NSLog(@"Content Encoded: %@", string);
+    }else if ([currentElement isEqualToString:@"description"]){
+        NSLog(@"Description: %@", string);
     //NSLog(@"For element %@, found characters %@", currentElement, string);
-    
+    }
 	// save the characters for the current item...
     
 }
@@ -176,15 +179,14 @@
         
     }
     //NSLog(@"Title: %@", [[stories objectAtIndex:[indexPath row]]objectForKey:@"title"]);
-    NSMutableString *label = [[NSMutableString alloc]initWithString:@"Council "];
-    NSString *temp = [[stories objectAtIndex:[indexPath row]]objectForKey:@"title"];
-    [label appendString:temp];
+    NSMutableString *label = [[NSMutableString alloc]initWithString:[[stories objectAtIndex:[indexPath row]]objectForKey:@"title"]];
+    
     //NSString *author = [[stories objectAtIndex:[indexPath row]]objectForKey:@"author"];
     //[label appendString:[NSString stringWithFormat:@" - %@", author]];
     //NSLog(@"Author: %@", author);
     
     [cell.textLabel setText:label];
-    [cell.textLabel setTextAlignment:NSTextAlignmentCenter];
+    [cell.textLabel setTextAlignment:NSTextAlignmentLeft];
     
     return cell;
 }
