@@ -104,7 +104,7 @@
                             <constraint firstItem="63h-9A-YJZ" firstAttribute="bottom" secondItem="17" secondAttribute="bottom" type="default" id="kb6-lx-6ko"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="more" id="6"/>
+                    <tabBarItem key="tabBarItem" image="more_60x60@2x.png" id="6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
             </objects>
@@ -162,8 +162,31 @@
     <resources>
         <image name="broadside_30x30@2x.png" width="30" height="30"/>
         <image name="home_30x30@2x.png" width="30" height="30"/>
+        <image name="more_60x60@2x.png" width="60" height="60"/>
         <image name="staff30x30@2x.png" width="30" height="30"/>
     </resources>
+    <classes>
+        <class className="BroadsideViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BroadsideViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="broadsideTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="rssParser" candidateClass="NSXMLParser"/>
+            </relationships>
+        </class>
+        <class className="HomeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="calendarWebView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="photosWebView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="StaffViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StaffViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
