@@ -13,7 +13,7 @@
 @end
 
 @implementation BroadsideDetailViewController
-@synthesize broadsideDetailWebView;
+@synthesize broadsideDetailWebView, theTextView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,13 +34,17 @@
     [self setTitle:[[stories objectAtIndex:indexPath]objectForKey:@"title"]];
     //NSLog(@"%@", [[stories objectAtIndex:indexPath]objectForKey:@"HTML"]);
     NSMutableString *htmlString = [[stories objectAtIndex:indexPath]objectForKey:@"HTML"];
-    NSMutableString *start = @"<html><body>";
+    NSMutableString *date = [[NSMutableString alloc]initWithString:[[stories objectAtIndex:indexPath]objectForKey:@"date"]];
+
+    NSArray *theArray = [[NSArray alloc]init];
+    theArray = [date componentsSeparatedByString:@"+"];
+    date = [theArray objectAtIndex:0];
+    NSMutableString *start = [NSString stringWithFormat:@"<html><body><center>by %@</center><center>%@</center>", [[stories objectAtIndex:indexPath]objectForKey:@"author"], date];
+    
     NSMutableString *end = @"</body></html>";
-    [start stringByAppendingString:htmlString];
-    [start stringByAppendingString:end];
-    htmlString = start;
-    [broadsideDetailWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"www.google.com"]]];
-    //[broadsideDetailWebView loadHTMLString:@"<html><body>Hi</body></html>" baseURL:nil];
+    NSString *temp = [start stringByAppendingString:htmlString];
+    NSString *temp2 = [temp stringByAppendingString:end];
+    [broadsideDetailWebView loadHTMLString:temp2 baseURL:nil];
 }
 
 - (void)didReceiveMemoryWarning

@@ -10,9 +10,10 @@
 
 @interface BroadsideDetailViewController : UIViewController{
     UIWebView *broadsideDetailWebView;
-
+    UITextView *theTextView;
 }
 @property (retain, nonatomic) IBOutlet UIWebView *broadsideDetailWebView;
+@property (nonatomic, retain) IBOutlet UITextView *theTextView;
 -(void)setWebView:(int)indexPath :(NSMutableArray *)stories;
 
 @end

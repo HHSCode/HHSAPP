@@ -130,7 +130,6 @@
 		[currentAuthor appendString:string];
     }else if ([currentElement isEqualToString:@"content:encoded"]){
         [currentHTML appendString:string];
-        NSLog(@"Contend Encoded: %@", string);
     }else if ([currentElement isEqualToString:@"pubDate"]){
         [currentDate appendString:string];
     }
@@ -251,8 +250,9 @@
 {
     
     BroadsideDetailViewController *detail = [[BroadsideDetailViewController alloc]initWithNibName:@"BroadsideDetailViewController" bundle:nil];
-    [detail setWebView:[indexPath row] :stories];
     [self.navigationController pushViewController:detail animated:YES];
+    [detail setWebView:[indexPath row] :stories];
+
     
     // Navigation logic may go here. Create and push another view controller.
     /*
