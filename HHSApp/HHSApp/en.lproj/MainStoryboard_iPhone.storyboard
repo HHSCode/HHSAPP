@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Broadside" image="broadside_30x30.png" id="HEt-bZ-qz8"/>
+                    <tabBarItem key="tabBarItem" title="Broadside" image="broadside@2x.png" id="HEt-bZ-qz8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aei-BV-aBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -56,7 +56,7 @@
                             <constraint firstItem="otd-Qy-qw3" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="tyD-6a-5qX"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="home_30x30.png" id="7"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home@2x.png" id="7"/>
                     <connections>
                         <outlet property="calendarWebView" destination="otd-Qy-qw3" id="lrQ-2T-96b"/>
                         <outlet property="photosWebView" destination="0DR-aJ-xjL" id="4iY-G0-Wd5"/>
@@ -112,7 +112,7 @@
                             <constraint firstItem="iRO-n6-aeX" firstAttribute="bottom" secondItem="IZ1-Ze-Yq1" secondAttribute="bottom" type="default" id="oKB-Vo-a0S"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Staff" image="staff_30x30.png" id="bZv-ep-VVZ" userLabel="Faculty"/>
+                    <tabBarItem key="tabBarItem" title="Staff" image="staff@2x.png" id="bZv-ep-VVZ" userLabel="Faculty"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DmC-Oo-ezI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,7 +122,7 @@
         <scene sceneID="15">
             <objects>
                 <tabBarController id="4" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="5">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>
@@ -142,9 +142,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="broadside_30x30.png" width="30" height="30"/>
-        <image name="home_30x30.png" width="30" height="30"/>
-        <image name="staff_30x30.png" width="30" height="30"/>
+        <image name="broadside@2x.png" width="30" height="30"/>
+        <image name="home@2x.png" width="30" height="30"/>
+        <image name="staff@2x.png" width="30" height="30"/>
     </resources>
     <classes>
         <class className="HomeViewController" superclassName="UIViewController">
