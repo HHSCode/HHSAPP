@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BroadsideCell.h"
 
 @interface BroadsideViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, NSXMLParserDelegate>{
     NSXMLParser *rssParser;
@@ -17,7 +18,7 @@
     BOOL errorParsing;
     NSMutableArray * stories;
     
-    NSMutableString * currentTitle, * currentAuthor, * currentSummary, * currentLink, *currentURL;
+    NSMutableString * currentTitle, * currentAuthor, * currentSummary, * currentLink, *currentURL, *currentHTML, *currentDate;
 }
 @property (weak, nonatomic) IBOutlet UITableView *broadsideTableView;
 @property (nonatomic, retain) IBOutlet NSXMLParser * rssParser;

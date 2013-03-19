@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		88D627DA16F89A2400755256 /* BroadsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D627D916F89A2400755256 /* BroadsideViewController.m */; };
 		88D627DC16F8A09400755256 /* BroadsideCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D627DB16F8A09400755256 /* BroadsideCell.xib */; };
+		88D627DF16F8A2EC00755256 /* BroadsideCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D627DE16F8A2EC00755256 /* BroadsideCell.m */; };
 		B3374BB816EC2888001CD8B1 /* iphone_launch_small.png in Resources */ = {isa = PBXBuildFile; fileRef = B3374BB616EC2888001CD8B1 /* iphone_launch_small.png */; };
 		B3374BB916EC2888001CD8B1 /* iphone_launch_big.png in Resources */ = {isa = PBXBuildFile; fileRef = B3374BB716EC2888001CD8B1 /* iphone_launch_big.png */; };
 		B3374BBA16EC28A1001CD8B1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3A3EDBA16EA415D00A45BD2 /* Default-568h@2x.png */; };
@@ -52,6 +53,8 @@
 		88D627D816F89A2400755256 /* BroadsideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BroadsideViewController.h; sourceTree = "<group>"; };
 		88D627D916F89A2400755256 /* BroadsideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BroadsideViewController.m; sourceTree = "<group>"; };
 		88D627DB16F8A09400755256 /* BroadsideCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BroadsideCell.xib; sourceTree = "<group>"; };
+		88D627DD16F8A2EC00755256 /* BroadsideCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BroadsideCell.h; sourceTree = "<group>"; };
+		88D627DE16F8A2EC00755256 /* BroadsideCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BroadsideCell.m; sourceTree = "<group>"; };
 		B3374BB616EC2888001CD8B1 /* iphone_launch_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iphone_launch_small.png; path = ../iphone_launch_small.png; sourceTree = "<group>"; };
 		B3374BB716EC2888001CD8B1 /* iphone_launch_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iphone_launch_big.png; path = ../iphone_launch_big.png; sourceTree = "<group>"; };
 		B34FBFE816F797F80010485A /* StaffViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffViewController.h; sourceTree = "<group>"; };
@@ -155,6 +158,8 @@
 				B34FBFE916F797F80010485A /* StaffViewController.m */,
 				88D627D816F89A2400755256 /* BroadsideViewController.h */,
 				88D627D916F89A2400755256 /* BroadsideViewController.m */,
+				88D627DD16F8A2EC00755256 /* BroadsideCell.h */,
+				88D627DE16F8A2EC00755256 /* BroadsideCell.m */,
 				88D627DB16F8A09400755256 /* BroadsideCell.xib */,
 				B3A3EDC216EA44DD00A45BD2 /* Images */,
 				B38AE61716C4227C00069514 /* Supporting Files */,
@@ -337,6 +342,7 @@
 				B371460C16F60D0900656219 /* HomeViewController.m in Sources */,
 				B34FBFEA16F797F80010485A /* StaffViewController.m in Sources */,
 				88D627DA16F89A2400755256 /* BroadsideViewController.m in Sources */,
+				88D627DF16F8A2EC00755256 /* BroadsideCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

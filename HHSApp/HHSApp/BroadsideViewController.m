@@ -94,6 +94,8 @@
 		currentSummary = [[NSMutableString alloc] init];
 		currentLink = [[NSMutableString alloc] init];
         currentURL = [[NSMutableString alloc]init];
+        currentHTML = [[NSMutableString alloc]init];
+        currentDate = [[NSMutableString alloc]init];
         
     }
     
@@ -109,6 +111,8 @@
         [item setObject:currentTitle forKey:@"title"];
 		[item setObject:currentLink forKey:@"link"];
 		[item setObject:currentAuthor forKey:@"author"];
+        [item setObject:currentHTML forKey:@"HTML"];
+        [item setObject:currentDate forKey:@"date"];
         
         
 		[stories addObject:[item copy]];
@@ -117,23 +121,17 @@
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    NSLog(@"%@: %@", currentElement, string);
-    if ([currentElement isEqualToString:@"description"]) {
-        return;
-    }else if ([currentElement isEqualToString:@"link"]){
-        //NSLog(@"LINK: %@", string);
+    
+    if ([currentElement isEqualToString:@"feedburner:origLink"]){
         [currentLink appendString:string];
     }else if ([currentElement isEqualToString:@"title"]) {
 		[currentTitle appendString:string];
-        //NSLog(@"TITLE: %@", string);
-    }else if ([currentElement isEqualToString:@"author"]) {
-		[currentAuthor appendString:@"HHS Council"];
-        //NSLog(@"Author: %@", string);
+    }else if ([currentElement isEqualToString:@"dc:creator"]) {
+		[currentAuthor appendString:string];
     }else if ([currentElement isEqualToString:@"content:encoded"]){
-        NSLog(@"Content Encoded: %@", string);
-    }else if ([currentElement isEqualToString:@"description"]){
-        NSLog(@"Description: %@", string);
-    //NSLog(@"For element %@, found characters %@", currentElement, string);
+        [currentHTML appendString:string];
+    }else if ([currentElement isEqualToString:@"pubDate"]){
+        [currentDate appendString:string];
     }
 	// save the characters for the current item...
     
@@ -170,15 +168,19 @@
     
 }
 
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if(cell == nil)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    static NSString *CellIdentifier = @"broadside";
+    
+    BroadsideCell *cell = (BroadsideCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"BroadsideCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
     }
+
     //NSLog(@"Title: %@", [[stories objectAtIndex:[indexPath row]]objectForKey:@"title"]);
     NSMutableString *label = [[NSMutableString alloc]initWithString:[[stories objectAtIndex:[indexPath row]]objectForKey:@"title"]];
     
@@ -186,8 +188,7 @@
     //[label appendString:[NSString stringWithFormat:@" - %@", author]];
     //NSLog(@"Author: %@", author);
     
-    [cell.textLabel setText:label];
-    [cell.textLabel setTextAlignment:NSTextAlignmentLeft];
+    [cell.title setText:label];
     
     return cell;
 }
