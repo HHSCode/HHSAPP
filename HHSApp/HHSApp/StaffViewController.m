@@ -25,7 +25,6 @@
 
 - (void)viewDidLoad
 {
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"app_background.png"]];
     [super viewDidLoad];
     NSString *absoluteURL = @"https://sites.google.com/a/hanovernorwichschools.org/connor/file/HHSAPP.csv?attredirects=0&d=1";
     NSURL *url = [NSURL URLWithString:absoluteURL];

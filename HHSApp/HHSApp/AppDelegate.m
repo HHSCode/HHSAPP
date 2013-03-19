@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 
 
+//************************
+//From John: Did you reset, or am i just seeing things?
+//************************
 
 @implementation AppDelegate
 

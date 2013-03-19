@@ -26,7 +26,6 @@
 
 - (void)viewDidLoad
 {
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"app_background.png"]];
     [super viewDidLoad];
     if([stories count]==0){
         [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://feeds.feedburner.com/HHSBroadside"];
