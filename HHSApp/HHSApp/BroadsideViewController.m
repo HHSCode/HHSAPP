@@ -188,15 +188,13 @@
     
     NSMutableString *author = [[NSMutableString alloc]initWithString:[[stories objectAtIndex:[indexPath row]]objectForKey:@"author"]];
     [author2 appendString:author];
+    
+    NSArray *theArray = [[NSArray alloc]init];
+    theArray = [date componentsSeparatedByString:@"+"];
+    date = [theArray objectAtIndex:0];
     //NSString *author = [[stories objectAtIndex:[indexPath row]]objectForKey:@"author"];
     //[label appendString:[NSString stringWithFormat:@" - %@", author]];
     //NSLog(@"Author: %@", author);
-    
-    NSDateFormatter *theDateFormatter = [[NSDateFormatter alloc]init];
-    [theDateFormatter setDateStyle:NSDateFormatterShortStyle];
-    //NSDate *date = [[NSDate alloc]init];
-    NSDate *theDate =[theDateFormatter dateFromString:date];
-    date = [theDateFormatter stringFromDate:theDate];
     
     
     
