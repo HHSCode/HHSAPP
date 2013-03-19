@@ -26,20 +26,20 @@
     UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
     UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
     
-    tabBarItem1.title = @"Stopwatch";
-    tabBarItem2.title = @"History";
-    tabBarItem3.title = @"Calculator";
+    tabBarItem1.title = @"Home";
+    tabBarItem2.title = @"Staff";
+    tabBarItem3.title = @"Broadside";
     tabBarItem4.title = @"More";
     
-    [tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"stopwatch-silhouette-md.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"stopwatch-silhouette-mdselected.png"]];
+    [tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"home_30x30.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"home_30x30.png"]];
     [tabBarItem1 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
     
     
-    [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"History_black.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"History_grey.png"]];
+    [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"staff30x30.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"staff30x30.png"]];
     [tabBarItem2 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
     
     
-    [tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"calculator_black.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"calculator_grey.png"]];
+    [tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"broadside_30x30.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"broadside_30x30.png"]];
     [tabBarItem3 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
     
     
