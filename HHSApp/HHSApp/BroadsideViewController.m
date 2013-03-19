@@ -117,6 +117,7 @@
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
+    NSLog(@"%@: %@", currentElement, string);
     if ([currentElement isEqualToString:@"description"]) {
         return;
     }else if ([currentElement isEqualToString:@"link"]){
