@@ -32,8 +32,15 @@
 
 -(void)setWebView:(int)indexPath :(NSMutableArray *)stories{
     [self setTitle:[[stories objectAtIndex:indexPath]objectForKey:@"title"]];
-    NSLog(@"%@", [[stories objectAtIndex:indexPath]objectForKey:@"HTML"]);
-    [broadsideDetailWebView loadHTMLString:[[stories objectAtIndex:indexPath]objectForKey:@"HTML"] baseURL:nil];
+    //NSLog(@"%@", [[stories objectAtIndex:indexPath]objectForKey:@"HTML"]);
+    NSMutableString *htmlString = [[stories objectAtIndex:indexPath]objectForKey:@"HTML"];
+    NSMutableString *start = @"<html><body>";
+    NSMutableString *end = @"</body></html>";
+    [start stringByAppendingString:htmlString];
+    [start stringByAppendingString:end];
+    htmlString = start;
+    [broadsideDetailWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"www.google.com"]]];
+    //[broadsideDetailWebView loadHTMLString:@"<html><body>Hi</body></html>" baseURL:nil];
 }
 
 - (void)didReceiveMemoryWarning

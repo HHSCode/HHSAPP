@@ -86,7 +86,7 @@
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
 	currentElement = [elementName copy];
-    NSLog(@"Current Element: %@", currentElement);
+    //NSLog(@"Current Element: %@", currentElement);
 	if ([elementName isEqualToString:@"item"]) {  
 		item = [[NSMutableDictionary alloc] init];
 		currentTitle = [[NSMutableString alloc] init];
@@ -130,6 +130,7 @@
 		[currentAuthor appendString:string];
     }else if ([currentElement isEqualToString:@"content:encoded"]){
         [currentHTML appendString:string];
+        NSLog(@"Contend Encoded: %@", string);
     }else if ([currentElement isEqualToString:@"pubDate"]){
         [currentDate appendString:string];
     }

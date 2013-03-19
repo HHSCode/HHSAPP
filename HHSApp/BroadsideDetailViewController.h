@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface BroadsideDetailViewController : UIViewController{
-    
+    UIWebView *broadsideDetailWebView;
+
 }
-@property (weak, nonatomic) IBOutlet UIWebView *broadsideDetailWebView;
+@property (retain, nonatomic) IBOutlet UIWebView *broadsideDetailWebView;
 -(void)setWebView:(int)indexPath :(NSMutableArray *)stories;
 
 @end
