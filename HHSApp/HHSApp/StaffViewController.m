@@ -33,11 +33,11 @@
     
     
     NSArray *contentArray = [fileString componentsSeparatedByString:@"\r"];
-    NSLog(@"%@", contentArray);
+    //NSLog(@"%@", contentArray);
     for (NSString *item in contentArray) {
         NSArray *itemArray = [item componentsSeparatedByString:@";"];
         
-        NSLog(@"String -----> %@",[itemArray objectAtIndex:0]);
+        //NSLog(@"String -----> %@",[itemArray objectAtIndex:0]);
 
     
 	// Do any additional setup after loading the view.

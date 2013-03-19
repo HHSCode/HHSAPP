@@ -19,10 +19,14 @@
                                     <outlet property="delegate" destination="vEm-ff-aHF" id="rK9-WW-Wko"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cgy-o6-Xdt"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wvQ-dC-duK" firstAttribute="top" secondItem="JFJ-10-JuW" secondAttribute="top" type="default" id="3rW-Hw-Z9z"/>
+                            <constraint firstItem="cgy-o6-Xdt" firstAttribute="trailing" secondItem="JFJ-10-JuW" secondAttribute="trailing" type="default" id="5Bi-eN-SpA"/>
+                            <constraint firstItem="cgy-o6-Xdt" firstAttribute="leading" secondItem="JFJ-10-JuW" secondAttribute="leading" type="default" id="9HE-gI-7L5"/>
+                            <constraint firstItem="cgy-o6-Xdt" firstAttribute="top" secondItem="JFJ-10-JuW" secondAttribute="top" constant="174" id="RRk-js-YjR"/>
                             <constraint firstItem="wvQ-dC-duK" firstAttribute="trailing" secondItem="JFJ-10-JuW" secondAttribute="trailing" type="default" id="n3c-1y-uPY"/>
                             <constraint firstItem="wvQ-dC-duK" firstAttribute="leading" secondItem="JFJ-10-JuW" secondAttribute="leading" type="default" id="oxp-YI-aYH"/>
                             <constraint firstItem="wvQ-dC-duK" firstAttribute="bottom" secondItem="JFJ-10-JuW" secondAttribute="bottom" type="default" id="yIF-pE-1te"/>
@@ -31,6 +35,7 @@
                     <tabBarItem key="tabBarItem" title="Broadside" image="broadside_30x30@2x.png" id="HEt-bZ-qz8"/>
                     <navigationItem key="navigationItem" title="Broadside" id="bIC-Wg-auk"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="cgy-o6-Xdt" id="7lN-pX-m5B"/>
                         <outlet property="broadsideTableView" destination="wvQ-dC-duK" id="s7q-Xt-din"/>
                     </connections>
                 </viewController>

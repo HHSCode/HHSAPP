@@ -13,7 +13,7 @@
 @end
 
 @implementation BroadsideViewController
-@synthesize broadsideTableView, rssParser;
+@synthesize broadsideTableView, rssParser, activityIndicator;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +29,8 @@
     [super viewDidLoad];
     if([stories count]==0){
         [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://feeds.feedburner.com/HHSBroadside"];
+        [activityIndicator setHidden:NO];
+        [activityIndicator startAnimating];
         /*[self parseXMLFileAtURL:@"http://feeds.feedburner.com/HHSBroadside"];*/
     }
     
@@ -72,7 +74,7 @@
 }
 
 - (void)parserDidStartDocument:(NSXMLParser *)parser {
-	//NSLog(@"found file and started parsing");
+	// (@"found file and started parsing");
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
@@ -143,7 +145,8 @@
 	NSLog(@"stories array has %d items", [stories count]);
     
     //NSLog(@"Stories: %@", stories);
-    
+    [activityIndicator stopAnimating];
+    [activityIndicator setHidden:YES];
     [broadsideTableView reloadData];
     
     
