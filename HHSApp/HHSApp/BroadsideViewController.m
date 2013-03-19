@@ -182,13 +182,27 @@
     }
 
     //NSLog(@"Title: %@", [[stories objectAtIndex:[indexPath row]]objectForKey:@"title"]);
-    NSMutableString *label = [[NSMutableString alloc]initWithString:[[stories objectAtIndex:[indexPath row]]objectForKey:@"title"]];
+    NSMutableString *title = [[NSMutableString alloc]initWithString:[[stories objectAtIndex:[indexPath row]]objectForKey:@"title"]];
+    NSMutableString *date = [[NSMutableString alloc]initWithString:[[stories objectAtIndex:[indexPath row]]objectForKey:@"date"]];
+    NSMutableString *author2 = [[NSMutableString alloc]initWithString:@"by "];
     
+    NSMutableString *author = [[NSMutableString alloc]initWithString:[[stories objectAtIndex:[indexPath row]]objectForKey:@"author"]];
+    [author2 appendString:author];
     //NSString *author = [[stories objectAtIndex:[indexPath row]]objectForKey:@"author"];
     //[label appendString:[NSString stringWithFormat:@" - %@", author]];
     //NSLog(@"Author: %@", author);
     
-    [cell.title setText:label];
+    NSDateFormatter *theDateFormatter = [[NSDateFormatter alloc]init];
+    [theDateFormatter setDateStyle:NSDateFormatterShortStyle];
+    //NSDate *date = [[NSDate alloc]init];
+    NSDate *theDate =[theDateFormatter dateFromString:date];
+    date = [theDateFormatter stringFromDate:theDate];
+    
+    
+    
+    [cell.title setText:title];
+    [cell.author setText:author2];
+    [cell.date setText:date];
     
     return cell;
 }
