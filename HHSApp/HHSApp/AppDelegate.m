@@ -31,15 +31,15 @@
     tabBarItem3.title = @"Broadside";
     tabBarItem4.title = @"More";
     
-    [tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"home_30x30.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"home_30x30.png"]];
+    [tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"home_60x60.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"home_60x60.png"]];
     [tabBarItem1 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
     
     
-    [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"staff30x30.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"staff30x30.png"]];
+    [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"staff_60x60.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"staff_60x60.png"]];
     [tabBarItem2 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
     
     
-    [tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"broadside_30x30.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"broadside_30x30.png"]];
+    [tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"broadside_white_60x60.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"broadside_60x60.png"]];
     [tabBarItem3 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
     
     
