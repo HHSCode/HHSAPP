@@ -18,6 +18,34 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    UITabBar *tabBar = tabBarController.tabBar;
+    UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
+    UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
+    UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
+    UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
+    
+    tabBarItem1.title = @"Stopwatch";
+    tabBarItem2.title = @"History";
+    tabBarItem3.title = @"Calculator";
+    tabBarItem4.title = @"More";
+    
+    [tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"stopwatch-silhouette-md.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"stopwatch-silhouette-mdselected.png"]];
+    [tabBarItem1 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
+    
+    
+    [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"History_black.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"History_grey.png"]];
+    [tabBarItem2 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
+    
+    
+    [tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"calculator_black.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"calculator_grey.png"]];
+    [tabBarItem3 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
+    
+    
+    [tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"more_black.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"more_gray.png"]];
+    [tabBarItem4 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
+    
     return YES;
 }
 							
