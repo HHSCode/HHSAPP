@@ -29,8 +29,6 @@
     [super viewDidLoad];
     if([stories count]==0){
         [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://feeds.feedburner.com/HHSBroadside"];
-        
-        https://picasaweb.google.com/data/feed/base/user/108131704742682781762/albumid/5817737329195291185?alt=rss&kind=photo&hl=en_US
         [activityIndicator setHidden:NO];
         [activityIndicator startAnimating];
         /*[self parseXMLFileAtURL:@"http://feeds.feedburner.com/HHSBroadside"];*/
@@ -90,7 +88,7 @@
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
 	currentElement = [elementName copy];
-    NSLog(@"Current Element: %@", currentElement);
+    //NSLog(@"Current Element: %@", currentElement);
 	if ([elementName isEqualToString:@"item"]) {  
 		item = [[NSMutableDictionary alloc] init];
 		currentTitle = [[NSMutableString alloc] init];
@@ -125,6 +123,7 @@
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
+    
     if ([currentElement isEqualToString:@"feedburner:origLink"]){
         [currentLink appendString:string];
     }else if ([currentElement isEqualToString:@"title"]) {
