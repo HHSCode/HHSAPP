@@ -73,6 +73,11 @@
     
 }
 
+- (IBAction)SafariLaunch:(UIBarButtonItem *)sender {
+    NSURL *url = [ [ NSURL alloc ] initWithString: @"http://broadside.dresden.us/" ];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
 - (void)parserDidStartDocument:(NSXMLParser *)parser {
 	// (@"found file and started parsing");
 }
