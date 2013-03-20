@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -88,18 +88,26 @@
                                     <constraint firstAttribute="width" constant="300" id="yQU-FP-oHN"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Inu-N0-4A1"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5mL-GF-6l1"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="otd-Qy-qw3" firstAttribute="top" secondItem="xA9-GV-vtV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="2CG-DF-kCE"/>
                             <constraint firstItem="otd-Qy-qw3" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="9NC-57-t7K"/>
+                            <constraint firstItem="Inu-N0-4A1" firstAttribute="centerX" secondItem="xA9-GV-vtV" secondAttribute="centerX" type="default" id="CBW-ud-k0Y"/>
                             <constraint firstItem="xA9-GV-vtV" firstAttribute="top" secondItem="16" secondAttribute="top" constant="6" id="GrB-cv-CyA"/>
-                            <constraint firstItem="xA9-GV-vtV" firstAttribute="centerX" secondItem="otd-Qy-qw3" secondAttribute="centerX" type="default" id="KMp-fi-M0U"/>
+                            <constraint firstItem="5mL-GF-6l1" firstAttribute="leading" secondItem="Inu-N0-4A1" secondAttribute="leading" type="default" id="SkH-zx-GQp"/>
                             <constraint firstItem="otd-Qy-qw3" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="Vhf-fh-ykI"/>
+                            <constraint firstItem="5mL-GF-6l1" firstAttribute="centerX" secondItem="otd-Qy-qw3" secondAttribute="centerX" type="default" id="Y6Q-39-vnT"/>
+                            <constraint firstItem="Inu-N0-4A1" firstAttribute="top" secondItem="16" secondAttribute="top" constant="88" id="a12-Zc-AVc"/>
+                            <constraint firstAttribute="bottom" secondItem="5mL-GF-6l1" secondAttribute="bottom" constant="99" id="n7x-4i-pS8"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="home_30x30@2x.png" id="7"/>
                     <connections>
+                        <outlet property="activityIndicatorCalendar" destination="5mL-GF-6l1" id="n2c-vi-UlW"/>
+                        <outlet property="activityIndicatorSlideshow" destination="Inu-N0-4A1" id="LFU-ST-FAY"/>
                         <outlet property="calendarWebView" destination="otd-Qy-qw3" id="lrQ-2T-96b"/>
                         <outlet property="slideshowImageView" destination="xA9-GV-vtV" id="SMH-7E-PAU"/>
                         <outlet property="view" destination="16" id="ooL-PO-yYV"/>

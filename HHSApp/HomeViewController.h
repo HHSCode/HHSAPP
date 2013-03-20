@@ -24,6 +24,9 @@
 @property (strong, nonatomic) IBOutlet UIWebView *photosWebView;
 @property (strong, nonatomic) IBOutlet UIImageView *slideshowImageView;
 @property (nonatomic, retain) IBOutlet NSXMLParser * rssParser;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorSlideshow;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorCalendar;
+
 
 - (void)parseXMLFileAtURL:(NSString *)URL;
 -(UIImage *) getImageFromURL:(NSString *)fileURL;
