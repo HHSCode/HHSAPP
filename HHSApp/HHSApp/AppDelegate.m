@@ -32,20 +32,21 @@
     tabBarItem4.title = @"More";
     
     [tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"home_white_60x60.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"home_60x60.png"]];
-    [tabBarItem1 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
-    [tabBarItem1 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
-    
+    [tabBarItem1 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
+    [tabBarItem1 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[self colorWithHexString:@"000000"],UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     
     [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"staff_white_60x60.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"staff_60x60.png"]];
-    [tabBarItem2 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
+    [tabBarItem2 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
+    [tabBarItem2 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[self colorWithHexString:@"000000"],UITextAttributeTextColor, nil] forState:UIControlStateNormal];
 
     
     [tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"broadside_white_60x60.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"broadside_60x60.png"]];
-    [tabBarItem3 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
-
+    [tabBarItem3 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
+    [tabBarItem3 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[self colorWithHexString:@"000000"],UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     
     [tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"more_white_60x60.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"more_60x60.png"]];
-    [tabBarItem4 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
+    [tabBarItem4 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
+    [tabBarItem4 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[self colorWithHexString:@"000000"],UITextAttributeTextColor, nil] forState:UIControlStateNormal];
 
     return YES;
     
