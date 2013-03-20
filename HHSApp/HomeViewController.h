@@ -9,9 +9,21 @@
 #import <UIKit/UIKit.h>
 
 @interface HomeViewController : UIViewController{
+    NSXMLParser *rssParser;
+    NSMutableArray *articles;
+    NSMutableDictionary *item;
+    NSString *currentElement;
+    NSMutableString *ElementValue;
+    BOOL errorParsing;
+    NSMutableArray * stories;
     
+    NSMutableString * currentTitle, * currentAuthor, * currentSummary, * currentLink, *currentURL, *currentHTML, *currentDate;
 }
 @property (strong, nonatomic) IBOutlet UIWebView *calendarWebView;
 @property (strong, nonatomic) IBOutlet UIWebView *photosWebView;
+@property (strong, nonatomic) IBOutlet UIImageView *slideshowImageView;
+@property (nonatomic, retain) IBOutlet NSXMLParser * rssParser;
 
+- (void)parseXMLFileAtURL:(NSString *)URL;
+-(UIImage *) getImageFromURL:(NSString *)fileURL;
 @end
