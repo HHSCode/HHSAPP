@@ -10,7 +10,7 @@
 #import "BroadsideCell.h"
 #import "BroadsideDetailViewController.h"
 
-@interface BroadsideViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, NSXMLParserDelegate>{
+@interface BroadsideViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, NSXMLParserDelegate,UIActionSheetDelegate>{
     NSXMLParser *rssParser;
     NSMutableArray *articles;
     NSMutableDictionary *item;
@@ -27,5 +27,6 @@
 
 - (void)parseXMLFileAtURL:(NSString *)URL;
 - (IBAction)SafariLaunch:(UIBarButtonItem *)sender;
+- (IBAction)showActionsheetButton:(id)sender;
 
 @end

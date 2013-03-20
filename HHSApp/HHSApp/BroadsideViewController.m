@@ -45,6 +45,13 @@
     [super viewDidAppear:animated];
 }
 
+- (IBAction)showActionsheetButton:(id)sender
+{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:@"AlertSheetTitle" delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"button1",@"button2", nil];
+    [actionSheet showInView:self.broadsideTableView];
+    
+}
+
 //PARSING AREA//
 
 - (void)parseXMLFileAtURL:(NSString *)URL {
