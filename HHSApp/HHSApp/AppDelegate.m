@@ -33,21 +33,64 @@
     
     [tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"home_white_60x60.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"home_60x60.png"]];
     [tabBarItem1 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
+    [tabBarItem1 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
     
     
     [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"staff_white_60x60.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"staff_60x60.png"]];
     [tabBarItem2 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
-    
+
     
     [tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"broadside_white_60x60.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"broadside_60x60.png"]];
     [tabBarItem3 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
-    
+
     
     [tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"more_white_60x60.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"more_60x60.png"]];
     [tabBarItem4 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
-    
+
     return YES;
+    
+    
 }
+
+
+
+-(UIColor*)colorWithHexString:(NSString*)hex
+{
+    NSString *cString = [[hex stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+    
+    // String should be 6 or 8 characters
+    if ([cString length] < 6) return [UIColor grayColor];
+    
+    // strip 0X if it appears
+    if ([cString hasPrefix:@"0X"]) cString = [cString substringFromIndex:2];
+    
+    if ([cString length] != 6) return  [UIColor grayColor];
+    
+    // Separate into r, g, b substrings
+    NSRange range;
+    range.location = 0;
+    range.length = 2;
+    NSString *rString = [cString substringWithRange:range];
+    
+    range.location = 2;
+    NSString *gString = [cString substringWithRange:range];
+    
+    range.location = 4;
+    NSString *bString = [cString substringWithRange:range];
+    
+    // Scan values
+    unsigned int r, g, b;
+    [[NSScanner scannerWithString:rString] scanHexInt:&r];
+    [[NSScanner scannerWithString:gString] scanHexInt:&g];
+    [[NSScanner scannerWithString:bString] scanHexInt:&b];
+    
+    return [UIColor colorWithRed:((float) r / 255.0f)
+                           green:((float) g / 255.0f)
+                            blue:((float) b / 255.0f)
+                           alpha:1.0f];
+}
+
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
