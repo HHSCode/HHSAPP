@@ -267,6 +267,7 @@
     BroadsideDetailViewController *detail = [[BroadsideDetailViewController alloc]initWithNibName:@"BroadsideDetailViewController" bundle:nil];
     [self.navigationController pushViewController:detail animated:YES];
     [detail setWebView:[indexPath row] :stories];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     
     // Navigation logic may go here. Create and push another view controller.
