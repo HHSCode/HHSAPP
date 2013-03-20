@@ -14,8 +14,9 @@
 		88D627DF16F8A2EC00755256 /* BroadsideCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D627DE16F8A2EC00755256 /* BroadsideCell.m */; };
 		88D627EB16F8AFEE00755256 /* BroadsideDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D627E916F8AFEE00755256 /* BroadsideDetailViewController.m */; };
 		88D627EC16F8AFEE00755256 /* BroadsideDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D627EA16F8AFEE00755256 /* BroadsideDetailViewController.xib */; };
-		B3374BBA16EC28A1001CD8B1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3A3EDBA16EA415D00A45BD2 /* Default-568h@2x.png */; };
-		B3374BBB16EC28A6001CD8B1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3A3EDC016EA429E00A45BD2 /* Default@2x.png */; };
+		B34E0D5616F9FA2600BC552E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B34E0D5516F9FA2600BC552E /* Default-568h@2x.png */; };
+		B34E0D5B16F9FB5D00BC552E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B34E0D5A16F9FB5D00BC552E /* Default.png */; };
+		B34E0D5F16F9FC9800BC552E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B34E0D5E16F9FC9800BC552E /* Default@2x.png */; };
 		B34FBFEA16F797F80010485A /* StaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34FBFE916F797F80010485A /* StaffViewController.m */; };
 		B34FBFEC16F7A7FF0010485A /* tabbarHHS.png in Resources */ = {isa = PBXBuildFile; fileRef = B34FBFEB16F7A7FF0010485A /* tabbarHHS.png */; };
 		B371460C16F60D0900656219 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B371460B16F60D0900656219 /* HomeViewController.m */; };
@@ -28,9 +29,6 @@
 		B38AE61B16C4227C00069514 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B38AE61916C4227C00069514 /* InfoPlist.strings */; };
 		B38AE61D16C4227C00069514 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B38AE61C16C4227C00069514 /* main.m */; };
 		B38AE62116C4227C00069514 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B38AE62016C4227C00069514 /* AppDelegate.m */; };
-		B38AE62316C4227C00069514 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B38AE62216C4227C00069514 /* Default.png */; };
-		B38AE62516C4227C00069514 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B38AE62416C4227C00069514 /* Default@2x.png */; };
-		B38AE62716C4227C00069514 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B38AE62616C4227C00069514 /* Default-568h@2x.png */; };
 		B38AE62A16C4227C00069514 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B38AE62816C4227C00069514 /* MainStoryboard_iPhone.storyboard */; };
 		B38AE62D16C4227C00069514 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B38AE62B16C4227C00069514 /* MainStoryboard_iPad.storyboard */; };
 		B38AE64316C4227D00069514 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38AE64216C4227D00069514 /* SenTestingKit.framework */; };
@@ -69,6 +67,9 @@
 		88D627E816F8AFEE00755256 /* BroadsideDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BroadsideDetailViewController.h; path = ../BroadsideDetailViewController.h; sourceTree = "<group>"; };
 		88D627E916F8AFEE00755256 /* BroadsideDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BroadsideDetailViewController.m; path = ../BroadsideDetailViewController.m; sourceTree = "<group>"; };
 		88D627EA16F8AFEE00755256 /* BroadsideDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BroadsideDetailViewController.xib; path = ../BroadsideDetailViewController.xib; sourceTree = "<group>"; };
+		B34E0D5516F9FA2600BC552E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		B34E0D5A16F9FB5D00BC552E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		B34E0D5E16F9FC9800BC552E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		B34FBFE816F797F80010485A /* StaffViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffViewController.h; sourceTree = "<group>"; };
 		B34FBFE916F797F80010485A /* StaffViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffViewController.m; sourceTree = "<group>"; };
 		B34FBFEB16F7A7FF0010485A /* tabbarHHS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbarHHS.png; path = "Tab bar/tabbarHHS.png"; sourceTree = SOURCE_ROOT; };
@@ -88,8 +89,6 @@
 		B38AE61F16C4227C00069514 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B38AE62016C4227C00069514 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B38AE62216C4227C00069514 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		B38AE62416C4227C00069514 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		B38AE62616C4227C00069514 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B38AE62916C4227C00069514 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		B38AE62C16C4227C00069514 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		B38AE64116C4227D00069514 /* HHSAppTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HHSAppTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,8 +97,6 @@
 		B38AE64C16C4227D00069514 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B38AE64E16C4227D00069514 /* HHSAppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHSAppTests.h; sourceTree = "<group>"; };
 		B38AE64F16C4227D00069514 /* HHSAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHSAppTests.m; sourceTree = "<group>"; };
-		B3A3EDBA16EA415D00A45BD2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
-		B3A3EDC016EA429E00A45BD2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		B3D1189216F8A3A000155CDA /* home_60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home_60x60@2x.png"; path = "Tab bar/home_60x60@2x.png"; sourceTree = SOURCE_ROOT; };
 		B3D1189416F8A4D900155CDA /* staff_60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "staff_60x60@2x.png"; path = "Tab bar/staff_60x60@2x.png"; sourceTree = SOURCE_ROOT; };
 		B3D1189516F8A4D900155CDA /* broadside_60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "broadside_60x60@2x.png"; path = "Tab bar/broadside_60x60@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -138,6 +135,9 @@
 		B38AE60416C4227C00069514 = {
 			isa = PBXGroup;
 			children = (
+				B34E0D5E16F9FC9800BC552E /* Default@2x.png */,
+				B34E0D5A16F9FB5D00BC552E /* Default.png */,
+				B34E0D5516F9FA2600BC552E /* Default-568h@2x.png */,
 				B38AE61616C4227C00069514 /* HHSApp */,
 				B38AE64816C4227D00069514 /* HHSAppTests */,
 				B38AE60F16C4227C00069514 /* Frameworks */,
@@ -200,8 +200,6 @@
 				B38AE61C16C4227C00069514 /* main.m */,
 				B38AE61E16C4227C00069514 /* HHSApp-Prefix.pch */,
 				B38AE62216C4227C00069514 /* Default.png */,
-				B38AE62416C4227C00069514 /* Default@2x.png */,
-				B38AE62616C4227C00069514 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -240,8 +238,6 @@
 				B385E03816F89F5800ADBC1C /* broadside_30x30@2x.png */,
 				B385E03916F89F5800ADBC1C /* home_30x30@2x.png */,
 				B34FBFEB16F7A7FF0010485A /* tabbarHHS.png */,
-				B3A3EDC016EA429E00A45BD2 /* Default@2x.png */,
-				B3A3EDBA16EA415D00A45BD2 /* Default-568h@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -319,13 +315,8 @@
 			files = (
 				320B6C86F11D9990244A9731 /* Three20.bundle in Resources */,
 				B38AE61B16C4227C00069514 /* InfoPlist.strings in Resources */,
-				B38AE62316C4227C00069514 /* Default.png in Resources */,
-				B38AE62516C4227C00069514 /* Default@2x.png in Resources */,
-				B38AE62716C4227C00069514 /* Default-568h@2x.png in Resources */,
 				B38AE62A16C4227C00069514 /* MainStoryboard_iPhone.storyboard in Resources */,
 				B38AE62D16C4227C00069514 /* MainStoryboard_iPad.storyboard in Resources */,
-				B3374BBA16EC28A1001CD8B1 /* Default-568h@2x.png in Resources */,
-				B3374BBB16EC28A6001CD8B1 /* Default@2x.png in Resources */,
 				B34FBFEC16F7A7FF0010485A /* tabbarHHS.png in Resources */,
 				B385E03A16F89F5800ADBC1C /* staff30x30@2x.png in Resources */,
 				B385E03B16F89F5800ADBC1C /* broadside_30x30@2x.png in Resources */,
@@ -340,6 +331,9 @@
 				B3D118A016F8A80600155CDA /* more_60x60@2x.png in Resources */,
 				B3D118A116F8A80600155CDA /* more_white_60x60@2x.png in Resources */,
 				88D627EC16F8AFEE00755256 /* BroadsideDetailViewController.xib in Resources */,
+				B34E0D5616F9FA2600BC552E /* Default-568h@2x.png in Resources */,
+				B34E0D5B16F9FB5D00BC552E /* Default.png in Resources */,
+				B34E0D5F16F9FC9800BC552E /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
