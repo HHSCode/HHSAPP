@@ -26,4 +26,5 @@
 
 - (void)parseXMLFileAtURL:(NSString *)URL;
 -(UIImage *) getImageFromURL:(NSString *)fileURL;
+-(void)setupImageView;
 @end

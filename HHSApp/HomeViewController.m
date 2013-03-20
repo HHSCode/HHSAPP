@@ -42,13 +42,31 @@
     [photosWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"www.google.com"]]];
 	// Do any additional setup after loading the view.
     
-    UIImage *image = [self getImageFromURL:@"https://lh3.googleusercontent.com/-Z89dd520_tw/UMdP5zWsHXI/AAAAAAAAADc/49r222CYujc/s400/DSC_0669.jpg"];
-    [slideshowImageView setImage:image];
-    
+        
 }
 
 
-
+-(void)setupImageView{
+    NSMutableArray *theArray = [[NSMutableArray alloc]init];
+    for (NSMutableDictionary *dic in stories) {
+        NSLog(@"Link: %@", [dic objectForKey:@"link"]);
+        if ([[dic objectForKey:@"link"] isEqualToString:@""]) {
+            
+        }else{
+            UIImage *image = [self getImageFromURL:[dic objectForKey:@"link"]];
+            [theArray insertObject:image atIndex:[theArray count]];
+        }
+        //if ([dic objectForKey:@"link"] != nil) {
+        //    UIImage *image = [self getImageFromURL:[dic objectForKey:@"link"]];
+        ///    [theArray insertObject:image atIndex:[theArray count]];
+//}
+        
+    }
+slideshowImageView.animationImages = theArray;
+slideshowImageView.animationDuration = 100;
+slideshowImageView.animationRepeatCount = 0;
+[slideshowImageView startAnimating];
+}
 
 -(UIImage *)getImageFromURL:(NSString *)fileURL {
     UIImage * result;
@@ -87,11 +105,11 @@
 	[rssParser setDelegate:self];
     
 	// Depending on the XML document you're parsing, you may want to enable these features of NSXMLParser.
-	[rssParser setShouldProcessNamespaces:NO];
+	[rssParser setShouldProcessNamespaces:YES];
     
-	[rssParser setShouldReportNamespacePrefixes:NO];
+	[rssParser setShouldReportNamespacePrefixes:YES];
     
-	[rssParser setShouldResolveExternalEntities:NO];
+	[rssParser setShouldResolveExternalEntities:YES];
     
     
 	[rssParser parse];
@@ -109,12 +127,14 @@
 	UIAlertView * errorAlert = [[UIAlertView alloc] initWithTitle:@"Error loading content" message:errorString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
 	[errorAlert show];
     
+    
+    
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
 	currentElement = [elementName copy];
     //NSLog(@"Current Element: %@", currentElement);
-	if ([elementName isEqualToString:@"item"]) {
+	if ([elementName isEqualToString:@"title"]) {
 		item = [[NSMutableDictionary alloc] init];
 		currentTitle = [[NSMutableString alloc] init];
 		currentAuthor = [[NSMutableString alloc] init];
@@ -132,7 +152,7 @@
     
 	//NSLog(@"ended element: %@", elementName);
     
-	if ([elementName isEqualToString:@"item"]) { //change this back to id
+	if ([elementName isEqualToString:@"title"]) { //change this back to id
 		// save values to an item, then store that item into the array...
         //NSLog(@"item: %@", item);
         [item setObject:currentTitle forKey:@"title"];
@@ -148,17 +168,36 @@
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    NSLog(@"%@: %@", currentElement, string);
-    if ([currentElement isEqualToString:@"feedburner:origLink"]){
-        [currentLink appendString:string];
+    //NSLog(@"%@: %@", currentElement, string);
+    if ([currentElement isEqualToString:@"link"]){
+        //[currentLink appendString:string];
     }else if ([currentElement isEqualToString:@"title"]) {
 		[currentTitle appendString:string];
-    }else if ([currentElement isEqualToString:@"dc:creator"]) {
+    }else if ([currentElement isEqualToString:@"credit"]) {
 		[currentAuthor appendString:string];
     }else if ([currentElement isEqualToString:@"content:encoded"]){
         [currentHTML appendString:string];
     }else if ([currentElement isEqualToString:@"pubDate"]){
         [currentDate appendString:string];
+    }else if ([currentElement isEqualToString:@"description"]){
+        if ([string length]>3) {
+            
+            NSString *checkImg = [string substringToIndex:3];
+        if ([checkImg isEqualToString:@"img"]) {
+            NSArray *url = [string componentsSeparatedByString:@"\""];
+            //NSLog(@"%@", url);
+            for (NSString *x in url) {
+                if ([x length]>6){
+                    
+                    NSString *theURL = [x substringToIndex:5];
+                    if ([theURL isEqualToString:@"https"]) {
+                        NSLog(@"Got here");
+                        [currentLink appendString:x];
+                    }
+                }
+            }
+        }
+        }
     }
 	// save the characters for the current item...
     
@@ -170,7 +209,7 @@
 	NSLog(@"stories array has %d items", [stories count]);
     
     //NSLog(@"Stories: %@", stories);
-    
+    [self setupImageView];
     
     
 }
