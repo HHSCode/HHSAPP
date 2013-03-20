@@ -90,7 +90,7 @@
 		B385E03716F89F5800ADBC1C /* staff30x30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "staff30x30@2x.png"; path = "../Tab bar/staff30x30@2x.png"; sourceTree = "<group>"; };
 		B385E03816F89F5800ADBC1C /* broadside_30x30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "broadside_30x30@2x.png"; path = "../Tab bar/broadside_30x30@2x.png"; sourceTree = "<group>"; };
 		B385E03916F89F5800ADBC1C /* home_30x30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home_30x30@2x.png"; path = "../Tab bar/home_30x30@2x.png"; sourceTree = "<group>"; };
-		B38AE60D16C4227C00069514 /* HHSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B38AE60D16C4227C00069514 /* HHS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38AE61016C4227C00069514 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B38AE61216C4227C00069514 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B38AE61416C4227C00069514 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -158,7 +158,7 @@
 		B38AE60E16C4227C00069514 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B38AE60D16C4227C00069514 /* HHSApp.app */,
+				B38AE60D16C4227C00069514 /* HHS.app */,
 				B38AE64116C4227D00069514 /* HHSAppTests.octest */,
 			);
 			name = Products;
@@ -279,7 +279,7 @@
 			);
 			name = HHSApp;
 			productName = HHSApp;
-			productReference = B38AE60D16C4227C00069514 /* HHSApp.app */;
+			productReference = B38AE60D16C4227C00069514 /* HHS.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B38AE64016C4227D00069514 /* HHSAppTests */ = {
@@ -520,7 +520,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HHSApp/HHSApp-Prefix.pch";
 				INFOPLIST_FILE = "HHSApp/HHSApp-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = HHS;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -531,7 +532,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HHSApp/HHSApp-Prefix.pch";
 				INFOPLIST_FILE = "HHSApp/HHSApp-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = HHS;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

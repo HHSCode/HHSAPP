@@ -36,17 +36,12 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-   
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
     Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
     
     // set the blocks
     reach.reachableBlock = ^(Reachability*reach)
     {
-        NSLog(@"REACHABLE!");
+        //NSLog(@"REACHABLE!");
         if([stories count]==0){
             [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://feeds.feedburner.com/HHSBroadside"];
             [activityIndicator setHidden:NO];
@@ -57,20 +52,22 @@
     
     reach.unreachableBlock = ^(Reachability*reach)
     {
-        NSLog(@"UNREACHABLE!");
+        //NSLog(@"UNREACHABLE!");
         [activityIndicator setHidden:YES];
-        NSLog(@"before");
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"No internet connection! Please try again!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        NSLog(@"middle");
         
         [alert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
         
-        NSLog(@"after");
     };
     
     // start the notifier which will cause the reachability object to retain itself!
     [reach startNotifier];
 	// Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
     
 }
 

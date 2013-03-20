@@ -46,7 +46,7 @@
     // set the blocks
     reach.reachableBlock = ^(Reachability*reach)
     {
-        NSLog(@"REACHABLE!");
+        //NSLog(@"REACHABLE!");
         
         
         if([stories count]==0){
@@ -71,7 +71,7 @@
     
     reach.unreachableBlock = ^(Reachability*reach)
     {
-        NSLog(@"UNREACHABLE!");
+        //NSLog(@"UNREACHABLE!");
         [activityIndicatorCalendar setHidden:YES];
         [activityIndicatorSlideshow setHidden:YES];
     };
@@ -84,7 +84,7 @@
     // set the blocks
     reach.reachableBlock = ^(Reachability*reach)
     {
-        NSLog(@"REACHABLE!");
+        //NSLog(@"REACHABLE!");
         
         
         if([stories count]==0){
@@ -108,7 +108,7 @@
     
     reach.unreachableBlock = ^(Reachability*reach)
     {
-        NSLog(@"UNREACHABLE!");
+        //NSLog(@"UNREACHABLE!");
         [activityIndicatorCalendar setHidden:YES];
         [activityIndicatorSlideshow setHidden:YES];
     };
