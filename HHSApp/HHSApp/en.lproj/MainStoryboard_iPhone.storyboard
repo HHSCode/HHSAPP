@@ -73,10 +73,10 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="otd-Qy-qw3">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="otd-Qy-qw3">
+                                <color key="backgroundColor" red="0.65882354970000001" green="0.086274512110000007" blue="0.1176470667" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="209" id="q2m-JP-8pg"/>
+                                    <constraint firstAttribute="height" constant="200" id="3FB-fy-MJC"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="2" id="YWO-ON-Xf5"/>
@@ -91,17 +91,17 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Inu-N0-4A1"/>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5mL-GF-6l1"/>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.65882354974746704" green="0.086274512112140656" blue="0.11764706671237946" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
-                            <constraint firstItem="otd-Qy-qw3" firstAttribute="top" secondItem="xA9-GV-vtV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="2CG-DF-kCE"/>
-                            <constraint firstItem="otd-Qy-qw3" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="9NC-57-t7K"/>
+                            <constraint firstItem="otd-Qy-qw3" firstAttribute="leading" secondItem="xA9-GV-vtV" secondAttribute="leading" type="default" id="4Md-iD-JAv"/>
+                            <constraint firstItem="otd-Qy-qw3" firstAttribute="centerY" secondItem="5mL-GF-6l1" secondAttribute="centerY" type="default" id="7C5-5O-Ccc"/>
                             <constraint firstItem="Inu-N0-4A1" firstAttribute="centerX" secondItem="xA9-GV-vtV" secondAttribute="centerX" type="default" id="CBW-ud-k0Y"/>
                             <constraint firstItem="xA9-GV-vtV" firstAttribute="top" secondItem="16" secondAttribute="top" constant="6" id="GrB-cv-CyA"/>
+                            <constraint firstItem="otd-Qy-qw3" firstAttribute="top" secondItem="16" secondAttribute="top" constant="202" id="Gxe-dN-jPI"/>
                             <constraint firstItem="5mL-GF-6l1" firstAttribute="leading" secondItem="Inu-N0-4A1" secondAttribute="leading" type="default" id="SkH-zx-GQp"/>
-                            <constraint firstItem="otd-Qy-qw3" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="Vhf-fh-ykI"/>
-                            <constraint firstItem="5mL-GF-6l1" firstAttribute="centerX" secondItem="otd-Qy-qw3" secondAttribute="centerX" type="default" id="Y6Q-39-vnT"/>
                             <constraint firstItem="Inu-N0-4A1" firstAttribute="top" secondItem="16" secondAttribute="top" constant="88" id="a12-Zc-AVc"/>
-                            <constraint firstAttribute="bottom" secondItem="5mL-GF-6l1" secondAttribute="bottom" constant="99" id="n7x-4i-pS8"/>
+                            <constraint firstItem="otd-Qy-qw3" firstAttribute="trailing" secondItem="xA9-GV-vtV" secondAttribute="trailing" type="default" id="aL9-Xt-eWy"/>
+                            <constraint firstItem="xA9-GV-vtV" firstAttribute="centerX" secondItem="16" secondAttribute="centerX" type="default" id="gfo-hc-pgk"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="home_30x30@2x.png" id="7"/>
