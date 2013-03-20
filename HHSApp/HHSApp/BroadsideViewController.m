@@ -47,7 +47,7 @@
 
 - (IBAction)showActionsheetButton:(id)sender
 {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:@"AlertSheetTitle" delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"button1",@"button2", nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:@"AlertSheetTitle" delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Safari", @"Chrome", nil];
     [actionSheet showInView:self.broadsideTableView];
     
 }
@@ -83,6 +83,20 @@
 - (IBAction)SafariLaunch:(UIBarButtonItem *)sender {
     NSURL *url = [ [ NSURL alloc ] initWithString: @"http://broadside.dresden.us/" ];
     [[UIApplication sharedApplication] openURL:url];
+}
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex==0)
+    {
+        NSURL *url = [ [ NSURL alloc ] initWithString: @"http://www.facebook.com/HHSBroadside?fref=ts" ];
+        [[UIApplication sharedApplication] openURL:url];
+    }
+    
+    if(buttonIndex==1)
+    {
+        NSURL *url = [ [ NSURL alloc ] initWithString: @"http://broadside.dresden.us/" ];
+        [[UIApplication sharedApplication] openURL:url];
+    }
 }
 
 - (void)parserDidStartDocument:(NSXMLParser *)parser {
