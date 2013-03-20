@@ -49,7 +49,7 @@
 -(void)setupImageView{
     NSMutableArray *theArray = [[NSMutableArray alloc]init];
     for (NSMutableDictionary *dic in stories) {
-        NSLog(@"Link: %@", [dic objectForKey:@"link"]);
+        //NSLog(@"Link: %@", [dic objectForKey:@"link"]);
         if ([[dic objectForKey:@"link"] isEqualToString:@""]) {
             
         }else{
@@ -63,7 +63,7 @@
         
     }
 slideshowImageView.animationImages = theArray;
-slideshowImageView.animationDuration = 100;
+slideshowImageView.animationDuration = 50;
 slideshowImageView.animationRepeatCount = 0;
 [slideshowImageView startAnimating];
 }
@@ -73,7 +73,7 @@ slideshowImageView.animationRepeatCount = 0;
     
     NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
     result = [UIImage imageWithData:data];
-    NSLog(@"Done");
+    //NSLog(@"Done");
     return result;
 }
 
@@ -191,7 +191,7 @@ slideshowImageView.animationRepeatCount = 0;
                     
                     NSString *theURL = [x substringToIndex:5];
                     if ([theURL isEqualToString:@"https"]) {
-                        NSLog(@"Got here");
+                        //NSLog(@"Got here");
                         [currentLink appendString:x];
                     }
                 }
@@ -205,8 +205,8 @@ slideshowImageView.animationRepeatCount = 0;
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
     
-	NSLog(@"all done!");
-	NSLog(@"stories array has %d items", [stories count]);
+	//NSLog(@"all done!");
+	//NSLog(@"stories array has %d items", [stories count]);
     
     //NSLog(@"Stories: %@", stories);
     [self setupImageView];

@@ -18,6 +18,7 @@
     NSMutableArray * stories;
     
     NSMutableString * currentTitle, * currentAuthor, * currentSummary, * currentLink, *currentURL, *currentHTML, *currentDate;
+    
 }
 @property (strong, nonatomic) IBOutlet UIWebView *calendarWebView;
 @property (strong, nonatomic) IBOutlet UIWebView *photosWebView;
