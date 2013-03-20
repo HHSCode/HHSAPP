@@ -85,10 +85,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="otd-Qy-qw3" firstAttribute="top" secondItem="xA9-GV-vtV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="2CG-DF-kCE"/>
                             <constraint firstItem="otd-Qy-qw3" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="9NC-57-t7K"/>
-                            <constraint firstItem="otd-Qy-qw3" firstAttribute="top" secondItem="16" secondAttribute="top" constant="197" id="HHS-nk-QZk"/>
+                            <constraint firstItem="xA9-GV-vtV" firstAttribute="top" secondItem="16" secondAttribute="top" constant="6" id="GrB-cv-CyA"/>
                             <constraint firstItem="xA9-GV-vtV" firstAttribute="centerX" secondItem="otd-Qy-qw3" secondAttribute="centerX" type="default" id="KMp-fi-M0U"/>
-                            <constraint firstItem="xA9-GV-vtV" firstAttribute="top" secondItem="16" secondAttribute="top" constant="10" id="KUc-4a-Dfk"/>
                             <constraint firstItem="otd-Qy-qw3" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="Vhf-fh-ykI"/>
                         </constraints>
                     </view>
