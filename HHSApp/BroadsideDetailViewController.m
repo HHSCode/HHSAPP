@@ -8,6 +8,7 @@
 
 #import "BroadsideDetailViewController.h"
 
+
 @interface BroadsideDetailViewController ()
 
 @end
