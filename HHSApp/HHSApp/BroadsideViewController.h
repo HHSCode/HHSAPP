@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BroadsideCell.h"
 #import "BroadsideDetailViewController.h"
+#import "Reachability.h"
 
 @interface BroadsideViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, NSXMLParserDelegate,UIActionSheetDelegate>{
     NSXMLParser *rssParser;
@@ -28,5 +29,6 @@
 - (void)parseXMLFileAtURL:(NSString *)URL;
 - (IBAction)SafariLaunch:(UIBarButtonItem *)sender;
 - (IBAction)showActionsheetButton:(id)sender;
+
 
 @end

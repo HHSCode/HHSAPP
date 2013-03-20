@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Reachability.h"
 
 @interface HomeViewController : UIViewController{
     NSXMLParser *rssParser;
@@ -31,5 +32,7 @@
 - (void)parseXMLFileAtURL:(NSString *)URL;
 -(UIImage *) getImageFromURL:(NSString *)fileURL;
 -(void)setupImageView;
+-(void)startupInternetBasedParts;
+-(void)reachChanged;
 @end
 //does this work
