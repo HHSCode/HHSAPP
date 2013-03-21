@@ -31,12 +31,13 @@
     [broadsideDetailWebView setDelegate:self];
     // Do any additional setup after loading the view from its nib.
     
-    UIBarButtonItem *activityButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActivityView:)];
+    UIBarButtonItem *activityButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActivityView)];
     self.navigationItem.rightBarButtonItem = activityButton;
 }
 
 -(void)setWebView:(int)indexPath :(NSMutableArray *)stories{
     [self setTitle:[[stories objectAtIndex:indexPath]objectForKey:@"title"]];
+    URL = [[stories objectAtIndex:indexPath]objectForKey:@"link"];
     //NSLog(@"%@", [[stories objectAtIndex:indexPath]objectForKey:@"HTML"]);
     NSMutableString *htmlString = [[stories objectAtIndex:indexPath]objectForKey:@"HTML"];
     NSMutableString *date = [[NSMutableString alloc]initWithString:[[stories objectAtIndex:indexPath]objectForKey:@"date"]];
@@ -56,41 +57,35 @@
     [broadsideDetailWebView loadHTMLString:final baseURL:nil];
 }
 
-- (IBAction)showActivityView:(id)sender
-{
-    NSArray *activityItems = [NSArray array];
-    NSArray *applicationActivities = [NSArray array];
-    UIActivityViewController *activityView = [[UIActivityViewController alloc]initWithActivityItems:(NSArray *)activityItems applicationActivities:(NSArray *)applicationActivities];
-//    [activityView showInView:self.broadsideDetailWebView];
-}
-
-/*-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 0)
-    {
-        NSURL *url = [ [ NSURL alloc ] initWithString: @"http://www.facebook.com/HHSBroadside?fref=ts" ];
-        [[UIApplication sharedApplication] openURL:url];
-    }
-    
-    if(buttonIndex == 1)
-    {
-        NSURL *url = [ [ NSURL alloc ] initWithString: @"http://broadside.dresden.us/" ];
-        [[UIApplication sharedApplication] openURL:url];
-    }
-    
-    if(buttonIndex == 2)
-    {
-        NSURL *url = [ [ NSURL alloc ] initWithString: @"googlechrome://broadside.dresden.us/" ];
-        [[UIApplication sharedApplication] openURL:url];
-        
-    }
-}*/
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)showActivityView
+{
+    NSLog(@"1");    
+    NSString *textToShare = @"Check out this HHS Broadside article!";
+    NSLog(@"2");
+    UIImage *imageToShare = [UIImage imageNamed:@"icon_iphone.png"];
+    NSLog(@"3");
+    NSURL *urlToShare = [NSURL URLWithString:URL];
+    NSLog(@"4");
+    NSArray *activityItems = @[textToShare, imageToShare, urlToShare];
+    NSLog(@"5");
+    NSArray *applicationItems = [[NSArray alloc] initWithObjects:nil];
+    NSLog(@"6");
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:applicationItems];
+    NSLog(@"7");
+    activityVC.excludedActivityTypes = @[UIActivityTypePostToWeibo, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll];
+    NSLog(@"8");
+    //This is an array of excluded activities to appear on the UIActivityViewController
+    NSLog(@"9");
+    [self presentViewController:activityVC animated:TRUE completion:^{}];
+    NSLog(@"10");
+}
+
+
 
 @end

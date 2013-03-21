@@ -11,12 +11,13 @@
 @interface BroadsideDetailViewController : UIViewController <UIWebViewDelegate>{
     UIWebView *broadsideDetailWebView;
     UITextView *theTextView;
+    NSString *URL;
 }
 @property (retain, nonatomic) IBOutlet UIWebView *broadsideDetailWebView;
 @property (nonatomic, retain) IBOutlet UITextView *theTextView;
 
 
--(void)setWebView:(int)indexPath :(NSMutableArray *)stories;
-- (IBAction)showActivityView:(id)sender;
+- (void)setWebView:(int)indexPath :(NSMutableArray *)stories;
+- (IBAction)showActivityView;
 
 @end
