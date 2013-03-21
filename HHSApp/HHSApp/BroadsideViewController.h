@@ -23,7 +23,7 @@
     NSMutableString * currentTitle, * currentAuthor, * currentSummary, * currentLink, *currentURL, *currentHTML, *currentDate;
 }
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (weak, nonatomic) IBOutlet UITableView *broadsideTableView;
+@property (strong, nonatomic) IBOutlet UITableView *broadsideTableView;
 @property (nonatomic, retain) IBOutlet NSXMLParser * rssParser;
 
 - (void)parseXMLFileAtURL:(NSString *)URL;

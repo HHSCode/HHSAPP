@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StaffViewController : UIViewController
+@interface StaffViewController : UIViewController<NSURLConnectionDelegate>{
+    
+}
 
 @end

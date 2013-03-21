@@ -26,22 +26,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSString *absoluteURL = @"https://sites.google.com/a/hanovernorwichschools.org/connor/file/HHSAPP.csv?attredirects=0&d=1";
-    NSURL *url = [NSURL URLWithString:absoluteURL];
-    NSString *fileString = [[NSString alloc] initWithContentsOfURL:url];
     
     
-    
-    NSArray *contentArray = [fileString componentsSeparatedByString:@"\r"];
-    //NSLog(@"%@", contentArray);
-    for (NSString *item in contentArray) {
-        NSArray *itemArray = [item componentsSeparatedByString:@";"];
-        
-        //NSLog(@"String -----> %@",[itemArray objectAtIndex:0]);
-
-    
-	// Do any additional setup after loading the view.
-}
+   
 }
 
 /*NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.apple.com/"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
