@@ -122,6 +122,27 @@
     
 }
 
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
+        NSURL *url = [ [ NSURL alloc ] initWithString: @"http://www.facebook.com/HHSBroadside?fref=ts" ];
+        [[UIApplication sharedApplication] openURL:url];
+    }
+    
+    if(buttonIndex == 1)
+    {
+        NSURL *url = [ [ NSURL alloc ] initWithString: @"http://broadside.dresden.us/" ];
+        [[UIApplication sharedApplication] openURL:url];
+    }
+    
+    if(buttonIndex == 2)
+    {
+        NSURL *url = [ [ NSURL alloc ] initWithString: @"googlechrome://broadside.dresden.us/" ];
+        [[UIApplication sharedApplication] openURL:url];
+    }
+}
+
 //PARSING AREA//
 
 - (void)parseXMLFileAtURL:(NSString *)URL {
@@ -148,25 +169,6 @@
     
 	[rssParser parse];
     
-}
-
-- (IBAction)SafariLaunch:(UIBarButtonItem *)sender {
-    NSURL *url = [ [ NSURL alloc ] initWithString: @"http://broadside.dresden.us/" ];
-    [[UIApplication sharedApplication] openURL:url];
-}
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex==0)
-    {
-        NSURL *url = [ [ NSURL alloc ] initWithString: @"http://www.facebook.com/HHSBroadside?fref=ts" ];
-        [[UIApplication sharedApplication] openURL:url];
-    }
-    
-    if(buttonIndex==1)
-    {
-        NSURL *url = [ [ NSURL alloc ] initWithString: @"http://broadside.dresden.us/" ];
-        [[UIApplication sharedApplication] openURL:url];
-    }
 }
 
 - (void)parserDidStartDocument:(NSXMLParser *)parser {
