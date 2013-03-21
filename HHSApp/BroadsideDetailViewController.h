@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BroadsideDetailViewController : UIViewController{
+@interface BroadsideDetailViewController : UIViewController <UIWebViewDelegate>{
     UIWebView *broadsideDetailWebView;
     UITextView *theTextView;
 }

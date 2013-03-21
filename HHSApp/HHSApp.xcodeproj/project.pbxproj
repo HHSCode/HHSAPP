@@ -12,6 +12,7 @@
 		50E801B316FA6FC6004B9401 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E801B216FA6FC6004B9401 /* Reachability.m */; };
 		50E801B516FA6FE3004B9401 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E801B416FA6FE3004B9401 /* SystemConfiguration.framework */; };
 		88A0151716FA08A500374A91 /* OpenInChromeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A0151616FA08A500374A91 /* OpenInChromeController.m */; };
+		88D0C76F16FB372000C17786 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D0C76E16FB372000C17786 /* MoreViewController.m */; };
 		88D627DA16F89A2400755256 /* BroadsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D627D916F89A2400755256 /* BroadsideViewController.m */; };
 		88D627DC16F8A09400755256 /* BroadsideCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D627DB16F8A09400755256 /* BroadsideCell.xib */; };
 		88D627DF16F8A2EC00755256 /* BroadsideCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D627DE16F8A2EC00755256 /* BroadsideCell.m */; };
@@ -69,6 +70,8 @@
 		50E801B416FA6FE3004B9401 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		88A0151516FA08A500374A91 /* OpenInChromeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenInChromeController.h; path = ../OpenInChromeController.h; sourceTree = "<group>"; };
 		88A0151616FA08A500374A91 /* OpenInChromeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpenInChromeController.m; path = ../OpenInChromeController.m; sourceTree = "<group>"; };
+		88D0C76D16FB372000C17786 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoreViewController.h; path = ../MoreViewController.h; sourceTree = "<group>"; };
+		88D0C76E16FB372000C17786 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoreViewController.m; path = ../MoreViewController.m; sourceTree = "<group>"; };
 		88D627D816F89A2400755256 /* BroadsideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BroadsideViewController.h; sourceTree = "<group>"; };
 		88D627D916F89A2400755256 /* BroadsideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BroadsideViewController.m; sourceTree = "<group>"; };
 		88D627DB16F8A09400755256 /* BroadsideCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BroadsideCell.xib; sourceTree = "<group>"; };
@@ -195,6 +198,8 @@
 				88D627E816F8AFEE00755256 /* BroadsideDetailViewController.h */,
 				88D627E916F8AFEE00755256 /* BroadsideDetailViewController.m */,
 				88D627EA16F8AFEE00755256 /* BroadsideDetailViewController.xib */,
+				88D0C76D16FB372000C17786 /* MoreViewController.h */,
+				88D0C76E16FB372000C17786 /* MoreViewController.m */,
 				88D627DD16F8A2EC00755256 /* BroadsideCell.h */,
 				88D627DE16F8A2EC00755256 /* BroadsideCell.m */,
 				88D627DB16F8A09400755256 /* BroadsideCell.xib */,
@@ -399,6 +404,7 @@
 				88D627EB16F8AFEE00755256 /* BroadsideDetailViewController.m in Sources */,
 				88A0151716FA08A500374A91 /* OpenInChromeController.m in Sources */,
 				50E801B316FA6FC6004B9401 /* Reachability.m in Sources */,
+				88D0C76F16FB372000C17786 /* MoreViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

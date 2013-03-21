@@ -28,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [broadsideDetailWebView setDelegate:self];
     // Do any additional setup after loading the view from its nib.
 }
 
