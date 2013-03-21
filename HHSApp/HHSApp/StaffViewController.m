@@ -225,7 +225,8 @@
 {
     // Return the number of rows in the section.
     //NSLog(@"Updating table view, stories count: %i", [stories count]);
-    NSLog(@"rowsinsection: %i", [[departmentDict objectForKey:[sortedDepartments objectAtIndex:section]]count]);
+    NSLog(@"Section: %i", section);
+    NSLog(@"%@: %i", [sortedDepartments objectAtIndex:section],[[departmentDict objectForKey:[sortedDepartments objectAtIndex:section]]count]);
     return [[departmentDict objectForKey:[sortedDepartments objectAtIndex:section]]count];
     
     
@@ -243,7 +244,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifer];
     }
     
-    NSLog(@"ran");
+    
     return cell;
 }
 
