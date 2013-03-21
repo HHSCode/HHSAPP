@@ -29,6 +29,7 @@
 - (void)parseXMLFileAtURL:(NSString *)URL;
 - (IBAction)SafariLaunch:(UIBarButtonItem *)sender;
 - (IBAction)showActionsheetButton:(id)sender;
+- (void)refreshView:(UIRefreshControl *)refresh;
 
 
 @end

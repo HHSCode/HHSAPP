@@ -27,11 +27,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    [refresh addTarget:self
+    action:@selector(refreshView:)
+    forControlEvents:UIControlEventValueChanged];
+    UITableViewController *tableViewController = [[UITableViewController alloc]init];
+    [tableViewController setTableView:broadsideTableView];
+    tableViewController.refreshControl = refresh;
 }
 
+-(void)refreshView:(UIRefreshControl *)refresh {
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Updating Broadside..."];
+    //custom refresh logic
+    
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMM d, h:mm a"];
+    NSString *lastUpdated = [NSString stringWithFormat:@"Last updated on %@",
+    [formatter stringFromDate:[NSDate date]]];
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:lastUpdated];
+    [refresh endRefreshing];
 
+}
 
 
 -(void)viewDidAppear:(BOOL)animated{
