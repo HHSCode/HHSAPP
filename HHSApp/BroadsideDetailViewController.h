@@ -17,5 +17,6 @@
 
 
 -(void)setWebView:(int)indexPath :(NSMutableArray *)stories;
+- (IBAction)showActivityView:(id)sender;
 
 @end

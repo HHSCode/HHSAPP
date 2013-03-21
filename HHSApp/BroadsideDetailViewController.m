@@ -30,6 +30,9 @@
     [super viewDidLoad];
     [broadsideDetailWebView setDelegate:self];
     // Do any additional setup after loading the view from its nib.
+    
+    UIBarButtonItem *activityButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActivityView:)];
+    self.navigationItem.rightBarButtonItem = activityButton;
 }
 
 -(void)setWebView:(int)indexPath :(NSMutableArray *)stories{
@@ -43,7 +46,7 @@
     date = [theArray objectAtIndex:0];
     NSMutableString *start = [NSString stringWithFormat:@"<html><body><center>by %@</center><center>%@</center>", [[stories objectAtIndex:indexPath]objectForKey:@"author"], date];
     
-    NSMutableString *end = @"</body></html>";
+    NSString *end = @"</body></html>";
     NSString *temp = [start stringByAppendingString:htmlString];
     NSString *final = [temp stringByAppendingString:end];
     NSLog(@"HTML: %@", final);
@@ -52,6 +55,37 @@
     
     [broadsideDetailWebView loadHTMLString:final baseURL:nil];
 }
+
+- (IBAction)showActivityView:(id)sender
+{
+    NSArray *activityItems = [NSArray array];
+    NSArray *applicationActivities = [NSArray array];
+    UIActivityViewController *activityView = [[UIActivityViewController alloc]initWithActivityItems:(NSArray *)activityItems applicationActivities:(NSArray *)applicationActivities];
+//    [activityView showInView:self.broadsideDetailWebView];
+}
+
+/*-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
+        NSURL *url = [ [ NSURL alloc ] initWithString: @"http://www.facebook.com/HHSBroadside?fref=ts" ];
+        [[UIApplication sharedApplication] openURL:url];
+    }
+    
+    if(buttonIndex == 1)
+    {
+        NSURL *url = [ [ NSURL alloc ] initWithString: @"http://broadside.dresden.us/" ];
+        [[UIApplication sharedApplication] openURL:url];
+    }
+    
+    if(buttonIndex == 2)
+    {
+        NSURL *url = [ [ NSURL alloc ] initWithString: @"googlechrome://broadside.dresden.us/" ];
+        [[UIApplication sharedApplication] openURL:url];
+        
+    }
+}*/
+
 
 - (void)didReceiveMemoryWarning
 {
