@@ -7,9 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Reachability.h"
 
-@interface StaffViewController : UIViewController<NSURLConnectionDelegate>{
+@interface StaffViewController : UIViewController<NSXMLParserDelegate, UITableViewDelegate, UITableViewDataSource>{
+    NSXMLParser *rssParser;
+    NSMutableArray *articles;
+    NSMutableDictionary *item;
+    NSString *currentElement;
+    NSMutableString *ElementValue;
+    BOOL errorParsing;
+    NSMutableArray * stories;
+    
+    NSMutableString * currentTitle, * currentAuthor, * currentSummary, * currentLink, *currentURL, *currentHTML, *currentDate;
     
 }
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) IBOutlet UITableView *staffTableView;
 
+@property (nonatomic, retain) IBOutlet NSXMLParser * rssParser;
+
+- (void)parseXMLFileAtURL:(NSString *)URL;
 @end
