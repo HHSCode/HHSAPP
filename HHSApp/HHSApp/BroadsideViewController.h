@@ -30,6 +30,6 @@
 - (IBAction)SafariLaunch:(UIBarButtonItem *)sender;
 - (IBAction)showActionsheetButton:(id)sender;
 - (void)refreshView:(UIRefreshControl *)refresh;
-
+- (void)refreshBroadside;
 
 @end

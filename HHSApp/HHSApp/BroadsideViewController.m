@@ -26,6 +26,7 @@
 
 - (void)viewDidLoad
 {
+    [self refreshBroadside];
     [super viewDidLoad];
     UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
     refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
@@ -40,7 +41,7 @@
 -(void)refreshView:(UIRefreshControl *)refresh {
     refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Updating Broadside..."];
     //custom refresh logic
-    
+    [self refreshBroadside];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MMM d, h:mm a"];
@@ -50,7 +51,6 @@
     [refresh endRefreshing];
 
 }
-
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -79,8 +79,34 @@
     };
     
     // start the notifier which will cause the reachability object to retain itself!
-    [reach startNotifier];
+    
 	// Do any additional setup after loading the view.
+}
+
+- (void)refreshBroadside{
+    Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    // set the blocks
+    NSLog(@"Ran");
+    reach.reachableBlock = ^(Reachability*reach)
+    {
+        NSLog(@"Reachable");
+        stories = [[NSMutableArray alloc] init];
+        [broadsideTableView reloadData];
+        [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://feeds.feedburner.com/HHSBroadside"];
+        [activityIndicator setHidden:NO];
+        [activityIndicator startAnimating];
+    };
+    
+    reach.unreachableBlock = ^(Reachability*reach)
+    {
+        NSLog(@"UNREACHABLE!");
+        [activityIndicator setHidden:YES];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"No internet connection! Please try again!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
+        
+    };
+    [reach startNotifier];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
