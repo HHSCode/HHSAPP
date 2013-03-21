@@ -26,7 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
     // set the blocks
    
@@ -166,7 +165,52 @@
     [activityIndicator setHidden:YES];
     [staffTableView reloadData];
     NSLog(@"Stories: %@", stories);
+    [self parseStoryArray];
+    [staffTableView reloadData];
+}
+
+
+-(void)parseStoryArray{
+    departmentDict = [[NSMutableDictionary alloc]init];
+    for (NSDictionary *person in  stories) {
+        
+        NSMutableDictionary *singleDepartment = [[NSMutableDictionary alloc]init];
+
+        NSString *department = [person objectForKey:@"dept"];
+        if ([departmentDict objectForKey:department]) {
+            singleDepartment = [[NSMutableDictionary alloc]initWithDictionary:[departmentDict objectForKey:department]];
+            [singleDepartment setObject:person forKey:[person objectForKey:@"last"]];
+            [departmentDict setObject:singleDepartment forKey:department];
+        }else{
+            singleDepartment = [[NSMutableDictionary alloc]init];
+            [singleDepartment setObject:person forKey:[person objectForKey:@"last"]];
+            [departmentDict setObject:singleDepartment forKey:department];
+        }
+        
+        /*if ([departmentArray containsObject:department]) {
+            
+            NSMutableArray *singleDepartment = [[NSMutableArray alloc]initWithArray:[departmentArray objectAtIndex:index]];
+            
+            
+            
+     
+        }else{
+            NSMutableArray *singleDepartment = [[NSMutableArray alloc]init];
+            departmentArray addObject:
+        }*/
+    }
     
+    
+    NSMutableArray *sortedKeys = [NSMutableArray array];
+    
+    NSArray *objs = [departmentDict allKeys];
+    sortedDepartments =[objs sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    
+    
+    
+    NSLog(@"Dep: %@", departmentDict);
+    NSLog(@"sorted: %@", sortedDepartments);
+
 }
 
 
@@ -174,15 +218,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [departmentDict count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
     //NSLog(@"Updating table view, stories count: %i", [stories count]);
-    
-    return 1;
+    NSLog(@"rowsinsection: %i", [[departmentDict objectForKey:[sortedDepartments objectAtIndex:section]]count]);
+    return [[departmentDict objectForKey:[sortedDepartments objectAtIndex:section]]count];
     
     
 }

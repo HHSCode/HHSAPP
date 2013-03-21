@@ -17,6 +17,8 @@
     NSMutableString *ElementValue;
     BOOL errorParsing;
     NSMutableArray * stories;
+    NSMutableDictionary *departmentDict;
+    NSArray *sortedDepartments;
     
     NSMutableString * currentFirstName, * currentLastName, * currentDept, * currentTitle, *currentEmail, *currentSite;
     
@@ -26,5 +28,6 @@
 
 @property (nonatomic, retain) IBOutlet NSXMLParser * rssParser;
 
+-(void)parseStoryArray;
 - (void)parseXMLFileAtURL:(NSString *)URL;
 @end
