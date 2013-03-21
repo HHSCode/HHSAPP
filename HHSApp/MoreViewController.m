@@ -20,7 +20,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        cellNames = [[NSArray alloc] initWithObjects:@"Handbook", @"Program of Studies", @"Council", @"SAU 70", @"Guidance", @"Yearbook", @"March Intensive", @"Media Center", nil];
     }
     return self;
 }
@@ -28,6 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    moreTableView.delegate = self;
+    moreTableView.dataSource = self;
 	// Do any additional setup after loading the view.
 }
 
@@ -50,7 +52,7 @@
     // Return the number of rows in the section.
     //NSLog(@"Updating table view, stories count: %i", [stories count]);
     
-    return 1;
+    return [cellNames count];
     
     
 }
@@ -67,9 +69,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifer];
     }
     
-    
-    [cell setText:@"Hi"];
-       
+    NSLog(@"ran");
+    cell.textLabel.text = [cellNames objectAtIndex:[indexPath row]];
     return cell;
 }
 

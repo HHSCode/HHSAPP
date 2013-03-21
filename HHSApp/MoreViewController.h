@@ -10,6 +10,8 @@
 
 @interface MoreViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>{
     UITableView *moreTableView;
+    NSArray *cellNames;
+    
 }
 
 
