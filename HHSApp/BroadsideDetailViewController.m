@@ -47,7 +47,7 @@
     NSString *final = [temp stringByAppendingString:end];
     NSLog(@"HTML: %@", final);
     
-    [final rangeOfString:@"<a"]
+    [final rangeOfString:@"<a"];
     
     [broadsideDetailWebView loadHTMLString:final baseURL:nil];
 }
