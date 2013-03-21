@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--First View Controller - First-->
+        <!--First View Controller - Home-->
         <scene sceneID="11">
             <objects>
                 <viewController id="2" customClass="FirstViewController" sceneMemberID="viewController">
@@ -42,13 +42,13 @@
                             <constraint firstItem="19" firstAttribute="top" secondItem="17" secondAttribute="top" constant="350" id="pKg-gt-hVJ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="home_30x30.png" id="7"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home_30x30@2x.png" id="7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3041" y="150"/>
         </scene>
-        <!--View Controller - Item-->
+        <!--View Controller - Broadside-->
         <scene sceneID="ra5-wu-IUl">
             <objects>
                 <viewController id="uhS-c5-xvD" sceneMemberID="viewController">
@@ -57,13 +57,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="broadside_30x30.png" id="lP3-22-ttD"/>
+                    <tabBarItem key="tabBarItem" title="Broadside" image="broadside_30x30@2x.png" id="lP3-22-ttD"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Euq-kj-Cgo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3886" y="161"/>
         </scene>
-        <!--Second View Controller - Second-->
+        <!--Second View Controller - Staff-->
         <scene sceneID="13">
             <objects>
                 <viewController id="3" customClass="SecondViewController" sceneMemberID="viewController">
@@ -104,13 +104,13 @@
                             <constraint firstAttribute="trailing" secondItem="21" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="v87-JO-j7C"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="staff_30x30.png" id="6"/>
+                    <tabBarItem key="tabBarItem" title="Staff" image="staff_white_60x60@2x.png" id="6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3042" y="1284"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller - More-->
         <scene sceneID="25H-CO-071">
             <objects>
                 <viewController id="COL-lh-Oo3" sceneMemberID="viewController">
@@ -119,7 +119,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="more" id="cQZ-c5-OEJ"/>
+                    <tabBarItem key="tabBarItem" title="More" image="more_60x60@2x.png" id="cQZ-c5-OEJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KKu-tl-cbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -138,8 +138,8 @@
                     <connections>
                         <segue destination="2" kind="relationship" relationship="viewControllers" id="27"/>
                         <segue destination="3" kind="relationship" relationship="viewControllers" id="28"/>
-                        <segue destination="COL-lh-Oo3" kind="relationship" relationship="viewControllers" id="GK8-1m-BN2"/>
                         <segue destination="uhS-c5-xvD" kind="relationship" relationship="viewControllers" id="WhF-hv-cH4"/>
+                        <segue destination="COL-lh-Oo3" kind="relationship" relationship="viewControllers" id="GK8-1m-BN2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
@@ -148,9 +148,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="broadside_30x30.png" width="30" height="30"/>
-        <image name="home_30x30.png" width="30" height="30"/>
-        <image name="staff_30x30.png" width="30" height="30"/>
+        <image name="broadside_30x30@2x.png" width="30" height="30"/>
+        <image name="home_30x30@2x.png" width="30" height="30"/>
+        <image name="more_60x60@2x.png" width="60" height="60"/>
+        <image name="staff_white_60x60@2x.png" width="60" height="60"/>
     </resources>
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">
