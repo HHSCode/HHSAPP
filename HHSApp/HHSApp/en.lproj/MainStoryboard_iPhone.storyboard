@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -125,25 +125,25 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="63h-9A-YJZ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="m2l-O4-Mdv">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="3" id="paf-vt-zSH"/>
-                                    <outlet property="delegate" destination="3" id="DwR-YE-CP8"/>
+                                    <outlet property="dataSource" destination="3" id="eI8-65-DpI"/>
+                                    <outlet property="delegate" destination="3" id="7EH-9X-XBv"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="63h-9A-YJZ" firstAttribute="trailing" secondItem="17" secondAttribute="trailing" type="default" id="I66-22-6VO"/>
-                            <constraint firstItem="63h-9A-YJZ" firstAttribute="leading" secondItem="17" secondAttribute="leading" type="default" id="P42-EU-phR"/>
-                            <constraint firstItem="63h-9A-YJZ" firstAttribute="top" secondItem="17" secondAttribute="top" type="default" id="fcg-Sr-hlx"/>
-                            <constraint firstItem="63h-9A-YJZ" firstAttribute="bottom" secondItem="17" secondAttribute="bottom" type="default" id="kb6-lx-6ko"/>
+                            <constraint firstItem="m2l-O4-Mdv" firstAttribute="leading" secondItem="17" secondAttribute="leading" type="default" id="4vQ-YP-sHu"/>
+                            <constraint firstItem="m2l-O4-Mdv" firstAttribute="top" secondItem="17" secondAttribute="top" type="default" id="65y-xY-4qK"/>
+                            <constraint firstItem="m2l-O4-Mdv" firstAttribute="bottom" secondItem="17" secondAttribute="bottom" type="default" id="W59-jr-PBP"/>
+                            <constraint firstItem="m2l-O4-Mdv" firstAttribute="trailing" secondItem="17" secondAttribute="trailing" type="default" id="p8l-MG-YfG"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="More" image="more_60x60@2x.png" id="6"/>
                     <connections>
-                        <outlet property="moreTableView" destination="63h-9A-YJZ" id="1zE-n8-hLL"/>
+                        <outlet property="moreTableView" destination="m2l-O4-Mdv" id="dBX-y6-sZl"/>
                         <outlet property="view" destination="17" id="t5g-Is-4YU"/>
                     </connections>
                 </viewController>

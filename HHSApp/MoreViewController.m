@@ -20,7 +20,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        cellNames = [[NSArray alloc] initWithObjects:@"Handbook", @"Program of Studies", @"Council", @"SAU 70", @"Guidance", @"Yearbook", @"March Intensive", @"Media Center", nil];
+        
     }
     return self;
 }
@@ -28,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    cellNames = [[NSArray alloc] initWithObjects:@"Handbook", @"Program of Studies", @"Council", @"SAU 70", @"Guidance", @"Yearbook", @"March Intensive", @"Media Center", nil];
     moreTableView.delegate = self;
     moreTableView.dataSource = self;
 	// Do any additional setup after loading the view.
@@ -51,28 +52,34 @@
 {
     // Return the number of rows in the section.
     //NSLog(@"Updating table view, stories count: %i", [stories count]);
-    
+    NSLog(@"This is a story all about how....");
+    NSLog(@"%i", [cellNames count]);
     return [cellNames count];
+
     
     
 }
+
+
 
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifer = @"CellIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifer];
-    
-    // Using a cell identifier will allow your app to reuse cells as they come and go from the screen.
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifer];
+    {
+        static NSString *CellIdentifer = @"CellIdentifier";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifer];
+        
+        // Using a cell identifier will allow your app to reuse cells as they come and go from the screen.
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifer];
+        }
+        
+        
+        cell.textLabel.text = [cellNames objectAtIndex:[indexPath row]];
+        
+         return cell;
     }
-    
-    NSLog(@"ran");
-    cell.textLabel.text = [cellNames objectAtIndex:[indexPath row]];
-    return cell;
-}
+
 
 /*
  // Override to support conditional editing of the table view.
