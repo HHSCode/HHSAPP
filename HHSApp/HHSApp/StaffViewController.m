@@ -137,7 +137,7 @@
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    NSLog(@"%@: %@", currentElement, string);
+    //NSLog(@"%@: %@", currentElement, string);
     if ([currentElement isEqualToString:@"firstname"]){
         [currentFirstName appendString:string];
     }else if ([currentElement isEqualToString:@"lastname"]) {
@@ -157,14 +157,14 @@
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
     
-	NSLog(@"all done!");
-	NSLog(@"stories array has %d items", [stories count]);
+	//NSLog(@"all done!");
+	//NSLog(@"stories array has %d items", [stories count]);
     
     //NSLog(@"Stories: %@", stories);
     [activityIndicator stopAnimating];
     [activityIndicator setHidden:YES];
     [staffTableView reloadData];
-    NSLog(@"Stories: %@", stories);
+    //NSLog(@"Stories: %@", stories);
     [self parseStoryArray];
     [staffTableView reloadData];
 }
@@ -208,8 +208,8 @@
     
     
     
-    NSLog(@"Dep: %@", departmentDict);
-    NSLog(@"sorted: %@", sortedDepartments);
+    //NSLog(@"Dep: %@", departmentDict);
+    //NSLog(@"sorted: %@", sortedDepartments);
 
 }
 
@@ -221,16 +221,34 @@
     return [departmentDict count];
 }
 
+/*- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30;
+}*/
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
     //NSLog(@"Updating table view, stories count: %i", [stories count]);
-    NSLog(@"Section: %i", section);
-    NSLog(@"%@: %i", [sortedDepartments objectAtIndex:section],[[departmentDict objectForKey:[sortedDepartments objectAtIndex:section]]count]);
+    //NSLog(@"Section: %i", section);
+    //NSLog(@"%@: %i", [sortedDepartments objectAtIndex:section],[[departmentDict objectForKey:[sortedDepartments objectAtIndex:section]]count]);
     return [[departmentDict objectForKey:[sortedDepartments objectAtIndex:section]]count];
     
     
 }
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [sortedDepartments objectAtIndex:section];
+}
+
+/*- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UILabel *sectionHeader = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 200, 40)];
+    sectionHeader.backgroundColor = [UIColor clearColor];
+    sectionHeader.font = [UIFont boldSystemFontOfSize:20];
+    sectionHeader.textColor = [UIColor blackColor];
+    sectionHeader.text = [sortedDepartments objectAtIndex:section];
+    return sectionHeader;
+}*/
 
 
 
@@ -241,8 +259,16 @@
     
     // Using a cell identifier will allow your app to reuse cells as they come and go from the screen.
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifer];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifer];
     }
+    NSString *department = [sortedDepartments objectAtIndex:indexPath.section];
+    NSDictionary *names = [departmentDict objectForKey:department];
+    NSArray *list = [names allKeys];
+    NSArray *sortedList = [list sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    NSString *staffName = [NSString stringWithFormat:@"%@%@",[[names objectForKey:[sortedList objectAtIndex:[indexPath row]]]objectForKey:@"first"], [[names objectForKey:[sortedList objectAtIndex:[indexPath row]]]objectForKey:@"last"]];
+    cell.textLabel.text = staffName;
+    cell.detailTextLabel.text = [[names objectForKey:[sortedList objectAtIndex:[indexPath row]]]objectForKey:@"title"];
+    
     
     
     return cell;

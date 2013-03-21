@@ -65,7 +65,6 @@
         
         // Do any additional setup after loading the view.
         
-        [activityIndicatorCalendar stopAnimating];
         }
     };
     
@@ -94,16 +93,16 @@
         }
         
         [activityIndicatorCalendar startAnimating];
-        [activityIndicatorCalendar setHidesWhenStopped:YES];
+        [activityIndicatorCalendar setHidden:NO];
         
-        
+        [calendarWebView setDelegate:self];
         
         [calendarWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=185&wkst=1&bgcolor=%2393061C&src=nn2509143kmbl2jbhlofvah8fs%40group.calendar.google.com&color=%232F6309&src=vs8lb5l1ej2cukd1l0s26atv2c%40group.calendar.google.com&color=%23B1440E&src=680mj2kt8enp5minffopangeeg%40group.calendar.google.com&color=%23875509&src=4uripfc30h2e7htmr6cn38g8bo%40group.calendar.google.com&color=%23B1365F&src=ak55rjsbcjca1b6c4g1pl98a30%40group.calendar.google.com&color=%231B887A&src=v5u6pb9hmmk6vdmc5sd97r67sg%40group.calendar.google.com&color=%235F6B02&src=d4ohdnvm96jfqsrj9copecbiu8%40group.calendar.google.com&color=%23333333&src=1rank92tt12gjt2q0u3cbgemmc%40group.calendar.google.com&color=%236B3304&src=ggb1fhi1mr66bati1ct16kvc78%40group.calendar.google.com&color=%235229A3&src=en.usa%23holiday%40group.v.calendar.google.com&color=%232952A3&src=ubsv6hfmoe8n03oclu2r1a61hk%40group.calendar.google.com&color=%23182C57&ctz=America%2FNew_York"]]];
         
         
                 // Do any additional setup after loading the view.
         
-        [activityIndicatorCalendar stopAnimating];
+        
     };
     
     reach.unreachableBlock = ^(Reachability*reach)
@@ -153,7 +152,10 @@ slideshowImageView.animationRepeatCount = 0;
 
 // PARSE PHOTOS
 
-
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    [activityIndicatorCalendar stopAnimating];
+    [activityIndicatorCalendar setHidden:YES];
+}
 
 
 
@@ -203,6 +205,8 @@ slideshowImageView.animationRepeatCount = 0;
     
     
 }
+
+
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
 	currentElement = [elementName copy];
