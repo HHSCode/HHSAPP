@@ -18,7 +18,7 @@
     BOOL errorParsing;
     NSMutableArray * stories;
     
-    NSMutableString * currentTitle, * currentAuthor, * currentSummary, * currentLink, *currentURL, *currentHTML, *currentDate;
+    NSMutableString * currentFirstName, * currentLastName, * currentDept, * currentTitle, *currentEmail, *currentSite;
     
 }
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;

@@ -32,7 +32,7 @@
    
     reach.reachableBlock = ^(Reachability*reach)
     {
-        //NSLog(@"Reachable");
+        NSLog(@"Reachable");
         
         
         [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://www.lordtechyproductions.com/hhsapp/index.php"];
@@ -61,7 +61,7 @@
 }
 
 - (void)parseXMLFileAtURL:(NSString *)URL {
-    
+    NSLog(@"Parsing");
     stories = [[NSMutableArray alloc] init];
     
 	//you must then convert the path to a proper NSURL or it won't work
@@ -95,22 +95,23 @@
 	//NSLog(@"error parsing XML: %@", errorString);
     
 	UIAlertView * errorAlert = [[UIAlertView alloc] initWithTitle:@"Error loading content" message:errorString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-	[errorAlert show];
+	//[errorAlert show];
+    NSLog(@"Error");
     
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
 	currentElement = [elementName copy];
     //NSLog(@"Current Element: %@", currentElement);
-	if ([elementName isEqualToString:@"item"]) {
+	if ([elementName isEqualToString:@"firstname"]) {
 		item = [[NSMutableDictionary alloc] init];
+        //currentFirstName, * currentLastName, * currentDept, * currentTitle, *currentEmail, *currentSite
+		currentFirstName = [[NSMutableString alloc] init];
+		currentLastName = [[NSMutableString alloc] init];
+		currentDept = [[NSMutableString alloc] init];
 		currentTitle = [[NSMutableString alloc] init];
-		currentAuthor = [[NSMutableString alloc] init];
-		currentSummary = [[NSMutableString alloc] init];
-		currentLink = [[NSMutableString alloc] init];
-        currentURL = [[NSMutableString alloc]init];
-        currentHTML = [[NSMutableString alloc]init];
-        currentDate = [[NSMutableString alloc]init];
+        currentEmail = [[NSMutableString alloc]init];
+        currentSite = [[NSMutableString alloc]init];
         
     }
     
@@ -120,14 +121,15 @@
     
 	//NSLog(@"ended element: %@", elementName);
     
-	if ([elementName isEqualToString:@"item"]) { //change this back to id
+	if ([elementName isEqualToString:@"firstname"]) { //change this back to id
 		// save values to an item, then store that item into the array...
         //NSLog(@"item: %@", item);
+        [item setObject:currentFirstName forKey:@"first"];
+		[item setObject:currentLastName forKey:@"last"];
+		[item setObject:currentDept forKey:@"dept"];
         [item setObject:currentTitle forKey:@"title"];
-		[item setObject:currentLink forKey:@"link"];
-		[item setObject:currentAuthor forKey:@"author"];
-        [item setObject:currentHTML forKey:@"HTML"];
-        [item setObject:currentDate forKey:@"date"];
+        [item setObject:currentEmail forKey:@"email"];
+        [item setObject:currentSite forKey:@"site"];
         
         
 		[stories addObject:[item copy]];
@@ -137,16 +139,18 @@
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
     NSLog(@"%@: %@", currentElement, string);
-    if ([currentElement isEqualToString:@"feedburner:origLink"]){
-        [currentLink appendString:string];
-    }else if ([currentElement isEqualToString:@"title"]) {
-		[currentTitle appendString:string];
-    }else if ([currentElement isEqualToString:@"dc:creator"]) {
-		[currentAuthor appendString:string];
-    }else if ([currentElement isEqualToString:@"content:encoded"]){
-        [currentHTML appendString:string];
-    }else if ([currentElement isEqualToString:@"pubDate"]){
-        [currentDate appendString:string];
+    if ([currentElement isEqualToString:@"firstname"]){
+        [currentFirstName appendString:string];
+    }else if ([currentElement isEqualToString:@"lastname"]) {
+		[currentLastName appendString:string];
+    }else if ([currentElement isEqualToString:@"dept"]) {
+		[currentDept appendString:string];
+    }else if ([currentElement isEqualToString:@"title"]){
+        [currentTitle appendString:string];
+    }else if ([currentElement isEqualToString:@"email"]){
+        [currentEmail appendString:string];
+    }else if ([currentElement isEqualToString:@"site"]){
+        [currentSite appendString:string];
     }
 	// save the characters for the current item...
     
