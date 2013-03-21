@@ -52,8 +52,7 @@
 {
     // Return the number of rows in the section.
     //NSLog(@"Updating table view, stories count: %i", [stories count]);
-    NSLog(@"This is a story all about how....");
-    NSLog(@"%i", [cellNames count]);
+    
     return [cellNames count];
 
     
@@ -124,8 +123,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    MoreDetailViewController *detail = [[MoreDetailViewController alloc]init];
+    [self.navigationController pushViewController:detail animated:YES];
+    //[detail setWebView:[indexPath row] :stories];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+   
+    
+    // [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     
     // Navigation logic may go here. Create and push another view controller.

@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MoreDetailViewController.h"
 
 @interface MoreViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>{
     UITableView *moreTableView;
     NSArray *cellNames;
+    
     
 }
 
