@@ -163,6 +163,7 @@
                         <outlet property="moreTableView" destination="m2l-O4-Mdv" id="dBX-y6-sZl"/>
                         <outlet property="view" destination="17" id="t5g-Is-4YU"/>
                         <segue destination="SVP-Hw-gaa" kind="push" id="Tmk-9i-c0g"/>
+                        <segue destination="7jB-if-f2L" kind="push" id="IL8-mp-LMc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
@@ -193,7 +194,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z89-Ny-msq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1278" y="483"/>
+            <point key="canvasLocation" x="1320" y="211"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0FA-wj-VmY">
+            <objects>
+                <viewController id="7jB-if-f2L" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Qi-PJ-WKF">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="w95-EE-Fkk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jcz-yv-WQ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1315" y="791"/>
         </scene>
         <!--Staff View Controller - Staff-->
         <scene sceneID="IgA-CS-Wle">

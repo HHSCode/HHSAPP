@@ -51,6 +51,7 @@
 		B3D118A016F8A80600155CDA /* more_60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3D1189E16F8A80600155CDA /* more_60x60@2x.png */; };
 		B3D118A116F8A80600155CDA /* more_white_60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3D1189F16F8A80600155CDA /* more_white_60x60@2x.png */; };
 		ECF948FB16FB875D000D14E0 /* MoreDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF948FA16FB875C000D14E0 /* MoreDetailViewController.m */; };
+		ECF948FE16FB8F16000D14E0 /* PrincipalNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF948FD16FB8F16000D14E0 /* PrincipalNotesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,8 @@
 		B3D1189F16F8A80600155CDA /* more_white_60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "more_white_60x60@2x.png"; path = "Tab bar/more_white_60x60@2x.png"; sourceTree = SOURCE_ROOT; };
 		ECF948F916FB875C000D14E0 /* MoreDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreDetailViewController.h; sourceTree = "<group>"; };
 		ECF948FA16FB875C000D14E0 /* MoreDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreDetailViewController.m; sourceTree = "<group>"; };
+		ECF948FC16FB8F16000D14E0 /* PrincipalNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrincipalNotesViewController.h; sourceTree = "<group>"; };
+		ECF948FD16FB8F16000D14E0 /* PrincipalNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrincipalNotesViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +208,8 @@
 				88D0C76E16FB372000C17786 /* MoreViewController.m */,
 				ECF948F916FB875C000D14E0 /* MoreDetailViewController.h */,
 				ECF948FA16FB875C000D14E0 /* MoreDetailViewController.m */,
+				ECF948FC16FB8F16000D14E0 /* PrincipalNotesViewController.h */,
+				ECF948FD16FB8F16000D14E0 /* PrincipalNotesViewController.m */,
 				88D627DD16F8A2EC00755256 /* BroadsideCell.h */,
 				88D627DE16F8A2EC00755256 /* BroadsideCell.m */,
 				88D627DB16F8A09400755256 /* BroadsideCell.xib */,
@@ -411,6 +416,7 @@
 				50E801B316FA6FC6004B9401 /* Reachability.m in Sources */,
 				88D0C76F16FB372000C17786 /* MoreViewController.m in Sources */,
 				ECF948FB16FB875D000D14E0 /* MoreDetailViewController.m in Sources */,
+				ECF948FE16FB8F16000D14E0 /* PrincipalNotesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

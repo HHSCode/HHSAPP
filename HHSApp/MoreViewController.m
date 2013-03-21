@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    cellNames = [[NSArray alloc] initWithObjects:@"Handbook", @"Program of Studies", @"Council", @"SAU 70", @"Guidance", @"Yearbook", @"March Intensive", @"Media Center", nil];
+    cellNames = [[NSArray alloc] initWithObjects:@"Handbook", @"Pricipals Notes", @"Program of Studies", @"Council", @"SAU 70", @"Guidance", @"Yearbook", @"March Intensive", @"Media Center",@"Sports",@"Snow Day", nil];
     moreTableView.delegate = self;
     moreTableView.dataSource = self;
 	// Do any additional setup after loading the view.
