@@ -140,6 +140,7 @@
     {
         NSURL *url = [ [ NSURL alloc ] initWithString: @"googlechrome://broadside.dresden.us/" ];
         [[UIApplication sharedApplication] openURL:url];
+        
     }
 }
 
