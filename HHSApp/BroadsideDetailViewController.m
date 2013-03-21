@@ -44,8 +44,12 @@
     
     NSMutableString *end = @"</body></html>";
     NSString *temp = [start stringByAppendingString:htmlString];
-    NSString *temp2 = [temp stringByAppendingString:end];
-    [broadsideDetailWebView loadHTMLString:temp2 baseURL:nil];
+    NSString *final = [temp stringByAppendingString:end];
+    NSLog(@"HTML: %@", final);
+    
+    [final rangeOfString:@"<a"]
+    
+    [broadsideDetailWebView loadHTMLString:final baseURL:nil];
 }
 
 - (void)didReceiveMemoryWarning
