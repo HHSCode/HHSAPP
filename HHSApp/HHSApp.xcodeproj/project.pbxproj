@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
+		320B6C86F11D9990244A9731 /* Three20.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 320B6C86F11D9990244A9730 /* Three20.bundle */; };
 		50E801B316FA6FC6004B9401 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E801B216FA6FC6004B9401 /* Reachability.m */; };
 		50E801B516FA6FE3004B9401 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E801B416FA6FE3004B9401 /* SystemConfiguration.framework */; };
 		88A0151716FA08A500374A91 /* OpenInChromeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A0151616FA08A500374A91 /* OpenInChromeController.m */; };
@@ -63,6 +64,7 @@
 
 /* Begin PBXFileReference section */
 		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.frameworks; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		320B6C86F11D9990244A9730 /* Three20.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Three20.bundle; path = "three20-master/src/Three20.bundle"; sourceTree = SOURCE_ROOT; };
 		50E801B116FA6FC6004B9401 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = ../Reachability.h; sourceTree = "<group>"; };
 		50E801B216FA6FC6004B9401 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = ../Reachability.m; sourceTree = "<group>"; };
 		50E801B416FA6FE3004B9401 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -212,6 +214,7 @@
 		B38AE61716C4227C00069514 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				320B6C86F11D9990244A9730 /* Three20.bundle */,
 				B38AE61816C4227C00069514 /* HHSApp-Info.plist */,
 				B38AE61916C4227C00069514 /* InfoPlist.strings */,
 				B38AE61C16C4227C00069514 /* main.m */,
@@ -335,6 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				320B6C86F11D9990244A9731 /* Three20.bundle in Resources */,
 				B38AE61B16C4227C00069514 /* InfoPlist.strings in Resources */,
 				B38AE62A16C4227C00069514 /* MainStoryboard_iPhone.storyboard in Resources */,
 				B38AE62D16C4227C00069514 /* MainStoryboard_iPad.storyboard in Resources */,
