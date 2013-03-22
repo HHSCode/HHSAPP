@@ -16,6 +16,7 @@
 }
 
 @property (nonatomic, retain) IBOutlet UIWebView *moreDetailWebView;
+@property (nonatomic, retain) IBOutlet UIButton *button;
 
 -(void)loadWebPageWithTitle:(NSString *)title atURL:(NSURL *)url;
 
