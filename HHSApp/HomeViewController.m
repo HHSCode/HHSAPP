@@ -28,6 +28,7 @@
 {
     
     [super viewDidLoad];
+    [slideshowImageView setImage:[UIImage imageNamed:@"photo.png"]];
     calendarWebView.scrollView.scrollEnabled = NO;
     calendarWebView.scrollView.bounces = NO;
     
@@ -119,6 +120,8 @@
 
 -(void)setupImageView{
     NSMutableArray *theArray = [[NSMutableArray alloc]init];
+    UIImage *theImage = [UIImage imageNamed:@"photo.png"];
+    [theArray insertObject:theImage atIndex:[theArray count]];
     for (NSMutableDictionary *dic in stories) {
         //NSLog(@"Link: %@", [dic objectForKey:@"link"]);
         if ([[dic objectForKey:@"link"] isEqualToString:@""]) {
