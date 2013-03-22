@@ -72,8 +72,20 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
-    return 1;
+    if (section == 0) {
+        return 1;
+    }else{
+        int cells = 4;
+        if ([phone isEqualToString:@"-1"]) {
+            cells -=1;
+            
+        }
+        if ([url isEqualToString:@" "]) {
+            cells -=1;
+        }
+        return cells;
+        
+    }
     
     
 }
@@ -90,7 +102,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifer];
     }
     
-    if ([indexPath section]==0) {
+    if ([indexPath row]==0) {
         cell.textLabel.text = [NSString stringWithFormat:@"%@%@", firstName, lastName];
         cell.detailTextLabel.text = title;
     }else if ([indexPath section]==1){
