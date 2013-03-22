@@ -194,14 +194,15 @@
           }
           
           }
-/*
+
           
--(void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult MFMailComposeResult)result error:(NSError *)error {
-    
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError*)error
+{
     [self dismissModalViewControllerAnimated:YES];
-    
+    return;
 }
-*/
 //TABLEVIEW
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
