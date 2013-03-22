@@ -48,6 +48,7 @@
     email = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"email"];
     title = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"title"];
     url = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"site"];
+    phone = [NSString stringWithFormat:@"1 (603) 643-3431 ,%@", phone];
     [staffDetailTableView reloadData];
 }
 
@@ -90,11 +91,13 @@
     }
     
     if ([indexPath section]==0) {
-        cell.textLabel.text = [NSString stringWithFormat:@"%@%@ (%@)", firstName, lastName, title];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@%@", firstName, lastName];
+        cell.detailTextLabel.text = title;
     }else if ([indexPath section]==1){
         cell.textLabel.text = department;
     }else if([indexPath section]==2){
         cell.textLabel.text = email;
+        cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
     }
     if ([phone isEqualToString:@"-1"]) {
         if ([url isEqualToString:@" "]) {
