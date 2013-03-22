@@ -37,7 +37,7 @@
 
 -(void)setWebView:(int)indexPath :(NSMutableArray *)stories{
     [self setTitle:[[stories objectAtIndex:indexPath]objectForKey:@"title"]];
-    url = [[stories objectAtIndex:indexPath]objectForKey:@"link"];
+    urlToShare = [[stories objectAtIndex:indexPath]objectForKey:@"link"];
     //NSLog(@"%@", [[stories objectAtIndex:indexPath]objectForKey:@"HTML"]);
     NSMutableString *htmlString = [[stories objectAtIndex:indexPath]objectForKey:@"HTML"];
     NSMutableString *date = [[NSMutableString alloc]initWithString:[[stories objectAtIndex:indexPath]objectForKey:@"date"]];
@@ -64,27 +64,14 @@
 }
 
 - (IBAction)showActivityView
-{
-    NSLog(@"1");    
+{   
     NSString *textToShare = @"Check out this HHS Broadside article!";
-    NSLog(@"2");
     UIImage *imageToShare = [UIImage imageNamed:@"icon_iphone.png"];
-    NSLog(@"3");
-    NSURL *urlToShare = [NSURL URLWithString:url];
-    NSLog(@"4");
-    NSLog(@"%@", url);
     NSArray *activityItems = [[NSArray alloc]initWithObjects:textToShare, imageToShare, urlToShare, nil];
-    NSLog(@"5");
-    NSArray *applicationItems = [[NSArray alloc] initWithObjects:nil];
-    NSLog(@"6");
+    NSArray *applicationItems = [[NSArray alloc] initWithObjects:/*UIActivityTypePostToFacebook, UIActivityTypePostToTwitter, UIActivityTypePostToWeibo, UIActivityTypeMessage, UIActivityTypeMail, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll, */nil];
     UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:applicationItems];
-    NSLog(@"7");
-    activityVC.excludedActivityTypes = @[UIActivityTypePostToWeibo, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll];
-    NSLog(@"8");
-    //This is an array of excluded activities to appear on the UIActivityViewController
-    NSLog(@"9");
+    activityVC.excludedActivityTypes = [[NSArray alloc]initWithObjects:UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll, nil];
     [self presentViewController:activityVC animated:TRUE completion:^{}];
-    NSLog(@"10");
 }
 
 
