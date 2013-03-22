@@ -21,6 +21,7 @@
 		88D627EB16F8AFEE00755256 /* BroadsideDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D627E916F8AFEE00755256 /* BroadsideDetailViewController.m */; };
 		88D627EC16F8AFEE00755256 /* BroadsideDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D627EA16F8AFEE00755256 /* BroadsideDetailViewController.xib */; };
 		88DA9D9E16FC962B0096C588 /* MoreDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88DA9D9D16FC962B0096C588 /* MoreDetailViewController.xib */; };
+		88DA9DA116FCA8A90096C588 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DA9D9F16FCA8990096C588 /* MessageUI.framework */; };
 		B3128BB016FA27D2004621E9 /* icon_iphone_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = B3128BAE16FA27D2004621E9 /* icon_iphone_retina.png */; };
 		B3128BB116FA27D2004621E9 /* icon_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = B3128BAF16FA27D2004621E9 /* icon_iphone.png */; };
 		B34E0D5616F9FA2600BC552E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B34E0D5516F9FA2600BC552E /* Default-568h@2x.png */; };
@@ -89,6 +90,7 @@
 		88D627E916F8AFEE00755256 /* BroadsideDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BroadsideDetailViewController.m; path = ../BroadsideDetailViewController.m; sourceTree = "<group>"; };
 		88D627EA16F8AFEE00755256 /* BroadsideDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BroadsideDetailViewController.xib; path = ../BroadsideDetailViewController.xib; sourceTree = "<group>"; };
 		88DA9D9D16FC962B0096C588 /* MoreDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreDetailViewController.xib; sourceTree = "<group>"; };
+		88DA9D9F16FCA8990096C588 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B3128BAE16FA27D2004621E9 /* icon_iphone_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_iphone_retina.png; path = images/icon_iphone_retina.png; sourceTree = SOURCE_ROOT; };
 		B3128BAF16FA27D2004621E9 /* icon_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_iphone.png; path = images/icon_iphone.png; sourceTree = SOURCE_ROOT; };
 		B34E0D5516F9FA2600BC552E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88DA9DA116FCA8A90096C588 /* MessageUI.framework in Frameworks */,
 				50E801B516FA6FE3004B9401 /* SystemConfiguration.framework in Frameworks */,
 				320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */,
 				B38AE61116C4227C00069514 /* UIKit.framework in Frameworks */,
@@ -183,6 +186,7 @@
 		B38AE60F16C4227C00069514 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88DA9D9F16FCA8990096C588 /* MessageUI.framework */,
 				50E801B416FA6FE3004B9401 /* SystemConfiguration.framework */,
 				320AF8492C47A4D819F7C450 /* QuartzCore.framework */,
 				B38AE61016C4227C00069514 /* UIKit.framework */,

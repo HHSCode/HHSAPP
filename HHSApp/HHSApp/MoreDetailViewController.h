@@ -8,17 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-<<<<<<< HEAD
-@interface MoreDetailViewController : UIViewController
 
-{
-<<<<<<< HEAD
-=======
+
+
 @interface MoreDetailViewController : UIViewController{
->>>>>>> COmmit
-    
-=======
->>>>>>> Added Email Methods
+
 }
 
 @property (nonatomic, retain) IBOutlet UIWebView *moreDetailWebView;
