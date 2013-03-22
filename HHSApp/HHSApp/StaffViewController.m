@@ -13,7 +13,7 @@
 @end
 
 @implementation StaffViewController
-@synthesize staffTableView, rssParser, activityIndicator;
+@synthesize staffTableView, rssParser, activityIndicator, disableViewOverlay, theSearchBar;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,8 +26,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
     Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
     // set the blocks
+    theSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(-5.0, 0.0, 320.0, 44.0)];
+    theSearchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    UIView *searchBarView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 310.0, 44.0)];
+    searchBarView.autoresizingMask = 0;
+    theSearchBar.delegate = self;
+    [searchBarView addSubview:theSearchBar];
+    self.navigationItem.titleView = searchBarView;
+    
+    self.disableViewOverlay = [[UIView alloc]
+                               initWithFrame:CGRectMake(0.0f,44.0f,320.0f,416.0f)];
+    self.disableViewOverlay.backgroundColor=[UIColor blackColor];
+    self.disableViewOverlay.alpha = 0;
+
    
     reach.reachableBlock = ^(Reachability*reach)
     {
@@ -42,6 +57,8 @@
         
 
         [activityIndicator startAnimating];
+        
+        
         
 
     };
@@ -58,6 +75,92 @@
     [reach startNotifier];
    
 }
+
+//SEARCH BAR
+
+
+/*
+- (void)searchBar:(UISearchBar *)searchBar
+    textDidChange:(NSString *)searchText {
+    // We don't want to do anything until the user clicks
+    // the 'Search' button.
+    // If you wanted to display results as the user types
+    // you would do that here.
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    // searchBarTextDidBeginEditing is called whenever
+    // focus is given to the UISearchBar
+    // call our activate method so that we can do some
+    // additional things when the UISearchBar shows.
+    [self searchBar:searchBar activate:YES];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    // searchBarTextDidEndEditing is fired whenever the
+    // UISearchBar loses focus
+    // We don't need to do anything here.
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    // Clear the search text
+    // Deactivate the UISearchBar
+    searchBar.text=@"";
+    [self searchBar:searchBar activate:NO];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    // Do the search and show the results in tableview
+    // Deactivate the UISearchBar
+	
+    // You'll probably want to do this on another thread
+    // SomeService is just a dummy class representing some
+    // api that you are using to do the search
+    NSArray *results = [SomeService doSearch:searchBar.text];
+	
+    [self searchBar:searchBar activate:NO];
+	
+    [self.tableData removeAllObjects];
+    [self.tableData addObjectsFromArray:results];
+    [self.staffTableView reloadData];
+}
+
+// We call this when we want to activate/deactivate the UISearchBar
+// Depending on active (YES/NO) we disable/enable selection and
+// scrolling on the UITableView
+// Show/Hide the UISearchBar Cancel button
+// Fade the screen In/Out with the disableViewOverlay and
+// simple Animations
+- (void)searchBar:(UISearchBar *)searchBar activate:(BOOL) active{
+    self.staffTableView.allowsSelection = !active;
+    self.staffTableView.scrollEnabled = !active;
+    if (!active) {
+        [disableViewOverlay removeFromSuperview];
+        [searchBar resignFirstResponder];
+    } else {
+        self.disableViewOverlay.alpha = 0;
+        [self.view addSubview:self.disableViewOverlay];
+		
+        [UIView beginAnimations:@"FadeIn" context:nil];
+        [UIView setAnimationDuration:0.5];
+        self.disableViewOverlay.alpha = 0.6;
+        [UIView commitAnimations];
+		
+        // probably not needed if you have a details view since you
+        // will go there on selection
+        NSIndexPath *selected = [self.staffTableView
+                                 indexPathForSelectedRow];
+        if (selected) {
+            [self.staffTableView deselectRowAtIndexPath:selected
+                                             animated:NO];
+        }
+    }
+    [searchBar setShowsCancelButton:active animated:YES];
+}*/
+
+
+
+//PARSE
 
 - (void)parseXMLFileAtURL:(NSString *)URL {
     NSLog(@"Parsing");
@@ -343,7 +446,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%i, %i", [indexPath section], [indexPath row]);
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     StaffDetailViewController *staffDetail = [[StaffDetailViewController alloc]initWithNibName:@"StaffDetailViewController" bundle:nil];
     [staffDetail setTitle:@"Info"];

@@ -10,7 +10,7 @@
 #import "Reachability.h"
 #import "StaffDetailViewController.h"
 
-@interface StaffViewController : UIViewController<NSXMLParserDelegate, UITableViewDelegate, UITableViewDataSource>{
+@interface StaffViewController : UIViewController<NSXMLParserDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>{
     NSXMLParser *rssParser;
     NSMutableArray *articles;
     NSMutableDictionary *item;
@@ -22,12 +22,20 @@
     NSArray *sortedDepartments;
     
     NSMutableString * currentFirstName, * currentLastName, * currentDept, * currentTitle, *currentEmail, *currentSite;
+    UIView *disableViewOverlay;
+	
+	UISearchBar *theSearchBar;
     
 }
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) IBOutlet UITableView *staffTableView;
 
 @property (nonatomic, retain) IBOutlet NSXMLParser * rssParser;
+@property(retain) UIView *disableViewOverlay;
+
+@property (nonatomic, retain) IBOutlet UISearchBar *theSearchBar;
+
+- (void)searchBar:(UISearchBar *)searchBar activate:(BOOL) active;
 
 -(void)parseStoryArray;
 - (void)parseXMLFileAtURL:(NSString *)URL;
