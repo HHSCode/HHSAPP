@@ -14,6 +14,7 @@
 		50E801B816FBE9A5004B9401 /* StaffDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E801B716FBE9A5004B9401 /* StaffDetailViewController.m */; };
 		50E801BA16FBF160004B9401 /* StaffDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50E801B916FBF160004B9401 /* StaffDetailViewController.xib */; };
 		882392EC16FCB5CE0091D8AC /* safari icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 882392EB16FCB5CE0091D8AC /* safari icon.png */; };
+		882392EE16FCB6B60091D8AC /* chrome icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 882392ED16FCB6B60091D8AC /* chrome icon.png */; };
 		88396BBA16FCAA9700AAAEFC /* ActivityViewCustomActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 88396BB716FCAA9700AAAEFC /* ActivityViewCustomActivity.m */; };
 		88396BBB16FCAA9700AAAEFC /* ActivityViewCustomProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 88396BB916FCAA9700AAAEFC /* ActivityViewCustomProvider.m */; };
 		88396BBE16FCAAAD00AAAEFC /* BroadsideDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88396BBD16FCAAAD00AAAEFC /* BroadsideDetailViewController.m */; };
@@ -84,6 +85,7 @@
 		50E801B716FBE9A5004B9401 /* StaffDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffDetailViewController.m; sourceTree = "<group>"; };
 		50E801B916FBF160004B9401 /* StaffDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaffDetailViewController.xib; sourceTree = "<group>"; };
 		882392EB16FCB5CE0091D8AC /* safari icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "safari icon.png"; sourceTree = "<group>"; };
+		882392ED16FCB6B60091D8AC /* chrome icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chrome icon.png"; sourceTree = "<group>"; };
 		88396BB616FCAA9700AAAEFC /* ActivityViewCustomActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewCustomActivity.h; sourceTree = "<group>"; };
 		88396BB716FCAA9700AAAEFC /* ActivityViewCustomActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewCustomActivity.m; sourceTree = "<group>"; };
 		88396BB816FCAA9700AAAEFC /* ActivityViewCustomProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewCustomProvider.h; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				B3D1189E16F8A80600155CDA /* more_60x60@2x.png */,
 				B3D1189F16F8A80600155CDA /* more_white_60x60@2x.png */,
 				882392EB16FCB5CE0091D8AC /* safari icon.png */,
+				882392ED16FCB6B60091D8AC /* chrome icon.png */,
 				B3D1189A16F8A70C00155CDA /* staff_white_60x60@2x.png */,
 				B3D1189B16F8A70C00155CDA /* home_white_60x60@2x.png */,
 				B3D1189816F8A5D700155CDA /* broadside_white_60x60@2x.png */,
@@ -415,6 +418,7 @@
 				88DA9DA516FCAB740096C588 /* photo.png in Resources */,
 				B3C572BA16FCB238005E8735 /* feedback.png in Resources */,
 				882392EC16FCB5CE0091D8AC /* safari icon.png in Resources */,
+				882392EE16FCB6B60091D8AC /* chrome icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
