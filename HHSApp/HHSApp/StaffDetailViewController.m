@@ -231,13 +231,15 @@
     }else if ([cell.textLabel.text isEqualToString:email]){
         [self actionEmailComposer];
     }else if ([cell.textLabel.text isEqualToString:phone]){
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", phone]]];
+        NSString *string = [[NSString alloc]initWithString:phone];
+        string = [string stringByReplacingOccurrencesOfString:@"ext. " withString:@","];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", string]]];
         
     }
 
     // Navigation logic may go here. Create and push another view controller.
     /*
-     *detailViewController = [[ alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     *detailViewController = [[ alloc] initWithNibName:@"" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
