@@ -25,7 +25,6 @@
 		88D627EC16F8AFEE00755256 /* BroadsideDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D627EA16F8AFEE00755256 /* BroadsideDetailViewController.xib */; };
 		88DA9D9E16FC962B0096C588 /* MoreDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88DA9D9D16FC962B0096C588 /* MoreDetailViewController.xib */; };
 		88DA9DA116FCA8A90096C588 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DA9D9F16FCA8990096C588 /* MessageUI.framework */; };
-		88DA9DA316FCA8FA0096C588 /* photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 88DA9DA216FCA8FA0096C588 /* photo.png */; };
 		B3128BB016FA27D2004621E9 /* icon_iphone_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = B3128BAE16FA27D2004621E9 /* icon_iphone_retina.png */; };
 		B3128BB116FA27D2004621E9 /* icon_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = B3128BAF16FA27D2004621E9 /* icon_iphone.png */; };
 		B34E0D5616F9FA2600BC552E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B34E0D5516F9FA2600BC552E /* Default-568h@2x.png */; };
@@ -100,7 +99,6 @@
 		88D627EA16F8AFEE00755256 /* BroadsideDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BroadsideDetailViewController.xib; path = ../BroadsideDetailViewController.xib; sourceTree = "<group>"; };
 		88DA9D9D16FC962B0096C588 /* MoreDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreDetailViewController.xib; sourceTree = "<group>"; };
 		88DA9D9F16FCA8990096C588 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		88DA9DA216FCA8FA0096C588 /* photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = photo.png; path = images/photo.png; sourceTree = SOURCE_ROOT; };
 		B3128BAE16FA27D2004621E9 /* icon_iphone_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_iphone_retina.png; path = images/icon_iphone_retina.png; sourceTree = SOURCE_ROOT; };
 		B3128BAF16FA27D2004621E9 /* icon_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_iphone.png; path = images/icon_iphone.png; sourceTree = SOURCE_ROOT; };
 		B34E0D5516F9FA2600BC552E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -285,7 +283,6 @@
 		B3A3EDC216EA44DD00A45BD2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				88DA9DA216FCA8FA0096C588 /* photo.png */,
 				B34E0D5E16F9FC9800BC552E /* Default@2x.png */,
 				B3128BAE16FA27D2004621E9 /* icon_iphone_retina.png */,
 				B3128BAF16FA27D2004621E9 /* icon_iphone.png */,
@@ -404,11 +401,7 @@
 				B3128BB116FA27D2004621E9 /* icon_iphone.png in Resources */,
 				50E801BA16FBF160004B9401 /* StaffDetailViewController.xib in Resources */,
 				88DA9D9E16FC962B0096C588 /* MoreDetailViewController.xib in Resources */,
-<<<<<<< HEAD
 				887057D616FCA22200D60D5D /* safari icon.png in Resources */,
-=======
-				88DA9DA316FCA8FA0096C588 /* photo.png in Resources */,
->>>>>>> Another commit
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
