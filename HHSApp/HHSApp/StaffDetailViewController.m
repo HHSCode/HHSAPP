@@ -48,8 +48,44 @@
     email = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"email"];
     title = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"title"];
     url = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"site"];
-    phone = [NSString stringWithFormat:@"1 (603) 643-3431 ,%@", phone];
+    phoneOrig = phone;
+    phone = [NSString stringWithFormat:@"1 (603) 643-3431 ext. %@", phone];
     [staffDetailTableView reloadData];
+}
+
+// EMAIL
+
+- (IBAction)actionEmailComposer{
+    
+    if ([MFMailComposeViewController canSendMail]) {
+        
+        MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
+        mailViewController.mailComposeDelegate = self;
+        [mailViewController setSubject:@"Email to Staff"];
+        NSArray *array = [[NSArray alloc]initWithObjects:email, nil];
+        [mailViewController setToRecipients:array];
+        [mailViewController setMessageBody:@"" isHTML:NO];
+        
+        [self presentModalViewController:mailViewController animated:YES];
+        
+        
+    }
+    
+    else {
+        
+        NSLog(@"Device is unable to send email in its current state.");
+        
+    }
+    
+}
+
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError*)error
+{
+    [self dismissModalViewControllerAnimated:YES];
+    return;
 }
 
 
@@ -58,7 +94,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     int cells = 5;
-    if ([phone isEqualToString:@"-1"]) {
+    if ([phoneOrig isEqualToString:@"-1"]) {
         cells -=1;
         
     }
@@ -76,7 +112,7 @@
         return 1;
     }else{
         int cells = 4;
-        if ([phone isEqualToString:@"-1"]) {
+        if ([phoneOrig isEqualToString:@"-1"]) {
             cells -=1;
             
         }
@@ -116,17 +152,25 @@
         }
         
         
-        if ([phone isEqualToString:@"-1"]) {
+        if ([phoneOrig isEqualToString:@"-1"]) {
             if ([url isEqualToString:@" "]) {
                 //neither
             }else{
-                //just url
+                if ([indexPath row]==2){
+                    cell.textLabel.text = url;
+                }
             }
 
         }else if ([url isEqualToString:@" "]) {
-            //just phone
+            if ([indexPath row]==2){
+                cell.textLabel.text = phone;
+            }
         }else{
-            //both
+            if ([indexPath row]==2){
+                cell.textLabel.text = url;
+            }else if ([indexPath row]==3){
+                cell.textLabel.text = phone;
+            }
         }
 
     
@@ -178,10 +222,22 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    UITableViewCell *cell = [[UITableViewCell alloc]init];
+    cell = [tableView cellForRowAtIndexPath:indexPath];
+   // NSLog(@"-%@-", cell.textLabel.text);
+    if ([cell.textLabel.text isEqualToString:url]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+        NSLog(@"opened");
+    }else if ([cell.textLabel.text isEqualToString:email]){
+        [self actionEmailComposer];
+    }else if ([cell.textLabel.text isEqualToString:phone]){
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", phone]]];
+        
+    }
 
     // Navigation logic may go here. Create and push another view controller.
     /*
-     *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     *detailViewController = [[ alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
