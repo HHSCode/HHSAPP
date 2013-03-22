@@ -20,7 +20,7 @@
     NSString *currentElement;
     NSMutableString *ElementValue;
     BOOL errorParsing;
-    NSMutableArray * stories;
+    NSMutableDictionary * stories;
     
     NSMutableString * currentName, *currentLink;
     UIActivityIndicatorView *act;

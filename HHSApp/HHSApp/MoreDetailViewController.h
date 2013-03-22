@@ -11,7 +11,13 @@
 @interface MoreDetailViewController : UIViewController
 
 {
-    IBOutlet UIWebView *handbook;
+    
 }
+
+@property (nonatomic, retain) IBOutlet UIWebView *moreDetailWebView;
+
+-(void)loadWebPageWithTitle:(NSString *)title atURL:(NSURL *)url;
+
+- (IBAction)goBack:(id)sender;
 
 @end

@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    cellNames = [[NSArray alloc] initWithObjects:@"Handbook", @"Pricipal's Notes", @"Program of Studies", @"Council", @"SAU 70", @"Guidance", @"Yearbook", @"March Intensive", @"Media Center",@"Sports",@"Snow Day", nil];
+    cellNames = [[NSArray alloc] initWithObjects:@"Handbook", @"Program of Studies", @"Council", @"SAU 70", @"Guidance", @"Yearbook", @"March Intensive", @"Media Center",@"Athletics",@"Snow Day", nil];
     moreTableView.delegate = self;
     moreTableView.dataSource = self;
     
@@ -38,7 +38,7 @@
     reach.reachableBlock = ^(Reachability*reach)
     {
         NSLog(@"Reachable");
-        stories = [[NSMutableArray alloc] init];
+        stories = [[NSMutableDictionary alloc] init];
         [moreTableView reloadData];
         [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://www.lordtechyproductions.com/hhsapp/moreTab.php"];
         act = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(12.0, 85, 260.0, 25.0)];
@@ -52,8 +52,9 @@
                         cancelButtonTitle:nil
                         otherButtonTitles:nil];
             [wait addSubview:act];
-        [wait performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:NO];
         [act startAnimating];
+        [wait performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:NO];
+
 
     };
     
@@ -80,7 +81,7 @@
 
 - (void)parseXMLFileAtURL:(NSString *)URL {
     
-    stories = [[NSMutableArray alloc] init];
+    stories = [[NSMutableDictionary alloc] init];
     
 	//you must then convert the path to a proper NSURL or it won't work
 	NSURL *xmlURL = [NSURL URLWithString:URL];
@@ -106,6 +107,8 @@
 
 - (void)parserDidStartDocument:(NSXMLParser *)parser {
 	// (@"found file and started parsing");
+    item = [[NSMutableDictionary alloc] init];
+
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
@@ -121,7 +124,6 @@
 	currentElement = [elementName copy];
     //NSLog(@"Current Element: %@", currentElement);
 	if ([elementName isEqualToString:@"name"]) {
-		item = [[NSMutableDictionary alloc] init];
 		currentLink = [[NSMutableString alloc] init];
 		currentName = [[NSMutableString alloc] init];
 
@@ -138,10 +140,10 @@
 		// save values to an item, then store that item into the array...
         //NSLog(@"item: %@", item);
         NSString *string = [currentName substringToIndex:[currentName length]-1];
-        [item setObject:string forKey:@"name"];
-		[item setObject:currentLink forKey:@"link"];
+        
+        [item setObject:currentLink forKey:string];
     
-		[stories addObject:[item copy]];
+		stories = item;
     }
 	
 }
@@ -164,8 +166,9 @@
     
     NSLog(@"Stories: %@", stories);
     
-    [act stopAnimating];
     [wait dismissWithClickedButtonIndex:0 animated:YES];
+
+    [act stopAnimating];
     
 }
 
@@ -254,8 +257,11 @@
 {
     MoreDetailViewController *detail = [[MoreDetailViewController alloc]initWithNibName:@"MoreDetailViewController" bundle:nil];
     detail.title = [cellNames objectAtIndex:[indexPath row]];
+    NSLog(@"%@", [cellNames objectAtIndex:[indexPath row]]);
+    NSLog(@"%@", [stories objectForKey:[cellNames objectAtIndex:[indexPath row]]]);
     [self.navigationController pushViewController:detail animated:YES];
-    
+    [detail loadWebPageWithTitle:[cellNames objectAtIndex:[indexPath row]] atURL:[NSURL URLWithString:[stories objectForKey:[cellNames objectAtIndex:[indexPath row]]]]];
+
     //[detail setWebView:[indexPath row] :stories];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
    
