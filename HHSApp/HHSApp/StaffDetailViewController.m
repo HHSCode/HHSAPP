@@ -102,43 +102,21 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifer];
     }
     
-    if ([indexPath row]==0) {
+    if ([indexPath section]==0) {
         cell.textLabel.text = [NSString stringWithFormat:@"%@%@", firstName, lastName];
         cell.detailTextLabel.text = title;
-    }else if ([indexPath section]==1){
-        cell.textLabel.text = department;
-    }else if([indexPath section]==2){
-        cell.textLabel.text = email;
-        cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
-    }
-    if ([phone isEqualToString:@"-1"]) {
-        if ([url isEqualToString:@" "]) {
-            //nothing
-            
-        }else{
-            if([indexPath section]==3){
-                cell.textLabel.text = url;
-            }
-            //just url
-        }
-        
-    }else if ([url isEqualToString:@" "]) {
-        //just phone
-        if([indexPath section]==3){
-            cell.textLabel.text = phone;
-        }
     }else{
-        if([indexPath section]==3){
-            cell.textLabel.text = url;
-        }
-        if([indexPath section]==4){
-            cell.textLabel.text = phone;
-        }
         
-        //both
+            
+        if ([indexPath row]==0){
+            cell.textLabel.text = department;
+        }else if([indexPath row]==1){
+            cell.textLabel.text = email;
+            cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
+        }
+
+    
     }
-    
-    
     return cell;
 }
 
