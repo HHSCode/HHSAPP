@@ -28,9 +28,45 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    cellNames = [[NSArray alloc] initWithObjects:@"Handbook", @"Pricipals Notes", @"Program of Studies", @"Council", @"SAU 70", @"Guidance", @"Yearbook", @"March Intensive", @"Media Center",@"Sports",@"Snow Day", nil];
+    cellNames = [[NSArray alloc] initWithObjects:@"Handbook", @"Pricipal's Notes", @"Program of Studies", @"Council", @"SAU 70", @"Guidance", @"Yearbook", @"March Intensive", @"Media Center",@"Sports",@"Snow Day", nil];
     moreTableView.delegate = self;
     moreTableView.dataSource = self;
+    
+    Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    // set the blocks
+    NSLog(@"Ran");
+    reach.reachableBlock = ^(Reachability*reach)
+    {
+        NSLog(@"Reachable");
+        stories = [[NSMutableArray alloc] init];
+        [moreTableView reloadData];
+        [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://www.lordtechyproductions.com/hhsapp/moreTab.php"];
+        act = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(12.0, 85, 260.0, 25.0)];
+        
+        
+       
+         wait = [[UIAlertView alloc]
+                        initWithTitle:@"Loading..."
+                        message:@"Please wait"
+                        delegate:self
+                        cancelButtonTitle:nil
+                        otherButtonTitles:nil];
+            [wait addSubview:act];
+        [wait performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:NO];
+        [act startAnimating];
+
+    };
+    
+    reach.unreachableBlock = ^(Reachability*reach)
+    {
+        NSLog(@"UNREACHABLE!");
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"No internet connection! Expect errors when loading documents." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
+        
+    };
+    [reach startNotifier];
+
 	// Do any additional setup after loading the view.
 }
 
@@ -38,6 +74,99 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+//Parser
+
+- (void)parseXMLFileAtURL:(NSString *)URL {
+    
+    stories = [[NSMutableArray alloc] init];
+    
+	//you must then convert the path to a proper NSURL or it won't work
+	NSURL *xmlURL = [NSURL URLWithString:URL];
+    
+	// here, for some reason you have to use NSClassFromString when trying to alloc NSXMLParser, otherwise you will get an object not found error
+	// this may be necessary only for the toolchain
+	rssParser = [[NSXMLParser alloc] initWithContentsOfURL:xmlURL];
+    
+	// Set self as the delegate of the parser so that it will receive the parser delegate methods callbacks.
+	[rssParser setDelegate:self];
+    
+	// Depending on the XML document you're parsing, you may want to enable these features of NSXMLParser.
+	[rssParser setShouldProcessNamespaces:NO];
+    
+	[rssParser setShouldReportNamespacePrefixes:NO];
+    
+	[rssParser setShouldResolveExternalEntities:NO];
+    
+    
+	[rssParser parse];
+    
+}
+
+- (void)parserDidStartDocument:(NSXMLParser *)parser {
+	// (@"found file and started parsing");
+}
+
+- (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
+	NSString * errorString = [NSString stringWithFormat:@"Unable to download story feed from web site (Error code %i ). Please try again later.", [parseError code]];
+	//NSLog(@"error parsing XML: %@", errorString);
+    
+	UIAlertView * errorAlert = [[UIAlertView alloc] initWithTitle:@"Error loading content" message:errorString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+	[errorAlert show];
+    
+}
+
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
+	currentElement = [elementName copy];
+    //NSLog(@"Current Element: %@", currentElement);
+	if ([elementName isEqualToString:@"name"]) {
+		item = [[NSMutableDictionary alloc] init];
+		currentLink = [[NSMutableString alloc] init];
+		currentName = [[NSMutableString alloc] init];
+
+        
+    }
+    
+}
+
+- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
+    
+	//NSLog(@"ended element: %@", elementName);
+    
+	if ([elementName isEqualToString:@"link"]) { //change this back to id
+		// save values to an item, then store that item into the array...
+        //NSLog(@"item: %@", item);
+        NSString *string = [currentName substringToIndex:[currentName length]-1];
+        [item setObject:string forKey:@"name"];
+		[item setObject:currentLink forKey:@"link"];
+    
+		[stories addObject:[item copy]];
+    }
+	
+}
+
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
+    //NSLog(@"%@: %@", currentElement, string);
+    if ([currentElement isEqualToString:@"name"]){
+        [currentName appendString:string];
+    }else if ([currentElement isEqualToString:@"link"]) {
+		[currentLink appendString:string];
+    }
+	// save the characters for the current item...
+    
+}
+
+- (void)parserDidEndDocument:(NSXMLParser *)parser {
+    
+	NSLog(@"all done!");
+	NSLog(@"stories array has %d items", [stories count]);
+    
+    NSLog(@"Stories: %@", stories);
+    
+    [act stopAnimating];
+    [wait dismissWithClickedButtonIndex:0 animated:YES];
+    
 }
 
 

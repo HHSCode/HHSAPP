@@ -8,14 +8,30 @@
 
 #import <UIKit/UIKit.h>
 #import "MoreDetailViewController.h"
+#import "Reachability.h"
 
 @interface MoreViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>{
     UITableView *moreTableView;
     NSArray *cellNames;
     
+    NSXMLParser *rssParser;
+    NSMutableArray *articles;
+    NSMutableDictionary *item;
+    NSString *currentElement;
+    NSMutableString *ElementValue;
+    BOOL errorParsing;
+    NSMutableArray * stories;
     
+    NSMutableString * currentName, *currentLink;
+    UIActivityIndicatorView *act;
+    UIAlertView *wait;
 }
 
 
 @property (nonatomic, retain) IBOutlet UITableView *moreTableView;
+
+@property (nonatomic, retain) IBOutlet NSXMLParser * rssParser;
+
+- (void)parseXMLFileAtURL:(NSString *)URL;
+
 @end
