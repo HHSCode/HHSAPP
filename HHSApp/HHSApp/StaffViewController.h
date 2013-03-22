@@ -26,12 +26,14 @@
 	
 	UISearchBar *theSearchBar;
     
+    
 }
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) IBOutlet UITableView *staffTableView;
 
 @property (nonatomic, retain) IBOutlet NSXMLParser * rssParser;
 @property(retain) UIView *disableViewOverlay;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorStaff;
 
 @property (nonatomic, retain) IBOutlet UISearchBar *theSearchBar;
 

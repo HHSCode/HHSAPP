@@ -88,26 +88,22 @@
                                     <constraint firstAttribute="width" constant="300" id="yQU-FP-oHN"/>
                                 </constraints>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Inu-N0-4A1"/>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5mL-GF-6l1"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5mL-GF-6l1"/>
                         </subviews>
                         <color key="backgroundColor" red="0.65882354974746704" green="0.086274512112140656" blue="0.11764706671237946" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="otd-Qy-qw3" firstAttribute="leading" secondItem="xA9-GV-vtV" secondAttribute="leading" type="default" id="4Md-iD-JAv"/>
                             <constraint firstItem="otd-Qy-qw3" firstAttribute="centerY" secondItem="5mL-GF-6l1" secondAttribute="centerY" type="default" id="7C5-5O-Ccc"/>
-                            <constraint firstItem="Inu-N0-4A1" firstAttribute="centerX" secondItem="xA9-GV-vtV" secondAttribute="centerX" type="default" id="CBW-ud-k0Y"/>
                             <constraint firstItem="xA9-GV-vtV" firstAttribute="top" secondItem="16" secondAttribute="top" constant="6" id="GrB-cv-CyA"/>
                             <constraint firstItem="otd-Qy-qw3" firstAttribute="top" secondItem="16" secondAttribute="top" constant="202" id="Gxe-dN-jPI"/>
-                            <constraint firstItem="5mL-GF-6l1" firstAttribute="leading" secondItem="Inu-N0-4A1" secondAttribute="leading" type="default" id="SkH-zx-GQp"/>
-                            <constraint firstItem="Inu-N0-4A1" firstAttribute="top" secondItem="16" secondAttribute="top" constant="88" id="a12-Zc-AVc"/>
                             <constraint firstItem="otd-Qy-qw3" firstAttribute="trailing" secondItem="xA9-GV-vtV" secondAttribute="trailing" type="default" id="aL9-Xt-eWy"/>
-                            <constraint firstItem="xA9-GV-vtV" firstAttribute="centerX" secondItem="16" secondAttribute="centerX" type="default" id="gfo-hc-pgk"/>
+                            <constraint firstItem="5mL-GF-6l1" firstAttribute="centerX" secondItem="otd-Qy-qw3" secondAttribute="centerX" type="default" id="bTY-oH-ETA"/>
+                            <constraint firstItem="5mL-GF-6l1" firstAttribute="centerX" secondItem="16" secondAttribute="centerX" type="default" id="dEl-72-uPO"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="home_30x30@2x.png" id="7"/>
                     <connections>
                         <outlet property="activityIndicatorCalendar" destination="5mL-GF-6l1" id="n2c-vi-UlW"/>
-                        <outlet property="activityIndicatorSlideshow" destination="Inu-N0-4A1" id="LFU-ST-FAY"/>
                         <outlet property="calendarWebView" destination="otd-Qy-qw3" id="lrQ-2T-96b"/>
                         <outlet property="slideshowImageView" destination="xA9-GV-vtV" id="SMH-7E-PAU"/>
                         <outlet property="view" destination="16" id="ooL-PO-yYV"/>
@@ -214,17 +210,21 @@
                                     <outlet property="delegate" destination="o01-Sg-B0R" id="T9C-zq-mND"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5PW-lY-IPP"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CaX-nX-bKk" firstAttribute="trailing" secondItem="8HQ-4X-Gvg" secondAttribute="trailing" type="default" id="0vL-Ib-dc0"/>
+                            <constraint firstItem="5PW-lY-IPP" firstAttribute="centerX" secondItem="CaX-nX-bKk" secondAttribute="centerX" type="default" id="DL6-K0-7R6"/>
                             <constraint firstItem="CaX-nX-bKk" firstAttribute="top" secondItem="8HQ-4X-Gvg" secondAttribute="top" type="default" id="G0R-lF-oVO"/>
+                            <constraint firstItem="5PW-lY-IPP" firstAttribute="top" secondItem="8HQ-4X-Gvg" secondAttribute="top" constant="174" id="R52-EC-p1b"/>
                             <constraint firstItem="CaX-nX-bKk" firstAttribute="bottom" secondItem="8HQ-4X-Gvg" secondAttribute="bottom" type="default" id="e8j-wZ-ebs"/>
                             <constraint firstItem="CaX-nX-bKk" firstAttribute="leading" secondItem="8HQ-4X-Gvg" secondAttribute="leading" type="default" id="gRc-ND-KuB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IiV-mJ-Ptw"/>
                     <connections>
+                        <outlet property="activityIndicatorStaff" destination="5PW-lY-IPP" id="1MQ-rf-7qa"/>
                         <outlet property="staffTableView" destination="CaX-nX-bKk" id="CPp-pX-bFW"/>
                         <outlet property="view" destination="8HQ-4X-Gvg" id="HOV-sC-knr"/>
                     </connections>
@@ -298,6 +298,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/StaffViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="activityIndicatorStaff" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="rssParser" candidateClass="NSXMLParser"/>
                 <relationship kind="outlet" name="staffTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="theSearchBar" candidateClass="UISearchBar"/>

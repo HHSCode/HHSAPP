@@ -65,7 +65,7 @@
     if ([url isEqualToString:@" "]) {
         cells -=1;
     }
-    return cells;
+    return 2;
 }
 
 

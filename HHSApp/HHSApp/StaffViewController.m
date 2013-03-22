@@ -13,7 +13,7 @@
 @end
 
 @implementation StaffViewController
-@synthesize staffTableView, rssParser, activityIndicator, disableViewOverlay, theSearchBar;
+@synthesize staffTableView, rssParser, activityIndicator, disableViewOverlay, theSearchBar, activityIndicatorStaff;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -48,16 +48,20 @@
     {
         NSLog(@"Reachable");
         
+        if(stories){
+            
+        }else{
+            
         
         [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://www.lordtechyproductions.com/hhsapp/index.php"];
         //[self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://feeds.feedburner.com/HHSBroadside"];
 
         
-        [activityIndicator setHidden:NO];
+        [activityIndicatorStaff setHidden:NO];
         
 
-        [activityIndicator startAnimating];
-        
+        [activityIndicatorStaff startAnimating];
+        }
         
         
 
@@ -268,8 +272,8 @@
 	//NSLog(@"stories array has %d items", [stories count]);
     
     //NSLog(@"Stories: %@", stories);
-    [activityIndicator stopAnimating];
-    [activityIndicator setHidden:YES];
+    [activityIndicatorStaff stopAnimating];
+    [activityIndicatorStaff setHidden:YES];
     [staffTableView reloadData];
     //NSLog(@"Stories: %@", stories);
     [self parseStoryArray];
