@@ -163,7 +163,6 @@
                         <outlet property="moreTableView" destination="m2l-O4-Mdv" id="dBX-y6-sZl"/>
                         <outlet property="view" destination="17" id="t5g-Is-4YU"/>
                         <segue destination="SVP-Hw-gaa" kind="push" id="Tmk-9i-c0g"/>
-                        <segue destination="7jB-if-f2L" kind="push" id="IL8-mp-LMc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
@@ -178,16 +177,16 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eCq-fs-GBi">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </webView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bdp-e7-oFn">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eCq-fs-GBi" firstAttribute="bottom" secondItem="kjn-IW-At1" secondAttribute="bottom" type="default" id="90x-fn-2TD"/>
-                            <constraint firstItem="eCq-fs-GBi" firstAttribute="top" secondItem="kjn-IW-At1" secondAttribute="top" type="default" id="UdG-Jm-3sr"/>
-                            <constraint firstItem="eCq-fs-GBi" firstAttribute="leading" secondItem="kjn-IW-At1" secondAttribute="leading" type="default" id="q9J-CE-DeX"/>
-                            <constraint firstItem="eCq-fs-GBi" firstAttribute="trailing" secondItem="kjn-IW-At1" secondAttribute="trailing" type="default" id="tvb-G2-FCK"/>
+                            <constraint firstItem="Bdp-e7-oFn" firstAttribute="centerX" secondItem="kjn-IW-At1" secondAttribute="centerX" type="default" id="9p9-bQ-zmr"/>
+                            <constraint firstItem="Bdp-e7-oFn" firstAttribute="centerY" secondItem="kjn-IW-At1" secondAttribute="centerY" type="default" id="yK0-sN-78v"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aFG-GY-O05"/>
@@ -195,21 +194,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z89-Ny-msq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1654" y="29"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="0FA-wj-VmY">
-            <objects>
-                <viewController id="7jB-if-f2L" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1Qi-PJ-WKF">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="w95-EE-Fkk"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jcz-yv-WQ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1649" y="609"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="JAB-rW-ys0">
@@ -313,6 +297,9 @@
         </class>
         <class className="MoreDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MoreDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="handbook" candidateClass="UIWebView"/>
+            </relationships>
         </class>
         <class className="MoreViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MoreViewController.h"/>
@@ -329,6 +316,7 @@
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="rssParser" candidateClass="NSXMLParser"/>
                 <relationship kind="outlet" name="staffTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="theSearchBar" candidateClass="UISearchBar"/>
             </relationships>
         </class>
     </classes>
