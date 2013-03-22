@@ -263,51 +263,6 @@
         <image name="home_30x30@2x.png" width="30" height="30"/>
         <image name="more_60x60@2x.png" width="60" height="60"/>
     </resources>
-    <classes>
-        <class className="BroadsideViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BroadsideViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showActionsheetButton:"/>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="broadsideTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="rssParser" candidateClass="NSXMLParser"/>
-            </relationships>
-        </class>
-        <class className="HomeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activityIndicatorCalendar" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="activityIndicatorSlideshow" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="calendarWebView" candidateClass="UIWebView"/>
-                <relationship kind="outlet" name="photosWebView" candidateClass="UIWebView"/>
-                <relationship kind="outlet" name="rssParser" candidateClass="NSXMLParser"/>
-                <relationship kind="outlet" name="slideshowImageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="MoreViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoreViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="actionEmailComposer"/>
-                <relationship kind="action" name="actionEmailComposer:withBody:" candidateClass="NSString"/>
-                <relationship kind="action" name="feedbackMenu:"/>
-                <relationship kind="outlet" name="moreTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="rssParser" candidateClass="NSXMLParser"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="StaffViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StaffViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="activityIndicatorStaff" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="rssParser" candidateClass="NSXMLParser"/>
-                <relationship kind="outlet" name="staffTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="theSearchBar" candidateClass="UISearchBar"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
