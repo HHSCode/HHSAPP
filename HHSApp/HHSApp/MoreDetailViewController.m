@@ -29,6 +29,7 @@
     NSURL *myURL = [NSURL URLWithString:@"https://sites.google.com/a/hanovernorwichschools.org/hhs/resources/Hanover%20High%20Handbook.pdf?attredirects=0&d=1"];
     NSURLRequest *myRequest = [NSURLRequest requestWithURL:myURL];
     [handbook loadRequest:myRequest];
+    handbook.scalesPageToFit= YES;
 }
 
 - (void)didReceiveMemoryWarning

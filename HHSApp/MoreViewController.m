@@ -273,4 +273,33 @@
 }
 
 
+- (IBAction)feedbackMenu:(id)sender {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Report A Bug",@"Report Incorrect Information", @"Feedback", nil];
+    [actionSheet showInView:self.moreTableView];
+    
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
+        NSURL *url = [ [ NSURL alloc ] initWithString: @"http://www.facebook.com/HHSBroadside?fref=ts" ];
+        [[UIApplication sharedApplication] openURL:url];
+    }
+    
+    if(buttonIndex == 1)
+    {
+        NSURL *url = [ [ NSURL alloc ] initWithString: @"http://broadside.dresden.us/" ];
+        [[UIApplication sharedApplication] openURL:url];
+    }
+    
+    if(buttonIndex == 2)
+    {
+        NSURL *url = [ [ NSURL alloc ] initWithString: @"googlechrome://broadside.dresden.us/" ];
+        [[UIApplication sharedApplication] openURL:url];
+        
+    }
+}
+
+
 @end

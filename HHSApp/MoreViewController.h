@@ -27,6 +27,7 @@
     UIAlertView *wait;
 }
 
+- (IBAction)feedbackMenu:(id)sender;
 
 @property (nonatomic, retain) IBOutlet UITableView *moreTableView;
 
