@@ -7,8 +7,7 @@
 //
 
 #import "BroadsideDetailViewController.h"
-#import "ActivityViewCustomProvider.h"
-#import "ActivityViewCustomActivity.h"
+
 
 @interface BroadsideDetailViewController ()
 
@@ -39,8 +38,7 @@
 -(void)setWebView:(int)indexPath :(NSMutableArray *)stories{
     [self setTitle:[[stories objectAtIndex:indexPath]objectForKey:@"title"]];
     urlToShare = [[stories objectAtIndex:indexPath]objectForKey:@"link"];
-    NSLog(@"%@", [[stories objectAtIndex:indexPath]objectForKey:@"link"]);
-    NSLog(@"%@", urlToShare);
+    //NSLog(@"%@", [[stories objectAtIndex:indexPath]objectForKey:@"HTML"]);
     NSMutableString *htmlString = [[stories objectAtIndex:indexPath]objectForKey:@"HTML"];
     NSMutableString *date = [[NSMutableString alloc]initWithString:[[stories objectAtIndex:indexPath]objectForKey:@"date"]];
 
@@ -59,12 +57,6 @@
     [broadsideDetailWebView loadHTMLString:final baseURL:nil];
 }
 
-- (NSString *)getURL{
-    NSString *getURLString = [[NSString alloc] initWithString:urlToShare];
-    NSLog(@"%@", getURLString);
-    return getURLString;
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -72,14 +64,12 @@
 }
 
 - (IBAction)showActivityView
-{
-    ActivityViewCustomProvider *customProvider =
-    [[ActivityViewCustomProvider alloc]init];
-    ActivityViewCustomActivity *ca = [[ActivityViewCustomActivity alloc]init];
+{   
     NSString *textToShare = @"Check out this HHS Broadside article!";
     UIImage *imageToShare = [UIImage imageNamed:@"icon_iphone.png"];
     NSArray *activityItems = [[NSArray alloc]initWithObjects:textToShare, imageToShare, urlToShare, nil];
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:[NSArray arrayWithObject:ca]];
+    NSArray *applicationItems = [[NSArray alloc] initWithObjects:/*UIActivityTypePostToFacebook, UIActivityTypePostToTwitter, UIActivityTypePostToWeibo, UIActivityTypeMessage, UIActivityTypeMail, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll, */nil];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:applicationItems];
     activityVC.excludedActivityTypes = [[NSArray alloc]initWithObjects:UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll, nil];
     [self presentViewController:activityVC animated:TRUE completion:^{}];
 }

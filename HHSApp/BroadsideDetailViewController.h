@@ -19,6 +19,5 @@
 
 - (void)setWebView:(int)indexPath :(NSMutableArray *)stories;
 - (IBAction)showActivityView;
-- (NSString *)getURL;
 
 @end

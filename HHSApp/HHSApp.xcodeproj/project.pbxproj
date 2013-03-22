@@ -13,9 +13,6 @@
 		50E801B516FA6FE3004B9401 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E801B416FA6FE3004B9401 /* SystemConfiguration.framework */; };
 		50E801B816FBE9A5004B9401 /* StaffDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E801B716FBE9A5004B9401 /* StaffDetailViewController.m */; };
 		50E801BA16FBF160004B9401 /* StaffDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50E801B916FBF160004B9401 /* StaffDetailViewController.xib */; };
-		887057D116FC9D5A00D60D5D /* ActivityViewCustomProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 887057D016FC9D5A00D60D5D /* ActivityViewCustomProvider.m */; };
-		887057D416FC9D9B00D60D5D /* ActivityViewCustomActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 887057D316FC9D9B00D60D5D /* ActivityViewCustomActivity.m */; };
-		887057D616FCA22200D60D5D /* safari icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 887057D516FCA22200D60D5D /* safari icon.png */; };
 		88A0151716FA08A500374A91 /* OpenInChromeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A0151616FA08A500374A91 /* OpenInChromeController.m */; };
 		88D0C76F16FB372000C17786 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D0C76E16FB372000C17786 /* MoreViewController.m */; };
 		88D627DA16F89A2400755256 /* BroadsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D627D916F89A2400755256 /* BroadsideViewController.m */; };
@@ -80,11 +77,6 @@
 		50E801B616FBE9A5004B9401 /* StaffDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffDetailViewController.h; sourceTree = "<group>"; };
 		50E801B716FBE9A5004B9401 /* StaffDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffDetailViewController.m; sourceTree = "<group>"; };
 		50E801B916FBF160004B9401 /* StaffDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaffDetailViewController.xib; sourceTree = "<group>"; };
-		887057CF16FC9D5A00D60D5D /* ActivityViewCustomProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewCustomProvider.h; sourceTree = "<group>"; };
-		887057D016FC9D5A00D60D5D /* ActivityViewCustomProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewCustomProvider.m; sourceTree = "<group>"; };
-		887057D216FC9D9B00D60D5D /* ActivityViewCustomActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewCustomActivity.h; sourceTree = "<group>"; };
-		887057D316FC9D9B00D60D5D /* ActivityViewCustomActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewCustomActivity.m; sourceTree = "<group>"; };
-		887057D516FCA22200D60D5D /* safari icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "safari icon.png"; sourceTree = "<group>"; };
 		88A0151516FA08A500374A91 /* OpenInChromeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenInChromeController.h; path = ../OpenInChromeController.h; sourceTree = "<group>"; };
 		88A0151616FA08A500374A91 /* OpenInChromeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpenInChromeController.m; path = ../OpenInChromeController.m; sourceTree = "<group>"; };
 		88D0C76D16FB372000C17786 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoreViewController.h; path = ../MoreViewController.h; sourceTree = "<group>"; };
@@ -216,12 +208,8 @@
 				B371460B16F60D0900656219 /* HomeViewController.m */,
 				B34FBFE816F797F80010485A /* StaffViewController.h */,
 				B34FBFE916F797F80010485A /* StaffViewController.m */,
-				887057CF16FC9D5A00D60D5D /* ActivityViewCustomProvider.h */,
-				887057D016FC9D5A00D60D5D /* ActivityViewCustomProvider.m */,
 				50E801B616FBE9A5004B9401 /* StaffDetailViewController.h */,
 				50E801B716FBE9A5004B9401 /* StaffDetailViewController.m */,
-				887057D216FC9D9B00D60D5D /* ActivityViewCustomActivity.h */,
-				887057D316FC9D9B00D60D5D /* ActivityViewCustomActivity.m */,
 				50E801B916FBF160004B9401 /* StaffDetailViewController.xib */,
 				88A0151516FA08A500374A91 /* OpenInChromeController.h */,
 				88A0151616FA08A500374A91 /* OpenInChromeController.m */,
@@ -295,7 +283,6 @@
 				B3D1189816F8A5D700155CDA /* broadside_white_60x60@2x.png */,
 				B3D1189416F8A4D900155CDA /* staff_60x60@2x.png */,
 				B3D1189516F8A4D900155CDA /* broadside_60x60@2x.png */,
-				887057D516FCA22200D60D5D /* safari icon.png */,
 				B3D1189216F8A3A000155CDA /* home_60x60@2x.png */,
 				B385E03716F89F5800ADBC1C /* staff30x30@2x.png */,
 				B385E03816F89F5800ADBC1C /* broadside_30x30@2x.png */,
@@ -401,7 +388,6 @@
 				B3128BB116FA27D2004621E9 /* icon_iphone.png in Resources */,
 				50E801BA16FBF160004B9401 /* StaffDetailViewController.xib in Resources */,
 				88DA9D9E16FC962B0096C588 /* MoreDetailViewController.xib in Resources */,
-				887057D616FCA22200D60D5D /* safari icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,8 +435,6 @@
 				ECF948FB16FB875D000D14E0 /* MoreDetailViewController.m in Sources */,
 				ECF948FE16FB8F16000D14E0 /* PrincipalNotesViewController.m in Sources */,
 				50E801B816FBE9A5004B9401 /* StaffDetailViewController.m in Sources */,
-				887057D116FC9D5A00D60D5D /* ActivityViewCustomProvider.m in Sources */,
-				887057D416FC9D9B00D60D5D /* ActivityViewCustomActivity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
