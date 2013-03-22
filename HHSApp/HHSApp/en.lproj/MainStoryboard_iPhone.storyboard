@@ -158,42 +158,15 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="More" image="more_60x60@2x.png" id="6"/>
-                    <navigationItem key="navigationItem" id="bbC-Yp-Ruk"/>
+                    <navigationItem key="navigationItem" title="More" id="bbC-Yp-Ruk"/>
                     <connections>
                         <outlet property="moreTableView" destination="m2l-O4-Mdv" id="dBX-y6-sZl"/>
                         <outlet property="view" destination="17" id="t5g-Is-4YU"/>
-                        <segue destination="SVP-Hw-gaa" kind="push" id="Tmk-9i-c0g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1207" y="316"/>
-        </scene>
-        <!--More Detail View Controller-->
-        <scene sceneID="WUk-Em-wS0">
-            <objects>
-                <viewController id="SVP-Hw-gaa" customClass="MoreDetailViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kjn-IW-At1">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bdp-e7-oFn">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Bdp-e7-oFn" firstAttribute="centerX" secondItem="kjn-IW-At1" secondAttribute="centerX" type="default" id="9p9-bQ-zmr"/>
-                            <constraint firstItem="Bdp-e7-oFn" firstAttribute="centerY" secondItem="kjn-IW-At1" secondAttribute="centerY" type="default" id="yK0-sN-78v"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="aFG-GY-O05"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="z89-Ny-msq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1654" y="29"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="JAB-rW-ys0">
@@ -293,12 +266,6 @@
                 <relationship kind="outlet" name="photosWebView" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="rssParser" candidateClass="NSXMLParser"/>
                 <relationship kind="outlet" name="slideshowImageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="MoreDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoreDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="handbook" candidateClass="UIWebView"/>
             </relationships>
         </class>
         <class className="MoreViewController" superclassName="UIViewController">

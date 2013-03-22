@@ -123,8 +123,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MoreDetailViewController *detail = [[MoreDetailViewController alloc]init];
+    MoreDetailViewController *detail = [[MoreDetailViewController alloc]initWithNibName:@"MoreDetailViewController" bundle:nil];
+    detail.title = [cellNames objectAtIndex:[indexPath row]];
     [self.navigationController pushViewController:detail animated:YES];
+    
     //[detail setWebView:[indexPath row] :stories];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
    
