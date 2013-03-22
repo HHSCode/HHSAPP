@@ -10,4 +10,8 @@
 
 @interface MoreDetailViewController : UIViewController
 
+{
+    IBOutlet UIWebView *handbook;
+}
+
 @end
