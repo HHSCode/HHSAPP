@@ -204,7 +204,33 @@
     NSMutableArray *sortedKeys = [NSMutableArray array];
     
     NSArray *objs = [departmentDict allKeys];
-    sortedDepartments =[objs sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    
+    sortedDepartments = [objs sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        NSString *s1 = [obj1 substringToIndex:1];
+        NSString *s2 = [obj2 substringToIndex:1];
+        BOOL b1 = [s1 canBeConvertedToEncoding:NSISOLatin1StringEncoding];
+        BOOL b2 = [s2 canBeConvertedToEncoding:NSISOLatin1StringEncoding];
+        
+        if ((b1 == b2) && b1) {//both number or latin char
+            NSRange r1 = [s1 rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]];
+            NSRange r2 = [s2 rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]];
+            if (r1.location == r2.location ) { // either both start with a number or both with a letter
+                return [obj1 compare:obj2 options:NSDiacriticInsensitiveSearch|NSCaseInsensitiveSearch];
+            } else {  // one starts wit a letter, the other with a number
+                if ([s1 rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]].location == NSNotFound) {
+                    return NSOrderedAscending;
+                }
+                return NSOrderedDescending;
+            }
+        } else if((b1 == b2) && !b1){ // neither latin char
+            return [obj1 compare:obj2 options:NSDiacriticInsensitiveSearch|NSCaseInsensitiveSearch];
+        } else { //one is latin char, other not
+            if (b1) return NSOrderedAscending;
+            return NSOrderedDescending;
+        }
+        
+    }];
+    //sortedDepartments =[objs sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     
     
     
@@ -317,9 +343,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    NSLog(@"%i, %i", [indexPath section], [indexPath row]);
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    StaffDetailViewController *staffDetail = [[StaffDetailViewController alloc]initWithNibName:@"StaffDetailViewController" bundle:nil];
+    [staffDetail setTitle:@"Info"];
+    [self.navigationController pushViewController:staffDetail animated:YES];
+    [staffDetail setTableViewObjects:departmentDict :indexPath];
     
     // Navigation logic may go here. Create and push another view controller.
     /*

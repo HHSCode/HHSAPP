@@ -11,6 +11,8 @@
 		320B6C86F11D9990244A9731 /* Three20.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 320B6C86F11D9990244A9730 /* Three20.bundle */; };
 		50E801B316FA6FC6004B9401 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E801B216FA6FC6004B9401 /* Reachability.m */; };
 		50E801B516FA6FE3004B9401 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E801B416FA6FE3004B9401 /* SystemConfiguration.framework */; };
+		50E801B816FBE9A5004B9401 /* StaffDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E801B716FBE9A5004B9401 /* StaffDetailViewController.m */; };
+		50E801BA16FBF160004B9401 /* StaffDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50E801B916FBF160004B9401 /* StaffDetailViewController.xib */; };
 		88A0151716FA08A500374A91 /* OpenInChromeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A0151616FA08A500374A91 /* OpenInChromeController.m */; };
 		88D0C76F16FB372000C17786 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D0C76E16FB372000C17786 /* MoreViewController.m */; };
 		88D627DA16F89A2400755256 /* BroadsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D627D916F89A2400755256 /* BroadsideViewController.m */; };
@@ -70,6 +72,9 @@
 		50E801B116FA6FC6004B9401 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = ../Reachability.h; sourceTree = "<group>"; };
 		50E801B216FA6FC6004B9401 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = ../Reachability.m; sourceTree = "<group>"; };
 		50E801B416FA6FE3004B9401 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		50E801B616FBE9A5004B9401 /* StaffDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffDetailViewController.h; sourceTree = "<group>"; };
+		50E801B716FBE9A5004B9401 /* StaffDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffDetailViewController.m; sourceTree = "<group>"; };
+		50E801B916FBF160004B9401 /* StaffDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaffDetailViewController.xib; sourceTree = "<group>"; };
 		88A0151516FA08A500374A91 /* OpenInChromeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenInChromeController.h; path = ../OpenInChromeController.h; sourceTree = "<group>"; };
 		88A0151616FA08A500374A91 /* OpenInChromeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpenInChromeController.m; path = ../OpenInChromeController.m; sourceTree = "<group>"; };
 		88D0C76D16FB372000C17786 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoreViewController.h; path = ../MoreViewController.h; sourceTree = "<group>"; };
@@ -197,6 +202,9 @@
 				B371460B16F60D0900656219 /* HomeViewController.m */,
 				B34FBFE816F797F80010485A /* StaffViewController.h */,
 				B34FBFE916F797F80010485A /* StaffViewController.m */,
+				50E801B616FBE9A5004B9401 /* StaffDetailViewController.h */,
+				50E801B716FBE9A5004B9401 /* StaffDetailViewController.m */,
+				50E801B916FBF160004B9401 /* StaffDetailViewController.xib */,
 				88A0151516FA08A500374A91 /* OpenInChromeController.h */,
 				88A0151616FA08A500374A91 /* OpenInChromeController.m */,
 				88D627D816F89A2400755256 /* BroadsideViewController.h */,
@@ -371,6 +379,7 @@
 				B34E0D5F16F9FC9800BC552E /* Default@2x.png in Resources */,
 				B3128BB016FA27D2004621E9 /* icon_iphone_retina.png in Resources */,
 				B3128BB116FA27D2004621E9 /* icon_iphone.png in Resources */,
+				50E801BA16FBF160004B9401 /* StaffDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +426,7 @@
 				88D0C76F16FB372000C17786 /* MoreViewController.m in Sources */,
 				ECF948FB16FB875D000D14E0 /* MoreDetailViewController.m in Sources */,
 				ECF948FE16FB8F16000D14E0 /* PrincipalNotesViewController.m in Sources */,
+				50E801B816FBE9A5004B9401 /* StaffDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,12 +545,13 @@
 		B38AE65416C4227D00069514 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ann E Greenwald (CLE34H9S2K)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HHSApp/HHSApp-Prefix.pch";
 				INFOPLIST_FILE = "HHSApp/HHSApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = HHS;
+				PROVISIONING_PROFILE = "322E1785-91A9-4E5E-8DC3-7088DD29138C";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -548,12 +559,13 @@
 		B38AE65516C4227D00069514 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ann E Greenwald (CLE34H9S2K)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HHSApp/HHSApp-Prefix.pch";
 				INFOPLIST_FILE = "HHSApp/HHSApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = HHS;
+				PROVISIONING_PROFILE = "322E1785-91A9-4E5E-8DC3-7088DD29138C";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
