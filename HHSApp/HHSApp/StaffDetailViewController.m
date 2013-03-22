@@ -114,6 +114,20 @@
             cell.textLabel.text = email;
             cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
         }
+        
+        
+        if ([phone isEqualToString:@"-1"]) {
+            if ([url isEqualToString:@" "]) {
+                //neither
+            }else{
+                //just url
+            }
+
+        }else if ([url isEqualToString:@" "]) {
+            //just phone
+        }else{
+            //both
+        }
 
     
     }
