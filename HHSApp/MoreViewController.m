@@ -32,12 +32,15 @@
     moreTableView.delegate = self;
     moreTableView.dataSource = self;
     
+    feedBackEmail = [[NSArray alloc] initWithObjects:@"James.owens@hanovernorwichschools.org", nil];
+    
     Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
     // set the blocks
     NSLog(@"Ran");
     reach.reachableBlock = ^(Reachability*reach)
     {
         NSLog(@"Reachable");
+
         stories = [[NSMutableDictionary alloc] init];
         [moreTableView reloadData];
         [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://www.lordtechyproductions.com/hhsapp/moreTab.php"];
@@ -45,8 +48,7 @@
         
         
        
-         wait = [[UIAlertView alloc]
-                        initWithTitle:@"Loading..."
+         wait = [[UIAlertView alloc]                        initWithTitle:@"Loading..."
                         message:@"Please wait"
                         delegate:self
                         cancelButtonTitle:nil
@@ -180,6 +182,7 @@
         MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
         mailViewController.mailComposeDelegate = self;
         [mailViewController setSubject:@"Here's Some Feedback On Your App"];
+        [mailViewController setToRecipients:feedBackEmail];
          [mailViewController setMessageBody:@"I have some feedback for you" isHTML:NO];
           
           [self presentModalViewController:mailViewController animated:YES];

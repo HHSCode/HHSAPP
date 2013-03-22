@@ -27,6 +27,9 @@
     NSMutableString * currentName, *currentLink;
     UIActivityIndicatorView *act;
     UIAlertView *wait;
+    
+    //Mail stuff
+    NSArray *feedBackEmail; 
 }
 
 - (IBAction)feedbackMenu:(id)sender;
