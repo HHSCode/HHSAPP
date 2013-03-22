@@ -12,10 +12,17 @@
     UITableView *staffDetailTableView;
     NSDictionary *theDictionary;
     NSIndexPath *indexP;
+    NSString *firstName;
+    NSString *lastName;
+    NSString *department;
+    NSString *email;
+    NSString *title;
+    NSString *url;
+    NSString *phone;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *staffDetailTableView;
 
--(void)setTableViewObjects:(NSDictionary *)dict :(NSIndexPath *)index;
+-(void)setTableViewObjects:(NSDictionary *)dict :(NSIndexPath *)index :(NSArray *)sortedDepartments;
 
 @end

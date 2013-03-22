@@ -21,7 +21,7 @@
     NSMutableDictionary *departmentDict;
     NSArray *sortedDepartments;
     
-    NSMutableString * currentFirstName, * currentLastName, * currentDept, * currentTitle, *currentEmail, *currentSite;
+    NSMutableString * currentFirstName, * currentLastName, * currentDept, * currentTitle, *currentEmail, *currentSite, *currentPhone;
     UIView *disableViewOverlay;
 	
 	UISearchBar *theSearchBar;

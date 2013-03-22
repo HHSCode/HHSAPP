@@ -33,9 +33,21 @@
     [staffDetailTableView setDataSource:self];
 }
 
--(void)setTableViewObjects:(NSDictionary *)dict :(NSIndexPath *)index{
+-(void)setTableViewObjects:(NSDictionary *)dict :(NSIndexPath *)index :(NSArray *)sortedDepartments{
+
     theDictionary = dict;
     indexP = index;
+    NSString *dep = [sortedDepartments objectAtIndex:index.section];
+    NSDictionary *names = [dict objectForKey:dep];
+    NSArray *list = [names allKeys];
+    NSArray *sortedList = [list sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    firstName = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"first"];
+    lastName = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"last"];
+    phone = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"phone"];
+    department = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"dept"];
+    email = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"email"];
+    title = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"title"];
+    url = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"site"];
     [staffDetailTableView reloadData];
 }
 
@@ -44,7 +56,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    int cells = 5;
+    if ([phone isEqualToString:@"-1"]) {
+        cells -=1;
+        
+    }
+    if ([url isEqualToString:@" "]) {
+        cells -=1;
+    }
+    return cells;
 }
 
 
@@ -69,7 +89,39 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifer];
     }
     
-    
+    if ([indexPath section]==0) {
+        cell.textLabel.text = [NSString stringWithFormat:@"%@%@ (%@)", firstName, lastName, title];
+    }else if ([indexPath section]==1){
+        cell.textLabel.text = department;
+    }else if([indexPath section]==2){
+        cell.textLabel.text = email;
+    }
+    if ([phone isEqualToString:@"-1"]) {
+        if ([url isEqualToString:@" "]) {
+            //nothing
+            
+        }else{
+            if([indexPath section]==3){
+                cell.textLabel.text = url;
+            }
+            //just url
+        }
+        
+    }else if ([url isEqualToString:@" "]) {
+        //just phone
+        if([indexPath section]==3){
+            cell.textLabel.text = phone;
+        }
+    }else{
+        if([indexPath section]==3){
+            cell.textLabel.text = url;
+        }
+        if([indexPath section]==4){
+            cell.textLabel.text = phone;
+        }
+        
+        //both
+    }
     
     
     return cell;
@@ -118,7 +170,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
     // Navigation logic may go here. Create and push another view controller.
     /*
      *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];

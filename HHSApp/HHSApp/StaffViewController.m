@@ -214,6 +214,7 @@
 		currentTitle = [[NSMutableString alloc] init];
         currentEmail = [[NSMutableString alloc]init];
         currentSite = [[NSMutableString alloc]init];
+        currentPhone = [[NSMutableString alloc]init];
         
     }
     
@@ -232,6 +233,7 @@
         [item setObject:currentTitle forKey:@"title"];
         [item setObject:currentEmail forKey:@"email"];
         [item setObject:currentSite forKey:@"site"];
+        [item setObject:currentPhone forKey:@"phone"];
         
         
 		[stories addObject:[item copy]];
@@ -253,6 +255,8 @@
         [currentEmail appendString:string];
     }else if ([currentElement isEqualToString:@"site"]){
         [currentSite appendString:string];
+    }else if ([currentElement isEqualToString:@"phone"]){
+        [currentPhone appendString:string];
     }
 	// save the characters for the current item...
     
@@ -450,7 +454,7 @@
     StaffDetailViewController *staffDetail = [[StaffDetailViewController alloc]initWithNibName:@"StaffDetailViewController" bundle:nil];
     [staffDetail setTitle:@"Info"];
     [self.navigationController pushViewController:staffDetail animated:YES];
-    [staffDetail setTableViewObjects:departmentDict :indexPath];
+    [staffDetail setTableViewObjects:departmentDict :indexPath :sortedDepartments];
     
     // Navigation logic may go here. Create and push another view controller.
     /*
