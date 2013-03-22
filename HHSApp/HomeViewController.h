@@ -34,5 +34,6 @@
 -(void)setupImageView;
 -(void)startupInternetBasedParts;
 -(void)reachChanged;
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
 @end
 //does this work
