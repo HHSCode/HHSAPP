@@ -37,7 +37,7 @@
 
 -(void)setWebView:(int)indexPath :(NSMutableArray *)stories{
     [self setTitle:[[stories objectAtIndex:indexPath]objectForKey:@"title"]];
-    URL = [[stories objectAtIndex:indexPath]objectForKey:@"link"];
+    url = [[stories objectAtIndex:indexPath]objectForKey:@"link"];
     //NSLog(@"%@", [[stories objectAtIndex:indexPath]objectForKey:@"HTML"]);
     NSMutableString *htmlString = [[stories objectAtIndex:indexPath]objectForKey:@"HTML"];
     NSMutableString *date = [[NSMutableString alloc]initWithString:[[stories objectAtIndex:indexPath]objectForKey:@"date"]];
@@ -70,9 +70,10 @@
     NSLog(@"2");
     UIImage *imageToShare = [UIImage imageNamed:@"icon_iphone.png"];
     NSLog(@"3");
-    NSURL *urlToShare = [NSURL URLWithString:URL];
+    NSURL *urlToShare = [NSURL URLWithString:url];
     NSLog(@"4");
-    NSArray *activityItems = @[textToShare, imageToShare, urlToShare];
+    NSLog(@"%@", url);
+    NSArray *activityItems = [[NSArray alloc]initWithObjects:textToShare, imageToShare, urlToShare, nil];
     NSLog(@"5");
     NSArray *applicationItems = [[NSArray alloc] initWithObjects:nil];
     NSLog(@"6");

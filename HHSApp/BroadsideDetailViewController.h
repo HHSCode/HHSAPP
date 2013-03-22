@@ -11,7 +11,7 @@
 @interface BroadsideDetailViewController : UIViewController <UIWebViewDelegate>{
     UIWebView *broadsideDetailWebView;
     UITextView *theTextView;
-    NSString *URL;
+    NSString *url;
 }
 @property (retain, nonatomic) IBOutlet UIWebView *broadsideDetailWebView;
 @property (nonatomic, retain) IBOutlet UITextView *theTextView;
