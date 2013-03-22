@@ -49,7 +49,7 @@
 		B38AE64516C4227D00069514 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38AE61216C4227C00069514 /* Foundation.framework */; };
 		B38AE64D16C4227D00069514 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B38AE64B16C4227D00069514 /* InfoPlist.strings */; };
 		B38AE65016C4227D00069514 /* HHSAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B38AE64F16C4227D00069514 /* HHSAppTests.m */; };
-		B3C572B816FCB096005E8735 /* feedback.png in Resources */ = {isa = PBXBuildFile; fileRef = B3C572B716FCB096005E8735 /* feedback.png */; };
+		B3C572BA16FCB238005E8735 /* feedback.png in Resources */ = {isa = PBXBuildFile; fileRef = B3C572B916FCB238005E8735 /* feedback.png */; };
 		B3D1189316F8A3A000155CDA /* home_60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3D1189216F8A3A000155CDA /* home_60x60@2x.png */; };
 		B3D1189616F8A4D900155CDA /* staff_60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3D1189416F8A4D900155CDA /* staff_60x60@2x.png */; };
 		B3D1189716F8A4D900155CDA /* broadside_60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3D1189516F8A4D900155CDA /* broadside_60x60@2x.png */; };
@@ -132,7 +132,7 @@
 		B38AE64C16C4227D00069514 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B38AE64E16C4227D00069514 /* HHSAppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHSAppTests.h; sourceTree = "<group>"; };
 		B38AE64F16C4227D00069514 /* HHSAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHSAppTests.m; sourceTree = "<group>"; };
-		B3C572B716FCB096005E8735 /* feedback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = feedback.png; path = ../images/feedback.png; sourceTree = "<group>"; };
+		B3C572B916FCB238005E8735 /* feedback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = feedback.png; path = ../images/feedback.png; sourceTree = "<group>"; };
 		B3D1189216F8A3A000155CDA /* home_60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home_60x60@2x.png"; path = "Tab bar/home_60x60@2x.png"; sourceTree = SOURCE_ROOT; };
 		B3D1189416F8A4D900155CDA /* staff_60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "staff_60x60@2x.png"; path = "Tab bar/staff_60x60@2x.png"; sourceTree = SOURCE_ROOT; };
 		B3D1189516F8A4D900155CDA /* broadside_60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "broadside_60x60@2x.png"; path = "Tab bar/broadside_60x60@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -285,7 +285,7 @@
 		B3A3EDC216EA44DD00A45BD2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				B3C572B716FCB096005E8735 /* feedback.png */,
+				B3C572B916FCB238005E8735 /* feedback.png */,
 				88DA9DA416FCAB740096C588 /* photo.png */,
 				B34E0D5E16F9FC9800BC552E /* Default@2x.png */,
 				B3128BAE16FA27D2004621E9 /* icon_iphone_retina.png */,
@@ -405,7 +405,7 @@
 				50E801BA16FBF160004B9401 /* StaffDetailViewController.xib in Resources */,
 				88DA9D9E16FC962B0096C588 /* MoreDetailViewController.xib in Resources */,
 				88DA9DA516FCAB740096C588 /* photo.png in Resources */,
-				B3C572B816FCB096005E8735 /* feedback.png in Resources */,
+				B3C572BA16FCB238005E8735 /* feedback.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
