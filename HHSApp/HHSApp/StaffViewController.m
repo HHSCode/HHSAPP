@@ -411,6 +411,14 @@
     return cell;
 }
 
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+
+{
+    
+    return [[UILocalizedIndexedCollation currentCollation] sectionIndexTitles];
+    
+}
+
 /*
  // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

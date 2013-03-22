@@ -41,4 +41,5 @@
 
 -(void)parseStoryArray;
 - (void)parseXMLFileAtURL:(NSString *)URL;
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView;
 @end
