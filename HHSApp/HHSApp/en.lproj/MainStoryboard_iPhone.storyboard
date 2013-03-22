@@ -19,16 +19,16 @@
                                     <outlet property="delegate" destination="vEm-ff-aHF" id="rK9-WW-Wko"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cgy-o6-Xdt"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cgy-o6-Xdt"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wvQ-dC-duK" firstAttribute="top" secondItem="JFJ-10-JuW" secondAttribute="top" type="default" id="3rW-Hw-Z9z"/>
-                            <constraint firstItem="cgy-o6-Xdt" firstAttribute="trailing" secondItem="JFJ-10-JuW" secondAttribute="trailing" type="default" id="lW9-K4-1CU"/>
+                            <constraint firstItem="cgy-o6-Xdt" firstAttribute="trailing" secondItem="JFJ-10-JuW" secondAttribute="trailing" type="default" id="Ggq-6l-pX3"/>
+                            <constraint firstItem="cgy-o6-Xdt" firstAttribute="leading" secondItem="JFJ-10-JuW" secondAttribute="leading" type="default" id="knI-Z7-vQJ"/>
                             <constraint firstItem="wvQ-dC-duK" firstAttribute="trailing" secondItem="JFJ-10-JuW" secondAttribute="trailing" type="default" id="n3c-1y-uPY"/>
-                            <constraint firstItem="cgy-o6-Xdt" firstAttribute="leading" secondItem="JFJ-10-JuW" secondAttribute="leading" type="default" id="oO4-ge-lb9"/>
+                            <constraint firstItem="cgy-o6-Xdt" firstAttribute="top" secondItem="JFJ-10-JuW" secondAttribute="top" constant="174" id="ohk-g3-HWw"/>
                             <constraint firstItem="wvQ-dC-duK" firstAttribute="leading" secondItem="JFJ-10-JuW" secondAttribute="leading" type="default" id="oxp-YI-aYH"/>
-                            <constraint firstItem="cgy-o6-Xdt" firstAttribute="centerY" secondItem="wvQ-dC-duK" secondAttribute="centerY" type="default" id="tvQ-97-rcf"/>
                             <constraint firstItem="wvQ-dC-duK" firstAttribute="bottom" secondItem="JFJ-10-JuW" secondAttribute="bottom" type="default" id="yIF-pE-1te"/>
                         </constraints>
                     </view>

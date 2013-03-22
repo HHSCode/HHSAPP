@@ -117,7 +117,7 @@
 
 - (IBAction)showActionsheetButton:(id)sender
 {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Safari", @"Chrome", nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:@"Open in..." delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Safari", @"Chrome", nil];
     [actionSheet showInView:self.broadsideTableView];
     
 }
