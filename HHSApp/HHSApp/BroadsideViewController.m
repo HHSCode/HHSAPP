@@ -350,10 +350,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"This is my house"); 
+    
     BroadsideDetailViewController *detail = [[BroadsideDetailViewController alloc]initWithNibName:@"BroadsideDetailViewController" bundle:nil];
     [self.navigationController pushViewController:detail animated:YES];
-    //[detail setWebView:[indexPath row] :stories];
+    [detail setWebView:[indexPath row] :stories];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     
