@@ -16,6 +16,7 @@
 		88396BBA16FCAA9700AAAEFC /* ActivityViewCustomActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 88396BB716FCAA9700AAAEFC /* ActivityViewCustomActivity.m */; };
 		88396BBB16FCAA9700AAAEFC /* ActivityViewCustomProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 88396BB916FCAA9700AAAEFC /* ActivityViewCustomProvider.m */; };
 		88396BBE16FCAAAD00AAAEFC /* BroadsideDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88396BBD16FCAAAD00AAAEFC /* BroadsideDetailViewController.m */; };
+		8881B20116FCB0D400513235 /* ActivityViewCustomActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = 8881B20016FCB0D400513235 /* ActivityViewCustomActivityChrome.m */; };
 		88A0151716FA08A500374A91 /* OpenInChromeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A0151616FA08A500374A91 /* OpenInChromeController.m */; };
 		88D0C76F16FB372000C17786 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D0C76E16FB372000C17786 /* MoreViewController.m */; };
 		88D627DA16F89A2400755256 /* BroadsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D627D916F89A2400755256 /* BroadsideViewController.m */; };
@@ -87,6 +88,8 @@
 		88396BB916FCAA9700AAAEFC /* ActivityViewCustomProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewCustomProvider.m; sourceTree = "<group>"; };
 		88396BBC16FCAAAD00AAAEFC /* BroadsideDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BroadsideDetailViewController.h; sourceTree = "<group>"; };
 		88396BBD16FCAAAD00AAAEFC /* BroadsideDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BroadsideDetailViewController.m; sourceTree = "<group>"; };
+		8881B20016FCB0D400513235 /* ActivityViewCustomActivityChrome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewCustomActivityChrome.m; sourceTree = "<group>"; };
+		8881B20316FCB24A00513235 /* ActivityViewCustomActivityChrome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewCustomActivityChrome.h; sourceTree = "<group>"; };
 		88A0151516FA08A500374A91 /* OpenInChromeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenInChromeController.h; path = ../OpenInChromeController.h; sourceTree = "<group>"; };
 		88A0151616FA08A500374A91 /* OpenInChromeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpenInChromeController.m; path = ../OpenInChromeController.m; sourceTree = "<group>"; };
 		88D0C76D16FB372000C17786 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoreViewController.h; path = ../MoreViewController.h; sourceTree = "<group>"; };
@@ -228,6 +231,8 @@
 				88D627EA16F8AFEE00755256 /* BroadsideDetailViewController.xib */,
 				88396BB616FCAA9700AAAEFC /* ActivityViewCustomActivity.h */,
 				88396BB716FCAA9700AAAEFC /* ActivityViewCustomActivity.m */,
+				8881B20316FCB24A00513235 /* ActivityViewCustomActivityChrome.h */,
+				8881B20016FCB0D400513235 /* ActivityViewCustomActivityChrome.m */,
 				88396BB816FCAA9700AAAEFC /* ActivityViewCustomProvider.h */,
 				88396BB916FCAA9700AAAEFC /* ActivityViewCustomProvider.m */,
 				88396BBC16FCAAAD00AAAEFC /* BroadsideDetailViewController.h */,
@@ -455,6 +460,7 @@
 				88396BBA16FCAA9700AAAEFC /* ActivityViewCustomActivity.m in Sources */,
 				88396BBB16FCAA9700AAAEFC /* ActivityViewCustomProvider.m in Sources */,
 				88396BBE16FCAAAD00AAAEFC /* BroadsideDetailViewController.m in Sources */,
+				8881B20116FCB0D400513235 /* ActivityViewCustomActivityChrome.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
