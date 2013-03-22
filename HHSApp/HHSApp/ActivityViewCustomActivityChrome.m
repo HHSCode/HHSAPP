@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Lordtechy. All rights reserved.
 //
 
-#import "ActivityViewCustomActivity.h"
-@implementation ActivityViewCustomActivity
+#import "ActivityViewCustomActivityChrome.h"
+@implementation ActivityViewCustomActivityChrome
 
 - (NSString *)activityType
 {
@@ -16,12 +16,12 @@
 
 - (NSString *)activityTitle
 {
-    return @"Open in Safari";
+    return @"Open in Chrome";
 }
 
 - (UIImage *)activityImage
 {
-    return [UIImage imageNamed:@"safari icon.png"];
+    return [UIImage imageNamed:@"chrome icon.png"];
 }
 
 - (BOOL)canPerformWithActivityItems:(NSArray *)activityItems
@@ -49,7 +49,8 @@
     NSString *localURL = [safariURL getURL];
     NSString *noSpaceURL = [localURL stringByReplacingOccurrencesOfString:@"\n\t\t" withString:@""];
     //NSLog(@"%@",noSpaceURL);
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:noSpaceURL]];
+    NSString *chromeURL = [noSpaceURL stringByReplacingOccurrencesOfString:@"http" withString:@"googlechrome"];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:chromeURL]];
     [self activityDidFinish:YES];
 }
 

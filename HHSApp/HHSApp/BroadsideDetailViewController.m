@@ -9,6 +9,7 @@
 #import "BroadsideDetailViewController.h"
 #import "ActivityViewCustomProvider.h"
 #import "ActivityViewCustomActivity.h"
+#import "ActivityViewCustomActivityChrome.h"
 
 @interface BroadsideDetailViewController ()
 
@@ -39,6 +40,8 @@
 -(void)setWebView:(int)indexPath :(NSMutableArray *)stories{
     [self setTitle:[[stories objectAtIndex:indexPath]objectForKey:@"title"]];
     urlToShare = [[stories objectAtIndex:indexPath]objectForKey:@"link"];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:urlToShare forKey:@"url"];
     NSLog(@"%@", [[stories objectAtIndex:indexPath]objectForKey:@"link"]);
     NSLog(@"%@", urlToShare);
     NSMutableString *htmlString = [[stories objectAtIndex:indexPath]objectForKey:@"HTML"];
@@ -60,7 +63,8 @@
 }
 
 - (NSString *)getURL{
-    NSLog(@"%@", urlToShare);
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    urlToShare = [defaults valueForKey:@"url"];
     return urlToShare   ;
 }
 
@@ -72,13 +76,13 @@
 
 - (IBAction)showActivityView
 {
-    ActivityViewCustomProvider *customProvider =
-    [[ActivityViewCustomProvider alloc]init];
+    //ActivityViewCustomProvider *customProvider = [[ActivityViewCustomProvider alloc]init];
     ActivityViewCustomActivity *ca = [[ActivityViewCustomActivity alloc]init];
+    ActivityViewCustomActivityChrome *ca2 = [[ActivityViewCustomActivityChrome alloc]init];
     NSString *textToShare = @"Check out this HHS Broadside article!";
     UIImage *imageToShare = [UIImage imageNamed:@"icon_iphone.png"];
     NSArray *activityItems = [[NSArray alloc]initWithObjects:textToShare, imageToShare, urlToShare, nil];
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:[NSArray arrayWithObject:ca]];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:[NSArray arrayWithObjects:ca,ca2,nil]];
     activityVC.excludedActivityTypes = [[NSArray alloc]initWithObjects:UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll, nil];
     [self presentViewController:activityVC animated:TRUE completion:^{}];
 }
