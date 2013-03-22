@@ -12,7 +12,7 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 
-@interface MoreViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>{
+@interface MoreViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate, UIActionSheetDelegate>{
     UITableView *moreTableView;
     NSArray *cellNames;
     
@@ -29,7 +29,14 @@
     UIAlertView *wait;
     
     //Mail stuff
-    NSArray *feedBackEmail; 
+    NSArray *feedBackEmail;
+    NSString *bugReportSubject;
+    NSString *bugReportBody;
+    NSString *incorrectInformaationSubject;
+    NSString *incorrectInformationBody;
+    NSString *feedbackSubject;
+    NSString *feedBackBody;
+    
 }
 
 - (IBAction)feedbackMenu:(id)sender;

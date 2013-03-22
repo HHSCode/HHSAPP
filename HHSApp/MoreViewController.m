@@ -33,7 +33,15 @@
     moreTableView.dataSource = self;
     
     feedBackEmail = [[NSArray alloc] initWithObjects:@"James.owens@hanovernorwichschools.org", nil];
+    bugReportSubject = @"Bug report on Hanover High Application";
+    bugReportBody = @"Please provide a detailed description of the bug including all steps to trigger it";
+    incorrectInformaationSubject = @"Incorrect Information On Hanover High Application";
+    incorrectInformationBody = @"Please provide all information that is incorrect as well as the correct information with which to replace it with";
+    feedbackSubject = @"Feedback on the Hanover High Application";
+    feedBackBody = @"Feedback on the Hanover High Application";
+
     
+
     Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
     // set the blocks
     NSLog(@"Ran");
@@ -173,17 +181,17 @@
     [act stopAnimating];
     
 }
-//Email Method
+//Email Methods
 
-- (IBAction)actionEmailComposer{
+- (IBAction)actionEmailComposer:(NSString *)type withBody:(NSString *)body{
     
     if ([MFMailComposeViewController canSendMail]) {
         
         MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
         mailViewController.mailComposeDelegate = self;
-        [mailViewController setSubject:@"Here's Some Feedback On Your App"];
+        [mailViewController setSubject:(@"%@", type)];
         [mailViewController setToRecipients:feedBackEmail];
-         [mailViewController setMessageBody:@"I have some feedback for you" isHTML:NO];
+         [mailViewController setMessageBody:(@"%@",body) isHTML:NO];
           
           [self presentModalViewController:mailViewController animated:YES];
           
@@ -322,19 +330,17 @@
 {
     if (buttonIndex == 0)
     {
-        [self actionEmailComposer]; 
+        [self actionEmailComposer:bugReportSubject withBody:bugReportBody];
     }
     
     if(buttonIndex == 1)
     {
-        NSURL *url = [ [ NSURL alloc ] initWithString: @"http://broadside.dresden.us/" ];
-        [[UIApplication sharedApplication] openURL:url];
+        [self actionEmailComposer:incorrectInformaationSubject withBody:incorrectInformationBody];
     }
     
     if(buttonIndex == 2)
     {
-        NSURL *url = [ [ NSURL alloc ] initWithString: @"googlechrome://broadside.dresden.us/" ];
-        [[UIApplication sharedApplication] openURL:url];
+        [self actionEmailComposer:feedbackSubject withBody:feedBackBody];
         
     }
 }
