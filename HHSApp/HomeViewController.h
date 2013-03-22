@@ -19,6 +19,7 @@
     NSMutableArray * stories;
     
     NSMutableString * currentTitle, * currentAuthor, * currentSummary, * currentLink, *currentURL, *currentHTML, *currentDate;
+    BOOL urlLoaded;
     
 }
 @property (strong, nonatomic) IBOutlet UIWebView *calendarWebView;

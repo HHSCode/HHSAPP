@@ -80,8 +80,7 @@
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults boolForKey:@"urlLoaded" ]) {
+    if (urlLoaded) {
         return NO;
     }else{
         return YES;
@@ -90,8 +89,7 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setBool:YES forKey:@"urlLoaded"];
+    urlLoaded = YES;
     [activityIndicatorCalendar stopAnimating];
     [activityIndicatorCalendar setHidden:YES];
 }

@@ -13,7 +13,7 @@
 @end
 
 @implementation MoreDetailViewController
-@synthesize moreDetailWebView, button;
+@synthesize moreDetailWebView, button, act;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    [moreDetailWebView setDelegate:self];
 
     [moreDetailWebView setScalesPageToFit:YES];
 }
@@ -34,6 +34,8 @@
 -(void)loadWebPageWithTitle:(NSString *)title atURL:(NSURL *)url{
      NSURLRequest *myRequest = [NSURLRequest requestWithURL:url];
     [moreDetailWebView loadRequest:myRequest];
+    [act startAnimating];
+    [act setHidden:NO];
 }
 
 - (IBAction)goBack:(id)sender {
@@ -41,6 +43,15 @@
 
 }
 
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    [act stopAnimating];
+    [act setHidden:YES];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+    [act stopAnimating];
+    [act setHidden:YES];
+}
 
 - (void)didReceiveMemoryWarning
 {
