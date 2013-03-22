@@ -11,7 +11,10 @@
 @interface MoreDetailViewController : UIViewController
 
 {
+<<<<<<< HEAD
     
+=======
+>>>>>>> Added Email Methods
 }
 
 @property (nonatomic, retain) IBOutlet UIWebView *moreDetailWebView;

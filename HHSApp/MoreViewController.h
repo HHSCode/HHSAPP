@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "MoreDetailViewController.h"
 #import "Reachability.h"
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface MoreViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>{
+@interface MoreViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>{
     UITableView *moreTableView;
     NSArray *cellNames;
     
@@ -34,5 +36,7 @@
 @property (nonatomic, retain) IBOutlet NSXMLParser * rssParser;
 
 - (void)parseXMLFileAtURL:(NSString *)URL;
+- (IBAction)actionEmailComposer;
+
 
 @end

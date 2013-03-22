@@ -171,8 +171,37 @@
     [act stopAnimating];
     
 }
+//Email Method
 
-
+- (IBAction)actionEmailComposer{
+    
+    if ([MFMailComposeViewController canSendMail]) {
+        
+        MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
+        mailViewController.mailComposeDelegate = self;
+        [mailViewController setSubject:@"Here's Some Feedback On Your App"];
+         [mailViewController setMessageBody:@"I have some feedback for you" isHTML:NO];
+          
+          [self presentModalViewController:mailViewController animated:YES];
+          
+          
+          }
+          
+          else {
+              
+              NSLog(@"Device is unable to send email in its current state.");
+              
+          }
+          
+          }
+/*
+          
+-(void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult MFMailComposeResult)result error:(NSError *)error {
+    
+    [self dismissModalViewControllerAnimated:YES];
+    
+}
+*/
 //TABLEVIEW
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -289,8 +318,7 @@
 {
     if (buttonIndex == 0)
     {
-        NSURL *url = [ [ NSURL alloc ] initWithString: @"http://www.facebook.com/HHSBroadside?fref=ts" ];
-        [[UIApplication sharedApplication] openURL:url];
+        [self actionEmailComposer]; 
     }
     
     if(buttonIndex == 1)
