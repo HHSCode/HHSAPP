@@ -20,6 +20,8 @@
 		88396BBE16FCAAAD00AAAEFC /* BroadsideDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88396BBD16FCAAAD00AAAEFC /* BroadsideDetailViewController.m */; };
 		8881B20116FCB0D400513235 /* ActivityViewCustomActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = 8881B20016FCB0D400513235 /* ActivityViewCustomActivityChrome.m */; };
 		88A0151716FA08A500374A91 /* OpenInChromeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A0151616FA08A500374A91 /* OpenInChromeController.m */; };
+		88D0528916FD455400E3D904 /* StaffViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D0528816FD455400E3D904 /* StaffViewCell.m */; };
+		88D0528D16FD53AB00E3D904 /* StaffViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D0528C16FD53AA00E3D904 /* StaffViewCell.xib */; };
 		88D0C76F16FB372000C17786 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D0C76E16FB372000C17786 /* MoreViewController.m */; };
 		88D627DA16F89A2400755256 /* BroadsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D627D916F89A2400755256 /* BroadsideViewController.m */; };
 		88D627DC16F8A09400755256 /* BroadsideCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D627DB16F8A09400755256 /* BroadsideCell.xib */; };
@@ -97,6 +99,9 @@
 		8881B20316FCB24A00513235 /* ActivityViewCustomActivityChrome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewCustomActivityChrome.h; sourceTree = "<group>"; };
 		88A0151516FA08A500374A91 /* OpenInChromeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenInChromeController.h; path = ../OpenInChromeController.h; sourceTree = "<group>"; };
 		88A0151616FA08A500374A91 /* OpenInChromeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpenInChromeController.m; path = ../OpenInChromeController.m; sourceTree = "<group>"; };
+		88D0528716FD455400E3D904 /* StaffViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffViewCell.h; sourceTree = "<group>"; };
+		88D0528816FD455400E3D904 /* StaffViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffViewCell.m; sourceTree = "<group>"; };
+		88D0528C16FD53AA00E3D904 /* StaffViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaffViewCell.xib; sourceTree = "<group>"; };
 		88D0C76D16FB372000C17786 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoreViewController.h; path = ../MoreViewController.h; sourceTree = "<group>"; };
 		88D0C76E16FB372000C17786 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoreViewController.m; path = ../MoreViewController.m; sourceTree = "<group>"; };
 		88D627D816F89A2400755256 /* BroadsideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BroadsideViewController.h; sourceTree = "<group>"; };
@@ -230,6 +235,9 @@
 				50E801B616FBE9A5004B9401 /* StaffDetailViewController.h */,
 				50E801B716FBE9A5004B9401 /* StaffDetailViewController.m */,
 				50E801B916FBF160004B9401 /* StaffDetailViewController.xib */,
+				88D0528716FD455400E3D904 /* StaffViewCell.h */,
+				88D0528816FD455400E3D904 /* StaffViewCell.m */,
+				88D0528C16FD53AA00E3D904 /* StaffViewCell.xib */,
 				88A0151516FA08A500374A91 /* OpenInChromeController.h */,
 				88A0151616FA08A500374A91 /* OpenInChromeController.m */,
 				88D627D816F89A2400755256 /* BroadsideViewController.h */,
@@ -423,6 +431,7 @@
 				882392EC16FCB5CE0091D8AC /* safari icon.png in Resources */,
 				882392EE16FCB6B60091D8AC /* chrome icon.png in Resources */,
 				88DA9DA716FCBE9B0096C588 /* back_button.png in Resources */,
+				88D0528D16FD53AB00E3D904 /* StaffViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +482,7 @@
 				88396BBB16FCAA9700AAAEFC /* ActivityViewCustomProvider.m in Sources */,
 				88396BBE16FCAAAD00AAAEFC /* BroadsideDetailViewController.m in Sources */,
 				8881B20116FCB0D400513235 /* ActivityViewCustomActivityChrome.m in Sources */,
+				88D0528916FD455400E3D904 /* StaffViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

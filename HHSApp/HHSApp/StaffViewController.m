@@ -201,7 +201,7 @@
 	//NSLog(@"error parsing XML: %@", errorString);
     
 	UIAlertView * errorAlert = [[UIAlertView alloc] initWithTitle:@"Error loading content" message:errorString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-	//[errorAlert show];
+	[errorAlert show];
     NSLog(@"Error");
     
 }
@@ -386,37 +386,41 @@
     sectionHeader.text = [sortedDepartments objectAtIndex:section];
     return sectionHeader;
 }*/
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 77;
+}
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifer = @"CellIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifer];
+    static NSString *CellIdentifier = @"StaffView";
     
-    // Using a cell identifier will allow your app to reuse cells as they come and go from the screen.
+    StaffViewCell *cell = (StaffViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifer];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"StaffViewCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
     }
     NSString *department = [sortedDepartments objectAtIndex:indexPath.section];
     NSDictionary *names = [departmentDict objectForKey:department];
     NSArray *list = [names allKeys];
     NSArray *sortedList = [list sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-    NSString *staffName = [NSString stringWithFormat:@"%@%@",[[names objectForKey:[sortedList objectAtIndex:[indexPath row]]]objectForKey:@"first"], [[names objectForKey:[sortedList objectAtIndex:[indexPath row]]]objectForKey:@"last"]];
-    cell.textLabel.text = staffName;
-    cell.detailTextLabel.text = [[names objectForKey:[sortedList objectAtIndex:[indexPath row]]]objectForKey:@"title"];
-    
+    NSMutableString *staffName = [NSMutableString stringWithFormat:@"%@%@",[[names objectForKey:[sortedList objectAtIndex:[indexPath row]]]objectForKey:@"first"], [[names objectForKey:[sortedList objectAtIndex:[indexPath row]]]objectForKey:@"last"]];
+    NSLog(@"%@",staffName);
+    NSMutableString *detailString = [NSMutableString stringWithFormat:@"%@",[[names objectForKey:[sortedList objectAtIndex:[indexPath row]]]objectForKey:@"title"]];
+    NSLog(@"%@",detailString);
+    //NSLog(@"%@",cell.title.text);
+    //NSLog(@"%@",cell.detail.text);
+    cell.topLabel.text = staffName;
+    cell.bottomLabel.text = detailString;
+    //NSLog(@"%@",cell.title.text);
+    //NSLog(@"%@",cell.detail.text);
     
     
     return cell;
 }
 
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-
-{
-    
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     return [[UILocalizedIndexedCollation currentCollation] sectionIndexTitles];
-    
 }
 
 /*

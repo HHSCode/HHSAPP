@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Reachability.h"
 #import "StaffDetailViewController.h"
+#import "StaffViewCell.h"
 
 @interface StaffViewController : UIViewController<NSXMLParserDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>{
     NSXMLParser *rssParser;

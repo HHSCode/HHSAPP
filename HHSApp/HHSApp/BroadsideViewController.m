@@ -117,7 +117,7 @@
 
 - (IBAction)showActionsheetButton:(id)sender
 {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:@"Open in..." delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Safari", @"Chrome", nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:@"Open Broadside in..." delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Safari", @"Chrome", nil];
     [actionSheet showInView:self.broadsideTableView];
     
 }
@@ -300,9 +300,9 @@
     
     
     
-    [cell.title setText:title];
-    [cell.author setText:author2];
-    [cell.date setText:date];
+    cell.title.text  = title;
+    cell.author.text = author2;
+    cell.date.text = date;
     
     return cell;
 }
