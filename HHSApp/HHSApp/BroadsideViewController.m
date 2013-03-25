@@ -90,11 +90,13 @@
     reach.reachableBlock = ^(Reachability*reach)
     {
         NSLog(@"Reachable");
-        stories = [[NSMutableArray alloc] init];
-        [broadsideTableView reloadData];
-        [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://feeds.feedburner.com/HHSBroadside"];
+        //stories = [[NSMutableArray alloc] init];
         [activityIndicator setHidden:NO];
         [activityIndicator startAnimating];
+        [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://feeds.feedburner.com/HHSBroadside"];
+        [broadsideTableView reloadData];
+
+       
     };
     
     reach.unreachableBlock = ^(Reachability*reach)
