@@ -387,19 +387,28 @@
     return sectionHeader;
 }*/
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 77;
+    return 44;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"StaffView";
+    /*static NSString *CellIdentifier = @"StaffView";
     
     StaffViewCell *cell = (StaffViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"StaffViewCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
+    }*/
+    
+    static NSString *CellIdentifer = @"CellIdentifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifer];
+    
+    // Using a cell identifier will allow your app to reuse cells as they come and go from the screen.
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifer];
     }
+    
     NSString *department = [sortedDepartments objectAtIndex:indexPath.section];
     NSDictionary *names = [departmentDict objectForKey:department];
     NSArray *list = [names allKeys];
@@ -408,12 +417,11 @@
     NSLog(@"%@",staffName);
     NSMutableString *detailString = [NSMutableString stringWithFormat:@"%@",[[names objectForKey:[sortedList objectAtIndex:[indexPath row]]]objectForKey:@"title"]];
     NSLog(@"%@",detailString);
-    //NSLog(@"%@",cell.title.text);
-    //NSLog(@"%@",cell.detail.text);
-    cell.topLabel.text = staffName;
-    cell.bottomLabel.text = detailString;
-    //NSLog(@"%@",cell.title.text);
-    //NSLog(@"%@",cell.detail.text);
+  
+    //cell.topLabel.text = staffName;
+    //cell.bottomLabel.text = detailString;
+    cell.textLabel.text = staffName;
+    cell.detailTextLabel.text = detailString;
     
     
     return cell;
