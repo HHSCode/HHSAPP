@@ -28,6 +28,7 @@
 	UISearchBar *theSearchBar;
     
     
+    
 }
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) IBOutlet UITableView *staffTableView;
@@ -43,4 +44,6 @@
 -(void)parseStoryArray;
 - (void)parseXMLFileAtURL:(NSString *)URL;
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView;
+-(void)reachChanged;
+
 @end

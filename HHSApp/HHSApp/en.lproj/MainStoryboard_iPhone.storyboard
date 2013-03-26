@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -76,7 +76,7 @@
                             <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="otd-Qy-qw3">
                                 <color key="backgroundColor" red="0.65882354970000001" green="0.086274512110000007" blue="0.1176470667" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="3FB-fy-MJC"/>
+                                    <constraint firstAttribute="height" constant="200" type="user" id="3FB-fy-MJC"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="2" id="YWO-ON-Xf5"/>
@@ -84,7 +84,7 @@
                             </webView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xA9-GV-vtV">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="183" id="WW9-CX-6nk"/>
+                                    <constraint firstAttribute="height" constant="183" type="user" id="WW9-CX-6nk"/>
                                     <constraint firstAttribute="width" constant="300" id="yQU-FP-oHN"/>
                                 </constraints>
                             </imageView>
@@ -94,11 +94,12 @@
                         <constraints>
                             <constraint firstItem="otd-Qy-qw3" firstAttribute="leading" secondItem="xA9-GV-vtV" secondAttribute="leading" type="default" id="4Md-iD-JAv"/>
                             <constraint firstItem="otd-Qy-qw3" firstAttribute="centerY" secondItem="5mL-GF-6l1" secondAttribute="centerY" type="default" id="7C5-5O-Ccc"/>
-                            <constraint firstItem="xA9-GV-vtV" firstAttribute="top" secondItem="16" secondAttribute="top" constant="6" id="GrB-cv-CyA"/>
-                            <constraint firstItem="otd-Qy-qw3" firstAttribute="top" secondItem="16" secondAttribute="top" constant="202" id="Gxe-dN-jPI"/>
+                            <constraint firstItem="xA9-GV-vtV" firstAttribute="top" secondItem="16" secondAttribute="top" constant="6" type="user" id="GrB-cv-CyA"/>
+                            <constraint firstItem="otd-Qy-qw3" firstAttribute="top" secondItem="16" secondAttribute="top" constant="202" type="user" id="T0t-VP-wnF"/>
                             <constraint firstItem="otd-Qy-qw3" firstAttribute="trailing" secondItem="xA9-GV-vtV" secondAttribute="trailing" type="default" id="aL9-Xt-eWy"/>
                             <constraint firstItem="5mL-GF-6l1" firstAttribute="centerX" secondItem="otd-Qy-qw3" secondAttribute="centerX" type="default" id="bTY-oH-ETA"/>
                             <constraint firstItem="5mL-GF-6l1" firstAttribute="centerX" secondItem="16" secondAttribute="centerX" type="default" id="dEl-72-uPO"/>
+                            <constraint firstAttribute="bottom" secondItem="otd-Qy-qw3" secondAttribute="bottom" constant="9" type="user" id="p0y-Gq-fII"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="home_30x30@2x.png" id="7"/>

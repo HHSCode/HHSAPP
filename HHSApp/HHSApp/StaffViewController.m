@@ -72,8 +72,10 @@
         //NSLog(@"UNREACHABLE!");
         [activityIndicator setHidden:YES];
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"No internet connection! Please try again!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        
-        //[alert performSelectorOnMainThread:@selector(parsef) withObject:nil waitUntilDone:YES];
+        [activityIndicatorStaff setHidden:YES];
+
+        [alert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
+        //[self.tabBarController setSelectedIndex:0];
         
     };
     [reach startNotifier];
@@ -405,9 +407,9 @@
     NSArray *list = [names allKeys];
     NSArray *sortedList = [list sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     NSMutableString *staffName = [NSMutableString stringWithFormat:@"%@%@",[[names objectForKey:[sortedList objectAtIndex:[indexPath row]]]objectForKey:@"first"], [[names objectForKey:[sortedList objectAtIndex:[indexPath row]]]objectForKey:@"last"]];
-    NSLog(@"%@",staffName);
+    //NSLog(@"%@",staffName);
     NSMutableString *detailString = [NSMutableString stringWithFormat:@"%@",[[names objectForKey:[sortedList objectAtIndex:[indexPath row]]]objectForKey:@"title"]];
-    NSLog(@"%@",detailString);
+    //NSLog(@"%@",detailString);
     //NSLog(@"%@",cell.title.text);
     //NSLog(@"%@",cell.detail.text);
     cell.topLabel.text = staffName;
