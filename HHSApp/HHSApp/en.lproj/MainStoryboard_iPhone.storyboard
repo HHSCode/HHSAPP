@@ -288,7 +288,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MoreViewController.h"/>
             <relationships>
                 <relationship kind="action" name="actionEmailComposer"/>
-                <relationship kind="action" name="actionEmailComposer:withBody:" candidateClass="NSString"/>
                 <relationship kind="action" name="feedbackMenu:"/>
                 <relationship kind="outlet" name="moreTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="rssParser" candidateClass="NSXMLParser"/>
