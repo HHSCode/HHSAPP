@@ -402,20 +402,30 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"StaffViewCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
+    [cell.topLabel setHidden:NO];
+    [cell.noTitleLabel setHidden:NO];
+
     NSString *department = [sortedDepartments objectAtIndex:indexPath.section];
     NSDictionary *names = [departmentDict objectForKey:department];
     NSArray *list = [names allKeys];
     NSArray *sortedList = [list sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     NSMutableString *staffName = [NSMutableString stringWithFormat:@"%@%@",[[names objectForKey:[sortedList objectAtIndex:[indexPath row]]]objectForKey:@"first"], [[names objectForKey:[sortedList objectAtIndex:[indexPath row]]]objectForKey:@"last"]];
-    //NSLog(@"%@",staffName);
+
     NSMutableString *detailString = [NSMutableString stringWithFormat:@"%@",[[names objectForKey:[sortedList objectAtIndex:[indexPath row]]]objectForKey:@"title"]];
-    //NSLog(@"%@",detailString);
-    //NSLog(@"%@",cell.title.text);
-    //NSLog(@"%@",cell.detail.text);
+    if ([detailString isEqualToString:@" "]) {
+        cell.noTitleLabel.text = staffName;
+        [cell.topLabel setHidden:YES];
+        cell.topLabel.text = @"";
+
+    }else{
+        [cell.noTitleLabel setHidden:YES];
+        cell.noTitleLabel.text = @"";
+        cell.topLabel.text = staffName;
+
+    }
     cell.topLabel.text = staffName;
     cell.bottomLabel.text = detailString;
-    //NSLog(@"%@",cell.title.text);
-    //NSLog(@"%@",cell.detail.text);
+
     
     
     return cell;

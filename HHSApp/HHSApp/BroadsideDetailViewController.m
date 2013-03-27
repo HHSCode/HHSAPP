@@ -50,9 +50,9 @@
     NSArray *theArray = [[NSArray alloc]init];
     theArray = [date componentsSeparatedByString:@"+"];
     date = [theArray objectAtIndex:0];
-    NSMutableString *start = [NSString stringWithFormat:@"<html><body><center>by %@</center><center>%@</center>", [[stories objectAtIndex:indexPath]objectForKey:@"author"], date];
+    NSMutableString *start = [NSString stringWithFormat:@"<html><body><div id=\"container\" style=\"width:300px\"><center>by %@</center><center>%@</center>", [[stories objectAtIndex:indexPath]objectForKey:@"author"], date];
     
-    NSString *end = @"</body></html>";
+    NSString *end = @"</div></body></html>";
     NSString *temp = [start stringByAppendingString:htmlString];
     NSString *final = [temp stringByAppendingString:end];
     NSLog(@"HTML: %@", final);

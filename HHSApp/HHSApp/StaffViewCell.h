@@ -12,9 +12,12 @@
     
     UILabel *topLabel;
     UILabel *bottomLabel;
+    UILabel *noTitleLabel;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *topLabel;
 @property (nonatomic, retain) IBOutlet UILabel *bottomLabel;
+@property (nonatomic, retain) IBOutlet UILabel *noTitleLabel;
+
 
 @end

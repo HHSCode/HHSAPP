@@ -9,7 +9,7 @@
 #import "StaffViewCell.h"
 
 @implementation StaffViewCell
-@synthesize bottomLabel, topLabel;
+@synthesize bottomLabel, topLabel, noTitleLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

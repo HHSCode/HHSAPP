@@ -32,7 +32,7 @@
     moreTableView.delegate = self;
     moreTableView.dataSource = self;
     
-    feedBackEmail = [[NSArray alloc] initWithObjects:@"James.owens@hanovernorwichschools.org", nil];
+    feedBackEmail = [[NSArray alloc] initWithObjects:@"max.greenwald@hanovernorwichschools.org", @"james.owens@hanovernorwichschools.org", nil];
     bugReportSubject = @"Bug report on Hanover High Application";
     bugReportBody = @"Please provide a detailed description of the bug including all steps to trigger it";
     incorrectInformaationSubject = @"Incorrect Information On Hanover High Application";
