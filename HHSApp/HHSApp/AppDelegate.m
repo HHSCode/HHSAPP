@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "GAI.h"
 
 
 @implementation AppDelegate
@@ -47,6 +47,17 @@
 
     return YES;
     
+    
+
+
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    // Optional: set debug to YES for extra debugging information.
+    [GAI sharedInstance].debug = YES;
+    // Create tracker instance.
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-39417034-1"];
     
 }
 
