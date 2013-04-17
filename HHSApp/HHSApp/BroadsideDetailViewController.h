@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface BroadsideDetailViewController : UIViewController <UIWebViewDelegate>{
+#import "GAITrackedViewController.h"
+@interface BroadsideDetailViewController : GAITrackedViewController <UIWebViewDelegate>{
     UIWebView *broadsideDetailWebView;
     UITextView *theTextView;
     NSString *urlToShare;

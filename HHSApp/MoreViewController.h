@@ -11,8 +11,8 @@
 #import "Reachability.h"
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
-
-@interface MoreViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate, UIActionSheetDelegate>{
+#import "GAITrackedViewController.h"
+@interface MoreViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate, UIActionSheetDelegate>{
     UITableView *moreTableView;
     NSArray *cellNames;
     

@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
-
-@interface StaffDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>{
+#import "GAITrackedViewController.h"
+@interface StaffDetailViewController : GAITrackedViewController<UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>{
+//@interface StaffDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>{
     UITableView *staffDetailTableView;
     NSDictionary *theDictionary;
     NSIndexPath *indexP;

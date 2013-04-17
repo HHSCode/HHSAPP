@@ -10,8 +10,10 @@
 #import "BroadsideCell.h"
 #import "BroadsideDetailViewController.h"
 #import "Reachability.h"
+#import "GAITrackedViewController.h"
 
-@interface BroadsideViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, NSXMLParserDelegate,UIActionSheetDelegate>{
+@interface BroadsideViewController : GAITrackedViewController<UITableViewDataSource, UITableViewDelegate, NSXMLParserDelegate,UIActionSheetDelegate>{
+//@interface BroadsideViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, NSXMLParserDelegate,UIActionSheetDelegate>{
     NSXMLParser *rssParser;
     NSMutableArray *articles;
     NSMutableDictionary *item;
