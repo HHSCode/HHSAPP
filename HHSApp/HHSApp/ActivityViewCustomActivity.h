@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BroadsideDetailViewController.h"
-#import "GAITrackedViewController.h"
-@interface ActivityViewCustomActivity : GAITrackedViewController
+
+@interface ActivityViewCustomActivity : UIActivity
 
 @end
