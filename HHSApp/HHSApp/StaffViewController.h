@@ -10,9 +10,8 @@
 #import "Reachability.h"
 #import "StaffDetailViewController.h"
 #import "StaffViewCell.h"
-#import "GAITrackedViewController.h"
-@interface StaffViewController : GAITrackedViewController<NSXMLParserDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>{
-//@interface StaffViewController : UIViewController<NSXMLParserDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>{
+
+@interface StaffViewController : UIViewController<NSXMLParserDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>{
     NSXMLParser *rssParser;
     NSMutableArray *articles;
     NSMutableDictionary *item;

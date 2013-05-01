@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GAITrackedViewController.h"
 
-@interface PrincipalNotesViewController : GAITrackedViewController
+@interface PrincipalNotesViewController : UIViewController
 
 @end

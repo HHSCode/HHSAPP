@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Reachability.h"
-#import "GAITrackedViewController.h"
-@interface HomeViewController : GAITrackedViewController <NSXMLParserDelegate, UIWebViewDelegate>{
-//@interface HomeViewController : UIViewController<NSXMLParserDelegate, UIWebViewDelegate>{
+
+@interface HomeViewController : UIViewController<NSXMLParserDelegate, UIWebViewDelegate>{
     NSXMLParser *rssParser;
     NSMutableArray *articles;
     NSMutableDictionary *item;

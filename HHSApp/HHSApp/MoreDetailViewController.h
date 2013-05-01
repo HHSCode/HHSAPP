@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GAITrackedViewController.h"
 
 
 
-@interface MoreDetailViewController : GAITrackedViewController<UIWebViewDelegate>{
+
+@interface MoreDetailViewController : UIViewController<UIWebViewDelegate>{
 
 }
 

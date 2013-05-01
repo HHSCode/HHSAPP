@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GAITrackedViewController.h"
-@interface BroadsideCell : GAITrackedViewController{
+
+@interface BroadsideCell : UITableViewCell{
     
     UILabel *title;
     UILabel *date;
