@@ -25,7 +25,7 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (void)viewDidLoad 
 {
     [super viewDidLoad];
     cellNames = [[NSArray alloc] initWithObjects:@"Handbook", @"Program of Studies", @"Power School", @"Council", @"SAU 70", @"Guidance", @"Yearbook", @"March Intensive", @"Media Center",@"Athletics",@"Snow Day", nil];
