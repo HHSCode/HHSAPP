@@ -7,7 +7,11 @@
 //
 
 #import "AppDelegate.h"
+<<<<<<< HEAD
 //#import "GAI.h"
+=======
+
+>>>>>>> parent of de95a0f... Added filies for Google Analytics
 
 
 @implementation AppDelegate
@@ -46,6 +50,7 @@
     [tabBarItem4 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[self colorWithHexString:@"000000"],UITextAttributeTextColor, nil] forState:UIControlStateNormal];
 
     return YES;
+<<<<<<< HEAD
     //okay. I returned. Nothing else will happen
     /*
 
@@ -60,6 +65,10 @@
     
     id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-39417034-1"];
     */
+=======
+    
+    
+>>>>>>> parent of de95a0f... Added filies for Google Analytics
 }
 
 
