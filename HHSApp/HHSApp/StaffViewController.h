@@ -24,11 +24,11 @@
 
 @property (nonatomic, strong) IBOutlet UISearchBar *theSearchBar;
 
-- (void)searchBar:(UISearchBar *)searchBar activate:(BOOL) active;
+//- (void)searchBar:(UISearchBar *)searchBar activate:(BOOL) active;
 
 -(void)parseStoryArray;
 - (void)parseXMLFileAtURL:(NSString *)URL;
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView;
--(void)reachChanged;
+//-(void)reachChanged;
 
 @end

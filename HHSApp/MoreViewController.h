@@ -23,7 +23,7 @@
 @property (nonatomic, retain) IBOutlet NSXMLParser * rssParser;
 
 - (void)parseXMLFileAtURL:(NSString *)URL;
-- (IBAction)actionEmailComposer;
+//- (IBAction)actionEmailComposer;
 
 
 

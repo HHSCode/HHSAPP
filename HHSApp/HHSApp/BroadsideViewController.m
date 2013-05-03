@@ -282,7 +282,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     static NSString *CellIdentifier = @"broadside";
     
     BroadsideCell *cell = (BroadsideCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];

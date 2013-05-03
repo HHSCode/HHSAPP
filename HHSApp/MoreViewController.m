@@ -208,9 +208,9 @@
         
         MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
         mailViewController.mailComposeDelegate = self;
-        [mailViewController setSubject:(@"%@", type)];
+        [mailViewController setSubject:[NSString stringWithFormat:@"%@", type]];
         [mailViewController setToRecipients:self.feedBackEmail];
-        [mailViewController setMessageBody:(@"%@",body) isHTML:NO];
+        [mailViewController setMessageBody:[NSString stringWithFormat:@"%@",body] isHTML:NO];
         
         [self presentModalViewController:mailViewController animated:YES];
     }

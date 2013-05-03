@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "GAI.h"
+//#import "GAI.h"
 
 
 @implementation AppDelegate
@@ -46,8 +46,8 @@
     [tabBarItem4 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[self colorWithHexString:@"000000"],UITextAttributeTextColor, nil] forState:UIControlStateNormal];
 
     return YES;
-    
-    
+    //okay. I returned. Nothing else will happen
+    /*
 
 
     // Optional: automatically send uncaught exceptions to Google Analytics.
@@ -57,8 +57,9 @@
     // Optional: set debug to YES for extra debugging information.
     [GAI sharedInstance].debug = YES;
     // Create tracker instance.
-    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-39417034-1"];
     
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-39417034-1"];
+    */
 }
 
 

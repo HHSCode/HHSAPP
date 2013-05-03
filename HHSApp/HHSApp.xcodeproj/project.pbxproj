@@ -33,7 +33,7 @@
 		88DA9DA716FCBE9B0096C588 /* back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 88DA9DA616FCBE9A0096C588 /* back_button.png */; };
 		B3128BB016FA27D2004621E9 /* icon_iphone_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = B3128BAE16FA27D2004621E9 /* icon_iphone_retina.png */; };
 		B3128BB116FA27D2004621E9 /* icon_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = B3128BAF16FA27D2004621E9 /* icon_iphone.png */; };
-		B345CEA81705A07F008483A6 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B345CEA71705A07F008483A6 /* libGoogleAnalytics.a */; };
+		B345CEA81705A07F008483A6 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B345CEA71705A07F008483A6 /* libGoogleAnalytics.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B345CEAA1705A095008483A6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B345CEA91705A095008483A6 /* CoreData.framework */; };
 		B34E0D5616F9FA2600BC552E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B34E0D5516F9FA2600BC552E /* Default-568h@2x.png */; };
 		B34E0D5B16F9FB5D00BC552E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B34E0D5A16F9FB5D00BC552E /* Default.png */; };
