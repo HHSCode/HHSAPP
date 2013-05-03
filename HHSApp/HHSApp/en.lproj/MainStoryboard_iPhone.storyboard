@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -12,25 +12,19 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="77" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="wvQ-dC-duK">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="77" sectionHeaderHeight="22" sectionFooterHeight="22" id="wvQ-dC-duK">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="vEm-ff-aHF" id="00r-A3-IPZ"/>
                                     <outlet property="delegate" destination="vEm-ff-aHF" id="rK9-WW-Wko"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cgy-o6-Xdt"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" id="cgy-o6-Xdt">
+                                <rect key="frame" x="0.0" y="174" width="320" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="wvQ-dC-duK" firstAttribute="top" secondItem="JFJ-10-JuW" secondAttribute="top" type="default" id="3rW-Hw-Z9z"/>
-                            <constraint firstItem="cgy-o6-Xdt" firstAttribute="trailing" secondItem="JFJ-10-JuW" secondAttribute="trailing" type="default" id="Ggq-6l-pX3"/>
-                            <constraint firstItem="cgy-o6-Xdt" firstAttribute="leading" secondItem="JFJ-10-JuW" secondAttribute="leading" type="default" id="knI-Z7-vQJ"/>
-                            <constraint firstItem="wvQ-dC-duK" firstAttribute="trailing" secondItem="JFJ-10-JuW" secondAttribute="trailing" type="default" id="n3c-1y-uPY"/>
-                            <constraint firstItem="cgy-o6-Xdt" firstAttribute="top" secondItem="JFJ-10-JuW" secondAttribute="top" constant="174" id="ohk-g3-HWw"/>
-                            <constraint firstItem="wvQ-dC-duK" firstAttribute="leading" secondItem="JFJ-10-JuW" secondAttribute="leading" type="default" id="oxp-YI-aYH"/>
-                            <constraint firstItem="wvQ-dC-duK" firstAttribute="bottom" secondItem="JFJ-10-JuW" secondAttribute="bottom" type="default" id="yIF-pE-1te"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Broadside" image="broadside_30x30@2x.png" id="HEt-bZ-qz8"/>
                     <navigationItem key="navigationItem" title="Broadside" id="bIC-Wg-auk">
@@ -73,34 +67,23 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="otd-Qy-qw3">
+                            <webView opaque="NO" contentMode="scaleToFill" id="otd-Qy-qw3">
+                                <rect key="frame" x="10" y="202" width="300" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.65882354970000001" green="0.086274512110000007" blue="0.1176470667" alpha="1" colorSpace="deviceRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" type="user" id="3FB-fy-MJC"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="2" id="YWO-ON-Xf5"/>
                                 </connections>
                             </webView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xA9-GV-vtV">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="183" type="user" id="WW9-CX-6nk"/>
-                                    <constraint firstAttribute="width" constant="300" id="yQU-FP-oHN"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="xA9-GV-vtV">
+                                <rect key="frame" x="10" y="6" width="300" height="183"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5mL-GF-6l1"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="whiteLarge" id="5mL-GF-6l1">
+                                <rect key="frame" x="142" y="284" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.65882354974746704" green="0.086274512112140656" blue="0.11764706671237946" alpha="1" colorSpace="deviceRGB"/>
-                        <constraints>
-                            <constraint firstItem="otd-Qy-qw3" firstAttribute="leading" secondItem="xA9-GV-vtV" secondAttribute="leading" type="default" id="4Md-iD-JAv"/>
-                            <constraint firstItem="otd-Qy-qw3" firstAttribute="centerY" secondItem="5mL-GF-6l1" secondAttribute="centerY" type="default" id="7C5-5O-Ccc"/>
-                            <constraint firstItem="xA9-GV-vtV" firstAttribute="top" secondItem="16" secondAttribute="top" constant="6" type="user" id="GrB-cv-CyA"/>
-                            <constraint firstItem="otd-Qy-qw3" firstAttribute="top" secondItem="16" secondAttribute="top" constant="202" type="user" id="T0t-VP-wnF"/>
-                            <constraint firstItem="otd-Qy-qw3" firstAttribute="trailing" secondItem="xA9-GV-vtV" secondAttribute="trailing" type="default" id="aL9-Xt-eWy"/>
-                            <constraint firstItem="5mL-GF-6l1" firstAttribute="centerX" secondItem="otd-Qy-qw3" secondAttribute="centerX" type="default" id="bTY-oH-ETA"/>
-                            <constraint firstItem="5mL-GF-6l1" firstAttribute="centerX" secondItem="16" secondAttribute="centerX" type="default" id="dEl-72-uPO"/>
-                            <constraint firstAttribute="bottom" secondItem="otd-Qy-qw3" secondAttribute="bottom" constant="9" type="user" id="p0y-Gq-fII"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="home_30x30@2x.png" id="7"/>
                     <connections>
@@ -138,7 +121,8 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="m2l-O4-Mdv">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="m2l-O4-Mdv">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tuQ-uB-afb">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
@@ -163,12 +147,6 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="m2l-O4-Mdv" firstAttribute="leading" secondItem="17" secondAttribute="leading" type="default" id="6KM-z2-ObO"/>
-                            <constraint firstItem="m2l-O4-Mdv" firstAttribute="trailing" secondItem="17" secondAttribute="trailing" type="default" id="ELg-UD-kky"/>
-                            <constraint firstItem="m2l-O4-Mdv" firstAttribute="top" secondItem="17" secondAttribute="top" type="default" id="h7Z-pc-nEb"/>
-                            <constraint firstItem="m2l-O4-Mdv" firstAttribute="bottom" secondItem="17" secondAttribute="bottom" type="default" id="yJH-WE-kCp"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="More" image="more_60x60@2x.png" id="6"/>
                     <navigationItem key="navigationItem" title="More" id="bbC-Yp-Ruk"/>
@@ -205,24 +183,19 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="CaX-nX-bKk">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="CaX-nX-bKk">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="o01-Sg-B0R" id="XaC-mO-7Uu"/>
                                     <outlet property="delegate" destination="o01-Sg-B0R" id="T9C-zq-mND"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5PW-lY-IPP"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="whiteLarge" id="5PW-lY-IPP">
+                                <rect key="frame" x="142" y="174" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="CaX-nX-bKk" firstAttribute="trailing" secondItem="8HQ-4X-Gvg" secondAttribute="trailing" type="default" id="0vL-Ib-dc0"/>
-                            <constraint firstItem="5PW-lY-IPP" firstAttribute="centerX" secondItem="CaX-nX-bKk" secondAttribute="centerX" type="default" id="DL6-K0-7R6"/>
-                            <constraint firstItem="CaX-nX-bKk" firstAttribute="top" secondItem="8HQ-4X-Gvg" secondAttribute="top" type="default" id="G0R-lF-oVO"/>
-                            <constraint firstItem="5PW-lY-IPP" firstAttribute="top" secondItem="8HQ-4X-Gvg" secondAttribute="top" constant="174" id="R52-EC-p1b"/>
-                            <constraint firstItem="CaX-nX-bKk" firstAttribute="bottom" secondItem="8HQ-4X-Gvg" secondAttribute="bottom" type="default" id="e8j-wZ-ebs"/>
-                            <constraint firstItem="CaX-nX-bKk" firstAttribute="leading" secondItem="8HQ-4X-Gvg" secondAttribute="leading" type="default" id="gRc-ND-KuB"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IiV-mJ-Ptw"/>
                     <connections>
@@ -264,6 +237,47 @@
         <image name="home_30x30@2x.png" width="30" height="30"/>
         <image name="more_60x60@2x.png" width="60" height="60"/>
     </resources>
+    <classes>
+        <class className="BroadsideViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BroadsideViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showActionsheetButton:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="broadsideTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="rssParser" candidateClass="NSXMLParser"/>
+            </relationships>
+        </class>
+        <class className="HomeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activityIndicatorCalendar" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="activityIndicatorSlideshow" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="calendarWebView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="photosWebView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="rssParser" candidateClass="NSXMLParser"/>
+                <relationship kind="outlet" name="slideshowImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="MoreViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoreViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="actionEmailComposer:withBody:" candidateClass="NSString"/>
+                <relationship kind="action" name="feedbackMenu:"/>
+                <relationship kind="outlet" name="moreTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="rssParser" candidateClass="NSXMLParser"/>
+            </relationships>
+        </class>
+        <class className="StaffViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StaffViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="activityIndicatorStaff" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="rssParser" candidateClass="NSXMLParser"/>
+                <relationship kind="outlet" name="staffTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="theSearchBar" candidateClass="UISearchBar"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
