@@ -33,10 +33,7 @@
 		88DA9DA716FCBE9B0096C588 /* back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 88DA9DA616FCBE9A0096C588 /* back_button.png */; };
 		B3128BB016FA27D2004621E9 /* icon_iphone_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = B3128BAE16FA27D2004621E9 /* icon_iphone_retina.png */; };
 		B3128BB116FA27D2004621E9 /* icon_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = B3128BAF16FA27D2004621E9 /* icon_iphone.png */; };
-<<<<<<< HEAD
 		B345CEAA1705A095008483A6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B345CEA91705A095008483A6 /* CoreData.framework */; };
-=======
->>>>>>> parent of de95a0f... Added filies for Google Analytics
 		B34E0D5616F9FA2600BC552E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B34E0D5516F9FA2600BC552E /* Default-568h@2x.png */; };
 		B34E0D5B16F9FB5D00BC552E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B34E0D5A16F9FB5D00BC552E /* Default.png */; };
 		B34E0D5F16F9FC9800BC552E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B34E0D5E16F9FC9800BC552E /* Default@2x.png */; };
@@ -120,15 +117,12 @@
 		88DA9DA616FCBE9A0096C588 /* back_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back_button.png; path = images/back_button.png; sourceTree = SOURCE_ROOT; };
 		B3128BAE16FA27D2004621E9 /* icon_iphone_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_iphone_retina.png; path = images/icon_iphone_retina.png; sourceTree = SOURCE_ROOT; };
 		B3128BAF16FA27D2004621E9 /* icon_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_iphone.png; path = images/icon_iphone.png; sourceTree = SOURCE_ROOT; };
-<<<<<<< HEAD
 		B345CE9E17059FC9008483A6 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		B345CE9F17059FC9008483A6 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
 		B345CEA017059FC9008483A6 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
 		B345CEA117059FC9008483A6 /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
 		B345CEA217059FC9008483A6 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
 		B345CEA91705A095008483A6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-=======
->>>>>>> parent of de95a0f... Added filies for Google Analytics
 		B34E0D5516F9FA2600BC552E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		B34E0D5A16F9FB5D00BC552E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		B34E0D5E16F9FC9800BC552E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
@@ -179,10 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				B345CEAA1705A095008483A6 /* CoreData.framework in Frameworks */,
-=======
->>>>>>> parent of de95a0f... Added filies for Google Analytics
 				88DA9DA116FCA8A90096C588 /* MessageUI.framework in Frameworks */,
 				50E801B516FA6FE3004B9401 /* SystemConfiguration.framework in Frameworks */,
 				320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */,
@@ -205,13 +196,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B345CE9D17059FAE008483A6 /* Google Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				B345CE9E17059FC9008483A6 /* GAI.h */,
+				B345CE9F17059FC9008483A6 /* GAITrackedViewController.h */,
+				B345CEA017059FC9008483A6 /* GAITracker.h */,
+				B345CEA117059FC9008483A6 /* GAITransaction.h */,
+				B345CEA217059FC9008483A6 /* GAITransactionItem.h */,
+			);
+			name = "Google Analytics";
+			sourceTree = "<group>";
+		};
 		B38AE60416C4227C00069514 = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				B345CEA91705A095008483A6 /* CoreData.framework */,
-=======
->>>>>>> parent of de95a0f... Added filies for Google Analytics
 				B38AE61616C4227C00069514 /* HHSApp */,
 				B38AE64816C4227D00069514 /* HHSAppTests */,
 				B38AE60F16C4227C00069514 /* Frameworks */,
@@ -284,6 +284,7 @@
 				88396BB916FCAA9700AAAEFC /* ActivityViewCustomProvider.m */,
 				50E801B116FA6FC6004B9401 /* Reachability.h */,
 				50E801B216FA6FC6004B9401 /* Reachability.m */,
+				B345CE9D17059FAE008483A6 /* Google Analytics */,
 				B3A3EDC216EA44DD00A45BD2 /* Images */,
 				B38AE61716C4227C00069514 /* Supporting Files */,
 			);
@@ -627,6 +628,10 @@
 				GCC_PREFIX_HEADER = "HHSApp/HHSApp-Prefix.pch";
 				INFOPLIST_FILE = "HHSApp/HHSApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Downloads/GoogleAnalyticsiOS_2.0beta4/Library\"",
+				);
 				PRODUCT_NAME = HHS;
 				PROVISIONING_PROFILE = "322E1785-91A9-4E5E-8DC3-7088DD29138C";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -642,6 +647,10 @@
 				GCC_PREFIX_HEADER = "HHSApp/HHSApp-Prefix.pch";
 				INFOPLIST_FILE = "HHSApp/HHSApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Downloads/GoogleAnalyticsiOS_2.0beta4/Library\"",
+				);
 				PRODUCT_NAME = HHS;
 				PROVISIONING_PROFILE = "322E1785-91A9-4E5E-8DC3-7088DD29138C";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -660,6 +669,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HHSApp/HHSApp-Prefix.pch";
 				INFOPLIST_FILE = "HHSAppTests/HHSAppTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -677,6 +690,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HHSApp/HHSApp-Prefix.pch";
 				INFOPLIST_FILE = "HHSAppTests/HHSAppTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
