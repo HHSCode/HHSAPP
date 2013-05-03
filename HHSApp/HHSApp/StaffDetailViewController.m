@@ -10,11 +10,20 @@
 
 @interface StaffDetailViewController ()
 
+@property (nonatomic, strong) NSDictionary *theDictionary;
+@property (nonatomic, strong) NSIndexPath *indexP;
+@property (nonatomic, strong) NSString *firstName;
+@property (nonatomic, strong) NSString *lastName;
+@property (nonatomic, strong) NSString *department;
+@property (nonatomic, strong) NSString *email;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *url;
+@property (nonatomic, strong) NSString *phone;
+@property (nonatomic, strong) NSString *phoneOrig;
+
 @end
 
 @implementation StaffDetailViewController
-
-@synthesize staffDetailTableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,28 +38,28 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [staffDetailTableView setDelegate:self];
-    [staffDetailTableView setDataSource:self];
+    [self.staffDetailTableView setDelegate:self];
+    [self.staffDetailTableView setDataSource:self];
 }
 
 -(void)setTableViewObjects:(NSDictionary *)dict :(NSIndexPath *)index :(NSArray *)sortedDepartments{
 
-    theDictionary = dict;
-    indexP = index;
+    self.theDictionary = dict;
+    self.indexP = index;
     NSString *dep = [sortedDepartments objectAtIndex:index.section];
     NSDictionary *names = [dict objectForKey:dep];
     NSArray *list = [names allKeys];
     NSArray *sortedList = [list sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-    firstName = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"first"];
-    lastName = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"last"];
-    phone = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"phone"];
-    department = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"dept"];
-    email = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"email"];
-    title = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"title"];
-    url = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"site"];
-    phoneOrig = phone;
-    phone = [NSString stringWithFormat:@"1 (603) 643-3431 ext. %@", phone];
-    [staffDetailTableView reloadData];
+    self.firstName = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"first"];
+    self.lastName = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"last"];
+    self.phone = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"phone"];
+    self.department = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"dept"];
+    self.email = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"email"];
+    self.title = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"title"];
+    self.url = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"site"];
+    self.phoneOrig = self.phone;
+    self.phone = [NSString stringWithFormat:@"1 (603) 643-3431 ext. %@", self.phone];
+    [self.staffDetailTableView reloadData];
 }
 
 // EMAIL
@@ -62,7 +71,7 @@
         MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
         mailViewController.mailComposeDelegate = self;
         [mailViewController setSubject:@"Email to Staff"];
-        NSArray *array = [[NSArray alloc]initWithObjects:email, nil];
+        NSArray *array = [[NSArray alloc]initWithObjects:self.email, nil];
         [mailViewController setToRecipients:array];
         [mailViewController setMessageBody:@"" isHTML:NO];
         
@@ -94,11 +103,11 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     int cells = 5;
-    if ([phoneOrig isEqualToString:@"-1"]) {
+    if ([self.phoneOrig isEqualToString:@"-1"]) {
         cells -=1;
         
     }
-    if ([url isEqualToString:@" "]) {
+    if ([self.url isEqualToString:@" "]) {
         cells -=1;
     }
     return 2;
@@ -112,11 +121,11 @@
         return 1;
     }else{
         int cells = 4;
-        if ([phoneOrig isEqualToString:@"-1"]) {
+        if ([self.phoneOrig isEqualToString:@"-1"]) {
             cells -=1;
             
         }
-        if ([url isEqualToString:@" "]) {
+        if ([self.url isEqualToString:@" "]) {
             cells -=1;
         }
         return cells;
@@ -139,37 +148,37 @@
     }
     
     if ([indexPath section]==0) {
-        cell.textLabel.text = [NSString stringWithFormat:@"%@%@", firstName, lastName];
-        cell.detailTextLabel.text = title;
+        cell.textLabel.text = [NSString stringWithFormat:@"%@%@", self.firstName, self.lastName];
+        cell.detailTextLabel.text = self.title;
     }else{
         
             
         if ([indexPath row]==0){
-            cell.textLabel.text = department;
+            cell.textLabel.text = self.department;
         }else if([indexPath row]==1){
-            cell.textLabel.text = email;
+            cell.textLabel.text = self.email;
             cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
         }
         
         
-        if ([phoneOrig isEqualToString:@"-1"]) {
-            if ([url isEqualToString:@" "]) {
+        if ([self.phoneOrig isEqualToString:@"-1"]) {
+            if ([self.url isEqualToString:@" "]) {
                 //neither
             }else{
                 if ([indexPath row]==2){
-                    cell.textLabel.text = url;
+                    cell.textLabel.text = self.url;
                 }
             }
 
-        }else if ([url isEqualToString:@" "]) {
+        }else if ([self.url isEqualToString:@" "]) {
             if ([indexPath row]==2){
-                cell.textLabel.text = phone;
+                cell.textLabel.text = self.phone;
             }
         }else{
             if ([indexPath row]==2){
-                cell.textLabel.text = url;
+                cell.textLabel.text = self.url;
             }else if ([indexPath row]==3){
-                cell.textLabel.text = phone;
+                cell.textLabel.text = self.phone;
             }
         }
 
@@ -225,13 +234,13 @@
     UITableViewCell *cell = [[UITableViewCell alloc]init];
     cell = [tableView cellForRowAtIndexPath:indexPath];
    // NSLog(@"-%@-", cell.textLabel.text);
-    if ([cell.textLabel.text isEqualToString:url]) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    if ([cell.textLabel.text isEqualToString:self.url]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.url]];
         NSLog(@"opened");
-    }else if ([cell.textLabel.text isEqualToString:email]){
+    }else if ([cell.textLabel.text isEqualToString:self.email]){
         [self actionEmailComposer];
-    }else if ([cell.textLabel.text isEqualToString:phone]){
-        NSString *string = [[NSString alloc]initWithString:phone];
+    }else if ([cell.textLabel.text isEqualToString:self.phone]){
+        NSString *string = [[NSString alloc]initWithString:self.phone];
         string = [string stringByReplacingOccurrencesOfString:@"ext. " withString:@","];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", string]]];
         

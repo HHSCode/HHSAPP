@@ -8,13 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BroadsideCell : UITableViewCell{
-    
-    UILabel *title;
-    UILabel *date;
-    UILabel *author;
-    NSString *html;
-}
+@interface BroadsideCell : UITableViewCell
 
 @property (nonatomic, retain) IBOutlet UILabel *title;
 @property (nonatomic, retain) IBOutlet UILabel *date;

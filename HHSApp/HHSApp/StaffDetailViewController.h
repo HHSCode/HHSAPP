@@ -11,20 +11,10 @@
 #import <MessageUI/MFMailComposeViewController.h>
 
 @interface StaffDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>{
-    UITableView *staffDetailTableView;
-    NSDictionary *theDictionary;
-    NSIndexPath *indexP;
-    NSString *firstName;
-    NSString *lastName;
-    NSString *department;
-    NSString *email;
-    NSString *title;
-    NSString *url;
-    NSString *phone;
-    NSString *phoneOrig;
+    
 }
 
-@property (nonatomic, retain) IBOutlet UITableView *staffDetailTableView;
+@property (nonatomic, strong) IBOutlet UITableView *staffDetailTableView;
 
 -(void)setTableViewObjects:(NSDictionary *)dict :(NSIndexPath *)index :(NSArray *)sortedDepartments;
 

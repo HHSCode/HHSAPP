@@ -8,16 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StaffViewCell : UITableViewCell{
-    
-    UILabel *topLabel;
-    UILabel *bottomLabel;
-    UILabel *noTitleLabel;
-}
+@interface StaffViewCell : UITableViewCell
 
-@property (nonatomic, retain) IBOutlet UILabel *topLabel;
-@property (nonatomic, retain) IBOutlet UILabel *bottomLabel;
-@property (nonatomic, retain) IBOutlet UILabel *noTitleLabel;
-
+@property (nonatomic, strong) IBOutlet UILabel *topLabel;
+@property (nonatomic, strong) IBOutlet UILabel *bottomLabel;
+@property (nonatomic, strong) IBOutlet UILabel *noTitleLabel;
 
 @end

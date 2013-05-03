@@ -13,7 +13,7 @@
 @end
 
 @implementation MoreDetailViewController
-@synthesize moreDetailWebView, button, act;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,31 +26,31 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [moreDetailWebView setDelegate:self];
+    [self.moreDetailWebView setDelegate:self];
 
-    [moreDetailWebView setScalesPageToFit:YES];
+    [self.moreDetailWebView setScalesPageToFit:YES];
 }
 
 -(void)loadWebPageWithTitle:(NSString *)title atURL:(NSURL *)url{
      NSURLRequest *myRequest = [NSURLRequest requestWithURL:url];
-    [moreDetailWebView loadRequest:myRequest];
-    [act startAnimating];
-    [act setHidden:NO];
+    [self.moreDetailWebView loadRequest:myRequest];
+    [self.act startAnimating];
+    [self.act setHidden:NO];
 }
 
 - (IBAction)goBack:(id)sender {
-    [moreDetailWebView goBack];
+    [self.moreDetailWebView goBack];
 
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
-    [act stopAnimating];
-    [act setHidden:YES];
+    [self.act stopAnimating];
+    [self.act setHidden:YES];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
-    [act stopAnimating];
-    [act setHidden:YES];
+    [self.act stopAnimating];
+    [self.act setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning

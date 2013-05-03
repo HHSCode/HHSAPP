@@ -11,13 +11,11 @@
 
 
 
-@interface MoreDetailViewController : UIViewController<UIWebViewDelegate>{
+@interface MoreDetailViewController : UIViewController<UIWebViewDelegate>
 
-}
-
-@property (nonatomic, retain) IBOutlet UIWebView *moreDetailWebView;
-@property (nonatomic, retain) IBOutlet UIButton *button;
-@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *act;
+@property (nonatomic, strong) IBOutlet UIWebView *moreDetailWebView;
+@property (nonatomic, strong) IBOutlet UIButton *button;
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *act;
 
 
 -(void)loadWebPageWithTitle:(NSString *)title atURL:(NSURL *)url;

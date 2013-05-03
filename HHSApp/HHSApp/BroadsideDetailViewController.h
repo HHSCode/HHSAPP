@@ -8,14 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BroadsideDetailViewController : UIViewController <UIWebViewDelegate>{
-    UIWebView *broadsideDetailWebView;
-    UITextView *theTextView;
-    NSString *urlToShare;
-}
+@interface BroadsideDetailViewController : UIViewController <UIWebViewDelegate>
+
 @property (retain, nonatomic) IBOutlet UIWebView *broadsideDetailWebView;
 @property (nonatomic, retain) IBOutlet UITextView *theTextView;
-
 
 - (void)setWebView:(int)indexPath :(NSMutableArray *)stories;
 - (IBAction)showActivityView;

@@ -10,10 +10,18 @@
 
 @interface BroadsideViewController ()
 
+@property (strong, nonatomic) NSMutableArray *articles;
+@property (strong, nonatomic) NSMutableDictionary *item;
+@property (strong, nonatomic) NSString *currentElement;
+@property (strong, nonatomic) NSMutableString *ElementValue;
+@property (nonatomic) BOOL errorParsing;
+@property (strong, nonatomic) NSMutableArray * stories;
+
+@property (strong, nonatomic) NSMutableString * currentTitle, * currentAuthor, * currentSummary, * currentLink, *currentURL, *currentHTML, *currentDate;
+
 @end
 
 @implementation BroadsideViewController
-@synthesize broadsideTableView, rssParser, activityIndicator;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,7 +42,7 @@
     action:@selector(refreshView:)
     forControlEvents:UIControlEventValueChanged];
     UITableViewController *tableViewController = [[UITableViewController alloc]init];
-    [tableViewController setTableView:broadsideTableView];
+    [tableViewController setTableView:self.broadsideTableView];
     tableViewController.refreshControl = refresh;
 }
 
@@ -60,10 +68,10 @@
     reach.reachableBlock = ^(Reachability*reach)
     {
         //NSLog(@"REACHABLE!");
-        if([stories count]==0){
+        if([self.stories count]==0){
             [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://feeds.feedburner.com/HHSBroadside"];
-            [activityIndicator setHidden:NO];
-            [activityIndicator startAnimating];
+            [self.activityIndicator setHidden:NO];
+            [self.activityIndicator startAnimating];
             
         }
     };
@@ -71,7 +79,7 @@
     reach.unreachableBlock = ^(Reachability*reach)
     {
         //NSLog(@"UNREACHABLE!");
-        [activityIndicator setHidden:YES];
+        [self.activityIndicator setHidden:YES];
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"No internet connection! Please try again!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
         [alert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
@@ -90,17 +98,17 @@
     reach.reachableBlock = ^(Reachability*reach)
     {
         NSLog(@"Reachable");
-        stories = [[NSMutableArray alloc] init];
-        [broadsideTableView reloadData];
+        self.stories = [[NSMutableArray alloc] init];
+        [self.broadsideTableView reloadData];
         [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://feeds.feedburner.com/HHSBroadside"];
-        [activityIndicator setHidden:NO];
-        [activityIndicator startAnimating];
+        [self.activityIndicator setHidden:NO];
+        [self.activityIndicator startAnimating];
     };
     
     reach.unreachableBlock = ^(Reachability*reach)
     {
         NSLog(@"UNREACHABLE!");
-        [activityIndicator setHidden:YES];
+        [self.activityIndicator setHidden:YES];
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"No internet connection! Please try again!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
         [alert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
@@ -148,27 +156,27 @@
 
 - (void)parseXMLFileAtURL:(NSString *)URL {
     
-    stories = [[NSMutableArray alloc] init];
+    self.stories = [[NSMutableArray alloc] init];
     
 	//you must then convert the path to a proper NSURL or it won't work
 	NSURL *xmlURL = [NSURL URLWithString:URL];
     
 	// here, for some reason you have to use NSClassFromString when trying to alloc NSXMLParser, otherwise you will get an object not found error
 	// this may be necessary only for the toolchain
-	rssParser = [[NSXMLParser alloc] initWithContentsOfURL:xmlURL];
+	self.rssParser = [[NSXMLParser alloc] initWithContentsOfURL:xmlURL];
     
 	// Set self as the delegate of the parser so that it will receive the parser delegate methods callbacks.
-	[rssParser setDelegate:self];
+	[self.rssParser setDelegate:self];
     
 	// Depending on the XML document you're parsing, you may want to enable these features of NSXMLParser.
-	[rssParser setShouldProcessNamespaces:NO];
+	[self.rssParser setShouldProcessNamespaces:NO];
     
-	[rssParser setShouldReportNamespacePrefixes:NO];
+	[self.rssParser setShouldReportNamespacePrefixes:NO];
     
-	[rssParser setShouldResolveExternalEntities:NO];
+	[self.rssParser setShouldResolveExternalEntities:NO];
     
     
-	[rssParser parse];
+	[self.rssParser parse];
     
 }
 
@@ -186,17 +194,17 @@
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
-	currentElement = [elementName copy];
+	self.currentElement = [elementName copy];
     //NSLog(@"Current Element: %@", currentElement);
 	if ([elementName isEqualToString:@"item"]) {  
-		item = [[NSMutableDictionary alloc] init];
-		currentTitle = [[NSMutableString alloc] init];
-		currentAuthor = [[NSMutableString alloc] init];
-		currentSummary = [[NSMutableString alloc] init];
-		currentLink = [[NSMutableString alloc] init];
-        currentURL = [[NSMutableString alloc]init];
-        currentHTML = [[NSMutableString alloc]init];
-        currentDate = [[NSMutableString alloc]init];
+		self.item = [[NSMutableDictionary alloc] init];
+		self.currentTitle = [[NSMutableString alloc] init];
+		self.currentAuthor = [[NSMutableString alloc] init];
+		self.currentSummary = [[NSMutableString alloc] init];
+		self.currentLink = [[NSMutableString alloc] init];
+        self.currentURL = [[NSMutableString alloc]init];
+        self.currentHTML = [[NSMutableString alloc]init];
+        self.currentDate = [[NSMutableString alloc]init];
         
     }
     
@@ -209,30 +217,30 @@
 	if ([elementName isEqualToString:@"item"]) { //change this back to id
 		// save values to an item, then store that item into the array...
         //NSLog(@"item: %@", item);
-        [item setObject:currentTitle forKey:@"title"];
-		[item setObject:currentLink forKey:@"link"];
-		[item setObject:currentAuthor forKey:@"author"];
-        [item setObject:currentHTML forKey:@"HTML"];
-        [item setObject:currentDate forKey:@"date"];
+        [self.item setObject:self.currentTitle forKey:@"title"];
+		[self.item setObject:self.currentLink forKey:@"link"];
+		[self.item setObject:self.currentAuthor forKey:@"author"];
+        [self.item setObject:self.currentHTML forKey:@"HTML"];
+        [self.item setObject:self.currentDate forKey:@"date"];
         
         
-		[stories addObject:[item copy]];
+		[self.stories addObject:[self.item copy]];
     }
 	
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
     
-    if ([currentElement isEqualToString:@"feedburner:origLink"]){
-        [currentLink appendString:string];
-    }else if ([currentElement isEqualToString:@"title"]) {
-		[currentTitle appendString:string];
-    }else if ([currentElement isEqualToString:@"dc:creator"]) {
-		[currentAuthor appendString:string];
-    }else if ([currentElement isEqualToString:@"content:encoded"]){
-        [currentHTML appendString:string];
-    }else if ([currentElement isEqualToString:@"pubDate"]){
-        [currentDate appendString:string];
+    if ([self.currentElement isEqualToString:@"feedburner:origLink"]){
+        [self.currentLink appendString:string];
+    }else if ([self.currentElement isEqualToString:@"title"]) {
+		[self.currentTitle appendString:string];
+    }else if ([self.currentElement isEqualToString:@"dc:creator"]) {
+		[self.currentAuthor appendString:string];
+    }else if ([self.currentElement isEqualToString:@"content:encoded"]){
+        [self.currentHTML appendString:string];
+    }else if ([self.currentElement isEqualToString:@"pubDate"]){
+        [self.currentDate appendString:string];
     }
 	// save the characters for the current item...
     
@@ -241,12 +249,12 @@
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
     
 	NSLog(@"all done!");
-	NSLog(@"stories array has %d items", [stories count]);
+	NSLog(@"stories array has %d items", [self.stories count]);
     
     //NSLog(@"Stories: %@", stories);
-    [activityIndicator stopAnimating];
-    [activityIndicator setHidden:YES];
-    [broadsideTableView reloadData];
+    [self.activityIndicator stopAnimating];
+    [self.activityIndicator setHidden:YES];
+    [self.broadsideTableView reloadData];
     
     
 }
@@ -265,7 +273,7 @@
     // Return the number of rows in the section.
     //NSLog(@"Updating table view, stories count: %i", [stories count]);
     
-    return [stories count];
+    return [self.stories count];
     
     
 }
@@ -284,11 +292,11 @@
     }
 
     //NSLog(@"Title: %@", [[stories objectAtIndex:[indexPath row]]objectForKey:@"title"]);
-    NSMutableString *title = [[NSMutableString alloc]initWithString:[[stories objectAtIndex:[indexPath row]]objectForKey:@"title"]];
-    NSMutableString *date = [[NSMutableString alloc]initWithString:[[stories objectAtIndex:[indexPath row]]objectForKey:@"date"]];
+    NSMutableString *title = [[NSMutableString alloc]initWithString:[[self.stories objectAtIndex:[indexPath row]]objectForKey:@"title"]];
+    NSMutableString *date = [[NSMutableString alloc]initWithString:[[self.stories objectAtIndex:[indexPath row]]objectForKey:@"date"]];
     NSMutableString *author2 = [[NSMutableString alloc]initWithString:@"by "];
     
-    NSMutableString *author = [[NSMutableString alloc]initWithString:[[stories objectAtIndex:[indexPath row]]objectForKey:@"author"]];
+    NSMutableString *author = [[NSMutableString alloc]initWithString:[[self.stories objectAtIndex:[indexPath row]]objectForKey:@"author"]];
     [author2 appendString:author];
     
     NSArray *theArray = [[NSArray alloc]init];
@@ -353,7 +361,7 @@
     
     BroadsideDetailViewController *detail = [[BroadsideDetailViewController alloc]initWithNibName:@"BroadsideDetailViewController" bundle:nil];
     [self.navigationController pushViewController:detail animated:YES];
-    [detail setWebView:[indexPath row] :stories];
+    [detail setWebView:[indexPath row] :self.stories];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     

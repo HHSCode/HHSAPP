@@ -12,32 +12,9 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 
-@interface MoreViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate, UIActionSheetDelegate>{
-    UITableView *moreTableView;
-    NSArray *cellNames;
-    
-    NSXMLParser *rssParser;
-    NSMutableArray *articles;
-    NSMutableDictionary *item;
-    NSString *currentElement;
-    NSMutableString *ElementValue;
-    BOOL errorParsing;
-    NSMutableDictionary * stories;
-    
-    NSMutableString * currentName, *currentLink;
-    UIActivityIndicatorView *act;
-    UIAlertView *wait;
-    
-    //Mail stuff
-    NSArray *feedBackEmail;
-    NSString *bugReportSubject;
-    NSString *bugReportBody;
-    NSString *incorrectInformaationSubject;
-    NSString *incorrectInformationBody;
-    NSString *feedbackSubject;
-    NSString *feedBackBody;
-    
-}
+@interface MoreViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate, UIActionSheetDelegate, NSXMLParserDelegate>
+
+//all private properties are in .m interface extension
 
 - (IBAction)feedbackMenu:(id)sender;
 

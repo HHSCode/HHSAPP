@@ -10,11 +10,31 @@
 
 @interface MoreViewController ()
 
+@property (strong, nonatomic) NSArray *cellNames;
+
+@property (strong, nonatomic) NSMutableArray *articles;
+@property (strong, nonatomic) NSMutableDictionary *item;
+@property (strong, nonatomic) NSString *currentElement;
+@property (strong, nonatomic) NSMutableString *ElementValue;
+@property (nonatomic) BOOL errorParsing;
+@property (strong, nonatomic) NSMutableDictionary * stories;
+
+@property (strong, nonatomic) NSMutableString * currentName, *currentLink;
+@property (strong, nonatomic) UIActivityIndicatorView *act;
+@property (strong, nonatomic) UIAlertView *wait;
+
+//Mail stuff
+@property (strong, nonatomic) NSArray *feedBackEmail;
+@property (strong, nonatomic) NSString *bugReportSubject;
+@property (strong, nonatomic) NSString *bugReportBody;
+@property (strong, nonatomic) NSString *incorrectInformaationSubject;
+@property (strong, nonatomic) NSString *incorrectInformationBody;
+@property (strong, nonatomic) NSString *feedbackSubject;
+@property (strong, nonatomic) NSString *feedBackBody;
+
 @end
 
 @implementation MoreViewController
-
-@synthesize moreTableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,17 +48,17 @@
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
-    cellNames = [[NSArray alloc] initWithObjects:@"Handbook", @"Program of Studies", @"Power School", @"Council", @"SAU 70", @"Guidance", @"Yearbook", @"March Intensive", @"Media Center",@"Athletics",@"Snow Day", nil];
-    moreTableView.delegate = self;
-    moreTableView.dataSource = self;
+    self.cellNames = [[NSArray alloc] initWithObjects:@"Handbook", @"Program of Studies", @"Power School", @"Council", @"SAU 70", @"Guidance", @"Yearbook", @"March Intensive", @"Media Center",@"Athletics",@"Snow Day", nil];
+    self.moreTableView.delegate = self;
+    self.moreTableView.dataSource = self;
     
-    feedBackEmail = [[NSArray alloc] initWithObjects:@"max.greenwald@hanovernorwichschools.org", @"james.owens@hanovernorwichschools.org", nil];
-    bugReportSubject = @"Bug report on Hanover High Application";
-    bugReportBody = @"Please provide a detailed description of the bug including all steps to trigger it";
-    incorrectInformaationSubject = @"Incorrect Information On Hanover High Application";
-    incorrectInformationBody = @"Please provide all information that is incorrect as well as the correct information with which to replace it with";
-    feedbackSubject = @"Feedback on the Hanover High Application";
-    feedBackBody = @"Feedback on the Hanover High Application";
+    self.feedBackEmail = [[NSArray alloc] initWithObjects:@"max.greenwald@hanovernorwichschools.org", @"james.owens@hanovernorwichschools.org", nil];
+    self.bugReportSubject = @"Bug report on Hanover High Application";
+    self.bugReportBody = @"Please provide a detailed description of the bug including all steps to trigger it";
+    self.incorrectInformaationSubject = @"Incorrect Information On Hanover High Application";
+    self.incorrectInformationBody = @"Please provide all information that is incorrect as well as the correct information with which to replace it with";
+    self.feedbackSubject = @"Feedback on the Hanover High Application";
+    self.feedBackBody = @"Feedback on the Hanover High Application";
 
     
 
@@ -49,21 +69,21 @@
     {
         NSLog(@"Reachable");
 
-        stories = [[NSMutableDictionary alloc] init];
-        [moreTableView reloadData];
+        self.stories = [[NSMutableDictionary alloc] init];
+        [self.moreTableView reloadData];
         [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://www.lordtechyproductions.com/hhsapp/moreTab.php"];
-        act = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(12.0, 85, 260.0, 25.0)];
+        self.act = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(12.0, 85, 260.0, 25.0)];
         
         
        
-         wait = [[UIAlertView alloc]                        initWithTitle:@"Loading..."
+         self.wait = [[UIAlertView alloc]                        initWithTitle:@"Loading..."
                         message:@"Please wait"
                         delegate:self
                         cancelButtonTitle:nil
                         otherButtonTitles:nil];
-            [wait addSubview:act];
-        [act startAnimating];
-        [wait performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:NO];
+            [self.wait addSubview:self.act];
+        [self.act startAnimating];
+        [self.wait performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:NO];
 
 
     };
@@ -91,33 +111,33 @@
 
 - (void)parseXMLFileAtURL:(NSString *)URL {
     
-    stories = [[NSMutableDictionary alloc] init];
+    self.stories = [[NSMutableDictionary alloc] init];
     
 	//you must then convert the path to a proper NSURL or it won't work
 	NSURL *xmlURL = [NSURL URLWithString:URL];
     
 	// here, for some reason you have to use NSClassFromString when trying to alloc NSXMLParser, otherwise you will get an object not found error
 	// this may be necessary only for the toolchain
-	rssParser = [[NSXMLParser alloc] initWithContentsOfURL:xmlURL];
+	self.rssParser = [[NSXMLParser alloc] initWithContentsOfURL:xmlURL];
     
 	// Set self as the delegate of the parser so that it will receive the parser delegate methods callbacks.
-	[rssParser setDelegate:self];
+	[self.rssParser setDelegate:self];
     
 	// Depending on the XML document you're parsing, you may want to enable these features of NSXMLParser.
-	[rssParser setShouldProcessNamespaces:NO];
+	[self.rssParser setShouldProcessNamespaces:NO];
     
-	[rssParser setShouldReportNamespacePrefixes:NO];
+	[self.rssParser setShouldReportNamespacePrefixes:NO];
     
-	[rssParser setShouldResolveExternalEntities:NO];
+	[self.rssParser setShouldResolveExternalEntities:NO];
     
     
-	[rssParser parse];
+	[self.rssParser parse];
     
 }
 
 - (void)parserDidStartDocument:(NSXMLParser *)parser {
 	// (@"found file and started parsing");
-    item = [[NSMutableDictionary alloc] init];
+    self.item = [[NSMutableDictionary alloc] init];
 
 }
 
@@ -131,15 +151,14 @@
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
-	currentElement = [elementName copy];
+	self.currentElement = [elementName copy];
     //NSLog(@"Current Element: %@", currentElement);
 	if ([elementName isEqualToString:@"name"]) {
-		currentLink = [[NSMutableString alloc] init];
-		currentName = [[NSMutableString alloc] init];
+		self.currentLink = [[NSMutableString alloc] init];
+		self.currentName = [[NSMutableString alloc] init];
 
         
     }
-    
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
@@ -149,21 +168,21 @@
 	if ([elementName isEqualToString:@"link"]) { //change this back to id
 		// save values to an item, then store that item into the array...
         //NSLog(@"item: %@", item);
-        NSString *string = [currentName substringToIndex:[currentName length]-1];
+        NSString *string = [self.currentName substringToIndex:[self.currentName length]-1];
         
-        [item setObject:currentLink forKey:string];
+        [self.item setObject:self.currentLink forKey:string];
     
-		stories = item;
+		self.stories = self.item;
     }
 	
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
     //NSLog(@"%@: %@", currentElement, string);
-    if ([currentElement isEqualToString:@"name"]){
-        [currentName appendString:string];
-    }else if ([currentElement isEqualToString:@"link"]) {
-		[currentLink appendString:string];
+    if ([self.currentElement isEqualToString:@"name"]){
+        [self.currentName appendString:string];
+    }else if ([self.currentElement isEqualToString:@"link"]) {
+		[self.currentLink appendString:string];
     }
 	// save the characters for the current item...
     
@@ -172,13 +191,13 @@
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
     
 	NSLog(@"all done!");
-	NSLog(@"stories array has %d items", [stories count]);
+	NSLog(@"stories array has %d items", [self.stories count]);
     
-    NSLog(@"Stories: %@", stories);
+    NSLog(@"Stories: %@", self.stories);
     
-    [wait dismissWithClickedButtonIndex:0 animated:YES];
+    [self.wait dismissWithClickedButtonIndex:0 animated:YES];
 
-    [act stopAnimating];
+    [self.act stopAnimating];
     
 }
 //Email Methods
@@ -190,23 +209,21 @@
         MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
         mailViewController.mailComposeDelegate = self;
         [mailViewController setSubject:(@"%@", type)];
-        [mailViewController setToRecipients:feedBackEmail];
-         [mailViewController setMessageBody:(@"%@",body) isHTML:NO];
-          
-          [self presentModalViewController:mailViewController animated:YES];
-          
-          
-          }
-          
-          else {
-              
-              NSLog(@"Device is unable to send email in its current state.");
-              
-          }
-          
-          }
+        [mailViewController setToRecipients:self.feedBackEmail];
+        [mailViewController setMessageBody:(@"%@",body) isHTML:NO];
+        
+        [self presentModalViewController:mailViewController animated:YES];
+    }
+    
+    else {
+        
+        NSLog(@"Device is unable to send email in its current state.");
+        
+    }
+    
+}
 
-          
+
 - (void)mailComposeController:(MFMailComposeViewController*)controller
           didFinishWithResult:(MFMailComposeResult)result
                         error:(NSError*)error
@@ -226,7 +243,7 @@
     // Return the number of rows in the section.
     //NSLog(@"Updating table view, stories count: %i", [stories count]);
     
-    return [cellNames count];
+    return [self.cellNames count];
 
     
     
@@ -247,7 +264,7 @@
         }
         
         
-        cell.textLabel.text = [cellNames objectAtIndex:[indexPath row]];
+        cell.textLabel.text = [self.cellNames objectAtIndex:[indexPath row]];
         
          return cell;
     }
@@ -297,11 +314,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MoreDetailViewController *detail = [[MoreDetailViewController alloc]initWithNibName:@"MoreDetailViewController" bundle:nil];
-    detail.title = [cellNames objectAtIndex:[indexPath row]];
-    NSLog(@"%@", [cellNames objectAtIndex:[indexPath row]]);
-    NSLog(@"%@", [stories objectForKey:[cellNames objectAtIndex:[indexPath row]]]);
+    detail.title = [self.cellNames objectAtIndex:[indexPath row]];
+    NSLog(@"%@", [self.cellNames objectAtIndex:[indexPath row]]);
+    NSLog(@"%@", [self.stories objectForKey:[self.cellNames objectAtIndex:[indexPath row]]]);
     [self.navigationController pushViewController:detail animated:YES];
-    [detail loadWebPageWithTitle:[cellNames objectAtIndex:[indexPath row]] atURL:[NSURL URLWithString:[stories objectForKey:[cellNames objectAtIndex:[indexPath row]]]]];
+    [detail loadWebPageWithTitle:[self.cellNames objectAtIndex:[indexPath row]] atURL:[NSURL URLWithString:[self.stories objectForKey:[self.cellNames objectAtIndex:[indexPath row]]]]];
 
     //[detail setWebView:[indexPath row] :stories];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -330,17 +347,17 @@
 {
     if (buttonIndex == 0)
     {
-        [self actionEmailComposer:bugReportSubject withBody:bugReportBody];
+        [self actionEmailComposer:self.bugReportSubject withBody:self.bugReportBody];
     }
     
     if(buttonIndex == 1)
     {
-        [self actionEmailComposer:incorrectInformaationSubject withBody:incorrectInformationBody];
+        [self actionEmailComposer:self.incorrectInformaationSubject withBody:self.incorrectInformationBody];
     }
     
     if(buttonIndex == 2)
     {
-        [self actionEmailComposer:feedbackSubject withBody:feedBackBody];
+        [self actionEmailComposer:self.feedbackSubject withBody:self.feedBackBody];
         
     }
 }

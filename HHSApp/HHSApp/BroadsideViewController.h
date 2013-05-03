@@ -11,17 +11,8 @@
 #import "BroadsideDetailViewController.h"
 #import "Reachability.h"
 
-@interface BroadsideViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, NSXMLParserDelegate,UIActionSheetDelegate>{
-    NSXMLParser *rssParser;
-    NSMutableArray *articles;
-    NSMutableDictionary *item;
-    NSString *currentElement;
-    NSMutableString *ElementValue;
-    BOOL errorParsing;
-    NSMutableArray * stories;
-    
-    NSMutableString * currentTitle, * currentAuthor, * currentSummary, * currentLink, *currentURL, *currentHTML, *currentDate;
-}
+@interface BroadsideViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, NSXMLParserDelegate,UIActionSheetDelegate>
+
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) IBOutlet UITableView *broadsideTableView;
 @property (nonatomic, retain) IBOutlet NSXMLParser * rssParser;

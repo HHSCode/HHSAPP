@@ -10,10 +10,21 @@
 
 @interface StaffViewController ()
 
+@property (nonatomic, strong) NSMutableArray *articles;
+@property (nonatomic, strong) NSMutableDictionary *item;
+@property (nonatomic, strong) NSString *currentElement;
+@property (nonatomic, strong) NSMutableString *ElementValue;
+@property (nonatomic) BOOL errorParsing;
+@property (nonatomic, strong) NSMutableArray *stories;
+@property (nonatomic, strong) NSMutableDictionary *departmentDict;
+@property (nonatomic, strong) NSArray *sortedDepartments;
+
+@property (nonatomic, strong) NSMutableString * currentFirstName, * currentLastName, * currentDept, * currentTitle, *currentEmail, *currentSite, *currentPhone;
+
 @end
 
 @implementation StaffViewController
-@synthesize staffTableView, rssParser, activityIndicator, disableViewOverlay, theSearchBar, activityIndicatorStaff;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,12 +41,12 @@
     
     Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
     // set the blocks
-    theSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(-5.0, 0.0, 320.0, 44.0)];
-    theSearchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.theSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(-5.0, 0.0, 320.0, 44.0)];
+    self.theSearchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     UIView *searchBarView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 310.0, 44.0)];
     searchBarView.autoresizingMask = 0;
-    theSearchBar.delegate = self;
-    [searchBarView addSubview:theSearchBar];
+    self.theSearchBar.delegate = self;
+    [searchBarView addSubview:self.theSearchBar];
     self.navigationItem.titleView = searchBarView;
     
     self.disableViewOverlay = [[UIView alloc]
@@ -48,7 +59,7 @@
     {
         NSLog(@"Reachable");
         
-        if(stories){
+        if(self.stories){
             
         }else{
             
@@ -57,10 +68,10 @@
         //[self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://feeds.feedburner.com/HHSBroadside"];
 
         
-        [activityIndicatorStaff setHidden:NO];
+        [self.activityIndicatorStaff setHidden:NO];
         
 
-        [activityIndicatorStaff startAnimating];
+        [self.activityIndicatorStaff startAnimating];
         }
         
         
@@ -70,9 +81,9 @@
     reach.unreachableBlock = ^(Reachability*reach)
     {
         //NSLog(@"UNREACHABLE!");
-        [activityIndicator setHidden:YES];
+        [self.activityIndicator setHidden:YES];
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"No internet connection! Please try again!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [activityIndicatorStaff setHidden:YES];
+        [self.activityIndicatorStaff setHidden:YES];
 
         [alert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
         //[self.tabBarController setSelectedIndex:0];
@@ -170,27 +181,27 @@
 
 - (void)parseXMLFileAtURL:(NSString *)URL {
     NSLog(@"Parsing");
-    stories = [[NSMutableArray alloc] init];
+    self.stories = [[NSMutableArray alloc] init];
     
 	//you must then convert the path to a proper NSURL or it won't work
 	NSURL *xmlURL = [NSURL URLWithString:URL];
     
 	// here, for some reason you have to use NSClassFromString when trying to alloc NSXMLParser, otherwise you will get an object not found error
 	// this may be necessary only for the toolchain
-	rssParser = [[NSXMLParser alloc] initWithContentsOfURL:xmlURL];
+	self.rssParser = [[NSXMLParser alloc] initWithContentsOfURL:xmlURL];
     
 	// Set self as the delegate of the parser so that it will receive the parser delegate methods callbacks.
-	[rssParser setDelegate:self];
+	[self.rssParser setDelegate:self];
     
 	// Depending on the XML document you're parsing, you may want to enable these features of NSXMLParser.
-	[rssParser setShouldProcessNamespaces:NO];
+	[self.rssParser setShouldProcessNamespaces:NO];
     
-	[rssParser setShouldReportNamespacePrefixes:NO];
+	[self.rssParser setShouldReportNamespacePrefixes:NO];
     
-	[rssParser setShouldResolveExternalEntities:NO];
+	[self.rssParser setShouldResolveExternalEntities:NO];
     
     
-	[rssParser parse];
+	[self.rssParser parse];
     
 }
 
@@ -209,18 +220,18 @@
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
-	currentElement = [elementName copy];
+	self.currentElement = [elementName copy];
     //NSLog(@"Current Element: %@", currentElement);
 	if ([elementName isEqualToString:@"firstname"]) {
-		item = [[NSMutableDictionary alloc] init];
+		self.item = [[NSMutableDictionary alloc] init];
         //currentFirstName, * currentLastName, * currentDept, * currentTitle, *currentEmail, *currentSite
-		currentFirstName = [[NSMutableString alloc] init];
-		currentLastName = [[NSMutableString alloc] init];
-		currentDept = [[NSMutableString alloc] init];
-		currentTitle = [[NSMutableString alloc] init];
-        currentEmail = [[NSMutableString alloc]init];
-        currentSite = [[NSMutableString alloc]init];
-        currentPhone = [[NSMutableString alloc]init];
+		self.currentFirstName = [[NSMutableString alloc] init];
+		self.currentLastName = [[NSMutableString alloc] init];
+		self.currentDept = [[NSMutableString alloc] init];
+		self.currentTitle = [[NSMutableString alloc] init];
+        self.currentEmail = [[NSMutableString alloc]init];
+        self.currentSite = [[NSMutableString alloc]init];
+        self.currentPhone = [[NSMutableString alloc]init];
         
     }
     
@@ -233,36 +244,36 @@
 	if ([elementName isEqualToString:@"firstname"]) { //change this back to id
 		// save values to an item, then store that item into the array...
         //NSLog(@"item: %@", item);
-        [item setObject:currentFirstName forKey:@"first"];
-		[item setObject:currentLastName forKey:@"last"];
-		[item setObject:currentDept forKey:@"dept"];
-        [item setObject:currentTitle forKey:@"title"];
-        [item setObject:currentEmail forKey:@"email"];
-        [item setObject:currentSite forKey:@"site"];
-        [item setObject:currentPhone forKey:@"phone"];
+        [self.item setObject:self.currentFirstName forKey:@"first"];
+		[self.item setObject:self.currentLastName forKey:@"last"];
+		[self.item setObject:self.currentDept forKey:@"dept"];
+        [self.item setObject:self.currentTitle forKey:@"title"];
+        [self.item setObject:self.currentEmail forKey:@"email"];
+        [self.item setObject:self.currentSite forKey:@"site"];
+        [self.item setObject:self.currentPhone forKey:@"phone"];
         
         
-		[stories addObject:[item copy]];
+		[self.stories addObject:[self.item copy]];
     }
 	
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
     //NSLog(@"%@: %@", currentElement, string);
-    if ([currentElement isEqualToString:@"firstname"]){
-        [currentFirstName appendString:string];
-    }else if ([currentElement isEqualToString:@"lastname"]) {
-		[currentLastName appendString:string];
-    }else if ([currentElement isEqualToString:@"dept"]) {
-		[currentDept appendString:string];
-    }else if ([currentElement isEqualToString:@"title"]){
-        [currentTitle appendString:string];
-    }else if ([currentElement isEqualToString:@"email"]){
-        [currentEmail appendString:string];
-    }else if ([currentElement isEqualToString:@"site"]){
-        [currentSite appendString:string];
-    }else if ([currentElement isEqualToString:@"phone"]){
-        [currentPhone appendString:string];
+    if ([self.currentElement isEqualToString:@"firstname"]){
+        [self.currentFirstName appendString:string];
+    }else if ([self.currentElement isEqualToString:@"lastname"]) {
+		[self.currentLastName appendString:string];
+    }else if ([self.currentElement isEqualToString:@"dept"]) {
+		[self.currentDept appendString:string];
+    }else if ([self.currentElement isEqualToString:@"title"]){
+        [self.currentTitle appendString:string];
+    }else if ([self.currentElement isEqualToString:@"email"]){
+        [self.currentEmail appendString:string];
+    }else if ([self.currentElement isEqualToString:@"site"]){
+        [self.currentSite appendString:string];
+    }else if ([self.currentElement isEqualToString:@"phone"]){
+        [self.currentPhone appendString:string];
     }
 	// save the characters for the current item...
     
@@ -274,30 +285,30 @@
 	//NSLog(@"stories array has %d items", [stories count]);
     
     //NSLog(@"Stories: %@", stories);
-    [activityIndicatorStaff stopAnimating];
-    [activityIndicatorStaff setHidden:YES];
-    [staffTableView reloadData];
+    [self.activityIndicatorStaff stopAnimating];
+    [self.activityIndicatorStaff setHidden:YES];
+    [self.staffTableView reloadData];
     //NSLog(@"Stories: %@", stories);
     [self parseStoryArray];
-    [staffTableView reloadData];
+    [self.staffTableView reloadData];
 }
 
 
 -(void)parseStoryArray{
-    departmentDict = [[NSMutableDictionary alloc]init];
-    for (NSDictionary *person in  stories) {
+    self.departmentDict = [[NSMutableDictionary alloc]init];
+    for (NSDictionary *person in  self.stories) {
         
         NSMutableDictionary *singleDepartment = [[NSMutableDictionary alloc]init];
 
         NSString *department = [person objectForKey:@"dept"];
-        if ([departmentDict objectForKey:department]) {
-            singleDepartment = [[NSMutableDictionary alloc]initWithDictionary:[departmentDict objectForKey:department]];
+        if ([self.departmentDict objectForKey:department]) {
+            singleDepartment = [[NSMutableDictionary alloc]initWithDictionary:[self.departmentDict objectForKey:department]];
             [singleDepartment setObject:person forKey:[person objectForKey:@"last"]];
-            [departmentDict setObject:singleDepartment forKey:department];
+            [self.departmentDict setObject:singleDepartment forKey:department];
         }else{
             singleDepartment = [[NSMutableDictionary alloc]init];
             [singleDepartment setObject:person forKey:[person objectForKey:@"last"]];
-            [departmentDict setObject:singleDepartment forKey:department];
+            [self.departmentDict setObject:singleDepartment forKey:department];
         }
         
         /*if ([departmentArray containsObject:department]) {
@@ -316,9 +327,9 @@
     
     NSMutableArray *sortedKeys = [NSMutableArray array];
     
-    NSArray *objs = [departmentDict allKeys];
+    NSArray *objs = [self.departmentDict allKeys];
     
-    sortedDepartments = [objs sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+    self.sortedDepartments = [objs sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         NSString *s1 = [obj1 substringToIndex:1];
         NSString *s2 = [obj2 substringToIndex:1];
         BOOL b1 = [s1 canBeConvertedToEncoding:NSISOLatin1StringEncoding];
@@ -357,7 +368,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [departmentDict count];
+    return [self.departmentDict count];
 }
 
 /*- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -371,13 +382,13 @@
     //NSLog(@"Updating table view, stories count: %i", [stories count]);
     //NSLog(@"Section: %i", section);
     //NSLog(@"%@: %i", [sortedDepartments objectAtIndex:section],[[departmentDict objectForKey:[sortedDepartments objectAtIndex:section]]count]);
-    return [[departmentDict objectForKey:[sortedDepartments objectAtIndex:section]]count];
+    return [[self.departmentDict objectForKey:[self.sortedDepartments objectAtIndex:section]]count];
     
     
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [sortedDepartments objectAtIndex:section];
+    return [self.sortedDepartments objectAtIndex:section];
 }
 
 /*- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -405,8 +416,8 @@
     [cell.topLabel setHidden:NO];
     [cell.noTitleLabel setHidden:NO];
 
-    NSString *department = [sortedDepartments objectAtIndex:indexPath.section];
-    NSDictionary *names = [departmentDict objectForKey:department];
+    NSString *department = [self.sortedDepartments objectAtIndex:indexPath.section];
+    NSDictionary *names = [self.departmentDict objectForKey:department];
     NSArray *list = [names allKeys];
     NSArray *sortedList = [list sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     NSMutableString *staffName = [NSMutableString stringWithFormat:@"%@%@",[[names objectForKey:[sortedList objectAtIndex:[indexPath row]]]objectForKey:@"first"], [[names objectForKey:[sortedList objectAtIndex:[indexPath row]]]objectForKey:@"last"]];
@@ -482,7 +493,7 @@
     StaffDetailViewController *staffDetail = [[StaffDetailViewController alloc]initWithNibName:@"StaffDetailViewController" bundle:nil];
     [staffDetail setTitle:@"Info"];
     [self.navigationController pushViewController:staffDetail animated:YES];
-    [staffDetail setTableViewObjects:departmentDict :indexPath :sortedDepartments];
+    [staffDetail setTableViewObjects:self.departmentDict :indexPath :self.sortedDepartments];
     
     // Navigation logic may go here. Create and push another view controller.
     /*

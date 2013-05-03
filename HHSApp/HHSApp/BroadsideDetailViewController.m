@@ -13,10 +13,11 @@
 
 @interface BroadsideDetailViewController ()
 
+@property (nonatomic, strong) NSString *urlToShare;
+
 @end
 
 @implementation BroadsideDetailViewController
-@synthesize broadsideDetailWebView, theTextView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [broadsideDetailWebView setDelegate:self];
+    [self.broadsideDetailWebView setDelegate:self];
     // Do any additional setup after loading the view from its nib.
     
     UIBarButtonItem *activityButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActivityView)];
@@ -39,11 +40,11 @@
 
 -(void)setWebView:(int)indexPath :(NSMutableArray *)stories{
     [self setTitle:[[stories objectAtIndex:indexPath]objectForKey:@"title"]];
-    urlToShare = [[stories objectAtIndex:indexPath]objectForKey:@"link"];
+    self.urlToShare = [[stories objectAtIndex:indexPath]objectForKey:@"link"];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setValue:urlToShare forKey:@"url"];
+    [defaults setValue:self.urlToShare forKey:@"url"];
     NSLog(@"%@", [[stories objectAtIndex:indexPath]objectForKey:@"link"]);
-    NSLog(@"%@", urlToShare);
+    NSLog(@"%@", self.urlToShare);
     NSMutableString *htmlString = [[stories objectAtIndex:indexPath]objectForKey:@"HTML"];
     NSMutableString *date = [[NSMutableString alloc]initWithString:[[stories objectAtIndex:indexPath]objectForKey:@"date"]];
 
@@ -59,13 +60,13 @@
     
     [final rangeOfString:@"<a"];
     
-    [broadsideDetailWebView loadHTMLString:final baseURL:nil];
+    [self.broadsideDetailWebView loadHTMLString:final baseURL:nil];
 }
 
 - (NSString *)getURL{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    urlToShare = [defaults valueForKey:@"url"];
-    return urlToShare   ;
+    self.urlToShare = [defaults valueForKey:@"url"];
+    return self.urlToShare;
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,7 +82,7 @@
     ActivityViewCustomActivityChrome *ca2 = [[ActivityViewCustomActivityChrome alloc]init];
     NSString *textToShare = @"Check out this HHS Broadside article!";
     UIImage *imageToShare = [UIImage imageNamed:@"icon_iphone.png"];
-    NSArray *activityItems = [[NSArray alloc]initWithObjects:textToShare, imageToShare, urlToShare, nil];
+    NSArray *activityItems = [[NSArray alloc]initWithObjects:textToShare, imageToShare, self.urlToShare, nil];
     UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:[NSArray arrayWithObjects:ca,ca2,nil]];
     activityVC.excludedActivityTypes = [[NSArray alloc]initWithObjects:UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll, nil];
     [self presentViewController:activityVC animated:TRUE completion:^{}];

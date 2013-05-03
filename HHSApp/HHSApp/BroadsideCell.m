@@ -8,8 +8,13 @@
 
 #import "BroadsideCell.h"
 
+@interface BroadsideCell ()
+
+@property (nonatomic, strong) NSString *html;//is this necessary?
+
+@end
+
 @implementation BroadsideCell
-@synthesize title, date, author;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
