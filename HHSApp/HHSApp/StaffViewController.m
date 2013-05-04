@@ -149,7 +149,9 @@
         for (NSString *teacherName in teachers) {
             NSDictionary *teacherInfo = teachers[teacherName];
             for (NSString *criterion in [teacherInfo allValues]) {
+                
                 if ([[criterion lowercaseString] rangeOfString:[string lowercaseString]].length==string.length) {//criterion has string as a substring
+                    
                     if (!self.searchedDepartmentsDict[departmentName]) self.searchedDepartmentsDict[departmentName]=[NSMutableDictionary dictionary];
                     self.searchedDepartmentsDict[departmentName][teacherName]=teacherInfo;
                 }

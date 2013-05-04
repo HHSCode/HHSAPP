@@ -76,11 +76,11 @@
         
         
        
-         self.wait = [[UIAlertView alloc]                        initWithTitle:@"Loading..."
-                        message:@"Please wait"
-                        delegate:self
-                        cancelButtonTitle:nil
-                        otherButtonTitles:nil];
+         self.wait = [[UIAlertView alloc] initWithTitle:@"Loading..."
+                                                message:@"Please wait"
+                                               delegate:self
+                                      cancelButtonTitle:nil
+                                      otherButtonTitles:nil];
             [self.wait addSubview:self.act];
         [self.act startAnimating];
         [self.wait performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:NO];
@@ -156,8 +156,6 @@
 	if ([elementName isEqualToString:@"name"]) {
 		self.currentLink = [[NSMutableString alloc] init];
 		self.currentName = [[NSMutableString alloc] init];
-
-        
     }
 }
 
@@ -174,7 +172,6 @@
     
 		self.stories = self.item;
     }
-	
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
@@ -196,11 +193,11 @@
     NSLog(@"Stories: %@", self.stories);
     
     [self.wait dismissWithClickedButtonIndex:0 animated:YES];
-
     [self.act stopAnimating];
-    
+    [self.moreTableView reloadData];
 }
 //Email Methods
+#pragma mark - Email
 
 - (IBAction)actionEmailComposer:(NSString *)type withBody:(NSString *)body{
     
@@ -218,9 +215,7 @@
     else {
         
         NSLog(@"Device is unable to send email in its current state.");
-        
     }
-    
 }
 
 
@@ -232,6 +227,7 @@
     return;
 }
 //TABLEVIEW
+#pragma mark - TableView
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -244,14 +240,7 @@
     //NSLog(@"Updating table view, stories count: %i", [stories count]);
     
     return [self.cellNames count];
-
-    
-    
 }
-
-
-
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
     {
@@ -262,13 +251,12 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifer];
         }
-        
+        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         
         cell.textLabel.text = [self.cellNames objectAtIndex:[indexPath row]];
         
          return cell;
     }
-
 
 /*
  // Override to support conditional editing of the table view.

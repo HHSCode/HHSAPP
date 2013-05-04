@@ -40,7 +40,6 @@
 
 - (IBAction)goBack:(id)sender {
     [self.moreDetailWebView goBack];
-
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
