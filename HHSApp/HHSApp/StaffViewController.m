@@ -16,8 +16,14 @@
 @property (nonatomic, strong) NSMutableString *ElementValue;
 @property (nonatomic) BOOL errorParsing;
 @property (nonatomic, strong) NSMutableArray *stories;
-@property (nonatomic, strong) NSMutableDictionary *departmentDict;
-@property (nonatomic, strong) NSArray *sortedDepartments;
+
+@property (nonatomic, strong) NSMutableDictionary *allDepartmentsDict;
+@property (nonatomic, strong) NSArray *allSortedDepartments;
+@property (nonatomic, strong) NSMutableDictionary *searchedDepartmentsDict;
+@property (nonatomic, strong) NSArray *searchedSortedDepartments;
+
+@property (nonatomic, strong, readonly) NSMutableDictionary *departmentDict;
+@property (nonatomic, strong, readonly) NSArray *sortedDepartments;
 
 @property (nonatomic, strong) NSMutableString * currentFirstName, * currentLastName, * currentDept, * currentTitle, *currentEmail, *currentSite, *currentPhone;
 
@@ -38,11 +44,8 @@
 {
     [super viewDidLoad];
     
-    
-    Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
-    // set the blocks
     self.theSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(-5.0, 0.0, 320.0, 44.0)];
-    self.theSearchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.theSearchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;//why would width need to be flexible?
     UIView *searchBarView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 310.0, 44.0)];
     searchBarView.autoresizingMask = 0;
     self.theSearchBar.delegate = self;
@@ -50,11 +53,12 @@
     self.navigationItem.titleView = searchBarView;
     
     self.disableViewOverlay = [[UIView alloc]
-                               initWithFrame:CGRectMake(0.0f,44.0f,320.0f,416.0f)];
+                               initWithFrame:self.view.bounds];
     self.disableViewOverlay.backgroundColor=[UIColor blackColor];
     self.disableViewOverlay.alpha = 0;
 
-   
+    Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    // set the blocks
     reach.reachableBlock = ^(Reachability*reach)
     {
         NSLog(@"Reachable");
@@ -73,9 +77,6 @@
 
         [self.activityIndicatorStaff startAnimating];
         }
-        
-        
-
     };
     
     reach.unreachableBlock = ^(Reachability*reach)
@@ -90,19 +91,29 @@
         
     };
     [reach startNotifier];
-   
+}
+
+//if search is in progress, only return the search results. otherwise return all departments
+- (NSMutableDictionary *)departmentDict {
+    return self.searchedDepartmentsDict?self.searchedDepartmentsDict:self.allDepartmentsDict;
+}
+- (NSArray *)sortedDepartments {
+    return self.searchedSortedDepartments?self.searchedSortedDepartments:self.allSortedDepartments;
 }
 
 //SEARCH BAR
+#pragma mark - Search Bar
 
-
-/*
 - (void)searchBar:(UISearchBar *)searchBar
     textDidChange:(NSString *)searchText {
     // We don't want to do anything until the user clicks
     // the 'Search' button.
     // If you wanted to display results as the user types
     // you would do that here.
+    
+    // I will do that now. comment this out (or delete it) if you don't like it
+    [self searchForString:searchText];
+    [self.staffTableView reloadData];
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
@@ -123,7 +134,29 @@
     // Clear the search text
     // Deactivate the UISearchBar
     searchBar.text=@"";
+    //stop searching
+    self.searchedDepartmentsDict=nil;
+    self.searchedSortedDepartments=nil;
     [self searchBar:searchBar activate:NO];
+    [self.staffTableView reloadData];
+}
+
+//this method searches for the given text and sets the receiver's sortedDepartmentsDict
+- (void)searchForString:(NSString *)string {
+    self.searchedDepartmentsDict = [NSMutableDictionary dictionaryWithCapacity:self.allDepartmentsDict.count];
+    for (NSString *departmentName in self.allDepartmentsDict) {
+        NSDictionary *teachers = self.allDepartmentsDict[departmentName];
+        for (NSString *teacherName in teachers) {
+            NSDictionary *teacherInfo = teachers[teacherName];
+            for (NSString *criterion in [teacherInfo allValues]) {
+                if ([[criterion lowercaseString] rangeOfString:[string lowercaseString]].length==string.length) {//criterion has string as a substring
+                    if (!self.searchedDepartmentsDict[departmentName]) self.searchedDepartmentsDict[departmentName]=[NSMutableDictionary dictionary];
+                    self.searchedDepartmentsDict[departmentName][teacherName]=teacherInfo;
+                }
+            }
+        }
+    }
+    self.searchedSortedDepartments=[self sortDepartments:[self.searchedDepartmentsDict allKeys]];
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
@@ -133,13 +166,23 @@
     // You'll probably want to do this on another thread
     // SomeService is just a dummy class representing some
     // api that you are using to do the search
-    NSArray *results = [SomeService doSearch:searchBar.text];
-	
-    [self searchBar:searchBar activate:NO];
-	
-    [self.tableData removeAllObjects];
-    [self.tableData addObjectsFromArray:results];
-    [self.staffTableView reloadData];
+    
+    NSString *text = searchBar.text;
+    
+    //create another thread
+    static NSOperationQueue *searchQueue;
+    if (!searchQueue) searchQueue = [[NSOperationQueue alloc] init];
+    [searchQueue addOperationWithBlock:^{
+        [self searchForString:text];
+        
+        //go back to the main thread to display results
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self searchBar:searchBar activate:NO];
+            //[self.tableData removeAllObjects];
+            //[self.tableData addObjectsFromArray:results];
+            [self.staffTableView reloadData];
+        }];
+    }];
 }
 
 // We call this when we want to activate/deactivate the UISearchBar
@@ -148,11 +191,11 @@
 // Show/Hide the UISearchBar Cancel button
 // Fade the screen In/Out with the disableViewOverlay and
 // simple Animations
-- (void)searchBar:(UISearchBar *)searchBar activate:(BOOL) active{
+- (void)searchBar:(UISearchBar *)searchBar activate:(BOOL)active {
     self.staffTableView.allowsSelection = !active;
     self.staffTableView.scrollEnabled = !active;
     if (!active) {
-        [disableViewOverlay removeFromSuperview];
+        [self.disableViewOverlay removeFromSuperview];
         [searchBar resignFirstResponder];
     } else {
         self.disableViewOverlay.alpha = 0;
@@ -173,11 +216,12 @@
         }
     }
     [searchBar setShowsCancelButton:active animated:YES];
-}*/
+}
 
 
 
 //PARSE
+#pragma mark - Parse
 
 - (void)parseXMLFileAtURL:(NSString *)URL {
     NSLog(@"Parsing");
@@ -293,43 +337,9 @@
     [self.staffTableView reloadData];
 }
 
-
--(void)parseStoryArray{
-    self.departmentDict = [[NSMutableDictionary alloc]init];
-    for (NSDictionary *person in  self.stories) {
-        
-        NSMutableDictionary *singleDepartment = [[NSMutableDictionary alloc]init];
-
-        NSString *department = [person objectForKey:@"dept"];
-        if ([self.departmentDict objectForKey:department]) {
-            singleDepartment = [[NSMutableDictionary alloc]initWithDictionary:[self.departmentDict objectForKey:department]];
-            [singleDepartment setObject:person forKey:[person objectForKey:@"last"]];
-            [self.departmentDict setObject:singleDepartment forKey:department];
-        }else{
-            singleDepartment = [[NSMutableDictionary alloc]init];
-            [singleDepartment setObject:person forKey:[person objectForKey:@"last"]];
-            [self.departmentDict setObject:singleDepartment forKey:department];
-        }
-        
-        /*if ([departmentArray containsObject:department]) {
-            
-            NSMutableArray *singleDepartment = [[NSMutableArray alloc]initWithArray:[departmentArray objectAtIndex:index]];
-            
-            
-            
-     
-        }else{
-            NSMutableArray *singleDepartment = [[NSMutableArray alloc]init];
-            departmentArray addObject:
-        }*/
-    }
-    
-    
-    //NSMutableArray *sortedKeys = [NSMutableArray array];
-    
-    NSArray *objs = [self.departmentDict allKeys];
-    
-    self.sortedDepartments = [objs sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+//returns array of sorted departments
+- (NSArray *)sortDepartments:(NSArray *)departments {
+    return [departments sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         NSString *s1 = [obj1 substringToIndex:1];
         NSString *s2 = [obj2 substringToIndex:1];
         BOOL b1 = [s1 canBeConvertedToEncoding:NSISOLatin1StringEncoding];
@@ -354,6 +364,44 @@
         }
         
     }];
+}
+
+-(void)parseStoryArray{
+    self.allDepartmentsDict = [[NSMutableDictionary alloc]init];
+    for (NSDictionary *person in  self.stories) {
+        
+        NSMutableDictionary *singleDepartment = [[NSMutableDictionary alloc]init];
+
+        NSString *department = [person objectForKey:@"dept"];
+        if ([self.allDepartmentsDict objectForKey:department]) {
+            singleDepartment = [[NSMutableDictionary alloc]initWithDictionary:[self.allDepartmentsDict objectForKey:department]];
+            [singleDepartment setObject:person forKey:[person objectForKey:@"last"]];
+            [self.allDepartmentsDict setObject:singleDepartment forKey:department];
+        }else{
+            singleDepartment = [[NSMutableDictionary alloc]init];
+            [singleDepartment setObject:person forKey:[person objectForKey:@"last"]];
+            [self.allDepartmentsDict setObject:singleDepartment forKey:department];
+        }
+        
+        /*if ([departmentArray containsObject:department]) {
+            
+            NSMutableArray *singleDepartment = [[NSMutableArray alloc]initWithArray:[departmentArray objectAtIndex:index]];
+            
+            
+            
+     
+        }else{
+            NSMutableArray *singleDepartment = [[NSMutableArray alloc]init];
+            departmentArray addObject:
+        }*/
+    }
+    
+    
+    //NSMutableArray *sortedKeys = [NSMutableArray array];
+    
+    NSArray *objs = [self.allDepartmentsDict allKeys];
+    
+    self.allSortedDepartments = [self sortDepartments:objs];
     //sortedDepartments =[objs sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     
     
@@ -382,9 +430,7 @@
     //NSLog(@"Updating table view, stories count: %i", [stories count]);
     //NSLog(@"Section: %i", section);
     //NSLog(@"%@: %i", [sortedDepartments objectAtIndex:section],[[departmentDict objectForKey:[sortedDepartments objectAtIndex:section]]count]);
-    return [[self.departmentDict objectForKey:[self.sortedDepartments objectAtIndex:section]]count];
-    
-    
+    return [self.departmentDict[self.sortedDepartments[section]] count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -415,19 +461,20 @@
     }
     [cell.topLabel setHidden:NO];
     [cell.noTitleLabel setHidden:NO];
-
-    NSString *department = [self.sortedDepartments objectAtIndex:indexPath.section];
+    
+    NSString *department = self.sortedDepartments[indexPath.section];
     NSDictionary *names = [self.departmentDict objectForKey:department];
     NSArray *list = [names allKeys];
     NSArray *sortedList = [list sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-    NSMutableString *staffName = [NSMutableString stringWithFormat:@"%@%@",[[names objectForKey:[sortedList objectAtIndex:[indexPath row]]]objectForKey:@"first"], [[names objectForKey:[sortedList objectAtIndex:[indexPath row]]]objectForKey:@"last"]];
-
-    NSMutableString *detailString = [NSMutableString stringWithFormat:@"%@",[[names objectForKey:[sortedList objectAtIndex:[indexPath row]]]objectForKey:@"title"]];
+    NSDictionary *info = names[sortedList[indexPath.row]];
+    NSString *staffName = [info[@"first"] stringByAppendingString:info[@"last"]];
+    NSString *detailString = info[@"title"];
+    
     if ([detailString isEqualToString:@" "]) {
         cell.noTitleLabel.text = staffName;
         [cell.topLabel setHidden:YES];
         cell.topLabel.text = @"";
-
+        
     }else{
         [cell.noTitleLabel setHidden:YES];
         cell.noTitleLabel.text = @"";
@@ -436,7 +483,6 @@
     }
     cell.topLabel.text = staffName;
     cell.bottomLabel.text = detailString;
-
     
     
     return cell;
