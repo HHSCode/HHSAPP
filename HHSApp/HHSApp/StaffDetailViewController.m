@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *department;
 @property (nonatomic, strong) NSString *email;
-@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *staffTitle;
 @property (nonatomic, strong) NSString *url;
 @property (nonatomic, strong) NSString *phone;
 @property (nonatomic, strong) NSString *phoneOrig;
@@ -34,12 +34,16 @@
     return self;
 }
 
+//this string will be in the navigation controller above the table view
+#define TITLE_STRING @"Info" //Info is the title for this kind of information in the apple contacts app.
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self.staffDetailTableView setDelegate:self];
     [self.staffDetailTableView setDataSource:self];
+    self.title = TITLE_STRING;
 }
 
 -(void)setTableViewObjects:(NSDictionary *)dict :(NSIndexPath *)index :(NSArray *)sortedDepartments{
@@ -55,7 +59,7 @@
     self.phone = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"phone"];
     self.department = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"dept"];
     self.email = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"email"];
-    self.title = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"title"];
+    self.staffTitle = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"title"];
     self.url = [[names objectForKey:[sortedList objectAtIndex:[index row]]]objectForKey:@"site"];
     self.phoneOrig = self.phone;
     self.phone = [NSString stringWithFormat:@"1 (603) 643-3431 ext. %@", self.phone];
@@ -123,16 +127,12 @@
         int cells = 4;
         if ([self.phoneOrig isEqualToString:@"-1"]) {
             cells -=1;
-            
         }
         if ([self.url isEqualToString:@" "]) {
             cells -=1;
         }
         return cells;
-        
     }
-    
-    
 }
 
 
@@ -144,20 +144,22 @@
     
     // Using a cell identifier will allow your app to reuse cells as they come and go from the screen.
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifer];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifer];
     }
     
     if ([indexPath section]==0) {
-        cell.textLabel.text = [NSString stringWithFormat:@"%@%@", self.firstName, self.lastName];
-        cell.detailTextLabel.text = self.title;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%@", self.firstName, self.lastName];
+        cell.textLabel.text = self.staffTitle.length>1 ? self.staffTitle : @"name";
     }else{
         
             
         if ([indexPath row]==0){
-            cell.textLabel.text = self.department;
+            cell.detailTextLabel.text = self.department;
+            cell.textLabel.text=@"department";
         }else if([indexPath row]==1){
-            cell.textLabel.text = self.email;
-            cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
+            cell.detailTextLabel.text = self.email;
+            cell.detailTextLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
+            cell.textLabel.text=@"email";
         }
         
         
@@ -166,19 +168,23 @@
                 //neither
             }else{
                 if ([indexPath row]==2){
-                    cell.textLabel.text = self.url;
+                    cell.detailTextLabel.text = self.url;
+                    cell.textLabel.text=@"url";
                 }
             }
 
         }else if ([self.url isEqualToString:@" "]) {
             if ([indexPath row]==2){
-                cell.textLabel.text = self.phone;
+                cell.detailTextLabel.text = self.phone;
+                cell.textLabel.text = @"phone";
             }
         }else{
             if ([indexPath row]==2){
-                cell.textLabel.text = self.url;
+                cell.detailTextLabel.text = self.url;
+                cell.textLabel.text=@"url";
             }else if ([indexPath row]==3){
-                cell.textLabel.text = self.phone;
+                cell.detailTextLabel.text = self.phone;
+                cell.textLabel.text=@"phone";
             }
         }
 
@@ -234,12 +240,12 @@
     UITableViewCell *cell = [[UITableViewCell alloc]init];
     cell = [tableView cellForRowAtIndexPath:indexPath];
    // NSLog(@"-%@-", cell.textLabel.text);
-    if ([cell.textLabel.text isEqualToString:self.url]) {
+    if ([cell.detailTextLabel.text isEqualToString:self.url]) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.url]];
         NSLog(@"opened");
-    }else if ([cell.textLabel.text isEqualToString:self.email]){
+    }else if ([cell.detailTextLabel.text isEqualToString:self.email]){
         [self actionEmailComposer];
-    }else if ([cell.textLabel.text isEqualToString:self.phone]){
+    }else if ([cell.detailTextLabel.text isEqualToString:self.phone]){
         NSString *string = [[NSString alloc]initWithString:self.phone];
         string = [string stringByReplacingOccurrencesOfString:@"ext. " withString:@","];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", string]]];
