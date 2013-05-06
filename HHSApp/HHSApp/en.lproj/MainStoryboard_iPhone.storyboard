@@ -189,6 +189,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="Vsz-cP-tfP">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="o01-Sg-B0R" id="W6u-NJ-FRO"/>
+                                    </connections>
+                                </searchBar>
                                 <connections>
                                     <outlet property="dataSource" destination="o01-Sg-B0R" id="XaC-mO-7Uu"/>
                                     <outlet property="delegate" destination="o01-Sg-B0R" id="T9C-zq-mND"/>
@@ -203,11 +211,21 @@
                     <navigationItem key="navigationItem" id="IiV-mJ-Ptw"/>
                     <connections>
                         <outlet property="activityIndicatorStaff" destination="5PW-lY-IPP" id="1MQ-rf-7qa"/>
+                        <outlet property="searchDisplayController" destination="PLC-Qj-551" id="zoh-gt-629"/>
                         <outlet property="staffTableView" destination="CaX-nX-bKk" id="CPp-pX-bFW"/>
                         <outlet property="view" destination="8HQ-4X-Gvg" id="HOV-sC-knr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KNd-of-BYG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="PLC-Qj-551">
+                    <connections>
+                        <outlet property="delegate" destination="o01-Sg-B0R" id="9wV-mf-Si3"/>
+                        <outlet property="searchBar" destination="Vsz-cP-tfP" id="pKo-Yb-I51"/>
+                        <outlet property="searchContentsController" destination="o01-Sg-B0R" id="q19-DG-cDm"/>
+                        <outlet property="searchResultsDataSource" destination="o01-Sg-B0R" id="4Za-tk-93z"/>
+                        <outlet property="searchResultsDelegate" destination="o01-Sg-B0R" id="nyI-Vd-6tX"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="812" y="1414"/>
         </scene>
@@ -264,6 +282,7 @@
         <class className="MoreViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MoreViewController.h"/>
             <relationships>
+                <relationship kind="action" name="actionEmailComposer:withBody:" candidateClass="NSString"/>
                 <relationship kind="action" name="feedbackMenu:"/>
                 <relationship kind="outlet" name="moreTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="rssParser" candidateClass="NSXMLParser"/>
