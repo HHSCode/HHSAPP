@@ -43,8 +43,8 @@
     self.urlToShare = [[stories objectAtIndex:indexPath]objectForKey:@"link"];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setValue:self.urlToShare forKey:@"url"];
-    NSLog(@"%@", [[stories objectAtIndex:indexPath]objectForKey:@"link"]);
-    NSLog(@"%@", self.urlToShare);
+    //NSLog(@"%@", [[stories objectAtIndex:indexPath]objectForKey:@"link"]);
+    //NSLog(@"%@", self.urlToShare);
     NSMutableString *htmlString = [[stories objectAtIndex:indexPath]objectForKey:@"HTML"];
     NSMutableString *date = [[NSMutableString alloc]initWithString:[[stories objectAtIndex:indexPath]objectForKey:@"date"]];
 
@@ -56,7 +56,7 @@
     NSString *end = @"</div></body></html>";
     NSString *temp = [start stringByAppendingString:htmlString];
     NSString *final = [temp stringByAppendingString:end];
-    NSLog(@"HTML: %@", final);
+    //NSLog(@"HTML: %@", final);
     
     [final rangeOfString:@"<a"];
     
