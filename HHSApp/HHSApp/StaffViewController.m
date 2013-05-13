@@ -43,15 +43,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    
-//    self.theSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(-5.0, 0.0, 320.0, 44.0)];
-//    self.theSearchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;//why would width need to be flexible?
-//    UIView *searchBarView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 310.0, 44.0)];
-//    searchBarView.autoresizingMask = 0;
-//    self.theSearchBar.delegate = self;
-//    [searchBarView addSubview:self.theSearchBar];
-//    self.navigationItem.titleView = searchBarView;
-//    
+    
+    self.theSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(-5.0, 0.0, 320.0, 44.0)];
+    self.theSearchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;//why would width need to be flexible?
+    UIView *searchBarView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 310.0, 44.0)];
+    searchBarView.autoresizingMask = 0;
+    self.theSearchBar.delegate = self;
+    [searchBarView addSubview:self.theSearchBar];
+    self.navigationItem.titleView = searchBarView;
+    
     self.disableViewOverlay = [[UIView alloc]
                                initWithFrame:self.view.bounds];
     self.disableViewOverlay.backgroundColor=[UIColor blackColor];

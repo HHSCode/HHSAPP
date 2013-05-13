@@ -209,7 +209,6 @@
 		B38AE60416C4227C00069514 = {
 			isa = PBXGroup;
 			children = (
-				B345CEA91705A095008483A6 /* CoreData.framework */,
 				B38AE61616C4227C00069514 /* HHSApp */,
 				B38AE64816C4227D00069514 /* HHSAppTests */,
 				B38AE60F16C4227C00069514 /* Frameworks */,
@@ -229,6 +228,7 @@
 		B38AE60F16C4227C00069514 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B345CEA91705A095008483A6 /* CoreData.framework */,
 				88DA9D9F16FCA8990096C588 /* MessageUI.framework */,
 				50E801B416FA6FE3004B9401 /* SystemConfiguration.framework */,
 				320AF8492C47A4D819F7C450 /* QuartzCore.framework */,
