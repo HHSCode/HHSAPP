@@ -52,10 +52,9 @@
     [searchBarView addSubview:self.theSearchBar];
     self.navigationItem.titleView = searchBarView;
     
-    self.disableViewOverlay = [[UIView alloc]
-                               initWithFrame:self.view.bounds];
-    self.disableViewOverlay.backgroundColor=[UIColor blackColor];
-    self.disableViewOverlay.alpha = 0;
+    //self.disableViewOverlay = [[UIView alloc] initWithFrame:self.view.bounds];
+    //self.disableViewOverlay.backgroundColor=[UIColor blackColor];
+    //self.disableViewOverlay.alpha = 0;
     
     self.activityIndicatorStaff = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     self.activityIndicatorStaff.hidden=NO;
@@ -120,6 +119,12 @@
     // I will do that now. comment this out (or delete it) if you don't like it
     [self searchForString:searchText];
     [self.tableView reloadData];
+    /*if ([self numberOfSectionsInTableView:self.tableView]) {
+        [self.disableViewOverlay setFrame:CGRectMake(0, 0, self.tableView.contentSize.width, self.tableView.contentSize.height)];
+    }*/
+    //make sure the overlay is on top
+    
+    //[self.tableView performSelector:@selector(addSubview:) withObject:self.disableViewOverlay afterDelay:0];
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
@@ -200,29 +205,20 @@
 // Fade the screen In/Out with the disableViewOverlay and
 // simple Animations
 - (void)searchBar:(UISearchBar *)searchBar activate:(BOOL)active {
-    self.tableView.allowsSelection = !active;
-    self.tableView.scrollEnabled = !active;
+    //self.tableView.userInteractionEnabled=!active;
     if (!active) {
-        [self.disableViewOverlay removeFromSuperview];
+        //[self.disableViewOverlay removeFromSuperview];
         [searchBar resignFirstResponder];
-    } else {
+    }/* else {
         self.disableViewOverlay.alpha = 0;
+        CGRect frame = self.disableViewOverlay.frame;
+        frame.size=self.tableView.contentSize;
+        self.disableViewOverlay.frame=frame;
         [self.view addSubview:self.disableViewOverlay];
-		
-        [UIView beginAnimations:@"FadeIn" context:nil];
-        [UIView setAnimationDuration:0.5];
-        self.disableViewOverlay.alpha = 0.6;
-        [UIView commitAnimations];
-		
-        // probably not needed if you have a details view since you
-        // will go there on selection
-        NSIndexPath *selected = [self.tableView
-                                 indexPathForSelectedRow];
-        if (selected) {
-            [self.tableView deselectRowAtIndexPath:selected
-                                             animated:NO];
-        }
-    }
+		[UIView animateWithDuration:.5 animations:^{
+            self.disableViewOverlay.alpha = 0.6;
+        }];
+    }*/
     [searchBar setShowsCancelButton:active animated:YES];
 }
 
@@ -548,6 +544,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.theSearchBar resignFirstResponder];
     [self performSegueWithIdentifier:@"StaffDetail" sender:indexPath];
     
     // Navigation logic may go here. Create and push another view controller.

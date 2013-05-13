@@ -16,7 +16,10 @@
 //all instance variables should be used only as properties. private instance variables have been moved to the .m file's private interface
 
 @property (nonatomic, strong) IBOutlet NSXMLParser * rssParser;
-@property(strong) UIView *disableViewOverlay;
+
+//I think the tableview should always be active
+//@property(strong) UIView *disableViewOverlay;
+
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorStaff;
 
 @property (nonatomic, strong) IBOutlet UISearchBar *theSearchBar;
