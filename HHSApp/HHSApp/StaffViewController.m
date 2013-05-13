@@ -56,6 +56,12 @@
                                initWithFrame:self.view.bounds];
     self.disableViewOverlay.backgroundColor=[UIColor blackColor];
     self.disableViewOverlay.alpha = 0;
+    
+    self.activityIndicatorStaff = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.activityIndicatorStaff.hidden=NO;
+    [self.activityIndicatorStaff startAnimating];
+    self.activityIndicatorStaff.center=CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height/2);
+    [self.view addSubview:self.activityIndicatorStaff];
 
     Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
     // set the blocks
@@ -82,7 +88,7 @@
     reach.unreachableBlock = ^(Reachability*reach)
     {
         //NSLog(@"UNREACHABLE!");
-        [self.activityIndicator setHidden:YES];
+        [self.activityIndicatorStaff setHidden:YES];
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"No internet connection! Please try again!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [self.activityIndicatorStaff setHidden:YES];
 

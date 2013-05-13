@@ -39,11 +39,11 @@
     UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
     refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
     [refresh addTarget:self
-    action:@selector(refreshView:)
-    forControlEvents:UIControlEventValueChanged];
+                action:@selector(refreshView:)
+      forControlEvents:UIControlEventValueChanged];
     UITableViewController *tableViewController = [[UITableViewController alloc]init];
     [tableViewController setTableView:self.broadsideTableView];
-    tableViewController.refreshControl = refresh;
+    if ([tableViewController respondsToSelector:@selector(setRefreshControl:)]) tableViewController.refreshControl = refresh; //iOS 5 doesn't do this
 }
 
 -(void)refreshView:(UIRefreshControl *)refresh {

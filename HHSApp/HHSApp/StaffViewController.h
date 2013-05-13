@@ -15,8 +15,6 @@
 
 //all instance variables should be used only as properties. private instance variables have been moved to the .m file's private interface
 
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-
 @property (nonatomic, strong) IBOutlet NSXMLParser * rssParser;
 @property(strong) UIView *disableViewOverlay;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorStaff;
