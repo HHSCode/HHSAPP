@@ -52,7 +52,7 @@
     self.moreTableView.delegate = self;
     self.moreTableView.dataSource = self;
     
-    self.feedBackEmail = [[NSArray alloc] initWithObjects:@"max.greenwald@hanovernorwichschools.org", @"james.owens@hanovernorwichschools.org", nil];
+    self.feedBackEmail = [[NSArray alloc] initWithObjects:@"max.greenwald@hanovernorwichschools.org", @"james.owens@hanovernorwichschools.org",@"hhscoders@googlegroups.com", nil];
     self.bugReportSubject = @"Bug report on Hanover High Application";
     self.bugReportBody = @"Please provide a detailed description of the bug including all steps to trigger it";
     self.incorrectInformaationSubject = @"Incorrect Information On Hanover High Application";
@@ -190,7 +190,7 @@
 	NSLog(@"all done!");
 	NSLog(@"stories array has %d items", [self.stories count]);
     
-    NSLog(@"Stories: %@", self.stories);
+    //NSLog(@"Stories: %@", self.stories);
     
     [self.wait dismissWithClickedButtonIndex:0 animated:YES];
     [self.act stopAnimating];
