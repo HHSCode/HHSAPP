@@ -11,12 +11,11 @@
 #import "StaffDetailViewController.h"
 #import "StaffViewCell.h"
 
-@interface StaffViewController : UIViewController<NSXMLParserDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
+@interface StaffViewController : UITableViewController <NSXMLParserDelegate, UISearchBarDelegate>
 
 //all instance variables should be used only as properties. private instance variables have been moved to the .m file's private interface
 
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (strong, nonatomic) IBOutlet UITableView *staffTableView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @property (nonatomic, strong) IBOutlet NSXMLParser * rssParser;
 @property(strong) UIView *disableViewOverlay;

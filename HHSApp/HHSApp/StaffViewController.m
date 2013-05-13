@@ -113,7 +113,7 @@
     
     // I will do that now. comment this out (or delete it) if you don't like it
     [self searchForString:searchText];
-    [self.staffTableView reloadData];
+    [self.tableView reloadData];
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
@@ -138,7 +138,7 @@
     self.searchedDepartmentsDict=nil;
     self.searchedSortedDepartments=nil;
     [self searchBar:searchBar activate:NO];
-    [self.staffTableView reloadData];
+    [self.tableView reloadData];
 }
 
 //this method searches for the given text and sets the receiver's sortedDepartmentsDict
@@ -182,7 +182,7 @@
             [self searchBar:searchBar activate:NO];
             //[self.tableData removeAllObjects];
             //[self.tableData addObjectsFromArray:results];
-            [self.staffTableView reloadData];
+            [self.tableView reloadData];
         }];
     }];
 }
@@ -194,8 +194,8 @@
 // Fade the screen In/Out with the disableViewOverlay and
 // simple Animations
 - (void)searchBar:(UISearchBar *)searchBar activate:(BOOL)active {
-    self.staffTableView.allowsSelection = !active;
-    self.staffTableView.scrollEnabled = !active;
+    self.tableView.allowsSelection = !active;
+    self.tableView.scrollEnabled = !active;
     if (!active) {
         [self.disableViewOverlay removeFromSuperview];
         [searchBar resignFirstResponder];
@@ -210,10 +210,10 @@
 		
         // probably not needed if you have a details view since you
         // will go there on selection
-        NSIndexPath *selected = [self.staffTableView
+        NSIndexPath *selected = [self.tableView
                                  indexPathForSelectedRow];
         if (selected) {
-            [self.staffTableView deselectRowAtIndexPath:selected
+            [self.tableView deselectRowAtIndexPath:selected
                                              animated:NO];
         }
     }
@@ -333,10 +333,10 @@
     //NSLog(@"Stories: %@", stories);
     [self.activityIndicatorStaff stopAnimating];
     [self.activityIndicatorStaff setHidden:YES];
-    [self.staffTableView reloadData];
+    [self.tableView reloadData];
     //NSLog(@"Stories: %@", stories);
     [self parseStoryArray];
-    [self.staffTableView reloadData];
+    [self.tableView reloadData];
 }
 
 //returns array of sorted departments
@@ -535,13 +535,14 @@
 
 #pragma mark - Table view delegate
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [segue.destinationViewController setTitle:@"Info"];
+    [segue.destinationViewController setTableViewObjects:self.departmentDict :sender :self.sortedDepartments];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    StaffDetailViewController *staffDetail = [[StaffDetailViewController alloc]initWithNibName:@"StaffDetailViewController" bundle:nil];
-    [staffDetail setTitle:@"Info"];
-    [self.navigationController pushViewController:staffDetail animated:YES];
-    [staffDetail setTableViewObjects:self.departmentDict :indexPath :self.sortedDepartments];
+    [self performSegueWithIdentifier:@"StaffDetail" sender:indexPath];
     
     // Navigation logic may go here. Create and push another view controller.
     /*

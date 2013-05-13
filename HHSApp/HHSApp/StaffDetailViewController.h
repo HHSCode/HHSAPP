@@ -10,9 +10,7 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 
-@interface StaffDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>{
-    
-}
+@interface StaffDetailViewController : UITableViewController <MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *staffDetailTableView;
 
