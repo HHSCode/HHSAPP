@@ -619,7 +619,7 @@
 		B38AE65416C4227D00069514 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ann E Greenwald (CLE34H9S2K)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tracey Koehler (QZZ3BRAC2Y)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HHSApp/HHSApp-Prefix.pch";
 				INFOPLIST_FILE = "HHSApp/HHSApp-Info.plist";
@@ -629,7 +629,7 @@
 					"\"$(SRCROOT)/../../../../../Downloads/GoogleAnalyticsiOS_2.0beta4/Library\"",
 				);
 				PRODUCT_NAME = HHS;
-				PROVISIONING_PROFILE = "322E1785-91A9-4E5E-8DC3-7088DD29138C";
+				PROVISIONING_PROFILE = "40DACA07-5063-464F-93FE-FE8DF04BCB8B";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -638,7 +638,7 @@
 		B38AE65516C4227D00069514 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ann E Greenwald (CLE34H9S2K)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Dresden School District (98U7AQU48N)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HHSApp/HHSApp-Prefix.pch";
 				INFOPLIST_FILE = "HHSApp/HHSApp-Info.plist";
@@ -648,7 +648,7 @@
 					"\"$(SRCROOT)/../../../../../Downloads/GoogleAnalyticsiOS_2.0beta4/Library\"",
 				);
 				PRODUCT_NAME = HHS;
-				PROVISIONING_PROFILE = "322E1785-91A9-4E5E-8DC3-7088DD29138C";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
