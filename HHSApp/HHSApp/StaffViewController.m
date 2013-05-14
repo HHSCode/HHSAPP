@@ -73,7 +73,7 @@
         }else{
             
         
-        [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://www.lordtechyproductions.com/hhsapp/staff.php"];
+        [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://www.app.dresden.us/staff.php"];
         //[self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://feeds.feedburner.com/HHSBroadside"];
 
         

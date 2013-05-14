@@ -71,7 +71,7 @@
 
         self.stories = [[NSMutableDictionary alloc] init];
         [self.moreTableView reloadData];
-        [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://www.lordtechyproductions.com/hhsapp/moreTab.php"];
+        [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://www.app.dresden.us/moreTab.php"];
         self.act = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(12.0, 85, 260.0, 25.0)];
         
         
