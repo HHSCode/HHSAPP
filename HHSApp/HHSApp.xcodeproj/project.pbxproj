@@ -627,7 +627,7 @@
 		B38AE65416C4227D00069514 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Tracey Koehler (QZZ3BRAC2Y)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HHSApp/HHSApp-Prefix.pch";
 				INFOPLIST_FILE = "HHSApp/HHSApp-Info.plist";
@@ -637,7 +637,7 @@
 					"\"$(SRCROOT)/../../../../../Downloads/GoogleAnalyticsiOS_2.0beta4/Library\"",
 				);
 				PRODUCT_NAME = HHS;
-				PROVISIONING_PROFILE = "9B0B93AC-6288-4680-A0F8-D0C8D2212E29";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
