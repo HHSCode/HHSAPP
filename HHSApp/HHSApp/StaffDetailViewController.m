@@ -247,7 +247,11 @@
         [self actionEmailComposer];
     }else if ([cell.detailTextLabel.text isEqualToString:self.phone]){
         NSString *string = [[NSString alloc]initWithString:self.phone];
-        string = [string stringByReplacingOccurrencesOfString:@"ext. " withString:@","];
+        string = [string stringByReplacingOccurrencesOfString:@" ext. " withString:@","];
+        string = [string stringByReplacingOccurrencesOfString:@" " withString:@""];
+        string = [string stringByReplacingOccurrencesOfString:@"(" withString:@""];
+        string = [string stringByReplacingOccurrencesOfString:@")" withString:@""];
+        string = [string stringByReplacingOccurrencesOfString:@"-" withString:@""];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", string]]];
         
     }
