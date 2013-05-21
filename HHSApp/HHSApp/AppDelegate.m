@@ -3,7 +3,7 @@
 //  HHSApp
 //
 //  Created by Connor Koehler on 2/7/13.
-//  Copyright (c) 2013 Lordtechy. All rights reserved.
+//  Copyright (c) 2013 Hanover High School. All rights reserved.
 //
 
 #import "AppDelegate.h"

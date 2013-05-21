@@ -3,7 +3,7 @@
 //  HHSApp
 //
 //  Created by Ben Chaimberg on 3/22/13.
-//  Copyright (c) 2013 Lordtechy. All rights reserved.
+//  Copyright (c) 2013 Hanover High School. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
