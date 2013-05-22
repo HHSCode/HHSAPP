@@ -106,6 +106,10 @@
     return self.searchedSortedDepartments?self.searchedSortedDepartments:self.allSortedDepartments;
 }
 
+#pragma mark Adding person to the contacts
+
+
+
 //SEARCH BAR
 #pragma mark - Search Bar
 

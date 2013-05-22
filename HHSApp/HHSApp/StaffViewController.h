@@ -10,6 +10,8 @@
 #import "Reachability.h"
 #import "StaffDetailViewController.h"
 #import "StaffViewCell.h"
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
 
 @interface StaffViewController : UITableViewController <NSXMLParserDelegate, UISearchBarDelegate>
 

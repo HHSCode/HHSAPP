@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
+#import <AddressBookUI/AddressBookUI.h>
+#import <AddressBook/AddressBook.h>
+
 
 @interface StaffDetailViewController : UITableViewController <MFMailComposeViewControllerDelegate>
 

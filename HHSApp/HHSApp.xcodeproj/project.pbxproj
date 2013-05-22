@@ -38,6 +38,8 @@
 		B34E0D5F16F9FC9800BC552E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B34E0D5E16F9FC9800BC552E /* Default@2x.png */; };
 		B34FBFEA16F797F80010485A /* StaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34FBFE916F797F80010485A /* StaffViewController.m */; };
 		B34FBFEC16F7A7FF0010485A /* tabbarHHS.png in Resources */ = {isa = PBXBuildFile; fileRef = B34FBFEB16F7A7FF0010485A /* tabbarHHS.png */; };
+		B36B65A7174D1A30005BE298 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B36B65A5174D199C005BE298 /* AddressBook.framework */; };
+		B36B65A9174D1A60005BE298 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B36B65A8174D1A60005BE298 /* AddressBookUI.framework */; };
 		B371460C16F60D0900656219 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B371460B16F60D0900656219 /* HomeViewController.m */; };
 		B385E03A16F89F5800ADBC1C /* staff30x30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B385E03716F89F5800ADBC1C /* staff30x30@2x.png */; };
 		B385E03B16F89F5800ADBC1C /* broadside_30x30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B385E03816F89F5800ADBC1C /* broadside_30x30@2x.png */; };
@@ -129,6 +131,8 @@
 		B34FBFE816F797F80010485A /* StaffViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffViewController.h; sourceTree = "<group>"; };
 		B34FBFE916F797F80010485A /* StaffViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffViewController.m; sourceTree = "<group>"; };
 		B34FBFEB16F7A7FF0010485A /* tabbarHHS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbarHHS.png; path = "Tab bar/tabbarHHS.png"; sourceTree = SOURCE_ROOT; };
+		B36B65A5174D199C005BE298 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		B36B65A8174D1A60005BE298 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		B371460A16F60D0900656219 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = ../HomeViewController.h; sourceTree = "<group>"; };
 		B371460B16F60D0900656219 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = ../HomeViewController.m; sourceTree = "<group>"; };
 		B385E03716F89F5800ADBC1C /* staff30x30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "staff30x30@2x.png"; path = "../Tab bar/staff30x30@2x.png"; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B36B65A9174D1A60005BE298 /* AddressBookUI.framework in Frameworks */,
+				B36B65A7174D1A30005BE298 /* AddressBook.framework in Frameworks */,
 				B345CEAA1705A095008483A6 /* CoreData.framework in Frameworks */,
 				88DA9DA116FCA8A90096C588 /* MessageUI.framework in Frameworks */,
 				50E801B516FA6FE3004B9401 /* SystemConfiguration.framework in Frameworks */,
@@ -213,6 +219,7 @@
 		B38AE60416C4227C00069514 = {
 			isa = PBXGroup;
 			children = (
+				B36B65A8174D1A60005BE298 /* AddressBookUI.framework */,
 				B3D3035E1741A9B700A88C0E /* Icon.png */,
 				B3D3035C1741A94A00A88C0E /* Icon@2x.png */,
 				B38AE61616C4227C00069514 /* HHSApp */,
@@ -234,6 +241,7 @@
 		B38AE60F16C4227C00069514 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B36B65A5174D199C005BE298 /* AddressBook.framework */,
 				B345CEA91705A095008483A6 /* CoreData.framework */,
 				88DA9D9F16FCA8990096C588 /* MessageUI.framework */,
 				50E801B416FA6FE3004B9401 /* SystemConfiguration.framework */,

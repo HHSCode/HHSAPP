@@ -101,20 +101,70 @@
     return;
 }
 
+- (void)addContact {
+    // Creating new entry
+    ABAddressBookRef addressBook = ABAddressBookCreate();
+    ABRecordRef person = ABPersonCreate();
+    
+    // Setting basic properties
+    ABRecordSetValue(person, kABPersonFirstNameProperty, @"Ondrej" , nil);
+    ABRecordSetValue(person, kABPersonLastNameProperty, @"Rafaj", nil);
+    ABRecordSetValue(person, kABPersonJobTitleProperty, @"Tech. director", nil);
+    ABRecordSetValue(person, kABPersonDepartmentProperty, @"iPhone development department", nil);
+    ABRecordSetValue(person, kABPersonOrganizationProperty, @"Fuerte international", nil);
+    ABRecordSetValue(person, kABPersonNoteProperty, @"The best iPhone development studio in the UK :)", nil);
+    
+    // Adding phone numbers
+    ABMutableMultiValueRef phoneNumberMultiValue = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+    ABMultiValueAddValueAndLabel(phoneNumberMultiValue, @"07972574949", (CFStringRef)@"iPhone", NULL);
+    ABMultiValueAddValueAndLabel(phoneNumberMultiValue, @"01234567890", (CFStringRef)@"Work", NULL);
+    ABMultiValueAddValueAndLabel(phoneNumberMultiValue, @"08701234567", (CFStringRef)@"0870", NULL);
+    ABRecordSetValue(person, kABPersonPhoneProperty, phoneNumberMultiValue, nil);
+    CFRelease(phoneNumberMultiValue);
+    
+    // Adding url
+    ABMutableMultiValueRef urlMultiValue = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+    ABMultiValueAddValueAndLabel(urlMultiValue, @"http://www.fuerteint.com", kABPersonHomePageLabel, NULL);
+    ABRecordSetValue(person, kABPersonURLProperty, urlMultiValue, nil);
+    CFRelease(urlMultiValue);
+    
+    // Adding emails
+    ABMutableMultiValueRef emailMultiValue = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+    ABMultiValueAddValueAndLabel(emailMultiValue, @"info@fuerteint.com", (CFStringRef)@"Global", NULL);
+    ABMultiValueAddValueAndLabel(emailMultiValue, @"ondrej.rafaj@fuerteint.com", (CFStringRef)@"Work", NULL);
+    ABRecordSetValue(person, kABPersonURLProperty, emailMultiValue, nil);
+    CFRelease(emailMultiValue);
+    
+    // Adding address
+    ABMutableMultiValueRef addressMultipleValue = ABMultiValueCreateMutable(kABMultiDictionaryPropertyType);
+    NSMutableDictionary *addressDictionary = [[NSMutableDictionary alloc] init];
+    [addressDictionary setObject:@"8-15 Dereham Place" forKey:(NSString *)kABPersonAddressStreetKey];
+    [addressDictionary setObject:@"London" forKey:(NSString *)kABPersonAddressCityKey];
+    [addressDictionary setObject:@"EC2A 3HJ" forKey:(NSString *)kABPersonAddressZIPKey];
+    [addressDictionary setObject:@"United Kingdom" forKey:(NSString *)kABPersonAddressCountryKey];
+    [addressDictionary setObject:@"gb" forKey:(NSString *)kABPersonAddressCountryCodeKey];
+    ABMultiValueAddValueAndLabel(addressMultipleValue, (__bridge CFTypeRef)(addressDictionary), kABHomeLabel, NULL);
+    ABRecordSetValue(person, kABPersonAddressProperty, addressMultipleValue, nil);
+    CFRelease(addressMultipleValue);
+    
+    // Adding person to the address book
+    ABAddressBookAddRecord(addressBook, person, nil);
+    CFRelease(addressBook);
+    
+    // Creating view controller for a new contact
+    ABNewPersonViewController *c = [[ABNewPersonViewController alloc] init];
+    [c setNewPersonViewDelegate:self];
+    [c setDisplayedPerson:person];
+    CFRelease(person);
+    [self.navigationController pushViewController:c animated:YES];
+}
+
 
 // TABLEVIEW
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    int cells = 5;
-    if ([self.phoneOrig isEqualToString:@"-1"]) {
-        cells -=1;
-        
-    }
-    if ([self.url isEqualToString:@" "]) {
-        cells -=1;
-    }
-    return 2;
+        return 3;
 }
 
 
@@ -123,7 +173,7 @@
 {
     if (section == 0) {
         return 1;
-    }else{
+    }else if(section==1){
         int cells = 4;
         if ([self.phoneOrig isEqualToString:@"-1"]) {
             cells -=1;
@@ -132,6 +182,8 @@
             cells -=1;
         }
         return cells;
+    }else{
+        return 1;
     }
 }
 
@@ -150,7 +202,7 @@
     if ([indexPath section]==0) {
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%@", self.firstName, self.lastName];
         cell.textLabel.text = self.staffTitle.length>1 ? self.staffTitle : @"name";
-    }else{
+    }else if([indexPath section]==1){
         
             
         if ([indexPath row]==0){
@@ -189,6 +241,8 @@
         }
 
     
+    }else{
+        cell.textLabel.text = @"Add to Contacts";
     }
     return cell;
 }
@@ -254,6 +308,10 @@
         string = [string stringByReplacingOccurrencesOfString:@"-" withString:@""];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", string]]];
         
+    }
+    
+    if (indexPath.section==2) {
+        [self addContact];//NOT DONE YET AT ALL: need to add parameters to this method to add specific staff
     }
 
     // Navigation logic may go here. Create and push another view controller.
