@@ -288,7 +288,7 @@
     }
     
 }
-
+//Add to contacts!!
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
     
 	//NSLog(@"ended element: %@", elementName);
