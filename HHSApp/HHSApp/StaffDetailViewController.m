@@ -107,35 +107,33 @@
     ABRecordRef person = ABPersonCreate();
     
     // Setting basic properties
-    ABRecordSetValue(person, kABPersonFirstNameProperty, @"Ondrej" , nil);
-    ABRecordSetValue(person, kABPersonLastNameProperty, @"Rafaj", nil);
-    ABRecordSetValue(person, kABPersonJobTitleProperty, @"Tech. director", nil);
-    ABRecordSetValue(person, kABPersonDepartmentProperty, @"iPhone development department", nil);
-    ABRecordSetValue(person, kABPersonOrganizationProperty, @"Fuerte international", nil);
-    ABRecordSetValue(person, kABPersonNoteProperty, @"The best iPhone development studio in the UK :)", nil);
+    ABRecordSetValue(person, kABPersonFirstNameProperty, (__bridge CFTypeRef)(self.firstName), nil);
+    ABRecordSetValue(person, kABPersonLastNameProperty, (__bridge CFTypeRef)(self.lastName), nil);
+    ABRecordSetValue(person, kABPersonJobTitleProperty, (__bridge CFTypeRef)(self.staffTitle), nil);
+    ABRecordSetValue(person, kABPersonDepartmentProperty, (__bridge CFTypeRef)(self.department), nil);
+    ABRecordSetValue(person, kABPersonOrganizationProperty, @"Hanover High School", nil);
+    //ABRecordSetValue(person, kABPersonNoteProperty, @"The best iPhone development studio in the UK :)", nil);
     
     // Adding phone numbers
     ABMutableMultiValueRef phoneNumberMultiValue = ABMultiValueCreateMutable(kABMultiStringPropertyType);
-    ABMultiValueAddValueAndLabel(phoneNumberMultiValue, @"07972574949", (CFStringRef)@"iPhone", NULL);
-    ABMultiValueAddValueAndLabel(phoneNumberMultiValue, @"01234567890", (CFStringRef)@"Work", NULL);
-    ABMultiValueAddValueAndLabel(phoneNumberMultiValue, @"08701234567", (CFStringRef)@"0870", NULL);
+    ABMultiValueAddValueAndLabel(phoneNumberMultiValue, (__bridge CFTypeRef)(self.phoneOrig), (CFStringRef)@"Work", NULL);
     ABRecordSetValue(person, kABPersonPhoneProperty, phoneNumberMultiValue, nil);
     CFRelease(phoneNumberMultiValue);
     
     // Adding url
     ABMutableMultiValueRef urlMultiValue = ABMultiValueCreateMutable(kABMultiStringPropertyType);
-    ABMultiValueAddValueAndLabel(urlMultiValue, @"http://www.fuerteint.com", kABPersonHomePageLabel, NULL);
+    ABMultiValueAddValueAndLabel(urlMultiValue, (__bridge CFTypeRef)(self.url), kABPersonHomePageLabel, NULL);
+    NSLog(@"URL: %@\nEmail: %@", self.url, self.email);
     ABRecordSetValue(person, kABPersonURLProperty, urlMultiValue, nil);
     CFRelease(urlMultiValue);
     
     // Adding emails
     ABMutableMultiValueRef emailMultiValue = ABMultiValueCreateMutable(kABMultiStringPropertyType);
-    ABMultiValueAddValueAndLabel(emailMultiValue, @"info@fuerteint.com", (CFStringRef)@"Global", NULL);
-    ABMultiValueAddValueAndLabel(emailMultiValue, @"ondrej.rafaj@fuerteint.com", (CFStringRef)@"Work", NULL);
+    ABMultiValueAddValueAndLabel(emailMultiValue, (__bridge CFTypeRef)(self.email), (CFStringRef)@"Work", NULL);
     ABRecordSetValue(person, kABPersonURLProperty, emailMultiValue, nil);
     CFRelease(emailMultiValue);
     
-    // Adding address
+    /*// Adding address
     ABMutableMultiValueRef addressMultipleValue = ABMultiValueCreateMutable(kABMultiDictionaryPropertyType);
     NSMutableDictionary *addressDictionary = [[NSMutableDictionary alloc] init];
     [addressDictionary setObject:@"8-15 Dereham Place" forKey:(NSString *)kABPersonAddressStreetKey];
@@ -145,7 +143,7 @@
     [addressDictionary setObject:@"gb" forKey:(NSString *)kABPersonAddressCountryCodeKey];
     ABMultiValueAddValueAndLabel(addressMultipleValue, (__bridge CFTypeRef)(addressDictionary), kABHomeLabel, NULL);
     ABRecordSetValue(person, kABPersonAddressProperty, addressMultipleValue, nil);
-    CFRelease(addressMultipleValue);
+    CFRelease(addressMultipleValue);*/
     
     // Adding person to the address book
     ABAddressBookAddRecord(addressBook, person, nil);
@@ -159,6 +157,10 @@
     [self.navigationController pushViewController:c animated:YES];
 }
 
+- (void)newPersonViewController:(ABNewPersonViewController *)newPersonViewController didCompleteWithNewPerson:(ABRecordRef)person{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 // TABLEVIEW
 
@@ -242,7 +244,8 @@
 
     
     }else{
-        cell.textLabel.text = @"Add to Contacts";
+        cell.textLabel.text = @"";
+        cell.detailTextLabel.text = @"Add to Contacts";
     }
     return cell;
 }

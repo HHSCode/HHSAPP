@@ -13,7 +13,7 @@
 #import <AddressBook/AddressBook.h>
 
 
-@interface StaffDetailViewController : UITableViewController <MFMailComposeViewControllerDelegate>
+@interface StaffDetailViewController : UITableViewController <MFMailComposeViewControllerDelegate, ABNewPersonViewControllerDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *staffDetailTableView;
 

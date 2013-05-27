@@ -219,7 +219,6 @@
 		B38AE60416C4227C00069514 = {
 			isa = PBXGroup;
 			children = (
-				B36B65A8174D1A60005BE298 /* AddressBookUI.framework */,
 				B3D3035E1741A9B700A88C0E /* Icon.png */,
 				B3D3035C1741A94A00A88C0E /* Icon@2x.png */,
 				B38AE61616C4227C00069514 /* HHSApp */,
@@ -241,6 +240,7 @@
 		B38AE60F16C4227C00069514 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B36B65A8174D1A60005BE298 /* AddressBookUI.framework */,
 				B36B65A5174D199C005BE298 /* AddressBook.framework */,
 				B345CEA91705A095008483A6 /* CoreData.framework */,
 				88DA9D9F16FCA8990096C588 /* MessageUI.framework */,
@@ -635,7 +635,8 @@
 		B38AE65416C4227D00069514 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Tracey Koehler (QZZ3BRAC2Y)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ann E Greenwald (CLE34H9S2K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ann E Greenwald (CLE34H9S2K)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HHSApp/HHSApp-Prefix.pch";
 				INFOPLIST_FILE = "HHSApp/HHSApp-Info.plist";
@@ -645,7 +646,8 @@
 					"\"$(SRCROOT)/../../../../../Downloads/GoogleAnalyticsiOS_2.0beta4/Library\"",
 				);
 				PRODUCT_NAME = HHS;
-				PROVISIONING_PROFILE = "0E218EBA-6F51-41C1-99A3-D508AF3BC879";
+				PROVISIONING_PROFILE = "322E1785-91A9-4E5E-8DC3-7088DD29138C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "322E1785-91A9-4E5E-8DC3-7088DD29138C";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
