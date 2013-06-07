@@ -11,7 +11,7 @@
 
 
 
-@interface MoreDetailViewController : UIViewController<UIWebViewDelegate>
+@interface MoreDetailViewController : UIViewController<UIWebViewDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIWebView *moreDetailWebView;
 @property (nonatomic, strong) IBOutlet UIButton *button;

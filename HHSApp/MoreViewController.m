@@ -22,6 +22,8 @@
 @property (strong, nonatomic) NSMutableString * currentName, *currentLink;
 @property (strong, nonatomic) UIActivityIndicatorView *act;
 @property (strong, nonatomic) UIAlertView *wait;
+@property (nonatomic) int numberOfLocalPages;
+
 
 //Mail stuff
 @property (strong, nonatomic) NSArray *feedBackEmail;
@@ -48,7 +50,7 @@
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
-    self.cellNames = [[NSArray alloc] initWithObjects:@"Handbook", @"Program of Studies", @"Power School", @"Council", @"SAU 70", @"Guidance", @"Yearbook", @"March Intensive", @"Media Center",@"Athletics",@"Snow Day", nil];
+    self.cellNames = [[NSArray alloc] initWithObjects:@"Handbook", @"Program of Studies", @"Power School", @"Council", @"SAU 70", @"Guidance", @"Yearbook", @"March Intensive", @"Media Center",@"Athletics",@"Snow Day", @"School Information", @"About", nil];
     self.moreTableView.delegate = self;
     self.moreTableView.dataSource = self;
     
@@ -59,7 +61,7 @@
     self.incorrectInformationBody = @"Please provide all information that is incorrect as well as the correct information with which to replace it with";
     self.feedbackSubject = @"Feedback on the Hanover High Application";
     self.feedBackBody = @"Feedback on the Hanover High Application";
-
+    self.numberOfLocalPages = 2;
     
 
     Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
@@ -72,18 +74,8 @@
         self.stories = [[NSMutableDictionary alloc] init];
         [self.moreTableView reloadData];
         [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://www.app.dresden.us/moreTab.php"];
-        self.act = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(12.0, 85, 260.0, 25.0)];
         
-        
-       
-         self.wait = [[UIAlertView alloc] initWithTitle:@"Loading..."
-                                                message:@"Please wait"
-                                               delegate:self
-                                      cancelButtonTitle:nil
-                                      otherButtonTitles:nil];
-            [self.wait addSubview:self.act];
-        [self.act startAnimating];
-        [self.wait performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:NO];
+        //[self.wait performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:NO];
 
 
     };
@@ -175,7 +167,7 @@
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    //NSLog(@"%@: %@", currentElement, string);
+    //NSLog(@"%@: %@", self.currentElement, string);
     if ([self.currentElement isEqualToString:@"name"]){
         [self.currentName appendString:string];
     }else if ([self.currentElement isEqualToString:@"link"]) {
@@ -190,10 +182,9 @@
 	NSLog(@"all done!");
 	NSLog(@"stories array has %d items", [self.stories count]);
     
-    //NSLog(@"Stories: %@", self.stories);
+    NSLog(@"Stories: %@", self.stories);
     
-    [self.wait dismissWithClickedButtonIndex:0 animated:YES];
-    [self.act stopAnimating];
+    
     [self.moreTableView reloadData];
 }
 //Email Methods
@@ -251,10 +242,31 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifer];
         }
+        
+        if (indexPath.row>[tableView numberOfRowsInSection:indexPath.section]-(self.numberOfLocalPages+1)) {
+            cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+            cell.accessoryView = nil;
+            NSLog(@"Local Page");
+        }else{
+        
+        if ([self.stories count]==0) {
+            UIActivityIndicatorView *act = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+            act.frame = CGRectMake(0, 0, 24, 24);
+            //act.center = cell.accessoryView.center;
+            [act startAnimating];
+            cell.accessoryView = act;
+            cell.accessoryType=UITableViewCellAccessoryNone;
+
+        }else{
+            cell.accessoryView = nil;
+        
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         
-        cell.textLabel.text = [self.cellNames objectAtIndex:[indexPath row]];
         
+        }
+            
+        }
+        cell.textLabel.text = [self.cellNames objectAtIndex:[indexPath row]];
          return cell;
     }
 
@@ -301,15 +313,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row>[tableView numberOfRowsInSection:indexPath.section]-(self.numberOfLocalPages+1)) {
+        
+    }else{
+    if ([self.stories count]==0) {
+        
+    }else{
     MoreDetailViewController *detail = [[MoreDetailViewController alloc]initWithNibName:@"MoreDetailViewController" bundle:nil];
     detail.title = [self.cellNames objectAtIndex:[indexPath row]];
     NSLog(@"%@", [self.cellNames objectAtIndex:[indexPath row]]);
     NSLog(@"%@", [self.stories objectForKey:[self.cellNames objectAtIndex:[indexPath row]]]);
     [self.navigationController pushViewController:detail animated:YES];
     [detail loadWebPageWithTitle:[self.cellNames objectAtIndex:[indexPath row]] atURL:[NSURL URLWithString:[self.stories objectForKey:[self.cellNames objectAtIndex:[indexPath row]]]]];
-
+    }
     //[detail setWebView:[indexPath row] :stories];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
    
     
     // [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -322,6 +339,9 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
 
 

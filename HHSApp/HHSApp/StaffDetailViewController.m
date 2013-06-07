@@ -109,52 +109,78 @@
     // Setting basic properties
     ABRecordSetValue(person, kABPersonFirstNameProperty, (__bridge CFTypeRef)(self.firstName), nil);
     ABRecordSetValue(person, kABPersonLastNameProperty, (__bridge CFTypeRef)(self.lastName), nil);
-    ABRecordSetValue(person, kABPersonJobTitleProperty, (__bridge CFTypeRef)(self.staffTitle), nil);
+    if ([self.department isEqualToString: @" "]) {
+        
+    }else{
+        ABRecordSetValue(person, kABPersonJobTitleProperty, (__bridge CFTypeRef)(self.staffTitle), nil);
+
+    }
     ABRecordSetValue(person, kABPersonDepartmentProperty, (__bridge CFTypeRef)(self.department), nil);
     ABRecordSetValue(person, kABPersonOrganizationProperty, @"Hanover High School", nil);
+    NSLog(@"One");
+    //ABRecordSetValue(person, kABPersonURLProperty, (__bridge CFTypeRef)(self.url), nil);
+    NSLog(@"Two");
+    //ABRecordSetValue(person, kABPersonEmailProperty, (__bridge CFTypeRef)(self.email), nil);
+    NSLog(@"Three");
+    //ABRecordSetValue(person, kABPersonPhoneProperty, (__bridge CFTypeRef)(self.phone), nil);
     //ABRecordSetValue(person, kABPersonNoteProperty, @"The best iPhone development studio in the UK :)", nil);
     
-    // Adding phone numbers
+     //Adding phone numbers
     ABMutableMultiValueRef phoneNumberMultiValue = ABMultiValueCreateMutable(kABMultiStringPropertyType);
-    ABMultiValueAddValueAndLabel(phoneNumberMultiValue, (__bridge CFTypeRef)(self.phoneOrig), (CFStringRef)@"Work", NULL);
+    //ABMultiValueAddValueAndLabel(phoneNumberMultiValue, (__bridge CFTypeRef)(self.phoneOrig), (CFStringRef)@"Work", NULL);
     ABRecordSetValue(person, kABPersonPhoneProperty, phoneNumberMultiValue, nil);
     CFRelease(phoneNumberMultiValue);
     
     // Adding url
     ABMutableMultiValueRef urlMultiValue = ABMultiValueCreateMutable(kABMultiStringPropertyType);
-    ABMultiValueAddValueAndLabel(urlMultiValue, (__bridge CFTypeRef)(self.url), kABPersonHomePageLabel, NULL);
-    NSLog(@"URL: %@\nEmail: %@", self.url, self.email);
+    //ABMultiValueAddValueAndLabel(urlMultiValue, (__bridge CFTypeRef)(self.email), kABPersonHomePageLabel, NULL);
     ABRecordSetValue(person, kABPersonURLProperty, urlMultiValue, nil);
     CFRelease(urlMultiValue);
-    
+        
     // Adding emails
     ABMutableMultiValueRef emailMultiValue = ABMultiValueCreateMutable(kABMultiStringPropertyType);
-    ABMultiValueAddValueAndLabel(emailMultiValue, (__bridge CFTypeRef)(self.email), (CFStringRef)@"Work", NULL);
+    //ABMultiValueAddValueAndLabel(emailMultiValue, (__bridge CFTypeRef)(self.url), (CFStringRef)@"Homepage", NULL);
     ABRecordSetValue(person, kABPersonURLProperty, emailMultiValue, nil);
     CFRelease(emailMultiValue);
     
-    /*// Adding address
+    // Adding address
     ABMutableMultiValueRef addressMultipleValue = ABMultiValueCreateMutable(kABMultiDictionaryPropertyType);
     NSMutableDictionary *addressDictionary = [[NSMutableDictionary alloc] init];
-    [addressDictionary setObject:@"8-15 Dereham Place" forKey:(NSString *)kABPersonAddressStreetKey];
-    [addressDictionary setObject:@"London" forKey:(NSString *)kABPersonAddressCityKey];
-    [addressDictionary setObject:@"EC2A 3HJ" forKey:(NSString *)kABPersonAddressZIPKey];
-    [addressDictionary setObject:@"United Kingdom" forKey:(NSString *)kABPersonAddressCountryKey];
-    [addressDictionary setObject:@"gb" forKey:(NSString *)kABPersonAddressCountryCodeKey];
-    ABMultiValueAddValueAndLabel(addressMultipleValue, (__bridge CFTypeRef)(addressDictionary), kABHomeLabel, NULL);
+    [addressDictionary setObject:@"" forKey:(NSString *)kABPersonAddressStreetKey];
+    [addressDictionary setObject:@"" forKey:(NSString *)kABPersonAddressCityKey];
+    [addressDictionary setObject:@"" forKey:(NSString *)kABPersonAddressZIPKey];
+    [addressDictionary setObject:@"" forKey:(NSString *)kABPersonAddressCountryKey];
+    [addressDictionary setObject:@"" forKey:(NSString *)kABPersonAddressCountryCodeKey];
+    //ABMultiValueAddValueAndLabel(addressMultipleValue, (__bridge CFTypeRef)(addressDictionary), kABHomeLabel, NULL);
+    
+    NSLog(@"here");
     ABRecordSetValue(person, kABPersonAddressProperty, addressMultipleValue, nil);
-    CFRelease(addressMultipleValue);*/
+    CFRelease(addressMultipleValue);
+    
+     NSLog(@"here2");
     
     // Adding person to the address book
     ABAddressBookAddRecord(addressBook, person, nil);
     CFRelease(addressBook);
     
+     NSLog(@"here3");
+    
     // Creating view controller for a new contact
     ABNewPersonViewController *c = [[ABNewPersonViewController alloc] init];
+    NSLog(@"here4");
+
     [c setNewPersonViewDelegate:self];
+    NSLog(@"here5");
+
     [c setDisplayedPerson:person];
+    NSLog(@"here6");
+
     CFRelease(person);
+    NSLog(@"here7");
+
     [self.navigationController pushViewController:c animated:YES];
+    NSLog(@"here8");
+
 }
 
 - (void)newPersonViewController:(ABNewPersonViewController *)newPersonViewController didCompleteWithNewPerson:(ABRecordRef)person{
@@ -166,7 +192,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-        return 3;
+        return 2;
 }
 
 

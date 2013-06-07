@@ -16,10 +16,10 @@
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) IBOutlet UITableView *broadsideTableView;
 @property (nonatomic, retain) IBOutlet NSXMLParser * rssParser;
-
 - (void)parseXMLFileAtURL:(NSString *)URL;
 - (IBAction)showActionsheetButton:(id)sender;
 - (void)refreshView:(UIRefreshControl *)refresh;
 - (void)refreshBroadside;
+
 
 @end

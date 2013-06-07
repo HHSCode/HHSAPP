@@ -16,6 +16,8 @@
 @property (strong, nonatomic) NSMutableString *ElementValue;
 @property (nonatomic) BOOL errorParsing;
 @property (strong, nonatomic) NSMutableArray * stories;
+@property(nonatomic, strong) UIRefreshControl *refresh;
+
 
 @property (strong, nonatomic) NSMutableString * currentTitle, * currentAuthor, * currentSummary, * currentLink, *currentURL, *currentHTML, *currentDate;
 
@@ -35,29 +37,32 @@
 - (void)viewDidLoad
 {
     [self refreshBroadside];
+
     [super viewDidLoad];
-    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
-    [refresh addTarget:self
+    self.refresh = [[UIRefreshControl alloc] init];
+    self.refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    [self.refresh addTarget:self
                 action:@selector(refreshView:)
       forControlEvents:UIControlEventValueChanged];
     UITableViewController *tableViewController = [[UITableViewController alloc]init];
     [tableViewController setTableView:self.broadsideTableView];
-    if ([tableViewController respondsToSelector:@selector(setRefreshControl:)]) tableViewController.refreshControl = refresh; //iOS 5 doesn't do this
+    
+    
+    if ([tableViewController respondsToSelector:@selector(setRefreshControl:)]) tableViewController.refreshControl = self.refresh; //iOS 5 doesn't do this
 }
 
 -(void)refreshView:(UIRefreshControl *)refresh {
+    NSLog(@"RefreshView");
     refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Updating Broadside..."];
-    //custom refresh logic
-    [self refreshBroadside];
+    
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MMM d, h:mm a"];
     NSString *lastUpdated = [NSString stringWithFormat:@"Last updated on %@",
     [formatter stringFromDate:[NSDate date]]];
     refresh.attributedTitle = [[NSAttributedString alloc] initWithString:lastUpdated];
-    [refresh endRefreshing];
-
+    [self.refresh beginRefreshing];
+    [self refreshBroadside];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -70,6 +75,7 @@
         //NSLog(@"REACHABLE!");
         if([self.stories count]==0){
             [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://feeds.feedburner.com/HHSBroadside"];
+            
             [self.activityIndicator setHidden:NO];
             [self.activityIndicator startAnimating];
             
@@ -98,11 +104,20 @@
     reach.reachableBlock = ^(Reachability*reach)
     {
         NSLog(@"Reachable");
+        //[self.broadsideTableView reloadData];
+        NSLog(@"Animating: %d\nRefreshing: %d", [self.activityIndicator isAnimating],[self.refresh isRefreshing]);
+
+        if ([self.activityIndicator isAnimating]) {
+        }else{
         self.stories = [[NSMutableArray alloc] init];
-        [self.broadsideTableView reloadData];
+
         [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"http://feeds.feedburner.com/HHSBroadside"];
+
         [self.activityIndicator setHidden:NO];
+
         [self.activityIndicator startAnimating];
+
+        }
     };
     
     reach.unreachableBlock = ^(Reachability*reach)
@@ -110,11 +125,15 @@
         NSLog(@"UNREACHABLE!");
         [self.activityIndicator setHidden:YES];
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"No internet connection! Please try again!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        
+        [self.refresh endRefreshing];
         [alert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
         
+        
     };
+    
     [reach startNotifier];
+    
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -156,6 +175,9 @@
 
 - (void)parseXMLFileAtURL:(NSString *)URL {
     
+    NSLog(@"Begin Parse");
+
+    
     self.stories = [[NSMutableArray alloc] init];
     
 	//you must then convert the path to a proper NSURL or it won't work
@@ -177,11 +199,14 @@
     
     
 	[self.rssParser parse];
+    NSLog(@"Parse");
+
     
 }
 
 - (void)parserDidStartDocument:(NSXMLParser *)parser {
 	// (@"found file and started parsing");
+    //self.stories = [[NSMutableArray alloc]init];
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
@@ -254,8 +279,18 @@
     //NSLog(@"Stories: %@", stories);
     [self.activityIndicator stopAnimating];
     [self.activityIndicator setHidden:YES];
-    [self.broadsideTableView reloadData];
     
+    
+
+    
+
+    [self.broadsideTableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+    
+    [self.refresh performSelectorOnMainThread:@selector(endRefreshing) withObject:nil waitUntilDone:YES];
+    
+    NSLog(@"Refreshed!!!!");
+    
+
     
 }
 
@@ -271,7 +306,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    //NSLog(@"Updating table view, stories count: %i", [stories count]);
+    //NSLog(@"Updating table view, stories count: %i", [self.stories count]);
     
     return [self.stories count];
     
@@ -290,6 +325,8 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"BroadsideCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
+    
+    
 
     //NSLog(@"Title: %@", [[stories objectAtIndex:[indexPath row]]objectForKey:@"title"]);
     NSMutableString *title = [[NSMutableString alloc]initWithString:[[self.stories objectAtIndex:[indexPath row]]objectForKey:@"title"]];

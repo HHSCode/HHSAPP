@@ -56,10 +56,63 @@
     NSString *end = @"</div></body></html>";
     NSString *temp = [start stringByAppendingString:htmlString];
     NSString *final = [temp stringByAppendingString:end];
-    //NSLog(@"HTML: %@", final);
+    
+    //Very ugly, but makes all images centered
+    
+    NSArray *otherArray = [final componentsSeparatedByString:@"<img class="];
+    NSLog(@"Other Array Count: %i", [otherArray count]);
+    if ([otherArray count]>1) {
+        
+    NSMutableArray *mutOther = [[NSMutableArray alloc]init];
+    [mutOther addObject:[otherArray objectAtIndex:0]];
+    for (int x = 1; x<[otherArray count]; x++) {
+        [mutOther addObject:[NSString stringWithFormat:@"<img class=%@", [otherArray objectAtIndex:x]]];
+        
+    }
+    
+    
+    
+    for (int k = 0; k<[mutOther count]; k++) {
+        NSString *j = [mutOther objectAtIndex:k];
+        NSRange rr2 = [final rangeOfString:@"width=\""];
+        NSRange rr3 = [final rangeOfString:@"\" height"];
+        int lengt = rr3.location - rr2.location - rr2.length;
+        int location = rr2.location + rr2.length;
+        NSRange aa;
+        aa.location = location;
+        aa.length = lengt;
+        NSString *temp123 = [final substringWithRange:aa];
+        float w =[temp123 floatValue];
+        
+        NSRange rr4 = [final rangeOfString:@"height=\""];
+        NSRange rr5 = [final rangeOfString:@"\" />"];
+        int lengt2 = rr5.location - rr4.location - rr4.length;
+        int location2 = rr4.location + rr4.length;
+        NSRange aa2;
+        aa2.location = location2;
+        aa2.length = lengt2;
+        NSString *temp1234 = [final substringWithRange:aa2];
+        float h= [temp1234 floatValue];
+        NSLog(@"W: %g\nH: %g", w, h);
+        NSLog(@"Temp1234: %@", temp1234);
+        
+        
+        NSString *end = [j stringByReplacingOccurrencesOfString:temp123 withString:@"300"];
+
+        NSString *theEnd = [end stringByReplacingOccurrencesOfString:temp1234 withString:[NSString stringWithFormat:@"%g", (300*h)/w]];
+        
+        
+        
+        
+        [mutOther replaceObjectAtIndex:k withObject:theEnd];
+    }
+    
+    final = [mutOther componentsJoinedByString:@""];
+    }
+
+    NSLog(@"HTML: %@", final);
     
     [final rangeOfString:@"<a"];
-    
     [self.broadsideDetailWebView loadHTMLString:final baseURL:nil];
 }
 
