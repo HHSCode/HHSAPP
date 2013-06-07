@@ -47,6 +47,11 @@
     [self.act setHidden:YES];
 }
 
+- (void)webViewDidStartLoad:(UIWebView *)webView{
+    [self.act startAnimating];
+    [self.act setHidden:NO];
+}
+
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
     [self.act stopAnimating];
     [self.act setHidden:YES];
