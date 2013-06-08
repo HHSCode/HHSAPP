@@ -206,7 +206,7 @@
         if ([self.phoneOrig isEqualToString:@"-1"]) {
             cells -=1;
         }
-        if ([self.url isEqualToString:@" "]) {
+        if ([self.url isEqualToString:@""]) {
             cells -=1;
         }
         return cells;
@@ -228,7 +228,7 @@
     }
     
     if ([indexPath section]==0) {
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%@", self.firstName, self.lastName];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
         cell.textLabel.text = self.staffTitle.length>1 ? self.staffTitle : @"name";
     }else if([indexPath section]==1){
         
@@ -244,7 +244,7 @@
         
         
         if ([self.phoneOrig isEqualToString:@"-1"]) {
-            if ([self.url isEqualToString:@" "]) {
+            if ([self.url isEqualToString:@""]) {
                 //neither
             }else{
                 if ([indexPath row]==2){
@@ -253,7 +253,7 @@
                 }
             }
 
-        }else if ([self.url isEqualToString:@" "]) {
+        }else if ([self.url isEqualToString:@""]) {
             if ([indexPath row]==2){
                 cell.detailTextLabel.text = self.phone;
                 cell.textLabel.text = @"phone";

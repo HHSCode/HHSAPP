@@ -45,10 +45,12 @@
                 action:@selector(refreshView:)
       forControlEvents:UIControlEventValueChanged];
     UITableViewController *tableViewController = [[UITableViewController alloc]init];
-    [tableViewController setTableView:self.broadsideTableView];
+    //[tableViewController setTableView:self.broadsideTableView];
     
     
-    if ([tableViewController respondsToSelector:@selector(setRefreshControl:)]) tableViewController.refreshControl = self.refresh; //iOS 5 doesn't do this
+    if ([tableViewController respondsToSelector:@selector(setRefreshControl:)]) [self.broadsideTableView addSubview: self.refresh]; //iOS 5 doesn't do this
+    //if ([tableViewController respondsToSelector:@selector(setRefreshControl:)]) tableViewController.refreshControl = self.refresh; //iOS 5 doesn't do this
+
 }
 
 -(void)refreshView:(UIRefreshControl *)refresh {
@@ -318,19 +320,29 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
     static NSString *CellIdentifier = @"broadside";
-    
+
     BroadsideCell *cell = (BroadsideCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
     if (cell == nil) {
+
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"BroadsideCell" owner:self options:nil];
+
         cell = [nib objectAtIndex:0];
+
     }
     
+    if ([self.stories count]!=0) {
+        
     
+
 
     //NSLog(@"Title: %@", [[stories objectAtIndex:[indexPath row]]objectForKey:@"title"]);
     NSMutableString *title = [[NSMutableString alloc]initWithString:[[self.stories objectAtIndex:[indexPath row]]objectForKey:@"title"]];
+
     NSMutableString *date = [[NSMutableString alloc]initWithString:[[self.stories objectAtIndex:[indexPath row]]objectForKey:@"date"]];
+
     NSMutableString *author2 = [[NSMutableString alloc]initWithString:@"by "];
     
     NSMutableString *author = [[NSMutableString alloc]initWithString:[[self.stories objectAtIndex:[indexPath row]]objectForKey:@"author"]];
@@ -348,7 +360,7 @@
     cell.title.text  = title;
     cell.author.text = author2;
     cell.date.text = date;
-    
+    }
     return cell;
 }
 
@@ -395,10 +407,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([self.stories count]!=0) {
+        
     
     BroadsideDetailViewController *detail = [[BroadsideDetailViewController alloc]initWithNibName:@"BroadsideDetailViewController" bundle:nil];
     [self.navigationController pushViewController:detail animated:YES];
     [detail setWebView:[indexPath row] :self.stories];
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     

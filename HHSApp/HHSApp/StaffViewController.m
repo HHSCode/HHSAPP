@@ -312,6 +312,11 @@
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
     //NSLog(@"%@: %@", currentElement, string);
+
+
+    if ( [string length] > 0 && [[string substringFromIndex:[string length]-1] isEqualToString:@" "]){
+        string = [string substringToIndex:[string length] - 1];
+    }
     if ([self.currentElement isEqualToString:@"firstname"]){
         [self.currentFirstName appendString:string];
     }else if ([self.currentElement isEqualToString:@"lastname"]) {
@@ -475,10 +480,10 @@
     NSArray *list = [names allKeys];
     NSArray *sortedList = [list sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     NSDictionary *info = names[sortedList[indexPath.row]];
-    NSString *staffName = [info[@"first"] stringByAppendingString:info[@"last"]];
+    NSString *staffName = [info[@"first"] stringByAppendingString:[NSString stringWithFormat:@" %@",info[@"last"]]] ;
     NSString *detailString = info[@"title"];
     
-    if ([detailString isEqualToString:@" "]) {
+    if ([detailString isEqualToString:@""]) {
         cell.noTitleLabel.text = staffName;
         [cell.topLabel setHidden:YES];
         cell.topLabel.text = @"";
