@@ -54,7 +54,7 @@
     self.moreTableView.delegate = self;
     self.moreTableView.dataSource = self;
     
-    self.feedBackEmail = [[NSArray alloc] initWithObjects:@"max.greenwald@hanovernorwichschools.org", @"james.owens@hanovernorwichschools.org",@"hhscoders@googlegroups.com", nil];
+    self.feedBackEmail = [[NSArray alloc] initWithObjects:@"conrad.koehler@hanovernorwichschools.org", nil];
     self.bugReportSubject = @"Bug report on Hanover High Application";
     self.bugReportBody = @"Please provide a detailed description of the bug including all steps to trigger it";
     self.incorrectInformaationSubject = @"Incorrect Information On Hanover High Application";
