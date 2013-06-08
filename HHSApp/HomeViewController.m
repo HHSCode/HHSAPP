@@ -77,7 +77,10 @@
         
         
         //Pulling in the Google Calander on the website for the Home tab
-        [self.calendarWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=185&wkst=1&bgcolor=%2393061C&src=nn2509143kmbl2jbhlofvah8fs%40group.calendar.google.com&color=%232F6309&src=vs8lb5l1ej2cukd1l0s26atv2c%40group.calendar.google.com&color=%23B1440E&src=680mj2kt8enp5minffopangeeg%40group.calendar.google.com&color=%23875509&src=4uripfc30h2e7htmr6cn38g8bo%40group.calendar.google.com&color=%23B1365F&src=ak55rjsbcjca1b6c4g1pl98a30%40group.calendar.google.com&color=%231B887A&src=v5u6pb9hmmk6vdmc5sd97r67sg%40group.calendar.google.com&color=%235F6B02&src=d4ohdnvm96jfqsrj9copecbiu8%40group.calendar.google.com&color=%23333333&src=1rank92tt12gjt2q0u3cbgemmc%40group.calendar.google.com&color=%236B3304&src=ggb1fhi1mr66bati1ct16kvc78%40group.calendar.google.com&color=%235229A3&src=en.usa%23holiday%40group.v.calendar.google.com&color=%232952A3&src=ubsv6hfmoe8n03oclu2r1a61hk%40group.calendar.google.com&color=%23182C57&ctz=America%2FNew_York"]]];
+        //[self.calendarWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=185&wkst=1&bgcolor=%2393061C&src=nn2509143kmbl2jbhlofvah8fs%40group.calendar.google.com&color=%232F6309&src=vs8lb5l1ej2cukd1l0s26atv2c%40group.calendar.google.com&color=%23B1440E&src=680mj2kt8enp5minffopangeeg%40group.calendar.google.com&color=%23875509&src=4uripfc30h2e7htmr6cn38g8bo%40group.calendar.google.com&color=%23B1365F&src=ak55rjsbcjca1b6c4g1pl98a30%40group.calendar.google.com&color=%231B887A&src=v5u6pb9hmmk6vdmc5sd97r67sg%40group.calendar.google.com&color=%235F6B02&src=d4ohdnvm96jfqsrj9copecbiu8%40group.calendar.google.com&color=%23333333&src=1rank92tt12gjt2q0u3cbgemmc%40group.calendar.google.com&color=%236B3304&src=ggb1fhi1mr66bati1ct16kvc78%40group.calendar.google.com&color=%235229A3&src=en.usa%23holiday%40group.v.calendar.google.com&color=%232952A3&src=ubsv6hfmoe8n03oclu2r1a61hk%40group.calendar.google.com&color=%23182C57&ctz=America%2FNew_York"]]];
+            
+            [self.calendarWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[[theArray objectAtIndex:1]objectForKey:@"url"]]]];
+
         
         
         // Do any additional setup after loading the view.
@@ -118,7 +121,8 @@
         //NSLog(@"REACHABLE!");
         
         NetworkStatus status = [reach currentReachabilityStatus];
-        
+        HomeParser *parser = [[HomeParser alloc]init];
+        NSMutableArray *theArray = [parser parse:@"http://app.dresden.us/home.php"];
         if(status == NotReachable)
         {
             //No internet
@@ -133,8 +137,7 @@
                 //[self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"https://picasaweb.google.com/data/feed/base/user/108131704742682781762/albumid/5817737329195291185?alt=rss"];
                 
                 
-                HomeParser *parser = [[HomeParser alloc]init];
-                NSMutableArray *theArray = [parser parse:@"http://app.dresden.us/home.php"];
+                
                 [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:[[theArray objectAtIndex:0]objectForKey:@"url"]];
                 //[self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"https://picasaweb.google.com/data/feed/base/user/113409722911087719840/albumid/5886905617252928865?alt=rss&kind=photo&hl=en_US"];
             }
@@ -154,7 +157,9 @@
         [self.activityIndicatorCalendar setHidden:NO];
         [self.calendarWebView setDelegate:self];
         
-        [self.calendarWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=185&wkst=1&bgcolor=%2393061C&src=nn2509143kmbl2jbhlofvah8fs%40group.calendar.google.com&color=%232F6309&src=vs8lb5l1ej2cukd1l0s26atv2c%40group.calendar.google.com&color=%23B1440E&src=680mj2kt8enp5minffopangeeg%40group.calendar.google.com&color=%23875509&src=4uripfc30h2e7htmr6cn38g8bo%40group.calendar.google.com&color=%23B1365F&src=ak55rjsbcjca1b6c4g1pl98a30%40group.calendar.google.com&color=%231B887A&src=v5u6pb9hmmk6vdmc5sd97r67sg%40group.calendar.google.com&color=%235F6B02&src=d4ohdnvm96jfqsrj9copecbiu8%40group.calendar.google.com&color=%23333333&src=1rank92tt12gjt2q0u3cbgemmc%40group.calendar.google.com&color=%236B3304&src=ggb1fhi1mr66bati1ct16kvc78%40group.calendar.google.com&color=%235229A3&src=en.usa%23holiday%40group.v.calendar.google.com&color=%232952A3&src=ubsv6hfmoe8n03oclu2r1a61hk%40group.calendar.google.com&color=%23182C57&ctz=America%2FNew_York"]]];
+        [self.calendarWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[[theArray objectAtIndex:1]objectForKey:@"url"]]]];
+        
+        //[self.calendarWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=185&wkst=1&bgcolor=%2393061C&src=nn2509143kmbl2jbhlofvah8fs%40group.calendar.google.com&color=%232F6309&src=vs8lb5l1ej2cukd1l0s26atv2c%40group.calendar.google.com&color=%23B1440E&src=680mj2kt8enp5minffopangeeg%40group.calendar.google.com&color=%23875509&src=4uripfc30h2e7htmr6cn38g8bo%40group.calendar.google.com&color=%23B1365F&src=ak55rjsbcjca1b6c4g1pl98a30%40group.calendar.google.com&color=%231B887A&src=v5u6pb9hmmk6vdmc5sd97r67sg%40group.calendar.google.com&color=%235F6B02&src=d4ohdnvm96jfqsrj9copecbiu8%40group.calendar.google.com&color=%23333333&src=1rank92tt12gjt2q0u3cbgemmc%40group.calendar.google.com&color=%236B3304&src=ggb1fhi1mr66bati1ct16kvc78%40group.calendar.google.com&color=%235229A3&src=en.usa%23holiday%40group.v.calendar.google.com&color=%232952A3&src=ubsv6hfmoe8n03oclu2r1a61hk%40group.calendar.google.com&color=%23182C57&ctz=America%2FNew_York"]]];
         
         
                 // Do any additional setup after loading the view.
