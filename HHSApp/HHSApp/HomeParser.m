@@ -29,6 +29,7 @@
 
 -(NSMutableArray *)parse:(NSString *)URL{
     [self performSelectorOnMainThread:@selector(parseXMLFileAtURL:) withObject:URL waitUntilDone:YES];
+    //NSLog(@"Stories: %@", self.stories);
     return self.stories;
 }
 
@@ -75,8 +76,8 @@
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
 	self.currentElement = [elementName copy];
-    //NSLog(@"Current Element: %@", currentElement);
-	if ([elementName isEqualToString:@"Name"]) {
+    //NSLog(@"Current Element: %@", self.currentElement);
+	if ([elementName isEqualToString:@"contact-info"]) {
 		self.item = [[NSMutableDictionary alloc] init];
 		self.currentTitle = [[NSMutableString alloc] init];
         self.currentURL = [[NSMutableString alloc]init];
@@ -89,11 +90,12 @@
     
 	//NSLog(@"ended element: %@", elementName);
     
-	if ([elementName isEqualToString:@"Name"]) { //change this back to id
+	if ([elementName isEqualToString:@"contact-info"]) { //change this back to id
 		// save values to an item, then store that item into the array...
         //NSLog(@"item: %@", item);
         [self.item setObject:self.currentTitle forKey:@"title"];
-		[self.item setObject:self.currentURL forKey:@"url"];
+        NSString *string = [self.currentURL stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+		[self.item setObject:string forKey:@"url"];
 		
         //NSLog(@"Item: %@", self.item);
         
@@ -103,7 +105,7 @@
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    NSLog(@"%@: %@", self.currentElement, string);
+    //NSLog(@"%@: %@", self.currentElement, string);
     if ([string isEqualToString:@" "]) {
         
     }else{
@@ -123,7 +125,7 @@
 	//NSLog(@"all done!");
 	//NSLog(@"stories array has %d items", [stories count]);
     
-    NSLog(@"Stories: %@", self.stories);
+    //NSLog(@"Stories: %@", self.stories);
     
     
 }
