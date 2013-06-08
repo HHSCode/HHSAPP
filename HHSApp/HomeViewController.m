@@ -36,6 +36,8 @@
 {
     
     [super viewDidLoad];
+    self.slideshowImageView.contentMode = UIViewContentModeScaleAspectFit;
+
     [self.slideshowImageView setImage:[UIImage imageNamed:@"photo.png"]];
     self.calendarWebView.scrollView.scrollEnabled = NO;
     self.calendarWebView.scrollView.bounces = NO;
@@ -62,8 +64,13 @@
         if([self.stories count]==0){
             [self.activityIndicatorSlideshow startAnimating];
             [self.activityIndicatorSlideshow setHidesWhenStopped:YES];
-            [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"https://picasaweb.google.com/data/feed/base/user/108131704742682781762/albumid/5817737329195291185?alt=rss"];
-        
+            //[self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"https://picasaweb.google.com/data/feed/base/user/108131704742682781762/albumid/5817737329195291185?alt=rss"];
+            //[self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"https://picasaweb.google.com/data/feed/base/user/113409722911087719840/albumid/5886905617252928865?alt=rss&kind=photo&hl=en_US"];
+            
+            HomeParser *parser = [[HomeParser alloc]init];
+            NSMutableArray *theArray = [parser parse:@"http://app.dresden.us/home.php"];
+            [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:[[theArray objectAtIndex:0]objectForKey:@"url"]];
+
         
         [self.activityIndicatorCalendar startAnimating];
         [self.activityIndicatorCalendar setHidesWhenStopped:YES];
@@ -123,7 +130,13 @@
             if([self.stories count]==0){
                 [self.activityIndicatorSlideshow startAnimating];
                 [self.activityIndicatorSlideshow setHidesWhenStopped:YES];
-                [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"https://picasaweb.google.com/data/feed/base/user/108131704742682781762/albumid/5817737329195291185?alt=rss"];
+                //[self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"https://picasaweb.google.com/data/feed/base/user/108131704742682781762/albumid/5817737329195291185?alt=rss"];
+                
+                
+                HomeParser *parser = [[HomeParser alloc]init];
+                NSMutableArray *theArray = [parser parse:@"http://app.dresden.us/home.php"];
+                [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:[[theArray objectAtIndex:0]objectForKey:@"url"]];
+                //[self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"https://picasaweb.google.com/data/feed/base/user/113409722911087719840/albumid/5886905617252928865?alt=rss&kind=photo&hl=en_US"];
             }
         }
         else if (status == ReachableViaWWAN)
@@ -170,7 +183,9 @@
         if ([[dic objectForKey:@"link"] isEqualToString:@""]) {
             
         }else{
-            UIImage *image = [self getImageFromURL:[dic objectForKey:@"link"]];
+            NSLog(@"Link: %@", [dic objectForKey:@"link"]);
+            
+            UIImage *image = [self getImageFromURL:[NSString stringWithFormat:@"%@#@2x.png", [dic objectForKey:@"link"]]];
             [theArray insertObject:image atIndex:[theArray count]];
         }
         //if ([dic objectForKey:@"link"] != nil) {
@@ -285,7 +300,7 @@
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    //NSLog(@"%@: %@", currentElement, string);
+    NSLog(@"%@: %@", self.currentElement, string);
     if ([self.currentElement isEqualToString:@"link"]){
         //[currentLink appendString:string];
     }else if ([self.currentElement isEqualToString:@"title"]) {

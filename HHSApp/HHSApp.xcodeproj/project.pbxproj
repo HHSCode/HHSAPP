@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
 		320B6C86F11D9990244A9731 /* Three20.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 320B6C86F11D9990244A9730 /* Three20.bundle */; };
+		5092DF9F1762AC2900EAA97C /* HomeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5092DF9E1762AC2900EAA97C /* HomeParser.m */; };
 		50E801B316FA6FC6004B9401 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E801B216FA6FC6004B9401 /* Reachability.m */; };
 		50E801B516FA6FE3004B9401 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E801B416FA6FE3004B9401 /* SystemConfiguration.framework */; };
 		50E801B816FBE9A5004B9401 /* StaffDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E801B716FBE9A5004B9401 /* StaffDetailViewController.m */; };
@@ -87,6 +88,8 @@
 /* Begin PBXFileReference section */
 		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.frameworks; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		320B6C86F11D9990244A9730 /* Three20.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Three20.bundle; path = "three20-master/src/Three20.bundle"; sourceTree = SOURCE_ROOT; };
+		5092DF9D1762AC2900EAA97C /* HomeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeParser.h; sourceTree = "<group>"; };
+		5092DF9E1762AC2900EAA97C /* HomeParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeParser.m; sourceTree = "<group>"; };
 		50E801B116FA6FC6004B9401 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = ../Reachability.h; sourceTree = "<group>"; };
 		50E801B216FA6FC6004B9401 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = ../Reachability.m; sourceTree = "<group>"; };
 		50E801B416FA6FE3004B9401 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -267,6 +270,8 @@
 				B38AE62B16C4227C00069514 /* MainStoryboard_iPad.storyboard */,
 				B371460A16F60D0900656219 /* HomeViewController.h */,
 				B371460B16F60D0900656219 /* HomeViewController.m */,
+				5092DF9D1762AC2900EAA97C /* HomeParser.h */,
+				5092DF9E1762AC2900EAA97C /* HomeParser.m */,
 				B34FBFE816F797F80010485A /* StaffViewController.h */,
 				B34FBFE916F797F80010485A /* StaffViewController.m */,
 				50E801B616FBE9A5004B9401 /* StaffDetailViewController.h */,
@@ -525,6 +530,7 @@
 				88396BBE16FCAAAD00AAAEFC /* BroadsideDetailViewController.m in Sources */,
 				8881B20116FCB0D400513235 /* ActivityViewCustomActivityChrome.m in Sources */,
 				88D0528916FD455400E3D904 /* StaffViewCell.m in Sources */,
+				5092DF9F1762AC2900EAA97C /* HomeParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

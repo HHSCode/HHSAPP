@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Reachability.h"
+#import "HomeParser.h"
 
 @interface HomeViewController : UIViewController<NSXMLParserDelegate, UIWebViewDelegate>
 //instance variables have been removed, replaced by properties. All properties not below are in the private interface in the .m file
