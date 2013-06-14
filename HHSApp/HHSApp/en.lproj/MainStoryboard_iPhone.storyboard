@@ -90,7 +90,7 @@
                         <color key="backgroundColor" red="0.65882354974746704" green="0.086274512112140656" blue="0.11764706671237946" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Home" image="home_30x30.png" id="7"/>
+                    <tabBarItem key="tabBarItem" title="Home" id="7"/>
                     <connections>
                         <outlet property="activityIndicatorCalendar" destination="5mL-GF-6l1" id="n2c-vi-UlW"/>
                         <outlet property="calendarWebView" destination="otd-Qy-qw3" id="lrQ-2T-96b"/>
@@ -335,54 +335,8 @@
     <resources>
         <image name="broadside_30x30.png" width="6.6257667541503906" height="6.6257667541503906"/>
         <image name="feedback.png" width="203" height="48.147239685058594"/>
-        <image name="home_30x30.png" width="6.6257667541503906" height="6.6257667541503906"/>
         <image name="more_60x60.png" width="13.251533508300781" height="13.251533508300781"/>
     </resources>
-    <classes>
-        <class className="BroadsideViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BroadsideViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showActionsheetButton:"/>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="broadsideTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="rssParser" candidateClass="NSXMLParser"/>
-            </relationships>
-        </class>
-        <class className="HomeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activityIndicatorCalendar" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="activityIndicatorSlideshow" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="calendarWebView" candidateClass="UIWebView"/>
-                <relationship kind="outlet" name="photosWebView" candidateClass="UIWebView"/>
-                <relationship kind="outlet" name="rssParser" candidateClass="NSXMLParser"/>
-                <relationship kind="outlet" name="slideshowImageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="MoreViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoreViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="actionEmailComposer:withBody:" candidateClass="NSString"/>
-                <relationship kind="action" name="feedbackMenu:"/>
-                <relationship kind="outlet" name="moreTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="rssParser" candidateClass="NSXMLParser"/>
-            </relationships>
-        </class>
-        <class className="StaffDetailViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StaffDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="staffDetailTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="StaffViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StaffViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activityIndicatorStaff" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="rssParser" candidateClass="NSXMLParser"/>
-                <relationship kind="outlet" name="theSearchBar" candidateClass="UISearchBar"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
