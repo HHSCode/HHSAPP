@@ -133,7 +133,6 @@
         {
             //WiFi
             NSLog(@"Wifi");
-            if([self.stories count]==0){
                 [self.activityIndicatorSlideshow startAnimating];
                 [self.activityIndicatorSlideshow setHidesWhenStopped:YES];
                 //[self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"https://picasaweb.google.com/data/feed/base/user/108131704742682781762/albumid/5817737329195291185?alt=rss"];
@@ -143,7 +142,7 @@
                 [self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:[[theArray objectAtIndex:0]objectForKey:@"url"]];
                 //[self performSelectorInBackground:@selector(parseXMLFileAtURL:) withObject:@"https://picasaweb.google.com/data/feed/base/user/113409722911087719840/albumid/5886905617252928865?alt=rss&kind=photo&hl=en_US"];
             }
-        }
+        
         else if (status == ReachableViaWWAN)
         {
             //3G
@@ -306,7 +305,7 @@
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    NSLog(@"%@: %@", self.currentElement, string);
+    //NSLog(@"%@: %@", self.currentElement, string);
     if ([self.currentElement isEqualToString:@"link"]){
         //[currentLink appendString:string];
     }else if ([self.currentElement isEqualToString:@"title"]) {
@@ -346,7 +345,7 @@
 	//NSLog(@"all done!");
 	//NSLog(@"stories array has %d items", [stories count]);
     
-    NSLog(@"Stories: %@", self.stories);
+    //NSLog(@"Stories: %@", self.stories);
     [self setupImageView];
     
     
