@@ -34,142 +34,24 @@
     [self.moreDetailWebView setScalesPageToFit:YES];
 }
 
--(void)localPDFCache:(NSString *)title atURL:(NSURL *)url{
+-(void)loadWebPageWithTitle:(NSString *)title atURL:(NSURL *)url{
+    self.URL = url;
+    NSLog(@"Abs:%@", [url absoluteString]);
+     NSURLRequest *myRequest = [NSURLRequest requestWithURL:url];
     if ([title isEqualToString:@"Handbook"]) {
-        
-        Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
-        
-        // set the blocks
-        reach.reachableBlock = ^(Reachability*reach)
-        {
-            NetworkStatus status = [reach currentReachabilityStatus];
-            
-            if(status == NotReachable)
-            {
-                //No internet
-            }
-            else if (status == ReachableViaWiFi)
-            {
-                
-                NSData *pdfData = [[NSData alloc] initWithContentsOfURL:url];
-                
-                //Store the Data locally as PDF File
-                
-                NSString *resourceDocPath = [[NSString alloc] initWithString:[[[[NSBundle mainBundle]  resourcePath] stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"Documents"]];
-                
-                NSString *filePath = [resourceDocPath stringByAppendingPathComponent:@"handbook55.pdf"];
-                
-                [pdfData writeToFile:filePath atomically:YES];
-                
-                NSLog(@"pdf written");
-                
-                
-                
-            }
-            
-            else if (status == ReachableViaWWAN)
-            {
-                //3G
-                
-                
-                
-                
-                
-            }
-            
-            
-            
-            
-            
-            
-        };
-        
-        reach.unreachableBlock = ^(Reachability*reach)
-        {
-            
-        };
-        [reach startNotifier];
-
         NSString *path = [[NSBundle mainBundle] pathForResource:@"handbook" ofType:@"pdf"];
         NSURL *targetURL = [NSURL fileURLWithPath:path];
         NSURLRequest *request = [NSURLRequest requestWithURL:targetURL];
         [self.moreDetailWebView loadRequest:request];
     }else if ([title isEqualToString:@"Program of Studies"]){
-                Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
-        
-        // set the blocks
-        reach.reachableBlock = ^(Reachability*reach)
-        {
-            NetworkStatus status = [reach currentReachabilityStatus];
-            
-            if(status == NotReachable)
-            {
-                //No internet
-            }
-            else if (status == ReachableViaWiFi)
-            {
-                
-                NSData *pdfData = [[NSData alloc] initWithContentsOfURL:url
-                                   ];
-                
-                //Store the Data locally as PDF File
-                
-                NSString *resourceDocPath = [[NSString alloc] initWithString:[[[[NSBundle mainBundle]  resourcePath] stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"Documents"]];
-                
-                NSString *filePath = [resourceDocPath stringByAppendingPathComponent:@"programofstudies55.pdf"];
-                
-                [pdfData writeToFile:filePath atomically:YES];
-                NSLog(@"pdf written");
-                
-                
-                
-                
-            }
-            
-            else if (status == ReachableViaWWAN)
-            {
-                //3G
-                
-                
-                
-                
-                
-            }
-            
-            
-            
-            
-            
-            
-        };
-        
-        reach.unreachableBlock = ^(Reachability*reach)
-        {
-            
-        };
-        [reach startNotifier];
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"programofstudies" ofType:@"pdf"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"programofstudies0" ofType:@"pdf"];
         NSURL *targetURL = [NSURL fileURLWithPath:path];
         NSURLRequest *request = [NSURLRequest requestWithURL:targetURL];
         [self.moreDetailWebView loadRequest:request];
-
-    }
-    
-        
-    // start the notifier which will cause the reachability object to retain itself!
-    
-}
-
--(void)loadWebPageWithTitle:(NSString *)title atURL:(NSURL *)url{
-    self.URL = url;
-    NSLog(@"Abs:%@", [url absoluteString]);
-     NSURLRequest *myRequest = [NSURLRequest requestWithURL:url];
-    if ([title isEqualToString:@"Handbook"]||[title isEqualToString:@"Program of Studies"]) {
-        [self localPDFCache:title atURL:url];
     }else{
-    [self.moreDetailWebView loadRequest:myRequest];
-        }
-    
+        [self.moreDetailWebView loadRequest:myRequest];
+ 
+    }
     [self.act startAnimating];
     [self.act setHidden:NO];
 }
