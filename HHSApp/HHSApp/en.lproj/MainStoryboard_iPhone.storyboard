@@ -102,22 +102,6 @@
             </objects>
             <point key="canvasLocation" x="653" y="-138"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="8hI-kK-C02">
-            <objects>
-                <viewController id="MIU-yG-TAq" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="z7I-KO-NOV">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="DWM-iu-rbg"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lVx-XM-Y5f" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1586" y="-22"/>
-        </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="9YC-Ct-rfT">
             <objects>
@@ -174,16 +158,8 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="More" image="more_60x60.png" id="6"/>
                     <navigationItem key="navigationItem" title="More" id="bbC-Yp-Ruk">
-                        <barButtonItem key="leftBarButtonItem" title="School Info" id="Iap-PR-jag">
-                            <connections>
-                                <segue destination="MIU-yG-TAq" kind="push" id="EAN-SH-HyI"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="About" id="KHm-Lw-4li">
-                            <connections>
-                                <segue destination="5Xw-ww-Cfv" kind="push" id="sjo-Hg-G1f"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="School Info" id="Iap-PR-jag"/>
+                        <barButtonItem key="rightBarButtonItem" title="About" id="KHm-Lw-4li"/>
                     </navigationItem>
                     <connections>
                         <outlet property="moreTableView" destination="m2l-O4-Mdv" id="dBX-y6-sZl"/>
@@ -193,22 +169,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1204" y="432"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="kYY-HI-FdR">
-            <objects>
-                <viewController id="5Xw-ww-Cfv" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5q4-sB-J2H">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="ToL-Fd-QAL"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="N3g-Ag-7bu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1595" y="606"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="JAB-rW-ys0">
@@ -237,10 +197,10 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="IhO-kd-mHh">
-                                <rect key="frame" x="0.0" y="55" width="320" height="45"/>
+                                <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="10" y="1" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -271,10 +231,10 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ucQ-qF-ES7">
-                                <rect key="frame" x="0.0" y="55" width="320" height="45"/>
+                                <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="10" y="1" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -314,22 +274,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136" y="192"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="XEi-L5-SAV">
-            <objects>
-                <viewController id="cmJ-dd-HrX" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1YD-rb-egj">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="BFo-cf-Kbo"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wc1-aT-29y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1586" y="-22"/>
         </scene>
     </scenes>
     <resources>
