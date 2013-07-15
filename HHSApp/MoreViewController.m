@@ -50,7 +50,7 @@
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
-    self.cellNames = [[NSArray alloc] initWithObjects:@"Handbook", @"Program of Studies", @"Power School", @"Council", @"SAU 70", @"Guidance", @"Yearbook", @"March Intensive", @"Media Center",@"Athletics",@"Snow Day", @"School Information", @"About", nil];
+    self.cellNames = [[NSArray alloc] initWithObjects:@"Handbook", @"Program of Studies", @"Power School", @"Council", @"SAU 70", @"Guidance", @"Yearbook", @"March Intensive", @"Media Center",@"Athletics",@"Snow Day", nil];
     self.moreTableView.delegate = self;
     self.moreTableView.dataSource = self;
     
