@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
 		320B6C86F11D9990244A9731 /* Three20.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 320B6C86F11D9990244A9730 /* Three20.bundle */; };
+		5058851A179492E200B3E001 /* programofstudies.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 50588518179492E200B3E001 /* programofstudies.pdf */; };
+		5058851B179492E200B3E001 /* handbook.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 50588519179492E200B3E001 /* handbook.pdf */; };
 		5092DF9F1762AC2900EAA97C /* HomeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5092DF9E1762AC2900EAA97C /* HomeParser.m */; };
 		50E801B316FA6FC6004B9401 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E801B216FA6FC6004B9401 /* Reachability.m */; };
 		50E801B516FA6FE3004B9401 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E801B416FA6FE3004B9401 /* SystemConfiguration.framework */; };
@@ -88,6 +90,8 @@
 /* Begin PBXFileReference section */
 		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.frameworks; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		320B6C86F11D9990244A9730 /* Three20.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Three20.bundle; path = "three20-master/src/Three20.bundle"; sourceTree = SOURCE_ROOT; };
+		50588518179492E200B3E001 /* programofstudies.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = programofstudies.pdf; sourceTree = "<group>"; };
+		50588519179492E200B3E001 /* handbook.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = handbook.pdf; sourceTree = "<group>"; };
 		5092DF9D1762AC2900EAA97C /* HomeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeParser.h; sourceTree = "<group>"; };
 		5092DF9E1762AC2900EAA97C /* HomeParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeParser.m; sourceTree = "<group>"; };
 		50E801B116FA6FC6004B9401 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = ../Reachability.h; sourceTree = "<group>"; };
@@ -346,6 +350,8 @@
 		B3A3EDC216EA44DD00A45BD2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				50588518179492E200B3E001 /* programofstudies.pdf */,
+				50588519179492E200B3E001 /* handbook.pdf */,
 				52B3425917617CBB00AEC36C /* back_Button_new_selected.png */,
 				52B3425717617BEB00AEC36C /* back_Button_new.png */,
 				88DA9DA616FCBE9A0096C588 /* back_button.png */,
@@ -479,6 +485,8 @@
 				B3D3035F1741A9B700A88C0E /* Icon.png in Resources */,
 				52B3425817617BEB00AEC36C /* back_Button_new.png in Resources */,
 				52B3425A17617CBB00AEC36C /* back_Button_new_selected.png in Resources */,
+				5058851A179492E200B3E001 /* programofstudies.pdf in Resources */,
+				5058851B179492E200B3E001 /* handbook.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
