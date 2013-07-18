@@ -11,6 +11,7 @@
 		320B6C86F11D9990244A9731 /* Three20.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 320B6C86F11D9990244A9730 /* Three20.bundle */; };
 		5032B98A1798404700150433 /* programofstudies.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5032B9881798404700150433 /* programofstudies.pdf */; };
 		5032B98B1798404700150433 /* handbook.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5032B9891798404700150433 /* handbook.pdf */; };
+		5032B98E179869BA00150433 /* SchoolInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5032B98D179869B900150433 /* SchoolInformationViewController.m */; };
 		5092DF9F1762AC2900EAA97C /* HomeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5092DF9E1762AC2900EAA97C /* HomeParser.m */; };
 		50E801B316FA6FC6004B9401 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E801B216FA6FC6004B9401 /* Reachability.m */; };
 		50E801B516FA6FE3004B9401 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E801B416FA6FE3004B9401 /* SystemConfiguration.framework */; };
@@ -93,6 +94,8 @@
 		320B6C86F11D9990244A9730 /* Three20.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Three20.bundle; path = "three20-master/src/Three20.bundle"; sourceTree = SOURCE_ROOT; };
 		5032B9881798404700150433 /* programofstudies.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = programofstudies.pdf; sourceTree = "<group>"; };
 		5032B9891798404700150433 /* handbook.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = handbook.pdf; sourceTree = "<group>"; };
+		5032B98C179869B900150433 /* SchoolInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolInformationViewController.h; sourceTree = "<group>"; };
+		5032B98D179869B900150433 /* SchoolInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolInformationViewController.m; sourceTree = "<group>"; };
 		5092DF9D1762AC2900EAA97C /* HomeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeParser.h; sourceTree = "<group>"; };
 		5092DF9E1762AC2900EAA97C /* HomeParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeParser.m; sourceTree = "<group>"; };
 		50E801B116FA6FC6004B9401 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = ../Reachability.h; sourceTree = "<group>"; };
@@ -299,6 +302,8 @@
 				88DA9D9D16FC962B0096C588 /* MoreDetailViewController.xib */,
 				ECF948FC16FB8F16000D14E0 /* PrincipalNotesViewController.h */,
 				ECF948FD16FB8F16000D14E0 /* PrincipalNotesViewController.m */,
+				5032B98C179869B900150433 /* SchoolInformationViewController.h */,
+				5032B98D179869B900150433 /* SchoolInformationViewController.m */,
 				88D627DD16F8A2EC00755256 /* BroadsideCell.h */,
 				88D627DE16F8A2EC00755256 /* BroadsideCell.m */,
 				88D627DB16F8A09400755256 /* BroadsideCell.xib */,
@@ -543,6 +548,7 @@
 				8881B20116FCB0D400513235 /* ActivityViewCustomActivityChrome.m in Sources */,
 				88D0528916FD455400E3D904 /* StaffViewCell.m in Sources */,
 				5092DF9F1762AC2900EAA97C /* HomeParser.m in Sources */,
+				5032B98E179869BA00150433 /* SchoolInformationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

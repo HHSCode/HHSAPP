@@ -340,8 +340,7 @@
     }
     
     if (indexPath.section==2) {
-        [self addContact];//NOT DONE YET AT ALL: need to add parameters to this method to add specific staff
-    }
+        [self addContact];    }
 
     // Navigation logic may go here. Create and push another view controller.
     /*
