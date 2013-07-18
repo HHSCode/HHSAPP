@@ -459,7 +459,7 @@
     return sectionHeader;
 }*/
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 77;
+    return 52;
 }
 
 
