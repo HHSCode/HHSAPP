@@ -34,11 +34,93 @@
     [self.moreDetailWebView setScalesPageToFit:YES];
 }
 
+-(void)localPDFdisplay:(NSString *)title atURL:(NSURL *)url{
+    Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    
+    // set the blocks
+    reach.reachableBlock = ^(Reachability*reach)
+    {
+        
+        NetworkStatus status = [reach currentReachabilityStatus];
+        
+        if(status == NotReachable)
+        {
+            //No internet
+        }
+        else if (status == ReachableViaWiFi)
+        {
+            NSLog(@"Wifi");
+            //if connected to wifi, download latest copy of the documents
+            if ([title isEqualToString:@"Handbook"]) {
+                NSLog(@"Handbook");
+                NSLog(@"%@", url);
+
+                NSString* fileToSaveTo = @"handbook";
+                NSArray* path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+                NSString* documentsDirectory = [path objectAtIndex:0];
+                NSData* data = [NSData dataWithContentsOfURL:url];
+                NSLog(@"Downloaded Handbook");
+                [data writeToFile:[NSString stringWithFormat:@"%@/%@.pdf",documentsDirectory,fileToSaveTo] atomically:YES];
+                NSLog(@"Downloaded and saved Handbook");
+            }else if ([title isEqualToString:@"Program of Studies"]){
+                NSString* fileToSaveTo = @"programofstudies";
+                NSArray* path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+                NSString* documentsDirectory = [path objectAtIndex:0];
+                NSData* data = [NSData dataWithContentsOfURL:url];
+                [data writeToFile:[NSString stringWithFormat:@"%@/%@.pdf",documentsDirectory,fileToSaveTo] atomically:YES];
+                NSLog(@"Downloaded and saved Program of Studies");
+
+            }
+            
+        }
+        else if (status == ReachableViaWWAN)
+        {
+                       
+        }
+        
+                
+        
+    };
+    
+    reach.unreachableBlock = ^(Reachability*reach)
+    {
+        
+    };
+    
+    [reach startNotifier];
+    if ([title isEqualToString:@"Handbook"]) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory, @"handbook.pdf"];
+        
+        NSURL *url = [NSURL URLWithString:filePath];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        [self.moreDetailWebView loadRequest:request];
+        NSLog(@"Displaying Handbook");
+    }else if ([title isEqualToString:@"Program of Studies"]){
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory, @"programofstudies.pdf"];
+        
+        NSURL *url = [NSURL URLWithString:filePath];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        [self.moreDetailWebView loadRequest:request];
+        NSLog(@"Displaying Program of Studies");
+
+    }
+    
+    
+}
+
 -(void)loadWebPageWithTitle:(NSString *)title atURL:(NSURL *)url{
     self.URL = url;
-    NSLog(@"Abs:%@", [url absoluteString]);
      NSURLRequest *myRequest = [NSURLRequest requestWithURL:url];
-    [self.moreDetailWebView loadRequest:myRequest];
+    if ([title isEqualToString:@"Handbook"]||[title isEqualToString:@"Program of Studies"]) {
+        [self localPDFdisplay:title atURL:url];
+    }else{
+        [self.moreDetailWebView loadRequest:myRequest];
+
+    }
     [self.act startAnimating];
     [self.act setHidden:NO];
 }
@@ -74,7 +156,6 @@
         
     }else if(buttonIndex == 1){
         NSArray *array = [[self.URL absoluteString]componentsSeparatedByString:@"://"];
-        NSLog(@"Array: %@", array);
         
         NSString *theURL = [NSMutableString stringWithFormat:@"googlechrome://%@", [array objectAtIndex:1]];
         [[UIApplication sharedApplication ]openURL:[NSURL URLWithString:theURL]];

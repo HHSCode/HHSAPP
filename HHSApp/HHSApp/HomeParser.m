@@ -113,7 +113,7 @@
         [self.currentTitle appendString:string];
     }else if ([self.currentElement isEqualToString:@"url"]) {
 		[self.currentURL appendString:string];
-        NSLog(@"Appending url");
+        //NSLog(@"Appending url");
     }
     }
 	// save the characters for the current item...

@@ -49,6 +49,7 @@
 
 - (void)viewDidLoad 
 {
+    NSLog(@"Got here");
     [super viewDidLoad];
     self.cellNames = [[NSArray alloc] initWithObjects:@"Handbook", @"Program of Studies", @"Power School", @"Council", @"SAU 70", @"Guidance", @"Yearbook", @"March Intensive", @"Media Center",@"Athletics",@"Snow Day", nil];
     self.moreTableView.delegate = self;
@@ -61,7 +62,7 @@
     self.incorrectInformationBody = @"Please provide all information that is incorrect as well as the correct information with which to replace it with";
     self.feedbackSubject = @"Feedback on the Hanover High Application";
     self.feedBackBody = @"Feedback on the Hanover High Application";
-    self.numberOfLocalPages = 2;
+    self.numberOfLocalPages = 0;
     
 
     Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
@@ -167,11 +168,12 @@
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    //NSLog(@"%@: %@", self.currentElement, string);
+    NSLog(@"%@: %@", self.currentElement, string);
     if ([self.currentElement isEqualToString:@"name"]){
         [self.currentName appendString:string];
     }else if ([self.currentElement isEqualToString:@"link"]) {
 		[self.currentLink appendString:string];
+        NSLog(@"appended");
     }
 	// save the characters for the current item...
     
@@ -246,7 +248,7 @@
         if (indexPath.row>[tableView numberOfRowsInSection:indexPath.section]-(self.numberOfLocalPages+1)) {
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
             cell.accessoryView = nil;
-            NSLog(@"Local Page");
+            //NSLog(@"Local Page");
         }else{
         
         if ([self.stories count]==0) {
@@ -321,8 +323,7 @@
     }else{
     MoreDetailViewController *detail = [[MoreDetailViewController alloc]initWithNibName:@"MoreDetailViewController" bundle:nil];
     detail.title = [self.cellNames objectAtIndex:[indexPath row]];
-    NSLog(@"%@", [self.cellNames objectAtIndex:[indexPath row]]);
-    NSLog(@"%@", [self.stories objectForKey:[self.cellNames objectAtIndex:[indexPath row]]]);
+    
     [self.navigationController pushViewController:detail animated:YES];
     [detail loadWebPageWithTitle:[self.cellNames objectAtIndex:[indexPath row]] atURL:[NSURL URLWithString:[self.stories objectForKey:[self.cellNames objectAtIndex:[indexPath row]]]]];
     }

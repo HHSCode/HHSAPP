@@ -306,7 +306,7 @@
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    NSLog(@"%@: %@", self.currentElement, string);
+    //NSLog(@"%@: %@", self.currentElement, string);
     if ([self.currentElement isEqualToString:@"link"]){
         //[currentLink appendString:string];
     }else if ([self.currentElement isEqualToString:@"title"]) {
@@ -346,7 +346,7 @@
 	//NSLog(@"all done!");
 	//NSLog(@"stories array has %d items", [stories count]);
     
-    NSLog(@"Stories: %@", self.stories);
+    //NSLog(@"Stories: %@", self.stories);
     [self setupImageView];
     
     
