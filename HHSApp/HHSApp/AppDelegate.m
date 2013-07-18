@@ -45,31 +45,8 @@
     [tabBarItem4 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, nil] forState:UIControlStateSelected];
     [tabBarItem4 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[self colorWithHexString:@"000000"],UITextAttributeTextColor, nil] forState:UIControlStateNormal];
 
-    
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSError *error;
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    
-    NSString *txtPath = [documentsDirectory stringByAppendingPathComponent:@"handbook.pdf"];
-    
-    if ([fileManager fileExistsAtPath:txtPath] == NO) {
-        NSString *resourcePath = [[NSBundle mainBundle] pathForResource:@"handbook" ofType:@"pdf"];
-        [fileManager copyItemAtPath:resourcePath toPath:txtPath error:&error];
-        NSLog(@"Handbook");
-
-    }
-    
-    
-    NSString *txtPath2 = [documentsDirectory stringByAppendingPathComponent:@"programofstudies.pdf"];
-    
-    if ([fileManager fileExistsAtPath:txtPath2] == NO) {
-        NSString *resourcePath = [[NSBundle mainBundle] pathForResource:@"programofstudies" ofType:@"pdf"];
-        [fileManager copyItemAtPath:resourcePath toPath:txtPath2 error:&error];
-        NSLog(@"Program Of Studies");
-    }
-    
     return YES;
+    //okay. I returned. Nothing else will happen
     /*
 
 

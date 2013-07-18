@@ -167,7 +167,7 @@
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    NSLog(@"%@: %@", self.currentElement, string);
+    //NSLog(@"%@: %@", self.currentElement, string);
     if ([self.currentElement isEqualToString:@"name"]){
         [self.currentName appendString:string];
     }else if ([self.currentElement isEqualToString:@"link"]) {

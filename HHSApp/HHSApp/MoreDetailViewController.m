@@ -38,20 +38,7 @@
     self.URL = url;
     NSLog(@"Abs:%@", [url absoluteString]);
      NSURLRequest *myRequest = [NSURLRequest requestWithURL:url];
-    if ([title isEqualToString:@"Handbook"]) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"handbook" ofType:@"pdf"];
-        NSURL *targetURL = [NSURL fileURLWithPath:path];
-        NSURLRequest *request = [NSURLRequest requestWithURL:targetURL];
-        [self.moreDetailWebView loadRequest:request];
-    }else if ([title isEqualToString:@"Program of Studies"]){
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"programofstudies0" ofType:@"pdf"];
-        NSURL *targetURL = [NSURL fileURLWithPath:path];
-        NSURLRequest *request = [NSURLRequest requestWithURL:targetURL];
-        [self.moreDetailWebView loadRequest:request];
-    }else{
-        [self.moreDetailWebView loadRequest:myRequest];
- 
-    }
+    [self.moreDetailWebView loadRequest:myRequest];
     [self.act startAnimating];
     [self.act setHidden:NO];
 }
