@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
-		320B6C86F11D9990244A9731 /* Three20.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 320B6C86F11D9990244A9730 /* Three20.bundle */; };
 		5032B98A1798404700150433 /* programofstudies.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5032B9881798404700150433 /* programofstudies.pdf */; };
 		5032B98B1798404700150433 /* handbook.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5032B9891798404700150433 /* handbook.pdf */; };
 		5032B98E179869BA00150433 /* SchoolInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5032B98D179869B900150433 /* SchoolInformationViewController.m */; };
@@ -91,7 +90,6 @@
 
 /* Begin PBXFileReference section */
 		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.frameworks; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		320B6C86F11D9990244A9730 /* Three20.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Three20.bundle; path = "three20-master/src/Three20.bundle"; sourceTree = SOURCE_ROOT; };
 		5032B9881798404700150433 /* programofstudies.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = programofstudies.pdf; sourceTree = "<group>"; };
 		5032B9891798404700150433 /* handbook.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = handbook.pdf; sourceTree = "<group>"; };
 		5032B98C179869B900150433 /* SchoolInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolInformationViewController.h; sourceTree = "<group>"; };
@@ -325,7 +323,6 @@
 		B38AE61716C4227C00069514 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				320B6C86F11D9990244A9730 /* Three20.bundle */,
 				B38AE61816C4227C00069514 /* HHSApp-Info.plist */,
 				B38AE61916C4227C00069514 /* InfoPlist.strings */,
 				B38AE61C16C4227C00069514 /* main.m */,
@@ -459,7 +456,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				320B6C86F11D9990244A9731 /* Three20.bundle in Resources */,
 				B38AE61B16C4227C00069514 /* InfoPlist.strings in Resources */,
 				B38AE62A16C4227C00069514 /* MainStoryboard_iPhone.storyboard in Resources */,
 				B38AE62D16C4227C00069514 /* MainStoryboard_iPad.storyboard in Resources */,
