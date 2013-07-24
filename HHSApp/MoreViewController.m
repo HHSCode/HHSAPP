@@ -57,13 +57,13 @@
     self.moreTableView.delegate = self;
     self.moreTableView.dataSource = self;
     
-    self.feedBackEmail = [[NSArray alloc] initWithObjects:@"conrad.koehler@hanovernorwichschools.org", nil];
+    self.feedBackEmail = [[NSArray alloc] initWithObjects:@"hhs-app-dev@hanovernorwichschools.org", nil];
     self.bugReportSubject = @"Bug report on Hanover High Application";
     self.bugReportBody = @"Please provide a detailed description of the bug including all steps to trigger it";
     self.incorrectInformaationSubject = @"Incorrect Information On Hanover High Application";
     self.incorrectInformationBody = @"Please provide all information that is incorrect as well as the correct information with which to replace it with";
     self.feedbackSubject = @"Feedback on the Hanover High Application";
-    self.feedBackBody = @"Feedback on the Hanover High Application";
+    self.feedBackBody = @"Feedback on the Hanover High Application:";
     self.numberOfLocalPages = 0;
     
 
