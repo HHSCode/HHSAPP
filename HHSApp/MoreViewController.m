@@ -63,7 +63,7 @@
     self.incorrectInformaationSubject = @"Incorrect Information On Hanover High Application";
     self.incorrectInformationBody = @"Please provide all information that is incorrect as well as the correct information with which to replace it with";
     self.feedbackSubject = @"Feedback on the Hanover High Application";
-    self.feedBackBody = @"Feedback on the Hanover High Application:";
+    self.feedBackBody = @"";
     self.numberOfLocalPages = 0;
     
 
