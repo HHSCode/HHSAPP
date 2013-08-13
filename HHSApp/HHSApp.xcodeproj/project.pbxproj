@@ -414,6 +414,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Lordtechy;
+				TargetAttributes = {
+					B38AE60C16C4227C00069514 = {
+						DevelopmentTeam = 98U7AQU48N;
+					};
+				};
 			};
 			buildConfigurationList = B38AE60816C4227C00069514 /* Build configuration list for PBXProject "HHSApp" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -645,8 +650,8 @@
 		B38AE65416C4227D00069514 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Dresden School District (98U7AQU48N)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dresden School District (98U7AQU48N)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ann E Greenwald (CLE34H9S2K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ann E Greenwald (CLE34H9S2K)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HHSApp/HHSApp-Prefix.pch";
 				INFOPLIST_FILE = "HHSApp/HHSApp-Info.plist";
@@ -656,8 +661,8 @@
 					"\"$(SRCROOT)/../../../../../Downloads/GoogleAnalyticsiOS_2.0beta4/Library\"",
 				);
 				PRODUCT_NAME = HHS;
-				PROVISIONING_PROFILE = "2D0B682A-2B4D-4D12-960A-A4AA85922AC3";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2D0B682A-2B4D-4D12-960A-A4AA85922AC3";
+				PROVISIONING_PROFILE = "24E09346-B60D-4D28-8B0B-7C94A77D921F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "24E09346-B60D-4D28-8B0B-7C94A77D921F";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -666,8 +671,8 @@
 		B38AE65516C4227D00069514 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Dresden School District (98U7AQU48N)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dresden School District (98U7AQU48N)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HHSApp/HHSApp-Prefix.pch";
 				INFOPLIST_FILE = "HHSApp/HHSApp-Info.plist";
@@ -677,7 +682,7 @@
 					"\"$(SRCROOT)/../../../../../Downloads/GoogleAnalyticsiOS_2.0beta4/Library\"",
 				);
 				PRODUCT_NAME = HHS;
-				PROVISIONING_PROFILE = "2D0B682A-2B4D-4D12-960A-A4AA85922AC3";
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2D0B682A-2B4D-4D12-960A-A4AA85922AC3";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

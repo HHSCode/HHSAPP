@@ -200,7 +200,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 1;
+        if (self.staffTitle.length >1) {
+            return 2;
+        }else{
+            return 1;
+        }
     }else if(section==1){
         int cells = 4;
         if ([self.phoneOrig isEqualToString:@"-1"]) {
@@ -228,8 +232,14 @@
     }
     
     if ([indexPath section]==0) {
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
-        cell.textLabel.text = self.staffTitle.length>1 ? self.staffTitle : @"name";
+        if (indexPath.row == 0) {
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
+            cell.textLabel.text = @"name";
+        }else{
+            cell.detailTextLabel.text = self.staffTitle;
+            cell.textLabel.text = @"position";
+        }
+        
     }else if([indexPath section]==1){
         
             

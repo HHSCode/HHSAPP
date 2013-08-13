@@ -14,7 +14,7 @@
 @interface BroadsideDetailViewController ()
 
 @property (nonatomic, strong) NSString *urlToShare;
-
+@property (nonatomic, strong) NSURL *urlToOpen;
 @end
 
 @implementation BroadsideDetailViewController
@@ -31,7 +31,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setTitle:@"Article"];
     [self.broadsideDetailWebView setDelegate:self];
+    
     // Do any additional setup after loading the view from its nib.
     
     UIBarButtonItem *activityButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActivityView)];
@@ -39,7 +41,7 @@
 }
 
 -(void)setWebView:(int)indexPath :(NSMutableArray *)stories{
-    [self setTitle:[[stories objectAtIndex:indexPath]objectForKey:@"title"]];
+    
     self.urlToShare = [[stories objectAtIndex:indexPath]objectForKey:@"link"];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setValue:self.urlToShare forKey:@"url"];
@@ -51,8 +53,8 @@
     NSArray *theArray = [[NSArray alloc]init];
     theArray = [date componentsSeparatedByString:@"+"];
     date = [theArray objectAtIndex:0];
-    NSMutableString *start = [NSString stringWithFormat:@"<html><body><div id=\"container\" style=\"width:300px\"><center>by %@</center><center>%@</center>", [[stories objectAtIndex:indexPath]objectForKey:@"author"], date];
-    
+    NSMutableString *start = [NSString stringWithFormat:@"<html><body><div id=\"container\" style=\"width:300px\"><center><b>%@</b><br>by %@</center><center>%@</center>", [[stories objectAtIndex:indexPath]objectForKey:@"title"],[[stories objectAtIndex:indexPath]objectForKey:@"author"], date];
+        
     NSString *end = @"</div></body></html>";
     NSString *temp = [start stringByAppendingString:htmlString];
     NSString *final = [temp stringByAppendingString:end];
@@ -69,8 +71,78 @@
         [mutOther addObject:[NSString stringWithFormat:@"<img class=%@", [otherArray objectAtIndex:x]]];
         
     }
+        
+        for (int k = 1; k<[mutOther count]; k++) {
+            NSString *j = [mutOther objectAtIndex:k];
+            NSRange rr2 = [j rangeOfString:@"src=\""];
+            NSRange rr3 = [j rangeOfString:@"\" width"];
+            int lengt = rr3.location - rr2.location - rr2.length;
+            int location = rr2.location + rr2.length;
+            NSRange aa;
+            aa.location = location;
+            aa.length = lengt;
+            NSString *temp123 = [j substringWithRange:aa];
+           
+            NSRange rr4 = [j rangeOfString:@"<img class="];
+            NSRange rr5 = [j rangeOfString:@"\" />"];
+            int lengt2 = rr5.location - rr4.location - rr4.length;
+            int location2 = rr4.location + rr4.length;
+            NSRange aa2;
+            aa2.location = location2;
+            aa2.length = lengt2;
+            NSString *temp1234 = [j substringWithRange:aa2];
+        
+            
+            
+            
+            NSString *end = [NSString stringWithFormat:@"\"\" src=\"%@\" style=\"width:100%%", temp123];
+            NSString *theEnd = [j stringByReplacingOccurrencesOfString:temp1234 withString:end];
+
+            
+            
+            
+            [mutOther replaceObjectAtIndex:k withObject:theEnd];
+        }
+        
+        final = [mutOther componentsJoinedByString:@""];
+    }
     
-    
+    NSArray *otherArray2 = [final componentsSeparatedByString:@"<div id=\"attachment"];
+    NSLog(@"Other Array 2 Count: %i", [otherArray2 count]);
+    if ([otherArray2 count]>1) {
+        
+        NSMutableArray *mutOther = [[NSMutableArray alloc]init];
+        [mutOther addObject:[otherArray2 objectAtIndex:0]];
+        for (int x = 1; x<[otherArray2 count]; x++) {
+            [mutOther addObject:[NSString stringWithFormat:@"<div id=\"attachment%@", [otherArray2 objectAtIndex:x]]];
+            
+        }
+        
+        for (int k = 1; k<[mutOther count]; k++) {
+            NSString *j = [mutOther objectAtIndex:k];
+            NSRange rr2 = [j rangeOfString:@"<div id=\"attachment"];
+            NSRange rr3 = [j rangeOfString:@"\">"];
+            int lengt = rr3.location - rr2.location - rr2.length;
+            int location = rr2.location + rr2.length;
+            NSRange aa;
+            aa.location = location;
+            aa.length = lengt;
+            NSString *temp123 = [j substringWithRange:aa];
+            NSLog(@"Temp123: %@", temp123);
+
+            
+            NSString *theEnd = [j stringByReplacingOccurrencesOfString:temp123 withString:@""];
+            
+            
+            
+            
+            [mutOther replaceObjectAtIndex:k withObject:theEnd];
+        }
+        
+        final = [mutOther componentsJoinedByString:@""];
+    }
+
+    /*
     
     for (int k = 0; k<[mutOther count]; k++) {
         NSString *j = [mutOther objectAtIndex:k];
@@ -109,6 +181,8 @@
     
     final = [mutOther componentsJoinedByString:@""];
     }
+     
+     */
 
     NSLog(@"HTML: %@", final);
     
@@ -141,6 +215,31 @@
     [self presentViewController:activityVC animated:TRUE completion:^{}];
 }
 
+-(BOOL) webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
+    if ( inType == UIWebViewNavigationTypeLinkClicked ) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Open in browser?" message:nil delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Chrome", @"Safari", nil];
+        self.urlToOpen = [inRequest URL];
+        [alert show];
+    
+        //[[UIApplication sharedApplication] openURL:[inRequest URL]];
+        return NO;
+    }
+    
+    return YES;
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 2) {
+        [[UIApplication sharedApplication]openURL:self.urlToOpen];
+        
+        
+    }else if(buttonIndex == 1){
+        NSArray *array = [[self.urlToOpen absoluteString]componentsSeparatedByString:@"://"];
+        
+        NSString *theURL = [NSMutableString stringWithFormat:@"googlechrome://%@", [array objectAtIndex:1]];
+        [[UIApplication sharedApplication ]openURL:[NSURL URLWithString:theURL]];
+    }
+}
 
 
 @end
