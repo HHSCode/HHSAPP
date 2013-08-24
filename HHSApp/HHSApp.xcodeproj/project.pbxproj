@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
-		5032B98A1798404700150433 /* programofstudies.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5032B9881798404700150433 /* programofstudies.pdf */; };
-		5032B98B1798404700150433 /* handbook.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5032B9891798404700150433 /* handbook.pdf */; };
 		5032B98E179869BA00150433 /* SchoolInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5032B98D179869B900150433 /* SchoolInformationViewController.m */; };
 		5092DF9F1762AC2900EAA97C /* HomeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5092DF9E1762AC2900EAA97C /* HomeParser.m */; };
 		50E801B316FA6FC6004B9401 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E801B216FA6FC6004B9401 /* Reachability.m */; };
@@ -90,8 +88,6 @@
 
 /* Begin PBXFileReference section */
 		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.frameworks; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		5032B9881798404700150433 /* programofstudies.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = programofstudies.pdf; sourceTree = "<group>"; };
-		5032B9891798404700150433 /* handbook.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = handbook.pdf; sourceTree = "<group>"; };
 		5032B98C179869B900150433 /* SchoolInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolInformationViewController.h; sourceTree = "<group>"; };
 		5032B98D179869B900150433 /* SchoolInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolInformationViewController.m; sourceTree = "<group>"; };
 		5092DF9D1762AC2900EAA97C /* HomeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeParser.h; sourceTree = "<group>"; };
@@ -336,8 +332,6 @@
 		B3A3EDC216EA44DD00A45BD2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				5032B9881798404700150433 /* programofstudies.pdf */,
-				5032B9891798404700150433 /* handbook.pdf */,
 				B3B48D9E17949171003C73EA /* HHS Photo.jpg */,
 				52B3425917617CBB00AEC36C /* back_Button_new_selected.png */,
 				52B3425717617BEB00AEC36C /* back_Button_new.png */,
@@ -477,8 +471,6 @@
 				52B3425817617BEB00AEC36C /* back_Button_new.png in Resources */,
 				52B3425A17617CBB00AEC36C /* back_Button_new_selected.png in Resources */,
 				B3B48D9F17949171003C73EA /* HHS Photo.jpg in Resources */,
-				5032B98A1798404700150433 /* programofstudies.pdf in Resources */,
-				5032B98B1798404700150433 /* handbook.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

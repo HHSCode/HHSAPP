@@ -46,7 +46,7 @@
     [tabBarItem4 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[self colorWithHexString:@"000000"],UITextAttributeTextColor, nil] forState:UIControlStateNormal];
 
     
-    NSFileManager *fileManager = [NSFileManager defaultManager];
+    /*NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -64,7 +64,7 @@
         NSString *resourcePath = [[NSBundle mainBundle] pathForResource:@"programofstudies" ofType:@"pdf"];
         [fileManager copyItemAtPath:resourcePath toPath:programOfStudiesPath error:&error];
     }
-    
+    */ // code to store pdfs locally in documents folder
     
     return YES;
     //okay. I returned. Nothing else will happen

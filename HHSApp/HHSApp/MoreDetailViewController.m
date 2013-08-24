@@ -115,12 +115,14 @@
 -(void)loadWebPageWithTitle:(NSString *)title atURL:(NSURL *)url{
     self.URL = url;
      NSURLRequest *myRequest = [NSURLRequest requestWithURL:url];
-    if ([title isEqualToString:@"Handbook"]||[title isEqualToString:@"Program of Studies"]) {
+    /*if ([title isEqualToString:@"Handbook"]||[title isEqualToString:@"Program of Studies"]) {
         [self localPDFdisplay:title atURL:url];
     }else{
         [self.moreDetailWebView loadRequest:myRequest];
 
-    }
+    }*/ //code to display local pdfs
+    [self.moreDetailWebView loadRequest:myRequest];
+    
     [self.act startAnimating];
     [self.act setHidden:NO];
 }
