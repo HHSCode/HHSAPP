@@ -1,0 +1,49 @@
+10
+
+dir
+0
+svn://svn.simbex.com/Greenwald/IOS/HHSAPP/HHSApp/HHSApp/en.lproj
+svn://svn.simbex.com
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+81e5f6db-d50a-114e-84c5-58eecdf24318
+
+InfoPlist.strings
+file
+
+
+
+add
+
+MainStoryboard_iPad.storyboard
+file
+
+
+
+add
+
+MainStoryboard_iPhone.storyboard
+file
+
+
+
+add
+
