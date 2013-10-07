@@ -35,6 +35,7 @@
 		88DA9DA716FCBE9B0096C588 /* back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 88DA9DA616FCBE9A0096C588 /* back_button.png */; };
 		B3128BB016FA27D2004621E9 /* icon_iphone_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = B3128BAE16FA27D2004621E9 /* icon_iphone_retina.png */; };
 		B3128BB116FA27D2004621E9 /* icon_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = B3128BAF16FA27D2004621E9 /* icon_iphone.png */; };
+		B34018131802CFFB0053FFF1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B34018121802CFFB0053FFF1 /* Images.xcassets */; };
 		B345CEAA1705A095008483A6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B345CEA91705A095008483A6 /* CoreData.framework */; };
 		B34E0D5616F9FA2600BC552E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B34E0D5516F9FA2600BC552E /* Default-568h@2x.png */; };
 		B34E0D5B16F9FB5D00BC552E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B34E0D5A16F9FB5D00BC552E /* Default.png */; };
@@ -128,6 +129,7 @@
 		88DA9DA616FCBE9A0096C588 /* back_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back_button.png; path = images/back_button.png; sourceTree = SOURCE_ROOT; };
 		B3128BAE16FA27D2004621E9 /* icon_iphone_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_iphone_retina.png; path = images/icon_iphone_retina.png; sourceTree = SOURCE_ROOT; };
 		B3128BAF16FA27D2004621E9 /* icon_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_iphone.png; path = images/icon_iphone.png; sourceTree = SOURCE_ROOT; };
+		B34018121802CFFB0053FFF1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B345CEA91705A095008483A6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B34E0D5516F9FA2600BC552E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		B34E0D5A16F9FB5D00BC552E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				50E801B116FA6FC6004B9401 /* Reachability.h */,
 				50E801B216FA6FC6004B9401 /* Reachability.m */,
 				B3A3EDC216EA44DD00A45BD2 /* Images */,
+				B34018121802CFFB0053FFF1 /* Images.xcassets */,
 				B38AE61716C4227C00069514 /* Supporting Files */,
 			);
 			path = HHSApp;
@@ -453,6 +456,7 @@
 				B3D1189D16F8A70C00155CDA /* home_white_60x60@2x.png in Resources */,
 				B3D118A016F8A80600155CDA /* more_60x60@2x.png in Resources */,
 				B3D118A116F8A80600155CDA /* more_white_60x60@2x.png in Resources */,
+				B34018131802CFFB0053FFF1 /* Images.xcassets in Resources */,
 				88D627EC16F8AFEE00755256 /* BroadsideDetailViewController.xib in Resources */,
 				B34E0D5616F9FA2600BC552E /* Default-568h@2x.png in Resources */,
 				B34E0D5B16F9FB5D00BC552E /* Default.png in Resources */,
@@ -642,12 +646,15 @@
 		B38AE65416C4227D00069514 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Ann E Greenwald (CLE34H9S2K)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ann E Greenwald (CLE34H9S2K)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HHSApp/HHSApp-Prefix.pch";
 				INFOPLIST_FILE = "HHSApp/HHSApp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../../Downloads/GoogleAnalyticsiOS_2.0beta4/Library\"",
@@ -663,12 +670,15 @@
 		B38AE65516C4227D00069514 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HHSApp/HHSApp-Prefix.pch";
 				INFOPLIST_FILE = "HHSApp/HHSApp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../../Downloads/GoogleAnalyticsiOS_2.0beta4/Library\"",
