@@ -410,7 +410,7 @@
     if ([self.stories count]!=0) {
         
     
-    BroadsideDetailViewController *detail = [[BroadsideDetailViewController alloc]initWithNibName:@"BroadsideDetailViewController" bundle:nil];
+        BroadsideDetailViewController *detail = [[BroadsideDetailViewController alloc]init];
     [self.navigationController pushViewController:detail animated:YES];
     [detail setWebView:[indexPath row] :self.stories];
     }

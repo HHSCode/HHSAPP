@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BroadsideDetailViewController : UIViewController <UIWebViewDelegate>
+@interface BroadsideDetailViewController : UIViewController <UIWebViewDelegate>{
+    NSMutableArray *story;
+    int index;
+}
 
 @property (retain, nonatomic) IBOutlet UIWebView *broadsideDetailWebView;
 @property (nonatomic, retain) IBOutlet UITextView *theTextView;

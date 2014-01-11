@@ -39,11 +39,40 @@
                     <connections>
                         <outlet property="activityIndicator" destination="cgy-o6-Xdt" id="7lN-pX-m5B"/>
                         <outlet property="broadsideTableView" destination="wvQ-dC-duK" id="s7q-Xt-din"/>
+                        <segue destination="sXc-BS-GT4" kind="push" id="g1y-A2-gxx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aei-BV-aBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="737" y="-790"/>
+        </scene>
+        <!--Broadside Detail View Controller-->
+        <scene sceneID="0mH-2u-xGl">
+            <objects>
+                <viewController id="sXc-BS-GT4" customClass="BroadsideDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="apt-a7-qj0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="Ubl-h8-q6G">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="sXc-BS-GT4" id="dJX-0J-Ugi"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yvr-es-l3o"/>
+                    <connections>
+                        <outlet property="broadsideDetailWebView" destination="Ubl-h8-q6G" id="BIA-YR-zMh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gLT-6P-ekt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1203" y="-793"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="zMi-Kb-6tC">
@@ -315,16 +344,6 @@ POSSIBILITY OF SUCH DAMAGE.</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="IhO-kd-mHh">
-                                <rect key="frame" x="0.0" y="119" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IhO-kd-mHh" id="h4f-9k-ohc">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="kc5-Tf-9fx" id="PSr-wO-1i7"/>
                             <outlet property="delegate" destination="kc5-Tf-9fx" id="1Qc-bd-9Ng"/>

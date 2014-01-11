@@ -14,6 +14,7 @@
 @end
 
 @implementation MoreDetailViewController
+@synthesize act;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,6 +33,19 @@
     [self.moreDetailWebView setDelegate:self];
 
     [self.moreDetailWebView setScalesPageToFit:YES];
+    NSURLRequest *myRequest = [NSURLRequest requestWithURL:self.URL];
+    /*if ([title isEqualToString:@"Handbook"]||[title isEqualToString:@"Program of Studies"]) {
+     [self localPDFdisplay:title atURL:url];
+     }else{
+     [self.moreDetailWebView loadRequest:myRequest];
+     
+     }*/ //code to display local pdfs]
+    act=[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [self.view bringSubviewToFront:act];
+    [act setHidesWhenStopped:YES];
+    [act startAnimating];
+    [self.moreDetailWebView loadRequest:myRequest];
+
 }
 
 -(void)localPDFdisplay:(NSString *)title atURL:(NSURL *)url{
@@ -114,17 +128,9 @@
 
 -(void)loadWebPageWithTitle:(NSString *)title atURL:(NSURL *)url{
     self.URL = url;
-     NSURLRequest *myRequest = [NSURLRequest requestWithURL:url];
-    /*if ([title isEqualToString:@"Handbook"]||[title isEqualToString:@"Program of Studies"]) {
-        [self localPDFdisplay:title atURL:url];
-    }else{
-        [self.moreDetailWebView loadRequest:myRequest];
 
-    }*/ //code to display local pdfs
-    [self.moreDetailWebView loadRequest:myRequest];
     
-    [self.act startAnimating];
-    [self.act setHidden:NO];
+
 }
 
 - (IBAction)goBack:(id)sender {
