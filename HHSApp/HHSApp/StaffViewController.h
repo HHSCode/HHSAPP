@@ -13,7 +13,7 @@
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
 
-@interface StaffViewController : UITableViewController <NSXMLParserDelegate, UISearchBarDelegate>
+@interface StaffViewController : UIViewController <NSXMLParserDelegate, UISearchBarDelegate>
 
 //all instance variables should be used only as properties. private instance variables have been moved to the .m file's private interface
 
@@ -23,7 +23,7 @@
 //@property(strong) UIView *disableViewOverlay;
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorStaff;
-
+@property (strong, nonatomic) IBOutlet UITableView *staffTableView;
 @property (nonatomic, strong) IBOutlet UISearchBar *theSearchBar;
 
 //- (void)searchBar:(UISearchBar *)searchBar activate:(BOOL) active;

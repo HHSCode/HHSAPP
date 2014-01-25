@@ -116,7 +116,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.65882354974746704" green="0.086274512112140656" blue="0.11764706671237946" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="home_30x30.png" id="7"/>
+                    <tabBarItem key="tabBarItem" title="" id="7"/>
                     <connections>
                         <outlet property="activityIndicatorCalendar" destination="5mL-GF-6l1" id="n2c-vi-UlW"/>
                         <outlet property="calendarWebView" destination="otd-Qy-qw3" id="lrQ-2T-96b"/>
@@ -329,7 +329,7 @@ POSSIBILITY OF SUCH DAMAGE.</string>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="kc5-Tf-9fx" kind="relationship" relationship="rootViewController" id="HpG-0b-Nij"/>
+                        <segue destination="X74-M4-bDH" kind="relationship" relationship="rootViewController" id="Uit-1c-Wll"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V2Y-g7-dPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -337,26 +337,34 @@ POSSIBILITY OF SUCH DAMAGE.</string>
             <point key="canvasLocation" x="257" y="1509"/>
         </scene>
         <!--Staff View Controller-->
-        <scene sceneID="Dza-EX-FRH">
+        <scene sceneID="1l1-OF-wdh">
             <objects>
-                <tableViewController id="kc5-Tf-9fx" customClass="StaffViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="HP7-us-oJV">
+                <viewController id="X74-M4-bDH" customClass="StaffViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uS3-vM-v9I">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <connections>
-                            <outlet property="dataSource" destination="kc5-Tf-9fx" id="PSr-wO-1i7"/>
-                            <outlet property="delegate" destination="kc5-Tf-9fx" id="1Qc-bd-9Ng"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="s1X-tw-fQf"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="hd1-jP-9oh">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="X74-M4-bDH" id="6ZS-LV-Zty"/>
+                                    <outlet property="delegate" destination="X74-M4-bDH" id="vgl-ek-jKS"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="o6Q-R5-Xk9"/>
                     <connections>
-                        <segue destination="smv-ll-6Yi" kind="push" identifier="StaffDetail" id="87v-jf-UrM"/>
+                        <outlet property="staffTableView" destination="hd1-jP-9oh" id="QO1-B7-bCg"/>
+                        <segue destination="smv-ll-6Yi" kind="push" identifier="StaffDetail" id="iij-Sq-piC"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wWS-tF-dcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Odh-e3-f24" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="691" y="1509"/>
+            <point key="canvasLocation" x="662" y="1557"/>
         </scene>
         <!--Staff Detail View Controller-->
         <scene sceneID="nkg-2K-KRI">
@@ -420,7 +428,6 @@ POSSIBILITY OF SUCH DAMAGE.</string>
         <image name="HHS Photo.jpg" width="630" height="420"/>
         <image name="broadside_30x30.png" width="15" height="15"/>
         <image name="feedback.png" width="919" height="218"/>
-        <image name="home_30x30.png" width="15" height="15"/>
         <image name="more_60x60.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

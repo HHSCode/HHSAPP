@@ -31,6 +31,8 @@
 
 @implementation StaffViewController
 
+@synthesize staffTableView;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -124,7 +126,7 @@
     
     // I will do that now. comment this out (or delete it) if you don't like it
     [self searchForString:searchText];
-    [self.tableView reloadData];
+    [staffTableView reloadData];
     /*if ([self numberOfSectionsInTableView:self.tableView]) {
         [self.disableViewOverlay setFrame:CGRectMake(0, 0, self.tableView.contentSize.width, self.tableView.contentSize.height)];
     }*/
@@ -155,7 +157,7 @@
     self.searchedDepartmentsDict=nil;
     self.searchedSortedDepartments=nil;
     [self searchBar:searchBar activate:NO];
-    [self.tableView reloadData];
+    [staffTableView reloadData];
 }
 
 //this method searches for the given text and sets the receiver's sortedDepartmentsDict
@@ -199,7 +201,7 @@
             [self searchBar:searchBar activate:NO];
             //[self.tableData removeAllObjects];
             //[self.tableData addObjectsFromArray:results];
-            [self.tableView reloadData];
+            [staffTableView reloadData];
         }];
     }];
 }
@@ -346,10 +348,10 @@
     //NSLog(@"Stories: %@", stories);
     [self.activityIndicatorStaff stopAnimating];
     [self.activityIndicatorStaff setHidden:YES];
-    [self.tableView reloadData];
+    [staffTableView reloadData];
     //NSLog(@"Stories: %@", stories);
     [self parseStoryArray];
-    [self.tableView reloadData];
+    [staffTableView reloadData];
 }
 
 //returns array of sorted departments
