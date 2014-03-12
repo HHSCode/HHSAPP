@@ -35,6 +35,7 @@
 		88DA9DA116FCA8A90096C588 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DA9D9F16FCA8990096C588 /* MessageUI.framework */; };
 		88DA9DA516FCAB740096C588 /* photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 88DA9DA416FCAB740096C588 /* photo.png */; };
 		88DA9DA716FCBE9B0096C588 /* back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 88DA9DA616FCBE9A0096C588 /* back_button.png */; };
+		B311F6C818D0A8F000AD94A1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B311F6C718D0A8F000AD94A1 /* Images.xcassets */; };
 		B3128BB016FA27D2004621E9 /* icon_iphone_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = B3128BAE16FA27D2004621E9 /* icon_iphone_retina.png */; };
 		B3128BB116FA27D2004621E9 /* icon_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = B3128BAF16FA27D2004621E9 /* icon_iphone.png */; };
 		B345CEAA1705A095008483A6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B345CEA91705A095008483A6 /* CoreData.framework */; };
@@ -130,6 +131,7 @@
 		88DA9D9F16FCA8990096C588 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		88DA9DA416FCAB740096C588 /* photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = photo.png; path = images/photo.png; sourceTree = SOURCE_ROOT; };
 		88DA9DA616FCBE9A0096C588 /* back_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back_button.png; path = images/back_button.png; sourceTree = SOURCE_ROOT; };
+		B311F6C718D0A8F000AD94A1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B3128BAE16FA27D2004621E9 /* icon_iphone_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_iphone_retina.png; path = images/icon_iphone_retina.png; sourceTree = SOURCE_ROOT; };
 		B3128BAF16FA27D2004621E9 /* icon_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_iphone.png; path = images/icon_iphone.png; sourceTree = SOURCE_ROOT; };
 		B345CEA91705A095008483A6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -297,6 +299,7 @@
 				50E801B116FA6FC6004B9401 /* Reachability.h */,
 				50E801B216FA6FC6004B9401 /* Reachability.m */,
 				B3A3EDC216EA44DD00A45BD2 /* Images */,
+				B311F6C718D0A8F000AD94A1 /* Images.xcassets */,
 				B38AE61716C4227C00069514 /* Supporting Files */,
 			);
 			path = HHSApp;
@@ -450,6 +453,7 @@
 				B385E03A16F89F5800ADBC1C /* staff30x30@2x.png in Resources */,
 				B385E03B16F89F5800ADBC1C /* broadside_30x30@2x.png in Resources */,
 				B385E03C16F89F5800ADBC1C /* home_30x30@2x.png in Resources */,
+				B311F6C818D0A8F000AD94A1 /* Images.xcassets in Resources */,
 				88D627DC16F8A09400755256 /* BroadsideCell.xib in Resources */,
 				B3D1189316F8A3A000155CDA /* home_60x60@2x.png in Resources */,
 				B3D1189616F8A4D900155CDA /* staff_60x60@2x.png in Resources */,
@@ -650,19 +654,21 @@
 		B38AE65416C4227D00069514 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ann E Greenwald (CLE34H9S2K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HHSApp/HHSApp-Prefix.pch";
 				INFOPLIST_FILE = "HHSApp/HHSApp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../../Downloads/GoogleAnalyticsiOS_2.0beta4/Library\"",
 				);
 				PRODUCT_NAME = HHS;
-				PROVISIONING_PROFILE = "24E09346-B60D-4D28-8B0B-7C94A77D921F";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "24E09346-B60D-4D28-8B0B-7C94A77D921F";
+				PROVISIONING_PROFILE = "7AE0E681-A51C-42F8-A850-7C0B2A0C766A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7AE0E681-A51C-42F8-A850-7C0B2A0C766A";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -671,18 +677,20 @@
 		B38AE65516C4227D00069514 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HHSApp/HHSApp-Prefix.pch";
 				INFOPLIST_FILE = "HHSApp/HHSApp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../../Downloads/GoogleAnalyticsiOS_2.0beta4/Library\"",
 				);
 				PRODUCT_NAME = HHS;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "7AE0E681-A51C-42F8-A850-7C0B2A0C766A";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2D0B682A-2B4D-4D12-960A-A4AA85922AC3";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
