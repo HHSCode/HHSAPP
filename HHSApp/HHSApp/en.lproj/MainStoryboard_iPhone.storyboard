@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
-        <deployment version="1280" defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Broadside View Controller - Broadside-->
@@ -10,11 +10,11 @@
             <objects>
                 <viewController id="vEm-ff-aHF" customClass="BroadsideViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JFJ-10-JuW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="22" sectionFooterHeight="22" id="wvQ-dC-duK">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -23,7 +23,7 @@
                                 </connections>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" id="cgy-o6-Xdt">
-                                <rect key="frame" x="0.0" y="230" width="320" height="20"/>
+                                <rect key="frame" x="0.0" y="205.5" width="320" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -51,11 +51,11 @@
             <objects>
                 <viewController id="sXc-BS-GT4" customClass="BroadsideDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="apt-a7-qj0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" id="Ubl-h8-q6G">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -95,11 +95,11 @@
             <objects>
                 <viewController title="First" id="2" customClass="HomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="16">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView opaque="NO" contentMode="scaleToFill" id="otd-Qy-qw3">
-                                <rect key="frame" x="10" y="210" width="300" height="221"/>
+                                <rect key="frame" x="10" y="210" width="300" height="201"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.65882354970000001" green="0.086274512110000007" blue="0.1176470667" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
@@ -111,7 +111,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="whiteLarge" id="5mL-GF-6l1">
-                                <rect key="frame" x="142" y="345" width="37" height="37"/>
+                                <rect key="frame" x="142" y="307" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.65882354974746704" green="0.086274512112140656" blue="0.11764706671237946" alpha="1" colorSpace="deviceRGB"/>
@@ -136,19 +136,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" id="Qb2-ln-MB2">
-                                <rect key="frame" x="11" y="299" width="298" height="70"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" textAlignment="center" selectable="NO" id="Qb2-ln-MB2">
+                                <rect key="frame" x="3" y="243" width="314" height="157"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
                                 <string key="text">Justin Campbell, Principal
 Ian Smith, Dean of Students</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="41 Lebanon Street | Hanover, NH 603.643.3431 | 603.643.0661 fax" textAlignment="center" id="q6Q-sD-Amn">
-                                <rect key="frame" x="0.0" y="243" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="243" width="320" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -157,7 +163,7 @@ Ian Smith, Dean of Students</string>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="exW-ik-mWR">
-                                <rect key="frame" x="45" y="368" width="230" height="44"/>
+                                <rect key="frame" x="45" y="376" width="230" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <state key="normal" title="Call the School">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -341,11 +347,11 @@ POSSIBILITY OF SUCH DAMAGE.</string>
             <objects>
                 <viewController id="X74-M4-bDH" customClass="StaffViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uS3-vM-v9I">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="hd1-jP-9oh">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
@@ -371,7 +377,7 @@ POSSIBILITY OF SUCH DAMAGE.</string>
             <objects>
                 <tableViewController id="smv-ll-6Yi" customClass="StaffDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="39o-S6-dig">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <label key="tableFooterView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the staff's phone number at the school. It will be best to call during school hours" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dT6-ce-Pap">
@@ -407,7 +413,7 @@ POSSIBILITY OF SUCH DAMAGE.</string>
             <objects>
                 <tabBarController id="4" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="5">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="5">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

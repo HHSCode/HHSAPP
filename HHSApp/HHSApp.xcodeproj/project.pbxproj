@@ -413,7 +413,7 @@
 				ORGANIZATIONNAME = Lordtechy;
 				TargetAttributes = {
 					B38AE60C16C4227C00069514 = {
-						DevelopmentTeam = 6U3V4DF34U;
+						DevelopmentTeam = 98U7AQU48N;
 					};
 				};
 			};
